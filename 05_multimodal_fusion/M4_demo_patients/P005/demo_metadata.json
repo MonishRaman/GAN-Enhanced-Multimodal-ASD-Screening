@@ -1,0 +1,24 @@
+{
+  "patient_id": "P005",
+  "expected_demo_label": "ASD",
+  "expected_demo_label_numeric": 1,
+  "IMPORTANT_NOTE": "This is a synthetic demo patient created by combining independently sampled modality rows. The three source rows are not confirmed to belong to the same real person.",
+  "genetic": {
+    "source_row_index": 95,
+    "target_removed": true,
+    "input_file": "genetic_input.csv",
+    "columns": 1003
+  },
+  "behavioral": {
+    "source_row_index": 828,
+    "target_removed": true,
+    "input_file": "behavioral_input.csv",
+    "columns": 19
+  },
+  "environmental": {
+    "source_row_index": 26338,
+    "target_present_in_source": false,
+    "input_file": "environmental_input.csv",
+    "columns": 32
+  }
+}

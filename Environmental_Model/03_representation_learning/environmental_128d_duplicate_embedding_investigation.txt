@@ -1,0 +1,21 @@
+ENVIRONMENTAL MODEL — STEP E4.1
+CORRECTED DUPLICATE EMBEDDING INVESTIGATION
+======================================================================
+Dataset shape: (47768, 131)
+Embedding dimensions: 128
+Duplicate embedding groups: 1496
+Rows involved in duplicate embeddings: 4060
+Same-label duplicate groups: 45007
+Cross-label duplicate groups: 197
+Rows in same-label duplicate groups: 47003
+Rows in cross-label duplicate groups: 765
+Duplicate Sample IDs: 0
+Missing Sample IDs: 0
+Embedding NaN values: 0
+Embedding Inf values: 0
+Original input available: True
+Original/embedding row alignment possible: True
+Target row-order match: False
+
+INTERPRETATION:
+197 cross-label duplicate embedding groups were found. Because the environmental representation contains many repeated/low-variation survey patterns, exact duplicate embeddings can occur. These must be investigated before alignment.

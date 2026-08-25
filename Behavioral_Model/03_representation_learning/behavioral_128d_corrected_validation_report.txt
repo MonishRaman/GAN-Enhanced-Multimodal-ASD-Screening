@@ -1,0 +1,29 @@
+======================================================================
+BEHAVIORAL MODEL — B4.2 CORRECTED 128-D VALIDATION
+======================================================================
+Input file: /content/drive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/03_representation_learning/behavioral_128d_embeddings.csv
+Samples: 880
+Embedding dimensions: 128
+Target distribution: {0: 439, 1: 441}
+Duplicate embedding rows: 2
+Cross-label duplicate embeddings: False
+NaN embeddings: 0
+Inf embeddings: 0
+Constant dimensions: 0
+
+VALIDATION RESULTS
+Expected sample count: PASSED
+Expected 128-D representation: PASSED
+Sample ID column present: PASSED
+No duplicate sample IDs: PASSED
+No missing sample IDs: PASSED
+Target column present: PASSED
+No target NaN: PASSED
+Valid binary target distribution: PASSED
+All embedding columns numeric: PASSED
+No NaN in embeddings: PASSED
+No Inf in embeddings: PASSED
+No cross-label duplicate embeddings: PASSED
+No constant embedding dimensions: PASSED
+
+FINAL STATUS: PASSED

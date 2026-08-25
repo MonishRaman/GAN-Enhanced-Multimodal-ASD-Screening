@@ -1,0 +1,13 @@
+ENVIRONMENTAL MODEL — STEP E2
+======================================================================
+Original samples: 55162
+Duplicates removed: 7098
+Missing target rows removed: 296
+Final samples: 47768
+Target: k2q35a
+Target encoding: 1=ASD, 0=Non-ASD
+Input features: 31
+Training samples: 38214
+Test samples: 9554
+Processed dimensions: 31
+Class weights: {0: np.float64(0.5231927710843374), 1: np.float64(11.279220779220779)}

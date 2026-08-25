@@ -1,0 +1,114 @@
+======================================================================
+BEHAVIORAL MODEL — STEP B6
+32-D BEHAVIORAL REPRESENTATION VALIDATION
+======================================================================
+
+Loading behavioral 32-D representation...
+Done.
+Shape: (880, 34)
+
+======================================================================
+DATASET STRUCTURE
+======================================================================
+Sample ID column      : Sample_Index
+Target column         : Class/ASD
+Embedding dimensions : 32
+
+Expected samples      : 880
+Actual samples        : 880
+
+Expected dimensions   : 32
+Actual dimensions     : 32
+
+======================================================================
+SAMPLE ID VALIDATION
+======================================================================
+Duplicate sample IDs : 0
+Missing sample IDs  : 0
+Source dataset has no Sample_Index column.
+Order comparison skipped.
+
+======================================================================
+TARGET VALIDATION
+======================================================================
+Target NaN values: 0
+
+Target distribution:
+Class/ASD
+0    439
+1    441
+
+Unique target values: [0, 1]
+Binary target valid: True
+
+Source distribution:
+{0: 439, 1: 441}
+
+32-D distribution:
+{0: 439, 1: 441}
+
+Target distribution preserved: True
+
+======================================================================
+EMBEDDING VALUE VALIDATION
+======================================================================
+Non-numeric embedding columns: []
+NaN values                  : 0
+Inf values                  : 0
+
+======================================================================
+EMBEDDING DIMENSION CHECK
+======================================================================
+Constant embedding dimensions: 0
+
+======================================================================
+32-D EMBEDDING STATISTICS
+======================================================================
+Mean absolute value : 0.051933854818344116
+Mean value          : -0.0035282860044389963
+Standard deviation  : 0.06641857326030731
+Minimum value       : -0.2281959354877472
+Maximum value       : 0.24551530182361603
+
+======================================================================
+CLASS-WISE EMBEDDING STATISTICS
+======================================================================
+
+Class 0 Samples: 439
+Mean absolute embedding value: 0.05206884443759918
+
+Class 1 Samples: 441
+Mean absolute embedding value: 0.051799476146698
+
+======================================================================
+DUPLICATE EMBEDDING ANALYSIS
+======================================================================
+Rows involved in duplicate embeddings: 2
+Duplicate embedding groups: 2
+Same-label duplicate groups : 879
+Cross-label duplicate groups: 0
+
+======================================================================
+B6 FINAL VALIDATION RESULTS
+======================================================================
+Expected sample count                         : PASSED
+Expected 32-D representation                  : PASSED
+Sample ID column present                      : PASSED
+No duplicate sample IDs                       : PASSED
+No missing sample IDs                         : PASSED
+Target column present                         : PASSED
+No target NaN                                 : PASSED
+Valid binary target                           : PASSED
+Target distribution matches source            : PASSED
+All embedding columns numeric                 : PASSED
+No NaN in embeddings                          : PASSED
+No Inf in embeddings                          : PASSED
+No constant embedding dimensions              : PASSED
+Duplicate embeddings documented               : PASSED
+
+======================================================================
+VALIDATION STATUS : PASSED
+
+Behavioral 32-D representation is VALIDATED.
+It is ready for final multimodal fusion.
+======================================================================

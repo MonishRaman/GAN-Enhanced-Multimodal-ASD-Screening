@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}

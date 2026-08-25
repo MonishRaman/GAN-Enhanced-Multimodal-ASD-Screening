@@ -1,0 +1,77 @@
+
+ASD MULTIMODAL PROJECT — STEP M3.3
+FINAL THREE-EXPERT INFERENCE VALIDATION
+
+============================================================
+SYSTEM
+============================================================
+
+Genetic expert        : LOADED
+Behavioral expert     : LOADED
+Environmental expert  : LOADED
+
+============================================================
+INPUT STRUCTURE
+============================================================
+
+Genetic input         : 32-D
+Behavioral input      : 32-D
+Environmental input   : 32-D
+
+============================================================
+EVIDENCE WEIGHTS
+============================================================
+
+Genetic       : 0.319400
+Behavioral    : 0.400200
+Environmental : 0.280400
+
+Weight sum    : 1.000000
+
+============================================================
+VALIDATION
+============================================================
+
+32-D validation              : PASSED
+NaN validation               : PASSED
+Inf validation               : PASSED
+Probability range            : PASSED
+Evidence fusion calculation : PASSED
+Multiple sample inference   : PASSED
+Determinism                 : PASSED
+
+============================================================
+EXAMPLE INFERENCE
+============================================================
+
+Genetic probability       : 0.431408
+Behavioral probability    : 0.520225
+Environmental probability : 0.035701
+
+Final ASD probability     : 0.355996
+
+Prediction                : 0
+Label                     : NON-ASD
+
+============================================================
+IMPORTANT ARCHITECTURAL NOTE
+============================================================
+
+The original modality datasets contain different patient
+populations.
+
+Therefore this validation does NOT claim that the selected
+Genetic, Behavioral and Environmental rows belong to the
+same person.
+
+This test validates the computational inference mechanism.
+
+For deployment, the system expects the three modality
+representations generated from ONE NEW PATIENT and then
+combines the three independent expert predictions.
+
+============================================================
+M3.3 STATUS
+============================================================
+
+FINAL THREE-EXPERT INFERENCE VALIDATION : PASSED

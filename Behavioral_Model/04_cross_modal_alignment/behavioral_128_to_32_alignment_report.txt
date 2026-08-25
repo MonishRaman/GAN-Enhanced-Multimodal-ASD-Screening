@@ -1,0 +1,34 @@
+======================================================================
+BEHAVIORAL MODEL — B5 128-D TO 32-D CROSS-MODAL ALIGNMENT
+======================================================================
+Input samples: 880
+Input dimensions: 128
+Output dimensions: 32
+NaN values: 0
+Inf values: 0
+Reconstruction MSE: 0.00071775
+
+Architecture:
+128-D Behavioral Embedding
+    ↓
+Linear(128 → 64)
+    ↓
+BatchNorm
+    ↓
+ReLU
+    ↓
+Linear(64 → 32)
+    ↓
+Behavioral 32-D Representation
+
+The decoder was used only during self-supervised representation learning.
+The final multimodal interface is the 32-D encoder output.
+
+Important limitation:
+No paired behavioral/genetic patient data is currently available, therefore this step does not claim to learn a biological cross-modal mapping.
+It creates a compact 32-D behavioral representation with a common dimensional interface for later fusion.
+
+Output files:
+/content/drive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/04_cross_modal_alignment/behavioral_32d_aligned_representation.csv
+/content/drive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/04_cross_modal_alignment/behavioral_128_to_32_alignment.pt
+/content/drive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/04_cross_modal_alignment/behavioral_128_to_32_alignment_report.txt

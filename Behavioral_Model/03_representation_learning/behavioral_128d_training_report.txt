@@ -1,0 +1,20 @@
+BEHAVIORAL 128-D REPRESENTATION LEARNING REPORT
+======================================================================
+
+Input dimensions: 87
+Embedding dimensions: 128
+Training samples: 704
+Unseen test samples: 176
+
+Accuracy: 0.914773
+Balanced Accuracy: 0.914773
+Precision: 0.929412
+Recall: 0.897727
+F1-score: 0.913295
+ROC-AUC: 0.987087
+
+Embedding shape:
+(880, 128)
+
+Embedding NaN: 0
+Embedding Inf: 0

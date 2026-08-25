@@ -1,0 +1,163 @@
+{
+  "methodology": {
+    "project": "ASD Multimodal Project",
+    "finalization_timestamp": "2026-08-20T08:10:59.584805",
+    "genetic_branch": "VERIFIED",
+    "behavioral_branch": "VERIFIED",
+    "environmental_branch": "VERIFIED",
+    "environmental_pipeline": "31-D raw input -> saved preprocessing -> 128-D encoder -> 32-D alignment -> environmental expert -> ASD probability",
+    "fusion_method": "knowledge-level modality-specific evidence fusion",
+    "fusion_weights": {
+      "Genetic": 0.31937,
+      "Behavioral": 0.400219,
+      "Environmental": 0.280411
+    },
+    "fusion_weights_sum": 1.0,
+    "all_three_status": "VERIFIED AGAINST SAVED FUSION RESULTS",
+    "any_one_status": "FLEXIBLE EVIDENCE INFERENCE; NOT AN EXPLICIT SAVED MISSING-MODALITY MODE OF THE TRAINED FUSION NETWORK",
+    "any_two_status": "FLEXIBLE EVIDENCE INFERENCE; NOT AN EXPLICIT SAVED MISSING-MODALITY MODE OF THE TRAINED FUSION NETWORK",
+    "training_performed_during_finalization": false,
+    "checkpoint_modified": false,
+    "production_artifact_overwritten": false
+  },
+  "artifacts": [
+    {
+      "category": "genetic_branch",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Genetic_Model",
+      "exists": true,
+      "type": "directory"
+    },
+    {
+      "category": "behavioral_branch",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Behavioral_Model",
+      "exists": true,
+      "type": "directory"
+    },
+    {
+      "category": "environmental_encoder",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/03_representation_learning/environmental_encoder_128d.pt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 94421,
+      "sha256": "5fa6c40c0fb82655e3cc08790d58382baff27afa002cd81c875d594a5945c471"
+    },
+    {
+      "category": "environmental_preprocessor",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/02_preprocessing/environmental_preprocessor.joblib",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 2505,
+      "sha256": "e326b480707e551d4d0e1e03ad4d85daff6b501afd9daa4dd07ea78668d5af6f"
+    },
+    {
+      "category": "environmental_alignment",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment.pt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 94109,
+      "sha256": "50ac02eef5ee101d49f09bdce363daf10866a092afffaafe2f3b2bdba47bd803"
+    },
+    {
+      "category": "environmental_expert",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_environmental_expert.pt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 22836,
+      "sha256": "ef9a2122cfcd9a2662d671347ba48d4d7d0a4f913e408ba3fa5be599d3baef1f"
+    },
+    {
+      "category": "fusion_checkpoint",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_multimodal_knowledge_fusion.pt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 61649,
+      "sha256": "2528ad85b5dc5ad33748d8b6f3df71d4378da26516ce436a5f29054860144fe6"
+    },
+    {
+      "category": "fusion_weights",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_fusion_weights.csv",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 191,
+      "sha256": "24d025af69cd8a104c13e11821075ef139304c8246d59481a69b280d84c59a13"
+    },
+    {
+      "category": "fusion_predictions",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_multimodal_knowledge_fusion_predictions.csv",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 314926,
+      "sha256": "81648601ef66cd5bd77dd01ed71f0a630ec554bfd9771363bbddc685135ad50d"
+    },
+    {
+      "category": "fusion_report",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_multimodal_knowledge_fusion_report.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1251,
+      "sha256": "e39e2f8fedd3875e0f145712d46782b24cff068f7594f27a910bcc40d02b0a95"
+    },
+    {
+      "category": "balanced_fusion_report",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_balanced_knowledge_fusion_report.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 602,
+      "sha256": "d2e338504f4c15b373f9fde03aa1af544d147517282df3c42223a71eeff0fefe"
+    },
+    {
+      "category": "final_three_modal_csv",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M4_final_P001_P005_three_modal_fusion_results.csv",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 932,
+      "sha256": "26c97b3cbcd882223430e1981c7c7ed32e6978462b722af619d00ae0c2b09ef3"
+    },
+    {
+      "category": "final_three_modal_report",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M4_final_three_modal_fusion_validation_report.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1957,
+      "sha256": "c6f4d5864a8bbd667f91eb96dc557c1600c5bec8d135e8fb8046266116e6d998"
+    },
+    {
+      "category": "final_flexible_csv",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M4_final_P001_P005_flexible_multimodal_results.csv",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 2500,
+      "sha256": "1e9741b3c71a991f005762ba46a7a0b7abe70a9072d6537fd7a7fa7b275b8b5c"
+    },
+    {
+      "category": "final_flexible_report",
+      "path": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M4_final_flexible_multimodal_validation_report.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 2987,
+      "sha256": "0430dabf844d7dab1176244ed96f7d332cd970a7c637413d8498e85aec491934"
+    }
+  ],
+  "verified_final_predictions": {
+    "P001": {
+      "probability": 0.4196998664,
+      "prediction": "NON-ASD"
+    },
+    "P002": {
+      "probability": 0.1918365261,
+      "prediction": "NON-ASD"
+    },
+    "P003": {
+      "probability": 0.2742395199,
+      "prediction": "NON-ASD"
+    },
+    "P004": {
+      "probability": 0.1834600107,
+      "prediction": "NON-ASD"
+    },
+    "P005": {
+      "probability": 0.5612139143,
+      "prediction": "ASD"
+    }
+  }
+}

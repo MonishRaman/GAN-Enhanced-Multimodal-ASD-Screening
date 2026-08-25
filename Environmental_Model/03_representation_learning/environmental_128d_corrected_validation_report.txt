@@ -1,0 +1,27 @@
+ENVIRONMENTAL MODEL — STEP E4.2
+CORRECTED 128-D REPRESENTATION VALIDATION
+======================================================================
+
+Dataset shape: (47768, 130)
+Embedding dimensions: 128
+
+Expected sample count: PASSED
+Expected 128-D representation: PASSED
+No duplicate sample IDs: PASSED
+No missing sample IDs: PASSED
+No target NaN: PASSED
+Valid binary target: PASSED
+Target distribution matches source: PASSED
+All embedding columns numeric: PASSED
+No NaN in embeddings: PASSED
+No Inf in embeddings: PASSED
+No constant embedding dimensions: PASSED
+Duplicate embeddings are documented: PASSED
+
+Duplicate embedding rows: 4060
+Duplicate embedding groups: 1496
+Same-label duplicate groups: 1299
+Cross-label duplicate groups: 197
+
+VALIDATION STATUS: PASSED
+Environmental 128-D representation is ready for 128-D to 32-D alignment.
