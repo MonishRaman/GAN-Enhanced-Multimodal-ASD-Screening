@@ -1,0 +1,83 @@
+
+======================================================================
+ENVIRONMENTAL MODEL — STEP E5
+128-D → 32-D CROSS-MODAL ALIGNMENT
+======================================================================
+
+Input representation:
+Environmental 128-D
+
+Output representation:
+Environmental 32-D
+
+Samples:
+47768
+
+Input dimensions:
+128
+
+Output dimensions:
+32
+
+Target:
+Target
+
+IMPORTANT:
+Target labels were NOT used to train the 128-D → 32-D projection.
+
+Normalization:
+Training representation normalized before projection.
+
+Projection architecture:
+128 → 64 → 32
+
+Reconstruction architecture:
+32 → 64 → 128
+
+Best reconstruction MSE:
+0.1357538849
+
+Output shape:
+(47768, 32)
+
+NaN values:
+0
+
+Infinite values:
+0
+
+======================================================================
+MULTIMODAL COMPATIBILITY
+======================================================================
+
+The environmental representation has been reduced from 128-D to 32-D.
+
+This 32-D representation is intended to be compatible with:
+
+Genetic       → 32-D
+Behavioral    → 32-D
+Environmental → 32-D
+
+The datasets do NOT require the same patients.
+
+The three modality-specific encoders remain independently trained.
+
+The final multimodal system can combine the three 32-D representations
+for a new sample during inference.
+
+======================================================================
+FILES
+======================================================================
+
+32-D representation:
+/content/drive/MyDrive/ASD_Multimodal_Project/Environmental_Model/04_cross_modal_alignment/environmental_32d_aligned_representation.csv
+
+Alignment model:
+/content/drive/MyDrive/ASD_Multimodal_Project/Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment.pt
+
+Report:
+/content/drive/MyDrive/ASD_Multimodal_Project/Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment_report.txt
+
+======================================================================
+STEP E5 COMPLETED
+======================================================================

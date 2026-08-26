@@ -1,0 +1,22 @@
+{
+    "system": "ASD Multimodal Knowledge-Level Evidence Fusion",
+    "version": "M3.2",
+    "input_dimensions": {
+        "genetic": 32,
+        "behavioral": 32,
+        "environmental": 32
+    },
+    "evidence_weights": {
+        "genetic": 0.3194,
+        "behavioral": 0.4002,
+        "environmental": 0.2804
+    },
+    "decision_threshold": 0.5,
+    "fusion_method": "weighted probability evidence fusion",
+    "patient_matching_training": false,
+    "row_wise_training_fusion": false,
+    "single_patient_inference": true,
+    "genetic_model": "/content/drive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_genetic_expert.pt",
+    "behavioral_model": "/content/drive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_behavioral_expert.pt",
+    "environmental_model": "/content/drive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_environmental_expert.pt"
+}

@@ -1,0 +1,33 @@
+{
+    "application": "ASD Multimodal UI",
+    "architecture": {
+        "backend": "FastAPI",
+        "frontend": "HTML/CSS/JavaScript",
+        "communication": "REST API",
+        "deployment": "Localhost"
+    },
+    "backend_services": [
+        "genetic_service",
+        "behavioral_service",
+        "environmental_service",
+        "fusion_service"
+    ],
+    "frontend_modules": [
+        "app.js",
+        "api.js",
+        "ui.js"
+    ],
+    "supported_modes": [
+        "ANY-ONE",
+        "ANY-TWO",
+        "ALL-THREE"
+    ],
+    "demo_patients": [
+        "P001",
+        "P002",
+        "P003",
+        "P004",
+        "P005"
+    ],
+    "ml_status": "Frozen and verified before UI development"
+}

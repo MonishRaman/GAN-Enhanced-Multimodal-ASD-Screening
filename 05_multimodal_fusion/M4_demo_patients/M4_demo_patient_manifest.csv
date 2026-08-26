@@ -1,0 +1,6 @@
+patient_id,expected_demo_label,expected_demo_label_numeric,genetic_file,behavioral_file,environmental_file,metadata_file
+P001,ASD,1,P001/genetic_input.csv,P001/behavioral_input.csv,P001/environmental_input.csv,P001/demo_metadata.json
+P002,NON-ASD,0,P002/genetic_input.csv,P002/behavioral_input.csv,P002/environmental_input.csv,P002/demo_metadata.json
+P003,ASD,1,P003/genetic_input.csv,P003/behavioral_input.csv,P003/environmental_input.csv,P003/demo_metadata.json
+P004,NON-ASD,0,P004/genetic_input.csv,P004/behavioral_input.csv,P004/environmental_input.csv,P004/demo_metadata.json
+P005,ASD,1,P005/genetic_input.csv,P005/behavioral_input.csv,P005/environmental_input.csv,P005/demo_metadata.json

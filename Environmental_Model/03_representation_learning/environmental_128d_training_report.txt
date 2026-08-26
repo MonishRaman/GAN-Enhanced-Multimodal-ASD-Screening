@@ -1,0 +1,21 @@
+ENVIRONMENTAL MODEL — STEP E3
+31-D → 128-D REPRESENTATION LEARNING
+
+Input dimensions : 31
+Embedding dimensions : 128
+Training samples : 32481
+Validation samples : 5733
+Unseen test samples : 9554
+
+Target:
+K2Q35A — ever told by a healthcare provider that the child has Autism/ASD
+
+Best validation ROC-AUC : 0.692421
+Test Accuracy : 0.626753
+Test Balanced Accuracy : 0.627042
+Test Precision : 0.072401
+Test Recall : 0.627358
+Test F1 : 0.129819
+Test ROC-AUC : 0.673728
+
+Embedding shape : (47768, 128)

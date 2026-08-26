@@ -1,0 +1,16 @@
+ASD MULTIMODAL PROJECT — M2
+COMMON 32-D KNOWLEDGE-LEVEL FUSION PREPARATION
+====================================================
+
+The three modalities represent different patient populations.
+Therefore no row-wise subject matching was performed.
+
+Genetic samples: 116
+Behavioral samples: 880
+Environmental samples: 47768
+
+Genetic representation: 32-D
+Behavioral representation: 32-D
+Environmental representation: 32-D
+
+All three representations passed structural validation.

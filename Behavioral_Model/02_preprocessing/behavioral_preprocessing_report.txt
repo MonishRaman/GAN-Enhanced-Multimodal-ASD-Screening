@@ -1,0 +1,34 @@
+BEHAVIORAL MODEL — PREPROCESSING REPORT
+======================================================================
+
+Original samples: 884
+Duplicate rows removed: 4
+Final samples: 880
+
+Target column:
+Class/ASD
+
+Removed leakage column:
+result
+
+Training samples: 704
+Test samples: 176
+
+Processed feature dimensions: 87
+
+Training class distribution:
+Class/ASD
+1    353
+0    351
+Name: count, dtype: int64
+
+Test class distribution:
+Class/ASD
+0    88
+1    88
+Name: count, dtype: int64
+
+Training NaN: 0
+Test NaN: 0
+Training Inf: 0
+Test Inf: 0

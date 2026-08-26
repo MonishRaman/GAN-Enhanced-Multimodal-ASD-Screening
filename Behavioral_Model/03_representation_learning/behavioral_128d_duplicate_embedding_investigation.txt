@@ -1,0 +1,10 @@
+BEHAVIORAL 128-D DUPLICATE EMBEDDING INVESTIGATION
+======================================================================
+
+Total samples: 880
+Embedding dimensions: 128
+Rows involved in duplicate embeddings: 2
+
+ Sample_Index  Class/ASD
+          122          1
+          302          1

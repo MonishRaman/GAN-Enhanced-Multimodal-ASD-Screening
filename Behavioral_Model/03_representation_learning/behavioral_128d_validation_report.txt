@@ -1,0 +1,31 @@
+BEHAVIORAL 128-D EMBEDDING VALIDATION REPORT
+======================================================================
+
+Embedding file: /content/drive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/03_representation_learning/behavioral_128d_embeddings.csv
+
+Expected samples: 880
+Actual samples: 880
+
+Expected dimensions: 128
+Actual dimensions: 128
+
+Duplicate sample IDs: 0
+Missing sample IDs: 0
+Sample ID order preserved: True
+
+Target NaN values: 0
+Target distribution: {1: 441, 0: 439}
+
+Non-numeric embedding columns: []
+NaN embedding values: 0
+Inf embedding values: 0
+Duplicate embeddings: 1
+Constant dimensions: 0
+
+Mean absolute value: 0.421358187294496
+Mean value: 0.421358187294496
+Standard deviation: 0.5720103828619028
+Minimum value: 0.0
+Maximum value: 3.6541862
+
+FINAL VALIDATION: FAILED

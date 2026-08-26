@@ -1,0 +1,87 @@
+1. numeric__A1_Score
+2. numeric__A2_Score
+3. numeric__A3_Score
+4. numeric__A4_Score
+5. numeric__A5_Score
+6. numeric__A6_Score
+7. numeric__A7_Score
+8. numeric__A8_Score
+9. numeric__A9_Score
+10. numeric__A10_Score
+11. numeric__age
+12. numeric__gender
+13. numeric__jundice
+14. numeric__austim
+15. numeric__used_app_before
+16. categorical__ethnicity_Asian
+17. categorical__ethnicity_Black
+18. categorical__ethnicity_Hispanic
+19. categorical__ethnicity_Latino
+20. categorical__ethnicity_Middle Eastern
+21. categorical__ethnicity_Others
+22. categorical__ethnicity_Pasifika
+23. categorical__ethnicity_South Asian
+24. categorical__ethnicity_Turkish
+25. categorical__ethnicity_Unknown
+26. categorical__ethnicity_White-European
+27. categorical__contry_of_res_Afghanistan
+28. categorical__contry_of_res_AmericanSamoa
+29. categorical__contry_of_res_Argentina
+30. categorical__contry_of_res_Armenia
+31. categorical__contry_of_res_Aruba
+32. categorical__contry_of_res_Australia
+33. categorical__contry_of_res_Austria
+34. categorical__contry_of_res_Bahamas
+35. categorical__contry_of_res_Bangladesh
+36. categorical__contry_of_res_Belgium
+37. categorical__contry_of_res_Bolivia
+38. categorical__contry_of_res_Brazil
+39. categorical__contry_of_res_Burundi
+40. categorical__contry_of_res_Canada
+41. categorical__contry_of_res_Chile
+42. categorical__contry_of_res_Costa Rica
+43. categorical__contry_of_res_Ecuador
+44. categorical__contry_of_res_Egypt
+45. categorical__contry_of_res_Finland
+46. categorical__contry_of_res_France
+47. categorical__contry_of_res_Germany
+48. categorical__contry_of_res_Iceland
+49. categorical__contry_of_res_India
+50. categorical__contry_of_res_Iran
+51. categorical__contry_of_res_Ireland
+52. categorical__contry_of_res_Italy
+53. categorical__contry_of_res_Japan
+54. categorical__contry_of_res_Jordan
+55. categorical__contry_of_res_Kazakhstan
+56. categorical__contry_of_res_Malaysia
+57. categorical__contry_of_res_Mexico
+58. categorical__contry_of_res_Netherlands
+59. categorical__contry_of_res_New Zealand
+60. categorical__contry_of_res_Nicaragua
+61. categorical__contry_of_res_Niger
+62. categorical__contry_of_res_Pakistan
+63. categorical__contry_of_res_Philippines
+64. categorical__contry_of_res_Portugal
+65. categorical__contry_of_res_Romania
+66. categorical__contry_of_res_Russia
+67. categorical__contry_of_res_Saudi Arabia
+68. categorical__contry_of_res_Serbia
+69. categorical__contry_of_res_Sierra Leone
+70. categorical__contry_of_res_South Africa
+71. categorical__contry_of_res_Spain
+72. categorical__contry_of_res_Sri Lanka
+73. categorical__contry_of_res_Sweden
+74. categorical__contry_of_res_Tonga
+75. categorical__contry_of_res_Turkey
+76. categorical__contry_of_res_Ukraine
+77. categorical__contry_of_res_United Arab Emirates
+78. categorical__contry_of_res_United Kingdom
+79. categorical__contry_of_res_United States
+80. categorical__contry_of_res_Uruguay
+81. categorical__contry_of_res_Viet Nam
+82. categorical__relation_Health care professional
+83. categorical__relation_Others
+84. categorical__relation_Parent
+85. categorical__relation_Relative
+86. categorical__relation_Self
+87. categorical__relation_Unknown

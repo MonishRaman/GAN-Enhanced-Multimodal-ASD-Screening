@@ -1,0 +1,19 @@
+ASD MULTIMODAL PROJECT — M3.1
+BALANCED KNOWLEDGE-LEVEL EVIDENCE FUSION
+
+Training population structure:
+Genetic, Behavioral and Environmental datasets contain different patient populations.
+No patient-level matching was performed.
+
+Validation ROC-AUC:
+Genetic       : 0.788462
+Behavioral    : 0.988062
+Environmental : 0.692281
+
+Knowledge-level evidence weights:
+Genetic       : 0.319370
+Behavioral    : 0.400219
+Environmental : 0.280411
+
+Inference architecture:
+Patient modality inputs -> three modality experts -> three ASD probabilities -> weighted evidence fusion -> single ASD/Non-ASD prediction.

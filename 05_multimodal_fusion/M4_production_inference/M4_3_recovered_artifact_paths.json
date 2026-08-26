@@ -1,0 +1,23 @@
+{
+  "genetic_raw": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Genetic_Model/01_raw_data/Genetic_dataset.csv",
+  "genetic_transformer": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Genetic_Model/03_representation_learning/genetic_transformer_128d.pt",
+  "genetic_alignment": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Genetic_Model/04_cross_modal_alignment/genetic_128_to_32_alignment.pt",
+  "genetic_reference": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Genetic_Model/04_cross_modal_alignment/genetic_32d_aligned_representation.csv",
+  "genetic_expert": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_genetic_expert.pt",
+  "genetic_scaler": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_genetic_scaler.joblib",
+  "behavioral_raw": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/ 01_raw_data/behavioral_dataset.csv",
+  "behavioral_preprocessor": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/02_preprocessing/behavioral_preprocessor.joblib",
+  "behavioral_encoder": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/03_representation_learning/behavioral_encoder_128d.pt",
+  "behavioral_alignment": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/04_cross_modal_alignment/behavioral_128_to_32_alignment.pt",
+  "behavioral_reference": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Behavioral_Model/04_cross_modal_alignment/behavioral_32d_aligned_representation.csv",
+  "behavioral_expert": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_behavioral_expert.pt",
+  "behavioral_scaler": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_behavioral_scaler.joblib",
+  "environmental_raw": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/01_raw_data/environmental_dataset.csv",
+  "environmental_preprocessor": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/02_preprocessing/environmental_preprocessor.joblib",
+  "environmental_encoder": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/03_representation_learning/environmental_encoder_128d.pt",
+  "environmental_alignment": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment.pt",
+  "environmental_reference": "/content/gdrive/MyDrive/ASD_Multimodal_Project/Environmental_Model/04_cross_modal_alignment/environmental_32d_aligned_representation.csv",
+  "environmental_expert": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_environmental_expert.pt",
+  "environmental_scaler": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_environmental_scaler.joblib",
+  "fusion_config": "/content/gdrive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_2_final_inference_config.json"
+}

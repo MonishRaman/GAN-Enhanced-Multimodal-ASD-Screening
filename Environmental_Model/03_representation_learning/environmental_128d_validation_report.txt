@@ -1,0 +1,50 @@
+ENVIRONMENTAL MODEL — STEP E4
+128-D ENVIRONMENTAL REPRESENTATION VALIDATION
+
+
+Embedding shape: (47768, 130)
+
+Embedding dimensions: 128
+
+Target column: Target
+
+Expected samples: 47768
+
+Actual samples: 47768
+
+Target NaN: 0
+
+Target values: [0, 1]
+
+Non-numeric embedding columns: []
+
+Embedding NaN: 0
+
+Embedding Inf: 0
+
+Duplicate embedding rows: 4060
+
+Duplicate embedding groups: 1496
+
+Cross-label duplicate embeddings: True
+
+Constant embedding dimensions: 0
+
+
+VALIDATION RESULTS
+
+Expected sample count: PASSED
+Expected 128-D representation: PASSED
+Target column present: PASSED
+No target NaN: PASSED
+Valid binary target distribution: PASSED
+Target distribution matches source: PASSED
+All embedding columns numeric: PASSED
+No NaN in embeddings: PASSED
+No Inf in embeddings: PASSED
+No duplicate sample IDs: PASSED
+No cross-label duplicate embeddings: FAILED
+No constant embedding dimensions: PASSED
+
+
+FINAL STATUS: FAILED

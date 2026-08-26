@@ -1,0 +1,58 @@
+==========================================================================================
+ASD MULTIMODAL PROJECT — M4.3 FINAL SYSTEM VALIDATION
+==========================================================================================
+
+Production artifacts: 21/21
+Missing artifacts: 0
+Ambiguous artifacts: 0
+
+Artifact SHA256 hashes
+------------------------------------------------------------------------------------------
+genetic_raw: 92f6aaf6e0ea09765a891bc69ad6f166e08a1941c0ddb7d267f10ef261bdf8c9
+genetic_transformer: 9a4f288a013c1e17bf20fe32a556558a352df3d8c4b63ef19a436eb532182747
+genetic_alignment: 57523d76f5f2aa6924279c549d6c73345658dfa1738ebc406ba8e7a1a3b2d3cf
+genetic_reference: e68d731224c62565529a6e583f106aaae429ccc8aa3db0c7cbdaf2c56c987881
+genetic_expert: a0223c9940a411ea13dd4d31c5e95cc79e580fe5eeb5809a8a982a3c9293883c
+genetic_scaler: 30dd97d28faf07fb872607c0d2a7e6bb608f0212b8f4e77bd7fbfa4f8b70c0bc
+behavioral_raw: 82ab89aa9187651e029568931facc03a484b54cbc5911bb1a6533188d682ff5d
+behavioral_preprocessor: 9c00c3912ff7691d563e4c280cf557d95e48e36be2f0741e51f06e962fe94527
+behavioral_encoder: f409f5c35d34465222bbefe764520fb84163cedda7ea13f0b1e29ea92b15173e
+behavioral_alignment: ca7153a1e6207e5ca97b4d4d09b38017c2eb32a54e44ea6bfcd9e0994b9ff41e
+behavioral_reference: deb4be6ca87b16e1b31244ba40ec6f8663b4cc686f8aeda28208768b3c0ff84f
+behavioral_expert: d06d1b052c69a42af79147e1c5a1e1d09be1fa93e471741e2520d4bb031a1a49
+behavioral_scaler: a1c6bedefd65af4e91ce81d0f170a13350e8d728e43f4e87a561f216aaf8f94e
+environmental_raw: 5ce07230c2eb33e0485f483b6a7e5e22e8d08da9620af0aa02404a3ea9f44edf
+environmental_preprocessor: e326b480707e551d4d0e1e03ad4d85daff6b501afd9daa4dd07ea78668d5af6f
+environmental_encoder: 5fa6c40c0fb82655e3cc08790d58382baff27afa002cd81c875d594a5945c471
+environmental_alignment: 50ac02eef5ee101d49f09bdce363daf10866a092afffaafe2f3b2bdba47bd803
+environmental_reference: 4c25207c610ce3a6c049d66dd7581d01fb85ca04ac26140774848f8baae80bff
+environmental_expert: ef9a2122cfcd9a2662d671347ba48d4d7d0a4f913e408ba3fa5be599d3baef1f
+environmental_scaler: 2ac831ac4e1a4932b432a3ddb3b60bae3f36cef1de2076a426d90fd6081f6622
+fusion_config: 1c90f4bf9fa9d5da55b0daaf00546dab28aa5647d1ce791b7c6880d982897e56
+
+Fusion configuration
+------------------------------------------------------------------------------------------
+{
+  "system": "ASD Multimodal Knowledge-Level Evidence Fusion",
+  "version": "M3.2",
+  "input_dimensions": {
+    "genetic": 32,
+    "behavioral": 32,
+    "environmental": 32
+  },
+  "evidence_weights": {
+    "genetic": 0.3194,
+    "behavioral": 0.4002,
+    "environmental": 0.2804
+  },
+  "decision_threshold": 0.5,
+  "fusion_method": "weighted probability evidence fusion",
+  "patient_matching_training": false,
+  "row_wise_training_fusion": false,
+  "single_patient_inference": true,
+  "genetic_model": "/content/drive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_genetic_expert.pt",
+  "behavioral_model": "/content/drive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_behavioral_expert.pt",
+  "environmental_model": "/content/drive/MyDrive/ASD_Multimodal_Project/05_multimodal_fusion/M3_1_environmental_expert.pt"
+}
+
+FINAL STATUS: M4.3 VALIDATION PASSED

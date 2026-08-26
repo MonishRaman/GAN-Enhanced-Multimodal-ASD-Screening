@@ -1,0 +1,32 @@
+ENVIRONMENTAL MODEL — STEP E6
+Input file: /content/drive/MyDrive/ASD_Multimodal_Project/Environmental_Model/04_cross_modal_alignment/environmental_32d_aligned_representation.csv
+Samples: 47768
+Embedding dimensions: 32
+Duplicate sample IDs: 0
+Missing sample IDs: 0
+Target NaN: 0
+Target distribution: {0: 45650, 1: 2118}
+NaN embeddings: 0
+Inf embeddings: 0
+Constant dimensions: 0
+Duplicate embedding groups: 1496
+Same-label duplicate groups: 1299
+Cross-label duplicate groups: 197
+
+VALIDATION RESULTS
+Expected sample count: PASSED
+Expected 32-D representation: PASSED
+Sample ID column present: PASSED
+No duplicate sample IDs: PASSED
+No missing sample IDs: PASSED
+Target column present: PASSED
+No target NaN: PASSED
+Valid binary target: PASSED
+Target distribution matches source: PASSED
+All embedding columns numeric: PASSED
+No NaN in embeddings: PASSED
+No Inf in embeddings: PASSED
+No constant embedding dimensions: PASSED
+Duplicate embeddings documented: PASSED
+
+OVERALL STATUS: PASSED

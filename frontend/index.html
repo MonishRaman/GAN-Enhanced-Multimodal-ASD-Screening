@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ASD Multimodal Analysis</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- =========================================================
+             HEADER
+        ========================================================== -->
+        <header class="app-header">
+            <div class="header-content">
+
+                <div class="brand">
+                    <div class="brand-icon">ASD</div>
+
+                    <div>
+                        <h1>ASD Multimodal Analysis</h1>
+                        <p>
+                            Genetic • Behavioral • Environmental
+                            Multimodal Screening Framework
+                        </p>
+                    </div>
+                </div>
+
+                <div class="system-status">
+                    <span id="connectionIndicator"
+                          class="status-dot offline"></span>
+
+                    <span id="connectionText">
+                        Backend not connected
+                    </span>
+                </div>
+
+            </div>
+        </header>
+
+
+        <!-- =========================================================
+             MAIN CONTENT
+        ========================================================== -->
+        <main class="main-container">
+
+            <!-- INTRODUCTION -->
+            <section class="intro-section">
+
+                <div>
+                    <h2>Multimodal Patient Analysis</h2>
+
+                    <p>
+                        Enter a patient identifier and select the analysis
+                        mode. The system combines available modalities and
+                        produces a final screening prediction.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 INPUT PANEL
+            ====================================================== -->
+            <section class="analysis-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Patient Analysis</h3>
+                        <p>
+                            Provide the patient information required
+                            for inference.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="form-grid">
+
+                    <!-- PATIENT ID -->
+                    <div class="form-group">
+
+                        <label for="patientId">
+                            Patient ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="patientId"
+                            name="patientId"
+                            placeholder="Example: P001"
+                            autocomplete="off"
+                        >
+
+                        <small>
+                            Demo patients: P001 – P005
+                        </small>
+
+                    </div>
+
+
+                    <!-- ANALYSIS MODE -->
+                    <div class="form-group">
+
+                        <label for="analysisMode">
+                            Analysis Mode
+                        </label>
+
+                        <select
+                            id="analysisMode"
+                            name="analysisMode"
+                        >
+
+                            <option value="all_three">
+                                All Three Modalities
+                            </option>
+
+                            <option value="genetic">
+                                Genetic
+                            </option>
+
+                            <option value="behavioral">
+                                Behavioral
+                            </option>
+
+                            <option value="environmental">
+                                Environmental
+                            </option>
+
+                        </select>
+
+                        <small>
+                            Select the modalities to include in analysis.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTION BUTTON -->
+                <div class="action-row">
+
+                    <button
+                        id="analyzeButton"
+                        type="button"
+                        class="primary-button"
+                    >
+                        Analyze Patient
+                    </button>
+
+                    <button
+                        id="clearButton"
+                        type="button"
+                        class="secondary-button"
+                    >
+                        Clear
+                    </button>
+
+                </div>
+
+
+                <!-- ERROR / STATUS MESSAGE -->
+                <div
+                    id="messageArea"
+                    class="message-area"
+                    aria-live="polite"
+                ></div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 LOADING AREA
+            ====================================================== -->
+            <section
+                id="loadingSection"
+                class="loading-section hidden"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <div>
+                    <strong>Analyzing patient...</strong>
+
+                    <p>
+                        Processing the selected modalities and
+                        calculating the fusion result.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 RESULTS SECTION
+            ====================================================== -->
+            <section
+                id="resultsSection"
+                class="results-section hidden"
+            >
+
+                <div class="results-header">
+
+                    <div>
+                        <h2>Analysis Results</h2>
+
+                        <p id="resultPatient">
+                            Patient: —
+                        </p>
+                    </div>
+
+                    <div
+                        id="resultStatus"
+                        class="result-status"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <!-- FINAL RESULT -->
+                <div class="final-result-card">
+
+                    <div class="result-label">
+                        Final Multimodal Prediction
+                    </div>
+
+                    <div
+                        id="finalPrediction"
+                        class="final-prediction"
+                    >
+                        —
+                    </div>
+
+                    <div class="probability-container">
+
+                        <span>Final Probability</span>
+
+                        <strong id="finalProbability">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <div class="probability-bar">
+
+                        <div
+                            id="finalProbabilityBar"
+                            class="probability-fill"
+                            style="width: 0%;"
+                        ></div>
+
+                    </div>
+
+                    <div class="threshold-text">
+                        Decision threshold:
+                        <span id="finalThreshold">0.50</span>
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MODALITY RESULTS
+                ================================================== -->
+                <div class="section-title">
+
+                    <h3>Modality Results</h3>
+
+                    <p>
+                        Individual modality predictions returned
+                        by the analysis pipeline.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="modalityResults"
+                    class="modality-grid"
+                >
+
+                    <!-- Populated by ui.js -->
+
+                </div>
+
+
+                <!-- =================================================
+                     FUSION INFORMATION
+                ================================================== -->
+                <div class="section-title">
+
+                    <h3>Multimodal Fusion</h3>
+
+                    <p>
+                        Contribution of each modality to the final
+                        prediction.
+                    </p>
+
+                </div>
+
+
+                <div class="fusion-card">
+
+                    <div class="fusion-summary">
+
+                        <div class="summary-item">
+
+                            <span>Fusion Mode</span>
+
+                            <strong id="fusionMode">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <span>Modalities Used</span>
+
+                            <strong id="modalitiesUsed">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <span>Threshold</span>
+
+                            <strong id="fusionThreshold">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FUSION WEIGHTS -->
+                    <div class="section-subtitle">
+                        Fusion Weights
+                    </div>
+
+                    <div
+                        id="fusionWeights"
+                        class="weight-grid"
+                    >
+
+                        <!-- Populated by ui.js -->
+
+                    </div>
+
+
+                    <!-- CONTRIBUTIONS -->
+                    <div class="section-subtitle">
+                        Modality Contributions
+                    </div>
+
+                    <div
+                        id="fusionContributions"
+                        class="contribution-list"
+                    >
+
+                        <!-- Populated by ui.js -->
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     TECHNICAL DETAILS
+                ================================================== -->
+                <details class="technical-details">
+
+                    <summary>
+                        Technical Response
+                    </summary>
+
+                    <pre id="rawResponse">—</pre>
+
+                </details>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================================================
+             FOOTER
+        ========================================================== -->
+        <footer class="app-footer">
+
+            <p>
+                ASD Multimodal Analysis Framework
+            </p>
+
+            <p>
+                Research / Screening Support System
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =============================================================
+         JAVASCRIPT
+    ============================================================== -->
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
