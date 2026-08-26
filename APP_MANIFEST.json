@@ -1,26 +1,33 @@
 {
-  "project": "ASD Multimodal Project",
-  "package": "ASD_Multimodal_UI",
-  "architecture": {
-    "backend": "FastAPI",
-    "frontend": "React + TypeScript + Vite",
-    "ml": "Frozen PyTorch / scikit-learn artifacts"
-  },
-  "frozen_model_directories": [
-    "Genetic_Model",
-    "Behavioral_Model",
-    "Environmental_Model",
-    "05_multimodal_fusion"
-  ],
-  "modality_mapping": {
-    "0": "Genetic",
-    "1": "Behavioral",
-    "2": "Environmental"
-  },
-  "fusion_weights": {
-    "Genetic": 0.31937,
-    "Behavioral": 0.400219,
-    "Environmental": 0.280411
-  },
-  "status": "Application architecture initialized; backend inference implementation next."
+    "application": "ASD Multimodal UI",
+    "architecture": {
+        "backend": "FastAPI",
+        "frontend": "HTML/CSS/JavaScript",
+        "communication": "REST API",
+        "deployment": "Localhost"
+    },
+    "backend_services": [
+        "genetic_service",
+        "behavioral_service",
+        "environmental_service",
+        "fusion_service"
+    ],
+    "frontend_modules": [
+        "app.js",
+        "api.js",
+        "ui.js"
+    ],
+    "supported_modes": [
+        "ANY-ONE",
+        "ANY-TWO",
+        "ALL-THREE"
+    ],
+    "demo_patients": [
+        "P001",
+        "P002",
+        "P003",
+        "P004",
+        "P005"
+    ],
+    "ml_status": "Frozen and verified before UI development"
 }

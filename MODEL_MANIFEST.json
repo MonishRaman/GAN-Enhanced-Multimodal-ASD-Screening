@@ -1,517 +1,67 @@
 {
-  "project": "ASD Multimodal Project",
-  "package_type": "Frozen VS Code Development Package",
-  "source": "/content/drive/MyDrive/ASD_Multimodal_Project",
-  "export": "/content/ASD_Multimodal_UI",
-  "created": "2026-08-25T03:38:49.048076",
-  "training_performed": false,
-  "checkpoints_modified": false,
-  "source_project_modified": false,
-  "files": [
-    {
-      "path": "05_multimodal_fusion/FINAL_PROJECT_AUDIT/FINAL_OUTPUTS/M4_final_P001_P005_flexible_multimodal_results.csv",
-      "size_bytes": 2500,
-      "sha256": "1e9741b3c71a991f005762ba46a7a0b7abe70a9072d6537fd7a7fa7b275b8b5c"
-    },
-    {
-      "path": "05_multimodal_fusion/FINAL_PROJECT_AUDIT/FINAL_OUTPUTS/M4_final_P001_P005_three_modal_fusion_results.csv",
-      "size_bytes": 932,
-      "sha256": "26c97b3cbcd882223430e1981c7c7ed32e6978462b722af619d00ae0c2b09ef3"
-    },
-    {
-      "path": "05_multimodal_fusion/FINAL_PROJECT_AUDIT/FINAL_OUTPUTS/M4_final_flexible_multimodal_validation_report.txt",
-      "size_bytes": 2987,
-      "sha256": "0430dabf844d7dab1176244ed96f7d332cd970a7c637413d8498e85aec491934"
-    },
-    {
-      "path": "05_multimodal_fusion/FINAL_PROJECT_AUDIT/FINAL_OUTPUTS/M4_final_three_modal_fusion_validation_report.txt",
-      "size_bytes": 1957,
-      "sha256": "c6f4d5864a8bbd667f91eb96dc557c1600c5bec8d135e8fb8046266116e6d998"
-    },
-    {
-      "path": "05_multimodal_fusion/FINAL_PROJECT_AUDIT/M4_FINAL_ARTIFACT_MANIFEST.json",
-      "size_bytes": 6302,
-      "sha256": "d052ef18a064242350cebe3090946af6f9f208d16f9a7caa1b19e14ac2c9bf3a"
-    },
-    {
-      "path": "05_multimodal_fusion/FINAL_PROJECT_AUDIT/M4_FINAL_PROJECT_FREEZE_REPORT.txt",
-      "size_bytes": 1736,
-      "sha256": "9bc8b3e44f8b7e79ec48cdb53cddbac3cbffaf3cde790ba651691c1fb6c6a484"
-    },
-    {
-      "path": "05_multimodal_fusion/FINAL_PROJECT_BACKUP/ASD_MULTIMODAL_FINAL_BACKUP_20260820_081059.zip",
-      "size_bytes": 9222,
-      "sha256": "9abfcf252c697136b836b5ad6c937f3708648c5a105a03b698764d4475debcc2"
-    },
-    {
-      "path": "05_multimodal_fusion/M2_common_32d_fusion_preparation_report.txt",
-      "size_bytes": 476,
-      "sha256": "b05d51b708bd792215e529da29a64e720b00979d937c14e448fd1165a66e895c"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_balanced_knowledge_fusion_report.txt",
-      "size_bytes": 602,
-      "sha256": "d2e338504f4c15b373f9fde03aa1af544d147517282df3c42223a71eeff0fefe"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_behavioral_expert.pt",
-      "size_bytes": 22785,
-      "sha256": "d06d1b052c69a42af79147e1c5a1e1d09be1fa93e471741e2520d4bb031a1a49"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_behavioral_scaler.joblib",
-      "size_bytes": 1383,
-      "sha256": "a1c6bedefd65af4e91ce81d0f170a13350e8d728e43f4e87a561f216aaf8f94e"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_environmental_expert.pt",
-      "size_bytes": 22836,
-      "sha256": "ef9a2122cfcd9a2662d671347ba48d4d7d0a4f913e408ba3fa5be599d3baef1f"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_environmental_scaler.joblib",
-      "size_bytes": 1383,
-      "sha256": "2ac831ac4e1a4932b432a3ddb3b60bae3f36cef1de2076a426d90fd6081f6622"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_fusion_weights.csv",
-      "size_bytes": 191,
-      "sha256": "24d025af69cd8a104c13e11821075ef139304c8246d59481a69b280d84c59a13"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_genetic_expert.pt",
-      "size_bytes": 22670,
-      "sha256": "a0223c9940a411ea13dd4d31c5e95cc79e580fe5eeb5809a8a982a3c9293883c"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_1_genetic_scaler.joblib",
-      "size_bytes": 1383,
-      "sha256": "30dd97d28faf07fb872607c0d2a7e6bb608f0212b8f4e77bd7fbfa4f8b70c0bc"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_2_final_inference_config.json",
-      "size_bytes": 890,
-      "sha256": "1c90f4bf9fa9d5da55b0daaf00546dab28aa5647d1ce791b7c6880d982897e56"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_3_final_inference_validation_report.txt",
-      "size_bytes": 2287,
-      "sha256": "dd004f7bb6ba012d82e831f0ae26a1356ad80d2bf1543753afbecf9e39522d48"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_multimodal_knowledge_fusion.pt",
-      "size_bytes": 61649,
-      "sha256": "2528ad85b5dc5ad33748d8b6f3df71d4378da26516ce436a5f29054860144fe6"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_multimodal_knowledge_fusion_predictions.csv",
-      "size_bytes": 314926,
-      "sha256": "81648601ef66cd5bd77dd01ed71f0a630ec554bfd9771363bbddc685135ad50d"
-    },
-    {
-      "path": "05_multimodal_fusion/M3_multimodal_knowledge_fusion_report.txt",
-      "size_bytes": 1251,
-      "sha256": "e39e2f8fedd3875e0f145712d46782b24cff068f7594f27a910bcc40d02b0a95"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_1_2B_behavioral_forensics/M4_1_2B_behavioral_forensic_report.txt",
-      "size_bytes": 11486,
-      "sha256": "b97dde450ff053774d80b50ec5e3eb77d4937015bb478dd6ad5ba50b53d1602c"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_1_2B_behavioral_forensics/behavioral_128d_numeric_column_statistics.csv",
-      "size_bytes": 11801,
-      "sha256": "1f0f5d62fc8090aa41f5ab4b9488ee1b28ca8fd815a21c665d00502698d9827e"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/M4_demo_patient_manifest.csv",
-      "size_bytes": 694,
-      "sha256": "ee3388ba38aa5a36a6094f478a1fe623b3bc5f63d93df3f5417bf32168ab8664"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P001/behavioral_input.csv",
-      "size_bytes": 245,
-      "sha256": "3d38a6396198c66c6099282ad2c465deea5dab7a0bd386a219fa82d2f4d64c0b"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P001/demo_metadata.json",
-      "size_bytes": 717,
-      "sha256": "c69a9589292a02011e285df4816ca6d8e37a5c5597ec7b667a206f4396bef9e3"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P001/environmental_input.csv",
-      "size_bytes": 351,
-      "sha256": "5edc951898f9dae96793935b91dfe2cda74a3fc43de61e1a43bd4911e81d0d0c"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P001/genetic_input.csv",
-      "size_bytes": 27631,
-      "sha256": "265178ded8396af648b002eccfd58a0815d9457c3586d3387420b203e375e3ba"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P002/behavioral_input.csv",
-      "size_bytes": 244,
-      "sha256": "0b5bf43dadc903c23c20204ecd15f79f55d02236e7a0507ed5995ad10e7e22bf"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P002/demo_metadata.json",
-      "size_bytes": 720,
-      "sha256": "8a1070a5a880daeef12c128c1096e041eec117c8ee1759afa2663fbe253bdda9"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P002/environmental_input.csv",
-      "size_bytes": 355,
-      "sha256": "0d3d2735f585a376846728284929e0f2f31c4442995f195fb11989e4b24af648"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P002/genetic_input.csv",
-      "size_bytes": 27667,
-      "sha256": "da2b1a6b79d12f58cdd194b94fd7736fe884d59aa02e9b96914456670031c550"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P003/behavioral_input.csv",
-      "size_bytes": 234,
-      "sha256": "4da9a5a42731e0959f64adafc55d9acfab711aee3467644e4e26fc575a520c50"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P003/demo_metadata.json",
-      "size_bytes": 717,
-      "sha256": "34610157f213ad5dd86a203ebbac47f580dc75b33db4a30b263774e9972ff1d3"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P003/environmental_input.csv",
-      "size_bytes": 349,
-      "sha256": "3da81d5ae46b5929e8b6e8511863ef630d0ab74c7698f43f20a019485ee052a6"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P003/genetic_input.csv",
-      "size_bytes": 27626,
-      "sha256": "b953db924ca6a4e9e9ddb47960efb04d48cc374b61dfd6800aec50b6b39336aa"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P004/behavioral_input.csv",
-      "size_bytes": 237,
-      "sha256": "e999a0b0131948bcc4168d4ee7a5502f68b6bca5ac918bb6d33dedc1c5b945bc"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P004/demo_metadata.json",
-      "size_bytes": 720,
-      "sha256": "37856ddcd91f1eac64c95215af0bc0e65baaad984a117d069366ecc6830851e0"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P004/environmental_input.csv",
-      "size_bytes": 355,
-      "sha256": "ddf7225bcbfc43914403e207a938651fb19e55bbacef3ed4a17e8dae138e8668"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P004/genetic_input.csv",
-      "size_bytes": 27756,
-      "sha256": "d5933d90bed203a211872d6b999b421a1f271f4b3e66ecb5b29d0c798a3efded"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P005/behavioral_input.csv",
-      "size_bytes": 245,
-      "sha256": "27b7ce78991949fa92af5830ad35f67711cd7081e8b1d13698823b528c0307c3"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P005/demo_metadata.json",
-      "size_bytes": 717,
-      "sha256": "5abe3058002b8aca0317f81731abfa60d7ea0364fb01a9fd9af2f1324633c724"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P005/environmental_input.csv",
-      "size_bytes": 349,
-      "sha256": "55c8caf855adab1e8219d72fbdca32213266f9987997d526d2e56688cb0b235d"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_demo_patients/P005/genetic_input.csv",
-      "size_bytes": 27657,
-      "sha256": "e2315c792968f8e4d85c398910eb08c482227de190ffd912e4b748887acde0a3"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_final_P001_P005_flexible_multimodal_results.csv",
-      "size_bytes": 2500,
-      "sha256": "1e9741b3c71a991f005762ba46a7a0b7abe70a9072d6537fd7a7fa7b275b8b5c"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_final_P001_P005_three_modal_fusion_results.csv",
-      "size_bytes": 932,
-      "sha256": "26c97b3cbcd882223430e1981c7c7ed32e6978462b722af619d00ae0c2b09ef3"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_final_flexible_multimodal_validation_report.txt",
-      "size_bytes": 2987,
-      "sha256": "0430dabf844d7dab1176244ed96f7d332cd970a7c637413d8498e85aec491934"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_final_three_modal_fusion_validation_report.txt",
-      "size_bytes": 1957,
-      "sha256": "c6f4d5864a8bbd667f91eb96dc557c1600c5bec8d135e8fb8046266116e6d998"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_production_inference/M4_2_end_to_end_inference_report.txt",
-      "size_bytes": 1805,
-      "sha256": "a143b77ec4cb9f2cefdfa7f8568c8fd48a448378f88f422363fdd647691c09f9"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_production_inference/M4_3_final_system_validation_report.txt",
-      "size_bytes": 3207,
-      "sha256": "8fc4dc4952158333c20f9fd64721df1dc2654d83e3746e47028ef4d6916ba703"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_production_inference/M4_3_recovered_artifact_paths.json",
-      "size_bytes": 2900,
-      "sha256": "29f3ab9b1d8e60f81f832999ca7fb6ff713c6e4e923b7f8510ec7a42a0ebdb5e"
-    },
-    {
-      "path": "05_multimodal_fusion/M4_production_inference/M4_production_inference_spec.json",
-      "size_bytes": 5068,
-      "sha256": "64a094cd405c472bc87d7c0f3aaa17958a0e075afc5d58cc64992bfaaff9af97"
-    },
-    {
-      "path": "05_multimodal_fusion/behavioral_32d_normalized.npy",
-      "size_bytes": 112768,
-      "sha256": "b0cc528a13054cdacdd3324604f5c857893451be4dd7afe0ba7bfb4f9f83764d"
-    },
-    {
-      "path": "05_multimodal_fusion/behavioral_targets.npy",
-      "size_bytes": 7168,
-      "sha256": "6ae1bd23089f574105bab80a665fec8a27f01a6f5c82d9cf908c770c96cc8a09"
-    },
-    {
-      "path": "05_multimodal_fusion/environmental_32d_normalized.npy",
-      "size_bytes": 6114432,
-      "sha256": "a0be884f99add37a6810bb239078b3d5045a9f3e254567541a0a4c024740b2b7"
-    },
-    {
-      "path": "05_multimodal_fusion/environmental_targets.npy",
-      "size_bytes": 382272,
-      "sha256": "53f33b95a91da1899f6727f3d1add9e66b21c40e3c0a3895ff2b8d4987c4e17d"
-    },
-    {
-      "path": "05_multimodal_fusion/genetic_32d_normalized.npy",
-      "size_bytes": 14976,
-      "sha256": "382f4819d2a502eb7fe0e1d9b6c912d03f1b225342693dbe755a0b013d458d9a"
-    },
-    {
-      "path": "05_multimodal_fusion/genetic_targets.npy",
-      "size_bytes": 1056,
-      "sha256": "f8aa6e9f1643ce92a53a400e4a16f9837b4edeaa64d410f076a9c59438375f23"
-    },
-    {
-      "path": "Behavioral_Model/ 01_raw_data/behavioral_dataset.csv",
-      "size_bytes": 60475,
-      "sha256": "82ab89aa9187651e029568931facc03a484b54cbc5911bb1a6533188d682ff5d"
-    },
-    {
-      "path": "Behavioral_Model/02_preprocessing/behavioral_cleaned_no_leakage.csv",
-      "size_bytes": 56587,
-      "sha256": "7a2921d1a795325b1fbc5c55af57b26902befeabe0f381ef63af5d2f751581c7"
-    },
-    {
-      "path": "Behavioral_Model/02_preprocessing/behavioral_preprocessing_report.txt",
-      "size_bytes": 533,
-      "sha256": "962dc8497eddcb19ba2d88efe983eb541203a45250d372ade889e583e643853c"
-    },
-    {
-      "path": "Behavioral_Model/02_preprocessing/behavioral_preprocessor.joblib",
-      "size_bytes": 4822,
-      "sha256": "9c00c3912ff7691d563e4c280cf557d95e48e36be2f0741e51f06e962fe94527"
-    },
-    {
-      "path": "Behavioral_Model/02_preprocessing/behavioral_processed_feature_names.txt",
-      "size_bytes": 3134,
-      "sha256": "9f60531ecf48b1943d5189814a4ccd5ec20732daa27c824718ab5273fc304b4d"
-    },
-    {
-      "path": "Behavioral_Model/02_preprocessing/behavioral_test_processed_unseen.csv",
-      "size_bytes": 105049,
-      "sha256": "e0a26fe5f1e22baf8da05275bb273b6be5777e307ebd38176e3077b0b7f1114e"
-    },
-    {
-      "path": "Behavioral_Model/02_preprocessing/behavioral_train_processed.csv",
-      "size_bytes": 411644,
-      "sha256": "8c35fed1b8a545758950e0439e9c4379862b270ac85845a779ca004a93e0cf02"
-    },
-    {
-      "path": "Behavioral_Model/03_representation_learning/behavioral_128d_corrected_validation_report.txt",
-      "size_bytes": 1010,
-      "sha256": "b5eab8ce9b0ca22fb75e8eedfe725a5f8bb218fcdfae7710dd5b9bccdb16dac0"
-    },
-    {
-      "path": "Behavioral_Model/03_representation_learning/behavioral_128d_duplicate_embedding_investigation.txt",
-      "size_bytes": 284,
-      "sha256": "2ef12b0429542c714f1f535e2ea05e2744a917ca7be512aa57a626bc25c9c379"
-    },
-    {
-      "path": "Behavioral_Model/03_representation_learning/behavioral_128d_embeddings.csv",
-      "size_bytes": 810351,
-      "sha256": "4de3ea37c5125061b11380913f6f175422a3102bd1512fbf8efa38fd6ce40d61"
-    },
-    {
-      "path": "Behavioral_Model/03_representation_learning/behavioral_128d_training_report.txt",
-      "size_bytes": 400,
-      "sha256": "95e04122c3c18d73d341f353853bb38120a2cad4e16667096869cf08317c65b2"
-    },
-    {
-      "path": "Behavioral_Model/03_representation_learning/behavioral_128d_validation_report.txt",
-      "size_bytes": 794,
-      "sha256": "69bb4aa76fea097efb4e35597c7de510ade2cabdfd4f099d6937ccf77e7e062f"
-    },
-    {
-      "path": "Behavioral_Model/03_representation_learning/behavioral_encoder_128d.pt",
-      "size_bytes": 122067,
-      "sha256": "f409f5c35d34465222bbefe764520fb84163cedda7ea13f0b1e29ea92b15173e"
-    },
-    {
-      "path": "Behavioral_Model/03_representation_learning/behavioral_test_predictions.csv",
-      "size_bytes": 2664,
-      "sha256": "a4c262aae83d92a24f16b2c8eb243e1c3203f43c61f2be6edcb8cd5febcf4bf6"
-    },
-    {
-      "path": "Behavioral_Model/04_cross_modal_alignment/behavioral_128_to_32_alignment.pt",
-      "size_bytes": 92373,
-      "sha256": "ca7153a1e6207e5ca97b4d4d09b38017c2eb32a54e44ea6bfcd9e0994b9ff41e"
-    },
-    {
-      "path": "Behavioral_Model/04_cross_modal_alignment/behavioral_128_to_32_alignment_report.txt",
-      "size_bytes": 1292,
-      "sha256": "db00a6efee1a9a63bdc9e1d1f8dc30d2a39aace9e89e75ec3a4b63744708fee8"
-    },
-    {
-      "path": "Behavioral_Model/04_cross_modal_alignment/behavioral_32d_aligned_representation.csv",
-      "size_bytes": 347485,
-      "sha256": "deb4be6ca87b16e1b31244ba40ec6f8663b4cc686f8aeda28208768b3c0ff84f"
-    },
-    {
-      "path": "Behavioral_Model/04_cross_modal_alignment/behavioral_32d_validation_report.txt",
-      "size_bytes": 4010,
-      "sha256": "f1a439cf9c12d6ce788f7d1ac082c72b21ab6a9caac165b08cf0be54a385af1b"
-    },
-    {
-      "path": "Environmental_Model/01_raw_data/environmental_dataset.csv",
-      "size_bytes": 3592555,
-      "sha256": "5ce07230c2eb33e0485f483b6a7e5e22e8d08da9620af0aa02404a3ea9f44edf"
-    },
-    {
-      "path": "Environmental_Model/02_preprocessing/environmental_cleaned_no_leakage.csv",
-      "size_bytes": 5669716,
-      "sha256": "9a75d67535e201daf71e9ac0fd5621ab6eff384b15a21860185067edd3ee1741"
-    },
-    {
-      "path": "Environmental_Model/02_preprocessing/environmental_preprocessing_report.txt",
-      "size_bytes": 428,
-      "sha256": "3adb87792a1f1fd6109350ff1cba310ad0f2f628b18aa2bc8fbc289f998eda9a"
-    },
-    {
-      "path": "Environmental_Model/02_preprocessing/environmental_preprocessor.joblib",
-      "size_bytes": 2505,
-      "sha256": "e326b480707e551d4d0e1e03ad4d85daff6b501afd9daa4dd07ea78668d5af6f"
-    },
-    {
-      "path": "Environmental_Model/02_preprocessing/environmental_processed_feature_names.txt",
-      "size_bytes": 222,
-      "sha256": "90bac806263010a3cc0edd0e63f20bce5308b79d2be1a2070a51f0fb40a39a6c"
-    },
-    {
-      "path": "Environmental_Model/02_preprocessing/environmental_test_processed_unseen.csv",
-      "size_bytes": 5824450,
-      "sha256": "4cabbc68f2e53f80244644847597f2c49c46a16c23bd29c56b68e55cb021785c"
-    },
-    {
-      "path": "Environmental_Model/02_preprocessing/environmental_train_processed.csv",
-      "size_bytes": 23294266,
-      "sha256": "746f3b5a1ea979843017c32589438087d9b33e0c2cb26790e4909ad33a841290"
-    },
-    {
-      "path": "Environmental_Model/03_representation_learning/environmental_128d_corrected_validation_report.txt",
-      "size_bytes": 840,
-      "sha256": "dcabcf21f38a2423534e77d365084f10f9e7fc985d0444f089bc6cb95c5d48e2"
-    },
-    {
-      "path": "Environmental_Model/03_representation_learning/environmental_128d_duplicate_embedding_investigation.txt",
-      "size_bytes": 886,
-      "sha256": "bae06d2380372006bffd9752be6588a44be27be5e153703f733b7580fad83dc0"
-    },
-    {
-      "path": "Environmental_Model/03_representation_learning/environmental_128d_embeddings.csv",
-      "size_bytes": 44787712,
-      "sha256": "6c07d2573964d07952f5752ccfa0951f90cae65d4eb264e1f80054302500a510"
-    },
-    {
-      "path": "Environmental_Model/03_representation_learning/environmental_128d_training_report.txt",
-      "size_bytes": 503,
-      "sha256": "343214dda3b386378ade06415e01b16abe47d2551b792f4b759fad6f4a92e0fa"
-    },
-    {
-      "path": "Environmental_Model/03_representation_learning/environmental_128d_validation_report.txt",
-      "size_bytes": 918,
-      "sha256": "4234a745400b68f44141019e59f644604200c6d6cdcb0c1fe704e251e08c824e"
-    },
-    {
-      "path": "Environmental_Model/03_representation_learning/environmental_encoder_128d.pt",
-      "size_bytes": 94421,
-      "sha256": "5fa6c40c0fb82655e3cc08790d58382baff27afa002cd81c875d594a5945c471"
-    },
-    {
-      "path": "Environmental_Model/03_representation_learning/environmental_test_predictions.csv",
-      "size_bytes": 185807,
-      "sha256": "912c8e992fd380b4ece04b3f565ce9a49f1c1f601854cbbed03062a4b33911a0"
-    },
-    {
-      "path": "Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment.pt",
-      "size_bytes": 94109,
-      "sha256": "50ac02eef5ee101d49f09bdce363daf10866a092afffaafe2f3b2bdba47bd803"
-    },
-    {
-      "path": "Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment_report.txt",
-      "size_bytes": 2071,
-      "sha256": "a2d3ab77dd5c42d56c76fa7d99669b0cb95e38f03eda5ff3f7d132b10fe8c30c"
-    },
-    {
-      "path": "Environmental_Model/04_cross_modal_alignment/environmental_32d_aligned_representation.csv",
-      "size_bytes": 16271964,
-      "sha256": "4c25207c610ce3a6c049d66dd7581d01fb85ca04ac26140774848f8baae80bff"
-    },
-    {
-      "path": "Environmental_Model/04_cross_modal_alignment/environmental_32d_validation_report.txt",
-      "size_bytes": 987,
-      "sha256": "5715679267a0515549838ec218834885ff2b93cedcc6542a1254216a1d9e9452"
-    },
-    {
-      "path": "Genetic_Model/01_raw_data/Genetic_dataset.csv",
-      "size_bytes": 2255549,
-      "sha256": "92f6aaf6e0ea09765a891bc69ad6f166e08a1941c0ddb7d267f10ef261bdf8c9"
-    },
-    {
-      "path": "Genetic_Model/03_representation_learning/genetic_128d_embeddings.csv",
-      "size_bytes": 166516,
-      "sha256": "4196022e0b78bd9475bfde923fd21735405292df364ac7ea7d3fb35f52ecd7c9"
-    },
-    {
-      "path": "Genetic_Model/03_representation_learning/genetic_transformer_128d.pt",
-      "size_bytes": 1139262,
-      "sha256": "9a4f288a013c1e17bf20fe32a556558a352df3d8c4b63ef19a436eb532182747"
-    },
-    {
-      "path": "Genetic_Model/04_cross_modal_alignment/genetic_128_to_32_alignment.pt",
-      "size_bytes": 46208,
-      "sha256": "57523d76f5f2aa6924279c549d6c73345658dfa1738ebc406ba8e7a1a3b2d3cf"
-    },
-    {
-      "path": "Genetic_Model/04_cross_modal_alignment/genetic_128_to_32_alignment_report.txt",
-      "size_bytes": 1033,
-      "sha256": "53dda874f7e840e05685a0834d4257be63a0d829c4fa883fa8c4363d3137fdc7"
-    },
-    {
-      "path": "Genetic_Model/04_cross_modal_alignment/genetic_32d_aligned_representation.csv",
-      "size_bytes": 44792,
-      "sha256": "e68d731224c62565529a6e583f106aaae429ccc8aa3db0c7cbdaf2c56c987881"
-    },
-    {
-      "path": "Genetic_Model/04_cross_modal_alignment/genetic_32d_validation_report.txt",
-      "size_bytes": 721,
-      "sha256": "e1fb8317965b701a6b759d4882c0a8a4eca918e78a7b056ed1077ad45b1f756e"
-    }
-  ]
+    "project": "ASD Multimodal Project",
+    "package": "ASD_Multimodal_UI",
+    "status": "FROZEN_ML_PROJECT_APPLICATION_PACKAGE",
+    "created": "2026-08-25T10:24:21.378096",
+    "source": "/content/drive/MyDrive/ASD_Multimodal_Project",
+    "critical_artifacts": [
+        {
+            "path": "Environmental_Model/02_preprocessing/environmental_preprocessor.joblib",
+            "size_bytes": 2505,
+            "sha256": "e326b480707e551d4d0e1e03ad4d85daff6b501afd9daa4dd07ea78668d5af6f"
+        },
+        {
+            "path": "Environmental_Model/03_representation_learning/environmental_encoder_128d.pt",
+            "size_bytes": 94421,
+            "sha256": "5fa6c40c0fb82655e3cc08790d58382baff27afa002cd81c875d594a5945c471"
+        },
+        {
+            "path": "Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment.pt",
+            "size_bytes": 94109,
+            "sha256": "50ac02eef5ee101d49f09bdce363daf10866a092afffaafe2f3b2bdba47bd803"
+        },
+        {
+            "path": "05_multimodal_fusion/M3_1_environmental_expert.pt",
+            "size_bytes": 22836,
+            "sha256": "ef9a2122cfcd9a2662d671347ba48d4d7d0a4f913e408ba3fa5be599d3baef1f"
+        },
+        {
+            "path": "05_multimodal_fusion/M3_multimodal_knowledge_fusion.pt",
+            "size_bytes": 61649,
+            "sha256": "2528ad85b5dc5ad33748d8b6f3df71d4378da26516ce436a5f29054860144fe6"
+        },
+        {
+            "path": "05_multimodal_fusion/M3_1_fusion_weights.csv",
+            "size_bytes": 191,
+            "sha256": "24d025af69cd8a104c13e11821075ef139304c8246d59481a69b280d84c59a13"
+        },
+        {
+            "path": "05_multimodal_fusion/M4_final_P001_P005_three_modal_fusion_results.csv",
+            "size_bytes": 932,
+            "sha256": "26c97b3cbcd882223430e1981c7c7ed32e6978462b722af619d00ae0c2b09ef3"
+        },
+        {
+            "path": "05_multimodal_fusion/M4_final_P001_P005_flexible_multimodal_results.csv",
+            "size_bytes": 2500,
+            "sha256": "1e9741b3c71a991f005762ba46a7a0b7abe70a9072d6537fd7a7fa7b275b8b5c"
+        }
+    ],
+    "demo_patients": [
+        "P001",
+        "P002",
+        "P003",
+        "P004",
+        "P005"
+    ],
+    "modalities": [
+        "Genetic",
+        "Behavioral",
+        "Environmental"
+    ],
+    "fusion_weights": {
+        "Genetic": 0.31937,
+        "Behavioral": 0.400219,
+        "Environmental": 0.280411
+    },
+    "important_rule": "Frozen ML artifacts must not be modified or retrained."
 }
