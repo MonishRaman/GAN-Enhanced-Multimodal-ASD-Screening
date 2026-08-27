@@ -1,0 +1,12 @@
+STEP 27 — GENETIC 128-D EMBEDDING REPORT
+============================================================
+
+Samples: 116
+Input Features: 1000
+Transformer Embedding Dimension: 128
+Output Shape: torch.Size([116, 128])
+ASD Samples: 87
+Control Samples: 29
+
+Representation:
+Genetic expression features -> Transformer Encoder -> 128-D Genetic Feature Vector

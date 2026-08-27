@@ -1,0 +1,22 @@
+STEP 37 — CTGAN VS CUSTOM GAN VALIDATION
+======================================================================
+
+Real training samples: 92
+Real control samples: 23
+Custom GAN synthetic samples: 46
+CTGAN synthetic samples: 46
+Embedding dimensions: 128
+
+DISTRIBUTION SIMILARITY
+    Method  Mean_KS  Median_KS  KS_p_ge_0.05  Mean_Absolute_Mean_Difference  Mean_Absolute_STD_Difference  Mean_Nearest_Real_Distance  Median_Nearest_Real_Distance  Mean_Synthetic_Pairwise_Distance  Median_Synthetic_Pairwise_Distance
+Custom_GAN 0.270041   0.260870      0.757812                       0.339012                      0.176859                   11.158776                     10.966974                         13.999638                           13.670538
+     CTGAN 0.717052   0.706522      0.000000                       0.803427                      0.865122                   14.438578                     14.445247                          1.222092                            1.221694
+
+DOWNSTREAM UTILITY
+                Method  Training_Samples  Accuracy  Balanced_Accuracy  Precision   Recall  F1_Score  ROC_AUC
+       Baseline_No_GAN                92  0.666667           0.555556   0.777778 0.777778  0.777778 0.638889
+Custom_Conditional_GAN               138  0.583333           0.555556   0.785714 0.611111  0.687500 0.666667
+                 CTGAN               138  0.666667           0.555556   0.777778 0.777778  0.777778 0.694444
+
+INTERPRETATION
+CTGAN and the custom conditional GAN were evaluated against the same real training control embeddings and the same unseen test set.

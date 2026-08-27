@@ -1,0 +1,62 @@
+
+STEP 38 — GENETIC 128-D TO 32-D ALIGNMENT REPORT
+
+Input
+-----
+Input file:
+D:\org genetical data\genetics\outputs\genetic_embedding\objective2_input\genetic_objective2_input.csv
+
+Samples:
+116
+
+Input genetic embedding dimensions:
+128
+
+Classes:
+ASD = 87
+Control = 29
+
+Alignment Architecture
+-----------------------
+Linear(128 -> 64)
+BatchNorm1d(64)
+ReLU
+Linear(64 -> 32)
+
+Output
+------
+Output dimensions:
+32
+
+Output shape:
+(116, 34)
+
+Quality Checks
+--------------
+Input NaN values:
+0
+
+Input Inf values:
+0
+
+Output NaN values:
+0
+
+Output Inf values:
+0
+
+Duplicate sample IDs:
+0
+
+Output File
+-----------
+D:\org genetical data\genetics\outputs\objective2_genetic\cross_modal_alignment\genetic_32d_aligned_representation.csv
+
+Model File
+----------
+D:\org genetical data\genetics\outputs\objective2_genetic\cross_modal_alignment\genetic_128_to_32_alignment.pt
+
+Status
+------
+Genetic 128-D representation successfully projected
+to a 32-D representation for cross-modal alignment.

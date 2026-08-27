@@ -1,0 +1,40 @@
+STEP 34 — GENETIC EMBEDDING SYNTHETIC VALIDATION
+======================================================================
+
+DATASET
+----------------------------------------------------------------------
+Real Control samples: 69
+Synthetic Control samples: 46
+Embedding dimensions: 128
+
+BASIC QUALITY
+----------------------------------------------------------------------
+Real Control NaN: 0
+Synthetic NaN: 0
+Real Control Inf: 0
+Synthetic Inf: 0
+Synthetic duplicates: 0
+
+DISTRIBUTION SIMILARITY
+----------------------------------------------------------------------
+Mean KS statistic: 0.100430
+Median KS statistic: 0.101449
+KS p >= 0.05 proportion: 1.0000
+Mean absolute mean difference: 0.113004
+Mean absolute STD difference: 0.073660
+
+DISTANCE AND DIVERSITY
+----------------------------------------------------------------------
+Mean nearest-real distance: 0.000000
+Median nearest-real distance: 0.000000
+Synthetic mean pairwise distance: 14.802486
+Synthetic median pairwise distance: 14.559673
+
+FINAL STATUS
+----------------------------------------------------------------------
+Basic validation: PASSED
+Distributional status: GOOD
+
+INTERPRETATION
+----------------------------------------------------------------------
+Synthetic Control embeddings show a strong distributional match with real Control embeddings and pass the basic quality checks.

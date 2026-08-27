@@ -1,0 +1,16 @@
+STEP 28 — TRAINED GENETIC TRANSFORMER
+============================================================
+
+Samples: 116
+Input Features: 1000
+Transformer Tokens: 32
+Transformer Layers: 1
+Attention Heads: 4
+Embedding Dimension: 128
+Cross Validation: Stratified 5-Fold
+Overall OOF Accuracy: 0.7931
+Overall OOF ROC-AUC: 0.8676
+Embedding Shape: (116, 128)
+
+Pipeline:
+1000 genetic features -> 32 compressed genetic tokens -> Transformer Encoder -> 128-D genetic representation

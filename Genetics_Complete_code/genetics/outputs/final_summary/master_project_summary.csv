@@ -1,0 +1,17 @@
+Stage,Metric,Value
+Dataset,Total samples,116
+Dataset,ASD samples,87
+Dataset,Control samples,29
+Preprocessing,Original probes,41472
+Preprocessing,Probes after 75% missingness filter,33357
+Preprocessing,KNN neighbors,5
+Preprocessing,Post-imputation missing values,0
+Preprocessing,Z-score mean after normalization,0
+Preprocessing,Z-score standard deviation after normalization,1
+Feature selection,Mutual Information selected,1000
+Feature stability,Features selected in >=3 folds,13
+Feature stability,Features selected in >=4 folds,2
+Feature stability,Features selected in all 5 folds,0
+Annotation,Gene-annotated stable features,6
+Statistics,Nominal p < 0.05,7
+Statistics,FDR < 0.05,4

@@ -1,0 +1,116 @@
+
+STEP 31 — GENETIC CONDITIONAL GAN
+=================================
+
+Objective
+---------
+Generate synthetic minority-class genetic samples to balance
+the Objective-2 genetic training dataset.
+
+Input
+-----
+D:\org genetical data\genetics\outputs\objective2_genetic\train_test_split\genetic_train_1000_features.csv
+
+Training data
+-------------
+Samples: 92
+Features: 1000
+
+Real ASD samples:
+69
+
+Real Control samples:
+23
+
+Minority class:
+Control (Target=0)
+
+Synthetic samples required:
+46
+
+GAN configuration
+-----------------
+Architecture:
+Conditional GAN
+
+Generator:
+Latent dimension: 128
+Hidden dimension: 256
+Output dimension: 1000
+
+Discriminator:
+Input dimension: 1000
+Conditional label embedding: 32
+
+Optimizer:
+Adam
+
+Learning rate:
+0.0002
+
+Loss:
+Binary Cross Entropy with Logits
+
+Epochs:
+800
+
+Batch size:
+8
+
+Training device:
+cpu
+
+Data leakage protection
+-----------------------
+Only the 92 training samples were used.
+
+The unseen 24-sample test dataset was NOT loaded,
+accessed, or used during GAN training.
+
+Synthetic data
+--------------
+Synthetic Control samples:
+46
+
+Synthetic NaN values:
+0
+
+Synthetic Inf values:
+0
+
+Balanced dataset
+----------------
+Real ASD:
+69
+
+Real Control:
+23
+
+Synthetic Control:
+46
+
+Final ASD:
+69
+
+Final Control:
+69
+
+Output files
+------------
+Synthetic Control samples:
+D:\org genetical data\genetics\outputs\objective2_genetic\conditional_gan\synthetic_control_samples.csv
+
+Balanced genetic training dataset:
+D:\org genetical data\genetics\outputs\objective2_genetic\conditional_gan\genetic_balanced_training_dataset.csv
+
+GAN model:
+D:\org genetical data\genetics\outputs\objective2_genetic\conditional_gan\genetic_conditional_gan.pt
+
+Scaler:
+D:\org genetical data\genetics\outputs\objective2_genetic\conditional_gan\genetic_gan_scaler.npz
+
+Training losses:
+D:\org genetical data\genetics\outputs\objective2_genetic\conditional_gan\gan_training_losses.csv
+
+Report:
+D:\org genetical data\genetics\outputs\objective2_genetic\conditional_gan\genetic_conditional_gan_report.txt

@@ -1,0 +1,23 @@
+STEP 29 — GENETIC EMBEDDING VALIDATION REPORT
+============================================================
+
+Input file: D:\org genetical data\genetics\outputs\genetic_embedding\genetic_128d_embeddings_trained_oof.csv
+Output file: D:\org genetical data\genetics\outputs\genetic_embedding\objective2_input\genetic_objective2_input.csv
+
+Samples: 116
+Embedding dimensions: 128
+Sample ID column: GSM_ID
+Label column: Target
+
+NaN values: 0
+Infinite values: 0
+Duplicate sample IDs: 0
+Missing sample IDs: 0
+
+Label distribution:
+  1: 87
+  0: 29
+
+VALIDATION STATUS: PASSED
+
+The 128-dimensional genetic embedding is ready for Objective 2 cross-modal representation alignment.
