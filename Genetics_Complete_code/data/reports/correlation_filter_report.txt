@@ -1,0 +1,9 @@
+============================================================
+CORRELATION FILTER REPORT
+============================================================
+
+Threshold : 0.95
+
+Original Features : 1000
+Remaining Features : 1000
+Removed Features : 0

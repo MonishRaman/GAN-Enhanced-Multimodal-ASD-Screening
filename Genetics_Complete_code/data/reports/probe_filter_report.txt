@@ -1,0 +1,10 @@
+============================================================
+PROBE FILTER REPORT
+============================================================
+
+Threshold Used : 75%
+
+Original Probes : 41472
+Removed Probes : 8115
+Remaining Probes : 33357
+Removed Percentage : 19.57%

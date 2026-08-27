@@ -1,0 +1,9 @@
+============================================================
+VARIANCE THRESHOLD REPORT
+============================================================
+
+Threshold : 0.01
+
+Original Features : 33357
+Remaining Features : 33357
+Removed Features : 0
