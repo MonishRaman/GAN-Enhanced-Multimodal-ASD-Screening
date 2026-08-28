@@ -1,0 +1,227 @@
+STEP 24 — BIOLOGICAL INTERPRETATION
+======================================================================
+
+This step integrates the machine-learning feature stability and statistical evidence with verified gene annotations.
+
+Important annotation correction:
+FLJ20489 is treated as a historical alias of SLC48A1.
+
+GENE INTERPRETATIONS
+======================================================================
+
+Gene: FGFR1
+Probe: 269,34
+Selection frequency: 4/5
+Direction: Higher_in_ASD
+Cohen's d: 0.7391792636129251
+FDR p-value: 0.005805736843694
+Mann-Whitney FDR: 0.0027764500332986
+Biological priority: Highest_Priority
+Function: Fibroblast growth factor receptor involved in FGF signaling and receptor tyrosine kinase signaling.
+Context: Growth-factor signaling, development, cell proliferation and differentiation.
+ASD evidence: Independent ASD candidate-gene evidence was identified during interpretation.
+Interpretation: Highest-priority candidate because of high feature-selection stability, statistically significant expression difference and independent ASD evidence.
+Caution: This study does not establish causality or prove that FGFR1 expression changes in brain tissue.
+
+----------------------------------------------------------------------
+
+Gene: SLC48A1
+Probe: 332,50
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.9805600827738
+FDR p-value: 0.0015707774785706
+Mann-Whitney FDR: 0.0007879453231492
+Biological priority: High_Statistical_Priority
+Function: Intracellular heme transporter involved in heme availability and iron-related cellular processes.
+Context: Heme transport, iron homeostasis and intracellular transport.
+ASD evidence: No strong ASD-specific evidence was established in this analysis.
+Interpretation: Interesting metabolic and transport-related candidate requiring further investigation.
+Caution: FLJ20489 is treated as a historical alias of SLC48A1 in this analysis.
+
+----------------------------------------------------------------------
+
+Gene: Not assigned
+Probe: 333,40
+Selection frequency: 3/5
+Direction: Higher_in_ASD
+Cohen's d: 0.5511711700833806
+FDR p-value: 0.0157381125946338
+Mann-Whitney FDR: 0.0027764500332986
+Biological priority: High_Statistical_Priority
+Function: <NA>
+Context: <NA>
+ASD evidence: <NA>
+Interpretation: <NA>
+Caution: <NA>
+
+----------------------------------------------------------------------
+
+Gene: Not assigned
+Probe: 172,48
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.6326999662467465
+FDR p-value: 0.0173590020894035
+Mann-Whitney FDR: 0.0181920033072949
+Biological priority: High_Statistical_Priority
+Function: <NA>
+Context: <NA>
+ASD evidence: <NA>
+Interpretation: <NA>
+Caution: <NA>
+
+----------------------------------------------------------------------
+
+Gene: Not assigned
+Probe: 8,65
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.4422225952280296
+FDR p-value: 0.0561378836360324
+Mann-Whitney FDR: 0.0962343346025853
+Biological priority: Exploratory_Priority
+Function: <NA>
+Context: <NA>
+ASD evidence: <NA>
+Interpretation: <NA>
+Caution: <NA>
+
+----------------------------------------------------------------------
+
+Gene: Not assigned
+Probe: 76,52
+Selection frequency: 3/5
+Direction: Higher_in_ASD
+Cohen's d: 0.5732433308042061
+FDR p-value: 0.0586189118152378
+Mann-Whitney FDR: 0.0027764500332986
+Biological priority: Exploratory_Priority
+Function: <NA>
+Context: <NA>
+ASD evidence: <NA>
+Interpretation: <NA>
+Caution: <NA>
+
+----------------------------------------------------------------------
+
+Gene: GALE
+Probe: 7,11
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.4652074356305131
+FDR p-value: 0.0788731910104288
+Mann-Whitney FDR: 0.0462644620813263
+Biological priority: Exploratory_Priority
+Function: UDP-galactose-4-epimerase involved in galactose and nucleotide-sugar metabolism.
+Context: Galactose metabolism and nucleotide-sugar metabolism.
+ASD evidence: No strong ASD-specific evidence was established in this analysis.
+Interpretation: Potential metabolic candidate that remains hypothesis-generating.
+Caution: Nominal statistical significance should not be interpreted as confirmed ASD association.
+
+----------------------------------------------------------------------
+
+Gene: UBAP1
+Probe: 296,3
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.3264942050942057
+FDR p-value: 0.0977392764262972
+Mann-Whitney FDR: 0.1156567503926753
+Biological priority: Exploratory_Priority
+Function: Ubiquitin-associated protein involved in cellular trafficking and endosomal processes.
+Context: Endosomal trafficking and ubiquitin-associated cellular biology.
+ASD evidence: No strong ASD-specific evidence was established in this analysis.
+Interpretation: Potentially relevant to cellular biology but requires additional validation.
+Caution: Should not be described as an established ASD gene from this dataset alone.
+
+----------------------------------------------------------------------
+
+Gene: BDH1
+Probe: 345,29
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.2840760170025969
+FDR p-value: 0.2813530201644899
+Mann-Whitney FDR: 0.229400381353071
+Biological priority: Low_Priority
+Function: Enzyme involved in beta-hydroxybutyrate and ketone-body metabolism.
+Context: Ketone-body and cellular energy metabolism.
+ASD evidence: No strong ASD-specific evidence was established in this analysis.
+Interpretation: Potential metabolic signal, but statistical evidence is limited.
+Caution: Should be considered hypothesis-generating.
+
+----------------------------------------------------------------------
+
+Gene: Not assigned
+Probe: 374,29
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.2314555481317721
+FDR p-value: 0.2912292602062358
+Mann-Whitney FDR: 0.2663732642516646
+Biological priority: Low_Priority
+Function: <NA>
+Context: <NA>
+ASD evidence: <NA>
+Interpretation: <NA>
+Caution: <NA>
+
+----------------------------------------------------------------------
+
+Gene: Not assigned
+Probe: 224,61
+Selection frequency: 4/5
+Direction: Higher_in_ASD
+Cohen's d: 0.1350480890095811
+FDR p-value: 0.4746729317745867
+Mann-Whitney FDR: 0.2663732642516646
+Biological priority: Low_Priority
+Function: <NA>
+Context: <NA>
+ASD evidence: <NA>
+Interpretation: <NA>
+Caution: <NA>
+
+----------------------------------------------------------------------
+
+Gene: Not assigned
+Probe: 183,50
+Selection frequency: 3/5
+Direction: Lower_in_ASD
+Cohen's d: -0.1515491477192704
+FDR p-value: 0.4746729317745867
+Mann-Whitney FDR: 0.2663732642516646
+Biological priority: Low_Priority
+Function: <NA>
+Context: <NA>
+ASD evidence: <NA>
+Interpretation: <NA>
+Caution: <NA>
+
+----------------------------------------------------------------------
+
+Gene: KLK10
+Probe: 319,5
+Selection frequency: 3/5
+Direction: Higher_in_ASD
+Cohen's d: 0.0228560947649527
+FDR p-value: 0.8909382982831409
+Mann-Whitney FDR: 0.3356702308383082
+Biological priority: Low_Priority
+Function: Secreted serine protease belonging to the kallikrein family.
+Context: Extracellular proteolysis and secreted protein biology.
+ASD evidence: No strong ASD-specific evidence was established in this analysis.
+Interpretation: Low-priority candidate because the observed expression difference was very small.
+Caution: ML stability alone does not establish biological importance.
+
+----------------------------------------------------------------------
+
+OVERALL CONCLUSION
+======================================================================
+
+FGFR1 represents the highest-priority candidate in the integrated analysis because it combines strong machine-learning stability with statistically significant expression differences and independent ASD-related evidence.
+
+The remaining genes are treated as exploratory candidates. The analysis does not establish causality, diagnostic utility, or a clinical biomarker.
+
+The study uses lymphoblastoid cell-line expression data, therefore expression differences should not automatically be interpreted as equivalent to gene-expression changes in human brain tissue.

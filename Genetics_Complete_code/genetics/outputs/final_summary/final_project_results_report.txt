@@ -1,0 +1,67 @@
+FINAL GENETIC MACHINE LEARNING PROJECT REPORT
+================================================================================
+
+1. DATASET
+--------------------------------------------------------------------------------
+Total samples: 116
+ASD samples: 87
+Control samples: 29
+Original probes: 41,472
+Final probes after missingness filtering: 33,357
+
+2. PREPROCESSING
+--------------------------------------------------------------------------------
+Probe missingness threshold: 75%
+Removed probes: 8,115
+KNN imputation: k = 5
+Missing values after imputation: 0
+Z-score normalization performed
+Post-normalization mean ≈ 0
+Post-normalization standard deviation = 1
+
+3. FEATURE SELECTION
+--------------------------------------------------------------------------------
+Mutual Information selected the top 1,000 features.
+Features stable in >=3/5 folds: 13
+Features stable in >=4/5 folds: 2
+Features stable in all 5 folds: 0
+
+4. STATISTICAL VALIDATION
+--------------------------------------------------------------------------------
+Stable features tested: 13
+Nominal p < 0.05: 7
+FDR < 0.05: 4
+Welch's t-test and Mann-Whitney testing were used.
+
+5. VERIFIED GENE CANDIDATES
+--------------------------------------------------------------------------------
+- BDH1
+- FGFR1
+- GALE
+- KLK10
+- SLC48A1
+- UBAP1
+
+6. PRIMARY CANDIDATE
+--------------------------------------------------------------------------------
+FGFR1
+
+FGFR1 was identified as the primary candidate based on the combination of feature-selection stability, statistical evidence and biological annotation.
+
+7. IMPORTANT SCIENTIFIC LIMITATIONS
+--------------------------------------------------------------------------------
+The dataset contains 116 samples and is class-imbalanced (87 ASD and 29 controls).
+
+The machine-learning results therefore require cautious interpretation and should not be treated as clinical diagnostic performance.
+
+The leakage-safe Transformer evaluation produced weak generalization performance. Classical models and the feature-size experiment showed stronger validation performance.
+
+The expression measurements originate from lymphoblastoid cell-line material. Therefore, the observed expression differences should not automatically be interpreted as equivalent to expression changes in human brain tissue.
+
+The identified genes are research candidates and do not establish causality or clinical biomarkers.
+
+8. REPRODUCIBILITY
+--------------------------------------------------------------------------------
+All intermediate datasets, reports and model outputs should be retained together with the source scripts.
+
+This allows the complete analysis to be traced from the original GEO samples through preprocessing, feature selection, machine-learning validation, gene annotation, statistical validation and biological interpretation.

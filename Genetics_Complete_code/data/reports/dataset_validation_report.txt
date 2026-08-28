@@ -1,0 +1,15 @@
+============================================================
+DATASET VALIDATION REPORT
+============================================================
+
+Dataset Shape : (116, 33361)
+Samples : 116
+Features : 33357
+
+Missing Values : 0
+Duplicate Samples : 0
+Duplicate Features : 0
+Non Numeric Features : 0
+
+Autism : 87
+Control : 29

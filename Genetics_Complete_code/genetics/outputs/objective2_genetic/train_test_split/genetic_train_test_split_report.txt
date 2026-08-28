@@ -1,0 +1,66 @@
+
+STEP 30 — GENETIC TRAIN / TEST SPLIT
+====================================
+
+Dataset
+-------
+Total samples: 116
+Total features including metadata: 33361
+
+Label column:
+Target
+
+Sample ID column:
+GSM_ID
+
+Original class distribution
+---------------------------
+ASD (Class 1): 87
+Control (Class 0): 29
+
+Train/Test Split
+----------------
+Method: Stratified train_test_split
+Training fraction: 80%
+Test fraction: 20%
+Random state: 42
+
+Training samples: 92
+Test samples: 24
+
+Training class distribution
+---------------------------
+ASD (Class 1): 69
+Control (Class 0): 23
+
+Test class distribution
+-----------------------
+ASD (Class 1): 18
+Control (Class 0): 6
+
+Minority class
+--------------
+Class: 0
+
+Majority class
+--------------
+Class: 1
+
+Leakage protection
+------------------
+The test set is completely excluded from:
+1. Conditional GAN training
+2. Synthetic sample generation
+3. Genetic encoder training
+4. Hyperparameter tuning
+5. Training-set balancing
+
+The test set will only be used for final evaluation.
+
+Output files
+------------
+Training:
+D:\org genetical data\genetics\outputs\objective2_genetic\train_test_split\genetic_train.csv
+
+Unseen test:
+D:\org genetical data\genetics\outputs\objective2_genetic\train_test_split\genetic_test_unseen.csv

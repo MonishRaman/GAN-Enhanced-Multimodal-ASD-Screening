@@ -1,0 +1,25 @@
+============================================================
+MISSING VALUE DISTRIBUTION
+============================================================
+Total Probes : 41472
+Average Missing % : 32.33
+Median Missing % : 12.93
+Maximum Missing % : 100.00
+
+Probes > 50% Missing : 12773
+Probes > 75% Missing : 8115
+Probes > 90% Missing : 6204
+
+Top 10 Most Missing Probes
+
+Position  Missing_Count  Missing_Percentage
+  349,55            116               100.0
+  341,83            116               100.0
+  301,84            116               100.0
+ 190,108            116               100.0
+  343,67            116               100.0
+  327,32            116               100.0
+  343,54            116               100.0
+  347,55            116               100.0
+ 180,108            116               100.0
+  310,82            116               100.0

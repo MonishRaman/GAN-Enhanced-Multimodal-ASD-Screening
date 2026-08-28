@@ -51,3 +51,7 @@ The backend will load the existing trained artifacts and expose
 local inference APIs.
 
 The frontend will communicate with the backend through localhost.
+
+backend: python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+
+frontend: python -m http.server 5500 --directory frontend

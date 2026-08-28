@@ -1,0 +1,99 @@
+STEP 36 — GENETIC GAN AUGMENTATION SENSITIVITY
+======================================================================
+
+Purpose:
+Evaluate how different quantities of GAN-generated Control embeddings affect downstream genetic classification performance.
+
+Original training data:
+69 ASD + 23 Control = 92 samples.
+
+Synthetic augmentation pool:
+46 synthetic Control embeddings.
+
+Unseen test data:
+18 ASD + 6 Control = 24 real samples.
+
+Important methodological statement:
+The 24-sample test set was not used for GAN training. The GAN was trained using only the original training set. The test set remained unseen during synthetic sample generation.
+
+A fixed random ordering of the synthetic samples was used so that the augmentation levels were reproducible.
+
+RESULTS
+----------------------------------------------------------------------
+
+Baseline_No_GAN
+Synthetic Controls : 0
+Training Samples   : 92
+Accuracy           : 0.9167
+Balanced Accuracy  : 0.8333
+Precision          : 0.9000
+Recall             : 1.0000
+F1-score           : 0.9474
+ROC-AUC            : 0.9259
+Accuracy Change    : +0.0000
+Balanced Acc Change: +0.0000
+F1 Change          : +0.0000
+ROC-AUC Change     : +0.0000
+
+GAN_Augmented_10_Synthetic_Control
+Synthetic Controls : 10
+Training Samples   : 102
+Accuracy           : 0.9167
+Balanced Accuracy  : 0.8333
+Precision          : 0.9000
+Recall             : 1.0000
+F1-score           : 0.9474
+ROC-AUC            : 0.9074
+Accuracy Change    : +0.0000
+Balanced Acc Change: +0.0000
+F1 Change          : +0.0000
+ROC-AUC Change     : -0.0185
+
+GAN_Augmented_20_Synthetic_Control
+Synthetic Controls : 20
+Training Samples   : 112
+Accuracy           : 0.9167
+Balanced Accuracy  : 0.8889
+Precision          : 0.9444
+Recall             : 0.9444
+F1-score           : 0.9444
+ROC-AUC            : 0.9074
+Accuracy Change    : +0.0000
+Balanced Acc Change: +0.0556
+F1 Change          : -0.0029
+ROC-AUC Change     : -0.0185
+
+GAN_Augmented_30_Synthetic_Control
+Synthetic Controls : 30
+Training Samples   : 122
+Accuracy           : 0.8750
+Balanced Accuracy  : 0.8611
+Precision          : 0.9412
+Recall             : 0.8889
+F1-score           : 0.9143
+ROC-AUC            : 0.9074
+Accuracy Change    : -0.0417
+Balanced Acc Change: +0.0278
+F1 Change          : -0.0331
+ROC-AUC Change     : -0.0185
+
+GAN_Augmented_46_Synthetic_Control
+Synthetic Controls : 46
+Training Samples   : 138
+Accuracy           : 0.8333
+Balanced Accuracy  : 0.7778
+Precision          : 0.8889
+Recall             : 0.8889
+F1-score           : 0.8889
+ROC-AUC            : 0.8981
+Accuracy Change    : -0.0833
+Balanced Acc Change: -0.0556
+F1 Change          : -0.0585
+ROC-AUC Change     : -0.0278
+
+INTERPRETATION
+----------------------------------------------------------------------
+
+This experiment is a sensitivity analysis of the genetic GAN augmentation level. It should not be interpreted as test-set hyperparameter optimization. The unseen test set is retained as an independent evaluation set for reporting generalization behavior.
+
+The results should be considered together with the synthetic-data distribution validation from Step 34 and the downstream utility validation from Step 35.

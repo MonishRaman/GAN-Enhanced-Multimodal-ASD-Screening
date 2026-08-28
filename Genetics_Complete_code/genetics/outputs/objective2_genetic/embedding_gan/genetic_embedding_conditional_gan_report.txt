@@ -1,0 +1,24 @@
+STEP 33 — EMBEDDING-SPACE GENETIC CONDITIONAL GAN
+======================================================================
+
+Total samples : 116
+Training samples : 92
+Unseen test samples : 24
+Embedding dimensions : 128
+
+TRAINING CLASS DISTRIBUTION
+ASD : 69
+Control : 23
+Synthetic Control : 46
+
+FINAL BALANCE
+ASD : 69
+Control : 69
+
+SYNTHETIC QUALITY
+NaN values : 0
+Inf values : 0
+Duplicate synthetic samples : 0
+
+IMPORTANT
+This step generates synthetic genetic embeddings for the minority class. Synthetic quality must be independently validated before these samples are used in downstream multimodal training.

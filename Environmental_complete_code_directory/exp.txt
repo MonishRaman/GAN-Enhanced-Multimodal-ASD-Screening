@@ -1,0 +1,22 @@
+The important point is that the code itself has a structure:
+
+K2 → refers to a particular section/question area in the NSCH questionnaire.
+Q35 → question 35 within that section.
+A → the first part/response variable of that question.
+
+For K2Q35A, the NSCH documentation identifies it as “Autism ASD”. The question asks whether a doctor or other health-care provider has ever told the respondent that the child has Autism or Autism Spectrum Disorder (ASD), including Asperger's Disorder or Pervasive Developmental Disorder (PDD).
+
+Its response coding is:
+
+K2Q35A
+
+1 = Yes
+2 = No
+
+The related variables follow the same naming scheme:
+
+K2Q35A       → Autism ASD
+K2Q35A_1_YEARS → Age when first told
+K2Q35B       → Autism ASD Currently
+K2Q35C       → Autism ASD Severity
+K2Q35D       → Type of doctor/provider who first told them

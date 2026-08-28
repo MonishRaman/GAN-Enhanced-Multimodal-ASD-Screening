@@ -1,0 +1,14 @@
+============================================================
+LABEL EXTRACTION REPORT
+============================================================
+
+Total Samples : 116
+Autism : 87
+Control : 29
+Unknown : 0
+
+Subtype
+Severe Language Impaired    31
+Savant                      30
+Control                     29
+Mild                        26

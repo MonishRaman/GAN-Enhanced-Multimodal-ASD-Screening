@@ -1,0 +1,35 @@
+STEP 26 — FINAL VISUALIZATION SUMMARY
+======================================================================
+
+Dataset
+116 samples
+87 ASD
+29 Control
+
+Feature selection
+33,357 filtered probes
+1,000 MI-selected features
+13 stable features selected in >=3 folds
+
+Best feature-size ROC-AUC
+100 features: 0.7684
+
+Best feature-size accuracy
+250 features: 0.7076
+
+Best classical ROC-AUC
+Logistic Regression: 0.7501
+
+Statistical validation
+7 nominally significant features
+4 FDR-significant features
+
+Primary biological candidate
+FGFR1
+
+Other annotated candidates
+UBAP1
+SLC48A1
+BDH1
+KLK10
+GALE

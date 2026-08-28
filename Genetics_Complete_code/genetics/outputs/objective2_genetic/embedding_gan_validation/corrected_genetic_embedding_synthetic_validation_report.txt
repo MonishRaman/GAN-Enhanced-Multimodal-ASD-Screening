@@ -1,0 +1,45 @@
+STEP 34 — CORRECTED GENETIC EMBEDDING SYNTHETIC VALIDATION
+======================================================================
+
+IMPORTANT VALIDATION DESIGN
+----------------------------------------------------------------------
+The comparison uses only the 23 genuine Control embeddings from the original training set as the real reference.
+The 46 synthetic Control embeddings are evaluated separately.
+
+DATASET
+----------------------------------------------------------------------
+Real Control samples: 23
+Synthetic Control samples: 46
+Embedding dimensions: 128
+
+QUALITY
+----------------------------------------------------------------------
+Real Control NaN: 0
+Synthetic NaN: 0
+Real Control Inf: 0
+Synthetic Inf: 0
+Synthetic duplicates: 0
+
+DISTRIBUTION SIMILARITY
+----------------------------------------------------------------------
+Mean KS statistic: 0.270041
+Median KS statistic: 0.260870
+KS p >= 0.05 proportion: 0.7578
+Mean absolute mean difference: 0.339012
+Mean absolute STD difference: 0.176859
+
+DISTANCE AND DIVERSITY
+----------------------------------------------------------------------
+Mean nearest-real distance: 12.344618
+Median nearest-real distance: 12.151350
+Synthetic mean pairwise distance: 14.521449
+Synthetic median pairwise distance: 14.299779
+
+FINAL STATUS
+----------------------------------------------------------------------
+Basic validation: PASSED
+Distributional status: ACCEPTABLE_WITH_CAUTION
+
+INTERPRETATION
+----------------------------------------------------------------------
+The synthetic Control embeddings show moderate similarity to genuine Control embeddings. They may be useful for augmentation but should undergo downstream validation.

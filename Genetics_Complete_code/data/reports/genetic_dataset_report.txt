@@ -1,0 +1,13 @@
+============================================================
+FINAL GENETIC DATASET REPORT
+============================================================
+
+Samples            : 116
+Genetic Features   : 33357
+Dataset Shape      : (116, 33361)
+
+Autism             : 87
+Control            : 29
+
+Missing Labels     : 0
+Duplicate Samples  : 0

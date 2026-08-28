@@ -1,0 +1,52 @@
+STEP 35 — GENETIC GAN DOWNSTREAM UTILITY VALIDATION
+======================================================================
+
+Objective:
+Evaluate whether GAN-generated synthetic Control genetic embeddings improve or preserve downstream ASD classification performance.
+
+Data split:
+The original training set contains 92 samples (69 ASD, 23 Control).
+The unseen test set contains 24 samples (18 ASD, 6 Control).
+The unseen test set was kept completely isolated from GAN training and augmentation.
+
+Synthetic augmentation:
+46 synthetic Control embeddings were added to the original training data.
+Augmented training dataset: 138 samples (69 ASD, 69 Control).
+
+MODEL RESULTS
+----------------------------------------------------------------------
+
+Original Training Data
+Accuracy          : 0.9167
+Balanced Accuracy : 0.8333
+Precision         : 0.9000
+Recall            : 1.0000
+F1-score          : 0.9474
+ROC-AUC           : 0.9259
+Confusion Matrix: TN=4, FP=2, FN=0, TP=18
+
+GAN Augmented Training Data
+Accuracy          : 0.8333
+Balanced Accuracy : 0.7778
+Precision         : 0.8889
+Recall            : 0.8889
+F1-score          : 0.8889
+ROC-AUC           : 0.8981
+Confusion Matrix: TN=4, FP=2, FN=2, TP=16
+
+
+METRIC CHANGES
+----------------------------------------------------------------------
+Accuracy_Change: -0.0833
+Balanced_Accuracy_Change: -0.0556
+Precision_Change: -0.0111
+Recall_Change: -0.1111
+F1_Change: -0.0585
+ROC_AUC_Change: -0.0278
+
+
+FINAL UTILITY ASSESSMENT
+----------------------------------------------------------------------
+Status: HARMFUL
+
+GAN augmentation reduced downstream performance. The synthetic embeddings should not be considered validated for downstream augmentation without further investigation.

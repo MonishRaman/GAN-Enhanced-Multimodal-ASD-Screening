@@ -1,0 +1,9 @@
+============================================================
+KNN IMPUTATION REPORT
+============================================================
+
+K Neighbors : 5
+Weights     : uniform
+
+Missing Before : 681564
+Missing After  : 0

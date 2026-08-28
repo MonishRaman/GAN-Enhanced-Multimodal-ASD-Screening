@@ -1,0 +1,36 @@
+STEP 39 — GENETIC 32-D REPRESENTATION VALIDATION
+
+Dataset
+-------
+Original 128-D samples : 116
+Genetic 32-D samples   : 116
+Input dimensions       : 128
+Output dimensions      : 32
+
+Quality
+-------
+NaN values             : 0
+Infinite values        : 0
+Duplicate IDs          : 0
+Sample IDs preserved   : True
+Labels preserved       : True
+
+Class Distribution
+------------------
+ASD (1)                : 87
+Control (0)            : 29
+
+Architecture
+------------
+Linear(128 -> 64)
+BatchNorm1d(64)
+ReLU
+Linear(64 -> 32)
+
+Final Status
+------------
+PASSED
+
+Output
+------
+D:\org genetical data\genetics\outputs\objective2_genetic\cross_modal_alignment\genetic_32d_aligned_representation.csv

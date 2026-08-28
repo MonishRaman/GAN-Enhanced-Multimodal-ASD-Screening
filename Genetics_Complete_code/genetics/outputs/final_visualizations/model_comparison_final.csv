@@ -1,0 +1,4 @@
+Model,Accuracy,Balanced Accuracy,F1,ROC-AUC
+Logistic Regression,0.6471,0.6784,0.7194,0.7501
+Linear SVM,0.7507,0.605,0.8407,0.7152
+Random Forest,0.7504,0.5475,0.8516,0.6818

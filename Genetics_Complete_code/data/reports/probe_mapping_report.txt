@@ -1,0 +1,9 @@
+============================================================
+PROBE MAPPING REPORT
+============================================================
+
+Total Probes        : 33357
+Mapped Probes       : 33256
+Unmapped Probes     : 101
+Duplicate Clone IDs : 68
+Blank Clone IDs     : 0

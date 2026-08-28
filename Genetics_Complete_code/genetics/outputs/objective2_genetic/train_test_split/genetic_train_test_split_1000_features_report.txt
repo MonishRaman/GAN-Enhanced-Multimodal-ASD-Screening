@@ -1,0 +1,80 @@
+
+STEP 30 — GENETIC TRAIN / TEST SPLIT
+====================================
+
+Objective:
+Prepare the finalized 1000-feature genetic representation
+for Objective 2 Conditional GAN training.
+
+Input
+-----
+D:\org genetical data\data\processed\final_genetic_features.csv
+
+Input shape:
+(116, 1004)
+
+Metadata columns
+----------------
+GSM_ID
+Source
+Subtype
+Target
+
+Genetic feature count
+---------------------
+1000
+
+Total samples
+-------------
+116
+
+Class distribution
+------------------
+ASD (Target=1): 87
+Control (Target=0): 29
+
+Train/Test Split
+----------------
+Method: Stratified 80/20 split
+Random state: 42
+
+Training samples: 92
+Testing samples : 24
+
+Training distribution
+---------------------
+ASD: 69
+Control: 23
+
+Unseen test distribution
+------------------------
+ASD: 18
+Control: 6
+
+Leakage check
+-------------
+Train/Test GSM_ID overlap: 0
+
+Status:
+PASSED
+
+Objective-2 GAN rule
+--------------------
+The Conditional GAN must be trained ONLY using the
+training set.
+
+The unseen test set must NOT be used during:
+- GAN training
+- Synthetic sample generation
+- Encoder training
+- Hyperparameter tuning
+
+The test set is reserved for final evaluation.
+
+Output
+------
+Training:
+D:\org genetical data\genetics\outputs\objective2_genetic\train_test_split\genetic_train_1000_features.csv
+
+Unseen test:
+D:\org genetical data\genetics\outputs\objective2_genetic\train_test_split\genetic_test_1000_features_unseen.csv

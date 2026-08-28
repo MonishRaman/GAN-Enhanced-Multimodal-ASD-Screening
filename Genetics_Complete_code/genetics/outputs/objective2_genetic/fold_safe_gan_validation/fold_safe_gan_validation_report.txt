@@ -1,0 +1,51 @@
+STEP 37 — FOLD-SAFE GENETIC GAN VALIDATION
+======================================================================
+
+Purpose:
+Evaluate genetic GAN augmentation using fold-specific GAN training and stratified cross-validation.
+
+Important leakage-control principle:
+For every fold, the GAN is trained only using the real Control embeddings belonging to that fold's training partition. Synthetic samples are therefore not generated using the validation fold.
+
+Number of folds: 5
+GAN epochs per fold: 400
+Augmentation levels tested: 0, 10, 20, 30
+
+FOLD RESULTS
+----------------------------------------------------------------------
+
+ Fold  Synthetic_Controls  Training_Samples  Validation_Samples  Training_ASD  Training_Control  Accuracy  Balanced_Accuracy  Precision   Recall  F1_Score  ROC_AUC
+    1                   0                73                  19            55                18  0.789474           0.664286   0.812500 0.928571  0.866667 0.757143
+    1                  10                83                  19            55                28  0.789474           0.664286   0.812500 0.928571  0.866667 0.757143
+    1                  20                93                  19            55                38  0.736842           0.628571   0.800000 0.857143  0.827586 0.757143
+    1                  30               103                  19            55                48  0.736842           0.628571   0.800000 0.857143  0.827586 0.757143
+    2                   0                73                  19            55                18  0.842105           0.764286   0.866667 0.928571  0.896552 0.885714
+    2                  10                83                  19            55                28  0.789474           0.664286   0.812500 0.928571  0.866667 0.871429
+    2                  20                93                  19            55                38  0.789474           0.664286   0.812500 0.928571  0.866667 0.871429
+    2                  30               103                  19            55                48  0.789474           0.664286   0.812500 0.928571  0.866667 0.857143
+    3                   0                74                  18            56                18  0.666667           0.584615   0.769231 0.769231  0.769231 0.569231
+    3                  10                84                  18            56                28  0.666667           0.584615   0.769231 0.769231  0.769231 0.584615
+    3                  20                94                  18            56                38  0.611111           0.546154   0.750000 0.692308  0.720000 0.600000
+    3                  30               104                  18            56                48  0.611111           0.546154   0.750000 0.692308  0.720000 0.615385
+    4                   0                74                  18            55                19  0.555556           0.535714   0.800000 0.571429  0.666667 0.625000
+    4                  10                84                  18            55                29  0.555556           0.535714   0.800000 0.571429  0.666667 0.625000
+    4                  20                94                  18            55                39  0.555556           0.535714   0.800000 0.571429  0.666667 0.625000
+    4                  30               104                  18            55                49  0.611111           0.660714   0.888889 0.571429  0.695652 0.625000
+    5                   0                74                  18            55                19  0.722222           0.553571   0.800000 0.857143  0.827586 0.517857
+    5                  10                84                  18            55                29  0.722222           0.553571   0.800000 0.857143  0.827586 0.571429
+    5                  20                94                  18            55                39  0.722222           0.553571   0.800000 0.857143  0.827586 0.571429
+    5                  30               104                  18            55                49  0.722222           0.553571   0.800000 0.857143  0.827586 0.571429
+
+AGGREGATED RESULTS
+----------------------------------------------------------------------
+
+ Synthetic_Controls  Accuracy_Mean  Accuracy_Std  Balanced_Accuracy_Mean  Balanced_Accuracy_Std  Precision_Mean  Precision_Std  Recall_Mean  Recall_Std  F1_Score_Mean  F1_Score_Std  ROC_AUC_Mean  ROC_AUC_Std
+                  0       0.715205      0.111257                0.620495               0.094270        0.809679       0.035633     0.810989    0.149093       0.805340      0.090980      0.670989     0.149540
+                 10       0.704678      0.097942                0.600495               0.060805        0.798846       0.017696     0.810989    0.149093       0.799363      0.084221      0.681923     0.128927
+                 20       0.683041      0.096416                0.585659               0.057246        0.792500       0.024367     0.781319    0.145910       0.781701      0.084365      0.685000     0.126178
+                 30       0.694152      0.079825                0.610659               0.057276        0.810278       0.050073     0.781319    0.145910       0.787498      0.074956      0.685220     0.118514
+
+INTERPRETATION:
+The purpose of this experiment is to determine whether minority-class genetic augmentation provides stable benefit across independent training/validation folds. The result should be interpreted jointly with the synthetic distribution validation and the independent unseen test evaluation performed previously.
+
+The final 24-sample unseen test set from the original train/test split was not used in this cross-validation experiment.

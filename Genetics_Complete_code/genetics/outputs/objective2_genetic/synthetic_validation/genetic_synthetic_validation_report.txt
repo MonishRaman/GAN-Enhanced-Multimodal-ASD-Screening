@@ -1,0 +1,38 @@
+STEP 32 — GENETIC SYNTHETIC DATA VALIDATION
+======================================================================
+
+DATASET
+Real training samples : 92
+Real Control samples : 23
+Synthetic Control samples : 46
+Genetic features : 1000
+
+BASIC QUALITY
+Real NaN : 0
+Synthetic NaN : 0
+Real Inf : 0
+Synthetic Inf : 0
+Synthetic duplicates : 0
+Basic validation : PASSED
+
+DISTRIBUTION SIMILARITY
+Mean KS statistic : 0.450239
+Median KS statistic : 0.434783
+KS p >= 0.05 proportion : 0.136000
+Mean absolute mean difference : 0.280928
+Mean absolute STD difference : 0.662724
+
+PCA
+PC1 explained variance : 0.134906
+PC2 explained variance : 0.080155
+
+DISTANCE
+Mean nearest-real distance : 26.888697
+Median nearest-real distance : 26.849794
+
+SYNTHETIC DIVERSITY
+Mean pairwise distance : 10.554449
+Median pairwise distance : 10.523209
+
+INTERPRETATION
+Synthetic samples passed basic numerical integrity checks. Distribution similarity and PCA results should be interpreted together with the GAN training behavior. No claim of biological validity is made solely from this validation.

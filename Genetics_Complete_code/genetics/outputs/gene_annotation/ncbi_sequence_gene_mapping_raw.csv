@@ -1,0 +1,14 @@
+GenBank_Accession,Nucleotide_UIDs,NCBI_Gene_ID,Gene_Symbol,Gene_Name,Organism,Chromosome,Map_Location,Mapping_Status
+T52363,654223,,,,,,,No_NCBI_Gene_mapping
+R54846,818968,,,,,,,No_NCBI_Gene_mapping
+T64881,673926,,,,,,,No_NCBI_Gene_mapping
+AA705212,2715130,,,,,,,No_NCBI_Gene_mapping
+AA992015,3178897,,,,,,,No_NCBI_Gene_mapping
+AA757659,2805522,,,,,,,No_NCBI_Gene_mapping
+AI026658,3246146,,,,,,,No_NCBI_Gene_mapping
+AA452171,2165840,,,,,,,No_NCBI_Gene_mapping
+T67058,676498,,,,,,,No_NCBI_Gene_mapping
+AA459401,2184308,,,,,,,No_NCBI_Gene_mapping
+AI200332,3752938,,,,,,,No_NCBI_Gene_mapping
+R16231,768479,144241295,GALE,UDP-galactose-4-epimerase,,Un,,Mapped_via_NCBI
+AA017200,1479580,,,,,,,No_NCBI_Gene_mapping
