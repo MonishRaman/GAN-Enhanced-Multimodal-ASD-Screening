@@ -213,7 +213,7 @@ flowchart TD
   - `Attention Pooling`: `nn.Linear(128, 1)` computes dynamic token importance weights $\alpha_i = \text{softmax}(W_{\text{att}} h_i)$ to form a single 128-D vector.
   - `Layer Normalization`: `nn.LayerNorm(128)` stabilizes pooled representations.
   - `Classifier`: `nn.Linear(128, 2)` trained with Weighted Cross-Entropy Loss ($w_{\text{Control}}=1.33, w_{\text{ASD}}=4.00$).
-- **Optimizer & Schedule**: AdamW ($\text{lr}=5 \times 10^{-4}, \text{weight\_decay}=1 \times 10^{-4}$), Stratified 5-Fold Cross Validation, max 40 epochs per fold, early stopping patience $= 8$.
+- **Optimizer & Schedule**: AdamW (`lr` $= 5 \times 10^{-4}$, `weight_decay` $= 1 \times 10^{-4}$), Stratified 5-Fold Cross Validation, max 40 epochs per fold, early stopping patience $= 8$.
 
 ---
 
