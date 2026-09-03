@@ -1,0 +1,4 @@
+Comparison,Modality_A,Modality_B,Total_Comparisons,Mean_Cosine_Similarity,Std_Cosine_Similarity,Median_Cosine_Similarity,Min_Cosine_Similarity,Max_Cosine_Similarity
+Genetic vs Behavioral,Genetic,Behavioral,13456,-6.363154e-05,0.1664705,-0.00048109534,-0.6192702,0.58091307
+Genetic vs Environmental,Genetic,Environmental,13456,-0.00016098088,0.17299107,0.0011767012,-0.6171626,0.68662006
+Behavioral vs Environmental,Behavioral,Environmental,13456,0.020243252,0.18626176,0.018317837,-0.6264153,0.6383688

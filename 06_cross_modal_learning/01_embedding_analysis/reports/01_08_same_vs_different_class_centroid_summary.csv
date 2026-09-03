@@ -1,0 +1,3 @@
+Comparison_Type,Number_of_Comparisons,Mean_Cosine_Similarity,Std_Cosine_Similarity
+Same Class,6,-0.04610522,0.23019454
+Different Class,6,0.046105225,0.23019452

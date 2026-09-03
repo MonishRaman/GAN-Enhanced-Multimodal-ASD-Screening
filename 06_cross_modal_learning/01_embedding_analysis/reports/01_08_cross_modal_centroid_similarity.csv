@@ -1,0 +1,13 @@
+Representation_1,Representation_2,Modality_1,Modality_2,Class_1,Class_2,Relationship,Cosine_Similarity
+Genetic — NON-ASD,Behavioral — NON-ASD,Genetic,Behavioral,NON-ASD,NON-ASD,Same Class,-0.08660111
+Genetic — NON-ASD,Behavioral — ASD,Genetic,Behavioral,NON-ASD,ASD,Different Class,0.08660108
+Genetic — NON-ASD,Environmental — NON-ASD,Genetic,Environmental,NON-ASD,NON-ASD,Same Class,-0.28082192
+Genetic — NON-ASD,Environmental — ASD,Genetic,Environmental,NON-ASD,ASD,Different Class,0.28082207
+Genetic — ASD,Behavioral — NON-ASD,Genetic,Behavioral,ASD,NON-ASD,Different Class,0.08660105
+Genetic — ASD,Behavioral — ASD,Genetic,Behavioral,ASD,ASD,Same Class,-0.086601004
+Genetic — ASD,Environmental — NON-ASD,Genetic,Environmental,ASD,NON-ASD,Different Class,0.28082183
+Genetic — ASD,Environmental — ASD,Genetic,Environmental,ASD,ASD,Same Class,-0.280822
+Behavioral — NON-ASD,Environmental — NON-ASD,Behavioral,Environmental,NON-ASD,NON-ASD,Same Class,0.22910804
+Behavioral — NON-ASD,Environmental — ASD,Behavioral,Environmental,NON-ASD,ASD,Different Class,-0.22910659
+Behavioral — ASD,Environmental — NON-ASD,Behavioral,Environmental,ASD,NON-ASD,Different Class,-0.22910805
+Behavioral — ASD,Environmental — ASD,Behavioral,Environmental,ASD,ASD,Same Class,0.22910663

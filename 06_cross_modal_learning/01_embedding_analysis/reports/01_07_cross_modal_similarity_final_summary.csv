@@ -1,0 +1,2 @@
+Analysis,Analysis_Level,Patient_Level_Matching,Modalities_Analyzed,Balanced_Samples_Per_Modality,Class_Balance,Modality_Pairs_Analyzed,Pairs_With_Positive_Same_Class_Gap,Overall_Conclusion,Timestamp
+Cross-Modal Cosine Similarity,Knowledge-Level,Not Used,3,116,"29 NON-ASD, 87 ASD",3,1,"Some modality pairs show higher same-class similarity, while others do not. This suggests partial and modality-dependent class-level cross-modal compatibility.",2026-09-03 16:58:33

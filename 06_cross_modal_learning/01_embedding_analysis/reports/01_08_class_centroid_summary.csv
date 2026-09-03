@@ -1,0 +1,7 @@
+Modality,Class_Label,Class_Name,Samples_In_Class,Centroid_Dimension,Centroid_L2_Norm
+Genetic,0,NON-ASD,29,32,1.2741481
+Genetic,1,ASD,87,32,0.42471603
+Behavioral,0,NON-ASD,439,32,3.9748368
+Behavioral,1,ASD,441,32,3.9568112
+Environmental,0,NON-ASD,45650,32,0.055576976
+Environmental,1,ASD,2118,32,1.1978685

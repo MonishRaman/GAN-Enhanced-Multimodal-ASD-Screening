@@ -1,0 +1,524 @@
+File Name,Relative Path,Extension,Size (KB),Categories
+M2_common_32d_fusion_preparation_report.txt,05_multimodal_fusion\M2_common_32d_fusion_preparation_report.txt,.txt,0.48,"Alignment, Fusion"
+behavioral_dataset.csv,Behavioral_Model\01_raw_data\behavioral_dataset.csv,.csv,59.92,Behavioral
+behavioral_cleaned_no_leakage.csv,Behavioral_Model\02_preprocessing\behavioral_cleaned_no_leakage.csv,.csv,56.12,Behavioral
+behavioral_preprocessing_report.txt,Behavioral_Model\02_preprocessing\behavioral_preprocessing_report.txt,.txt,0.55,Behavioral
+behavioral_preprocessor.joblib,Behavioral_Model\02_preprocessing\behavioral_preprocessor.joblib,.joblib,4.71,Behavioral
+behavioral_processed_feature_names.txt,Behavioral_Model\02_preprocessing\behavioral_processed_feature_names.txt,.txt,3.15,Behavioral
+behavioral_test_processed_unseen.csv,Behavioral_Model\02_preprocessing\behavioral_test_processed_unseen.csv,.csv,102.76,Behavioral
+behavioral_train_processed.csv,Behavioral_Model\02_preprocessing\behavioral_train_processed.csv,.csv,402.68,Behavioral
+behavioral_test_predictions.csv,Behavioral_Model\03_representation_learning\behavioral_test_predictions.csv,.csv,2.77,Behavioral
+behavioral_service.py,backend\services\behavioral_service.py,.py,26.05,Behavioral
+behavioral_detailed.md,behavioral_detailed.md,.md,16.02,Behavioral
+behavioral_input.csv,data\demo\P001\behavioral_input.csv,.csv,0.24,Behavioral
+behavioral_input.csv,data\demo\P002\behavioral_input.csv,.csv,0.24,Behavioral
+behavioral_input.csv,data\demo\P003\behavioral_input.csv,.csv,0.23,Behavioral
+behavioral_input.csv,data\demo\P004\behavioral_input.csv,.csv,0.23,Behavioral
+behavioral_input.csv,data\demo\P005\behavioral_input.csv,.csv,0.24,Behavioral
+behavioral_128d_corrected_validation_report.txt,Behavioral_Model\03_representation_learning\behavioral_128d_corrected_validation_report.txt,.txt,1.01,"Behavioral, Alignment"
+behavioral_128d_duplicate_embedding_investigation.txt,Behavioral_Model\03_representation_learning\behavioral_128d_duplicate_embedding_investigation.txt,.txt,0.29,"Behavioral, Alignment"
+behavioral_128d_embeddings.csv,Behavioral_Model\03_representation_learning\behavioral_128d_embeddings.csv,.csv,792.22,"Behavioral, Alignment"
+behavioral_128d_training_report.txt,Behavioral_Model\03_representation_learning\behavioral_128d_training_report.txt,.txt,0.41,"Behavioral, Alignment"
+behavioral_128d_validation_report.txt,Behavioral_Model\03_representation_learning\behavioral_128d_validation_report.txt,.txt,0.81,"Behavioral, Alignment"
+behavioral_encoder_128d.pt,Behavioral_Model\03_representation_learning\behavioral_encoder_128d.pt,.pt,119.21,"Behavioral, Alignment"
+behavioral_128_to_32_alignment.pt,Behavioral_Model\04_cross_modal_alignment\behavioral_128_to_32_alignment.pt,.pt,90.21,"Behavioral, Alignment"
+behavioral_128_to_32_alignment_report.txt,Behavioral_Model\04_cross_modal_alignment\behavioral_128_to_32_alignment_report.txt,.txt,1.29,"Behavioral, Alignment"
+behavioral_32d_aligned_representation.csv,Behavioral_Model\04_cross_modal_alignment\behavioral_32d_aligned_representation.csv,.csv,340.2,"Behavioral, Alignment"
+behavioral_32d_validation_report.txt,Behavioral_Model\04_cross_modal_alignment\behavioral_32d_validation_report.txt,.txt,4.03,"Behavioral, Alignment"
+behavioral_128d_numeric_column_statistics.csv,05_multimodal_fusion\M4_1_2B_behavioral_forensics\behavioral_128d_numeric_column_statistics.csv,.csv,11.65,"Behavioral, Alignment, Fusion"
+behavioral_32d_normalized.npy,05_multimodal_fusion\behavioral_32d_normalized.npy,.npy,110.12,"Behavioral, Alignment, Fusion"
+M3_1_behavioral_expert.pt,05_multimodal_fusion\M3_1_behavioral_expert.pt,.pt,22.25,"Behavioral, Fusion"
+M3_1_behavioral_scaler.joblib,05_multimodal_fusion\M3_1_behavioral_scaler.joblib,.joblib,1.35,"Behavioral, Fusion"
+M4_1_2B_behavioral_forensic_report.txt,05_multimodal_fusion\M4_1_2B_behavioral_forensics\M4_1_2B_behavioral_forensic_report.txt,.txt,11.52,"Behavioral, Fusion"
+behavioral_input.csv,05_multimodal_fusion\M4_demo_patients\P001\behavioral_input.csv,.csv,0.24,"Behavioral, Fusion"
+behavioral_input.csv,05_multimodal_fusion\M4_demo_patients\P002\behavioral_input.csv,.csv,0.24,"Behavioral, Fusion"
+behavioral_input.csv,05_multimodal_fusion\M4_demo_patients\P003\behavioral_input.csv,.csv,0.23,"Behavioral, Fusion"
+behavioral_input.csv,05_multimodal_fusion\M4_demo_patients\P004\behavioral_input.csv,.csv,0.23,"Behavioral, Fusion"
+behavioral_input.csv,05_multimodal_fusion\M4_demo_patients\P005\behavioral_input.csv,.csv,0.24,"Behavioral, Fusion"
+behavioral_targets.npy,05_multimodal_fusion\behavioral_targets.npy,.npy,7.0,"Behavioral, Fusion"
+environmental_dataset.csv,Environmental_Model\01_raw_data\environmental_dataset.csv,.csv,3508.35,Environmental
+environmental_cleaned_no_leakage.csv,Environmental_Model\02_preprocessing\environmental_cleaned_no_leakage.csv,.csv,5583.48,Environmental
+environmental_preprocessing_report.txt,Environmental_Model\02_preprocessing\environmental_preprocessing_report.txt,.txt,0.43,Environmental
+environmental_preprocessor.joblib,Environmental_Model\02_preprocessing\environmental_preprocessor.joblib,.joblib,2.45,Environmental
+environmental_processed_feature_names.txt,Environmental_Model\02_preprocessing\environmental_processed_feature_names.txt,.txt,0.25,Environmental
+environmental_test_processed_unseen.csv,Environmental_Model\02_preprocessing\environmental_test_processed_unseen.csv,.csv,5697.27,Environmental
+environmental_train_processed.csv,Environmental_Model\02_preprocessing\environmental_train_processed.csv,.csv,22785.63,Environmental
+environmental_test_predictions.csv,Environmental_Model\03_representation_learning\environmental_test_predictions.csv,.csv,190.78,Environmental
+X_test_environmental.csv,Environmental_complete_code_directory\X_test_environmental.csv,.csv,3589.11,Environmental
+X_test_selected20.csv,Environmental_complete_code_directory\X_test_selected20.csv,.csv,2788.98,Environmental
+X_train_environmental.csv,Environmental_complete_code_directory\X_train_environmental.csv,.csv,14354.82,Environmental
+X_train_selected20.csv,Environmental_complete_code_directory\X_train_selected20.csv,.csv,11153.25,Environmental
+create_environmental_dataset.py,Environmental_complete_code_directory\create_environmental_dataset.py,.py,1.21,Environmental
+environmental_dataset.csv,Environmental_complete_code_directory\environmental_dataset.csv,.csv,3508.35,Environmental
+environmental_feature_importance.csv,Environmental_complete_code_directory\environmental_feature_importance.csv,.csv,2.49,Environmental
+environmental_grouped_feature_importance.csv,Environmental_complete_code_directory\environmental_grouped_feature_importance.csv,.csv,2.15,Environmental
+environmental_grouped_rf_importance.csv,Environmental_complete_code_directory\environmental_grouped_rf_importance.csv,.csv,2.21,Environmental
+environmental_representation_model.keras,Environmental_complete_code_directory\environmental_representation_model.keras,.keras,324.38,Environmental
+environmental_rf_feature_importance.csv,Environmental_complete_code_directory\environmental_rf_feature_importance.csv,.csv,2.72,Environmental
+environmental_selected_20.csv,Environmental_complete_code_directory\environmental_selected_20.csv,.csv,4230.26,Environmental
+environmental_step2_target_clean.csv,Environmental_complete_code_directory\environmental_step2_target_clean.csv,.csv,6480.79,Environmental
+environmental_threshold_analysis.csv,Environmental_complete_code_directory\environmental_threshold_analysis.csv,.csv,1.25,Environmental
+exp.txt,Environmental_complete_code_directory\exp.txt,.txt,0.84,Environmental
+nsch_2023e_topical.csv,Environmental_complete_code_directory\nsch_2023e_topical.csv,.csv,67425.37,Environmental
+environmental_dataset.csv,Environmental_complete_code_directory\raw\environmental_dataset.csv,.csv,6751.02,Environmental
+step1.py,Environmental_complete_code_directory\src\step1.py,.py,0.47,Environmental
+step10_threshold_analysis.py,Environmental_complete_code_directory\src\step10_threshold_analysis.py,.py,3.15,Environmental
+step2_clean.py,Environmental_complete_code_directory\src\step2_clean.py,.py,1.76,Environmental
+step3_inspect.py,Environmental_complete_code_directory\src\step3_inspect.py,.py,0.86,Environmental
+step4_preprocess.py,Environmental_complete_code_directory\src\step4_preprocess.py,.py,5.44,Environmental
+step5_feature_selection.py,Environmental_complete_code_directory\src\step5_feature_selection.py,.py,1.67,Environmental
+step5b_group_features.py,Environmental_complete_code_directory\src\step5b_group_features.py,.py,2.59,Environmental
+step6_model_feature_selection.py,Environmental_complete_code_directory\src\step6_model_feature_selection.py,.py,1.83,Environmental
+step6b_group_rf.py,Environmental_complete_code_directory\src\step6b_group_rf.py,.py,2.54,Environmental
+step7_select_features.py,Environmental_complete_code_directory\src\step7_select_features.py,.py,1.38,Environmental
+step8_prepare_selected.py,Environmental_complete_code_directory\src\step8_prepare_selected.py,.py,4.91,Environmental
+step9_environmental_representation.py,Environmental_complete_code_directory\src\step9_environmental_representation.py,.py,7.09,Environmental
+y_test_environmental.csv,Environmental_complete_code_directory\y_test_environmental.csv,.csv,32.16,Environmental
+y_test_selected20.csv,Environmental_complete_code_directory\y_test_selected20.csv,.csv,32.16,Environmental
+y_train_environmental.csv,Environmental_complete_code_directory\y_train_environmental.csv,.csv,128.6,Environmental
+y_train_selected20.csv,Environmental_complete_code_directory\y_train_selected20.csv,.csv,128.6,Environmental
+environmental_service.py,backend\services\environmental_service.py,.py,25.32,Environmental
+environmental_input.csv,data\demo\P001\environmental_input.csv,.csv,0.34,Environmental
+environmental_input.csv,data\demo\P002\environmental_input.csv,.csv,0.35,Environmental
+environmental_input.csv,data\demo\P003\environmental_input.csv,.csv,0.34,Environmental
+environmental_input.csv,data\demo\P004\environmental_input.csv,.csv,0.35,Environmental
+environmental_input.csv,data\demo\P005\environmental_input.csv,.csv,0.34,Environmental
+environmental_detailed.md,environmental_detailed.md,.md,22.64,Environmental
+environmental_128d_corrected_validation_report.txt,Environmental_Model\03_representation_learning\environmental_128d_corrected_validation_report.txt,.txt,0.85,"Environmental, Alignment"
+environmental_128d_duplicate_embedding_investigation.txt,Environmental_Model\03_representation_learning\environmental_128d_duplicate_embedding_investigation.txt,.txt,0.88,"Environmental, Alignment"
+environmental_128d_embeddings.csv,Environmental_Model\03_representation_learning\environmental_128d_embeddings.csv,.csv,43784.65,"Environmental, Alignment"
+environmental_128d_training_report.txt,Environmental_Model\03_representation_learning\environmental_128d_training_report.txt,.txt,0.51,"Environmental, Alignment"
+environmental_128d_validation_report.txt,Environmental_Model\03_representation_learning\environmental_128d_validation_report.txt,.txt,0.94,"Environmental, Alignment"
+environmental_encoder_128d.pt,Environmental_Model\03_representation_learning\environmental_encoder_128d.pt,.pt,92.21,"Environmental, Alignment"
+environmental_128_to_32_alignment.pt,Environmental_Model\04_cross_modal_alignment\environmental_128_to_32_alignment.pt,.pt,91.9,"Environmental, Alignment"
+environmental_128_to_32_alignment_report.txt,Environmental_Model\04_cross_modal_alignment\environmental_128_to_32_alignment_report.txt,.txt,2.1,"Environmental, Alignment"
+environmental_32d_aligned_representation.csv,Environmental_Model\04_cross_modal_alignment\environmental_32d_aligned_representation.csv,.csv,15937.24,"Environmental, Alignment"
+environmental_32d_validation_report.txt,Environmental_Model\04_cross_modal_alignment\environmental_32d_validation_report.txt,.txt,1.0,"Environmental, Alignment"
+environmental_32d_performance.csv,Environmental_complete_code_directory\environmental_32d_performance.csv,.csv,0.32,"Environmental, Alignment"
+environmental_32d_threshold_analysis.csv,Environmental_complete_code_directory\environmental_32d_threshold_analysis.csv,.csv,1.18,"Environmental, Alignment"
+environmental_embedding_dimension_auc.csv,Environmental_complete_code_directory\environmental_embedding_dimension_auc.csv,.csv,2.89,"Environmental, Alignment"
+environmental_embedding_test.csv,Environmental_complete_code_directory\environmental_embedding_test.csv,.csv,16339.49,"Environmental, Alignment"
+environmental_embedding_test_32d.csv,Environmental_complete_code_directory\environmental_embedding_test_32d.csv,.csv,4101.8,"Environmental, Alignment"
+environmental_embedding_test_32d_with_target.csv,Environmental_complete_code_directory\environmental_embedding_test_32d_with_target.csv,.csv,4123.24,"Environmental, Alignment"
+environmental_embedding_train.csv,Environmental_complete_code_directory\environmental_embedding_train.csv,.csv,65359.39,"Environmental, Alignment"
+environmental_embedding_train_32d.csv,Environmental_complete_code_directory\environmental_embedding_train_32d.csv,.csv,16404.41,"Environmental, Alignment"
+environmental_embedding_train_32d_with_target.csv,Environmental_complete_code_directory\environmental_embedding_train_32d_with_target.csv,.csv,16490.14,"Environmental, Alignment"
+environmental_pca_128_to_32.joblib,Environmental_complete_code_directory\environmental_pca_128_to_32.joblib,.joblib,17.8,"Environmental, Alignment"
+step11_validate_embeddings.py,Environmental_complete_code_directory\src\step11_validate_embeddings.py,.py,3.55,"Environmental, Alignment"
+step12_reduce_embedding.py,Environmental_complete_code_directory\src\step12_reduce_embedding.py,.py,3.91,"Environmental, Alignment"
+step13_validate_32d.py,Environmental_complete_code_directory\src\step13_validate_32d.py,.py,3.31,"Environmental, Alignment"
+step14_add_target_to_32d.py,Environmental_complete_code_directory\src\step14_add_target_to_32d.py,.py,2.75,"Environmental, Alignment"
+step15_evaluate_32d.py,Environmental_complete_code_directory\src\step15_evaluate_32d.py,.py,9.36,"Environmental, Alignment"
+environmental_32d_normalized.npy,05_multimodal_fusion\environmental_32d_normalized.npy,.npy,5971.12,"Environmental, Alignment, Fusion"
+M3_1_environmental_expert.pt,05_multimodal_fusion\M3_1_environmental_expert.pt,.pt,22.3,"Environmental, Fusion"
+M3_1_environmental_scaler.joblib,05_multimodal_fusion\M3_1_environmental_scaler.joblib,.joblib,1.35,"Environmental, Fusion"
+environmental_input.csv,05_multimodal_fusion\M4_demo_patients\P001\environmental_input.csv,.csv,0.34,"Environmental, Fusion"
+environmental_input.csv,05_multimodal_fusion\M4_demo_patients\P002\environmental_input.csv,.csv,0.35,"Environmental, Fusion"
+environmental_input.csv,05_multimodal_fusion\M4_demo_patients\P003\environmental_input.csv,.csv,0.34,"Environmental, Fusion"
+environmental_input.csv,05_multimodal_fusion\M4_demo_patients\P004\environmental_input.csv,.csv,0.35,"Environmental, Fusion"
+environmental_input.csv,05_multimodal_fusion\M4_demo_patients\P005\environmental_input.csv,.csv,0.34,"Environmental, Fusion"
+environmental_targets.npy,05_multimodal_fusion\environmental_targets.npy,.npy,373.31,"Environmental, Fusion"
+M4_final_P001_P005_flexible_multimodal_results.csv,05_multimodal_fusion\FINAL_PROJECT_AUDIT\FINAL_OUTPUTS\M4_final_P001_P005_flexible_multimodal_results.csv,.csv,2.48,Fusion
+M4_final_P001_P005_three_modal_fusion_results.csv,05_multimodal_fusion\FINAL_PROJECT_AUDIT\FINAL_OUTPUTS\M4_final_P001_P005_three_modal_fusion_results.csv,.csv,0.92,Fusion
+M4_final_flexible_multimodal_validation_report.txt,05_multimodal_fusion\FINAL_PROJECT_AUDIT\FINAL_OUTPUTS\M4_final_flexible_multimodal_validation_report.txt,.txt,2.98,Fusion
+M4_final_three_modal_fusion_validation_report.txt,05_multimodal_fusion\FINAL_PROJECT_AUDIT\FINAL_OUTPUTS\M4_final_three_modal_fusion_validation_report.txt,.txt,1.97,Fusion
+M4_FINAL_ARTIFACT_MANIFEST.json,05_multimodal_fusion\FINAL_PROJECT_AUDIT\M4_FINAL_ARTIFACT_MANIFEST.json,.json,6.31,Fusion
+M4_FINAL_PROJECT_FREEZE_REPORT.txt,05_multimodal_fusion\FINAL_PROJECT_AUDIT\M4_FINAL_PROJECT_FREEZE_REPORT.txt,.txt,1.73,Fusion
+M3_1_balanced_knowledge_fusion_report.txt,05_multimodal_fusion\M3_1_balanced_knowledge_fusion_report.txt,.txt,0.61,Fusion
+M3_1_fusion_weights.csv,05_multimodal_fusion\M3_1_fusion_weights.csv,.csv,0.19,Fusion
+M3_2_final_inference_config.json,05_multimodal_fusion\M3_2_final_inference_config.json,.json,0.89,Fusion
+M3_3_final_inference_validation_report.txt,05_multimodal_fusion\M3_3_final_inference_validation_report.txt,.txt,2.31,Fusion
+M3_multimodal_knowledge_fusion.pt,05_multimodal_fusion\M3_multimodal_knowledge_fusion.pt,.pt,60.2,Fusion
+M3_multimodal_knowledge_fusion_predictions.csv,05_multimodal_fusion\M3_multimodal_knowledge_fusion_predictions.csv,.csv,314.69,Fusion
+M3_multimodal_knowledge_fusion_report.txt,05_multimodal_fusion\M3_multimodal_knowledge_fusion_report.txt,.txt,1.28,Fusion
+M4_demo_patient_manifest.csv,05_multimodal_fusion\M4_demo_patients\M4_demo_patient_manifest.csv,.csv,0.68,Fusion
+demo_metadata.json,05_multimodal_fusion\M4_demo_patients\P001\demo_metadata.json,.json,0.72,Fusion
+demo_metadata.json,05_multimodal_fusion\M4_demo_patients\P002\demo_metadata.json,.json,0.73,Fusion
+demo_metadata.json,05_multimodal_fusion\M4_demo_patients\P003\demo_metadata.json,.json,0.72,Fusion
+demo_metadata.json,05_multimodal_fusion\M4_demo_patients\P004\demo_metadata.json,.json,0.73,Fusion
+demo_metadata.json,05_multimodal_fusion\M4_demo_patients\P005\demo_metadata.json,.json,0.72,Fusion
+M4_final_P001_P005_flexible_multimodal_results.csv,05_multimodal_fusion\M4_final_P001_P005_flexible_multimodal_results.csv,.csv,2.48,Fusion
+M4_final_P001_P005_three_modal_fusion_results.csv,05_multimodal_fusion\M4_final_P001_P005_three_modal_fusion_results.csv,.csv,0.92,Fusion
+M4_final_flexible_multimodal_validation_report.txt,05_multimodal_fusion\M4_final_flexible_multimodal_validation_report.txt,.txt,2.98,Fusion
+M4_final_three_modal_fusion_validation_report.txt,05_multimodal_fusion\M4_final_three_modal_fusion_validation_report.txt,.txt,1.97,Fusion
+M4_2_end_to_end_inference_report.txt,05_multimodal_fusion\M4_production_inference\M4_2_end_to_end_inference_report.txt,.txt,1.82,Fusion
+M4_3_final_system_validation_report.txt,05_multimodal_fusion\M4_production_inference\M4_3_final_system_validation_report.txt,.txt,3.19,Fusion
+M4_3_recovered_artifact_paths.json,05_multimodal_fusion\M4_production_inference\M4_3_recovered_artifact_paths.json,.json,2.85,Fusion
+M4_production_inference_spec.json,05_multimodal_fusion\M4_production_inference\M4_production_inference_spec.json,.json,5.1,Fusion
+fusion_service.py,backend\services\fusion_service.py,.py,10.64,Fusion
+M3_1_balanced_knowledge_fusion_report.txt,data\results\demo\M3_1_balanced_knowledge_fusion_report.txt,.txt,0.61,Fusion
+M3_1_fusion_weights.csv,data\results\demo\M3_1_fusion_weights.csv,.csv,0.19,Fusion
+M3_multimodal_knowledge_fusion_predictions.csv,data\results\demo\M3_multimodal_knowledge_fusion_predictions.csv,.csv,314.69,Fusion
+M3_multimodal_knowledge_fusion_report.txt,data\results\demo\M3_multimodal_knowledge_fusion_report.txt,.txt,1.28,Fusion
+M4_final_P001_P005_flexible_multimodal_results.csv,data\results\demo\M4_final_P001_P005_flexible_multimodal_results.csv,.csv,2.48,Fusion
+M4_final_P001_P005_three_modal_fusion_results.csv,data\results\demo\M4_final_P001_P005_three_modal_fusion_results.csv,.csv,0.92,Fusion
+M4_final_flexible_multimodal_validation_report.txt,data\results\demo\M4_final_flexible_multimodal_validation_report.txt,.txt,2.98,Fusion
+M4_final_three_modal_fusion_validation_report.txt,data\results\demo\M4_final_three_modal_fusion_validation_report.txt,.txt,1.97,Fusion
+FUSION_ARCHITECTURE.md,docs\fusion\FUSION_ARCHITECTURE.md,.md,0.09,Fusion
+multimodal_fusion_detailed.md,multimodal_fusion_detailed.md,.md,17.81,Fusion
+Genetic_dataset.csv,Genetic_Model\01_raw_data\Genetic_dataset.csv,.csv,2202.68,Genetic
+genetic_objective2_input.csv,Genetics_Complete_code\data\main\genetic_objective2_input.csv,.csv,162.08,Genetic
+data_quality_report.txt,Genetics_Complete_code\data\processed\data_quality_report.txt,.txt,0.37,Genetic
+expression_matrix.csv,Genetics_Complete_code\data\processed\expression_matrix.csv,.csv,31592.03,Genetic
+filtered_expression_matrix.csv,Genetics_Complete_code\data\processed\filtered_expression_matrix.csv,.csv,30034.75,Genetic
+final_genetic_features.csv,Genetics_Complete_code\data\processed\final_genetic_features.csv,.csv,2202.68,Genetic
+genetic_dataset.csv,Genetics_Complete_code\data\processed\genetic_dataset.csv,.csv,73235.07,Genetic
+knn_imputed_expression_matrix.csv,Genetics_Complete_code\data\processed\knn_imputed_expression_matrix.csv,.csv,39414.92,Genetic
+labels.csv,Genetics_Complete_code\data\processed\labels.csv,.csv,7.5,Genetic
+mapped_expression_matrix.csv,Genetics_Complete_code\data\processed\mapped_expression_matrix.csv,.csv,73270.76,Genetic
+missing_value_statistics.txt,Genetics_Complete_code\data\processed\missing_value_statistics.txt,.txt,0.85,Genetic
+normalized_expression_matrix.csv,Genetics_Complete_code\data\processed\normalized_expression_matrix.csv,.csv,74675.89,Genetic
+probe_mapping.csv,Genetics_Complete_code\data\processed\probe_mapping.csv,.csv,587.34,Genetic
+probe_missing_summary.csv,Genetics_Complete_code\data\processed\probe_missing_summary.csv,.csv,1186.4,Genetic
+probes_above_50.csv,Genetics_Complete_code\data\processed\probes_above_50.csv,.csv,387.64,Genetic
+probes_above_75.csv,Genetics_Complete_code\data\processed\probes_above_75.csv,.csv,247.97,Genetic
+probes_above_90.csv,Genetics_Complete_code\data\processed\probes_above_90.csv,.csv,190.0,Genetic
+sample_missing_summary.csv,Genetics_Complete_code\data\processed\sample_missing_summary.csv,.csv,4.02,Genetic
+top_features_dataset.csv,Genetics_Complete_code\data\processed\top_features_dataset.csv,.csv,2202.68,Genetic
+variance_filtered_dataset.csv,Genetics_Complete_code\data\processed\variance_filtered_dataset.csv,.csv,73235.21,Genetic
+GPL3427-tbl-1.txt,Genetics_Complete_code\data\raw\GPL3427\GPL3427-tbl-1.txt,.txt,687.15,Genetic
+GSM386518-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386518-tbl-1.txt,.txt,1034.02,Genetic
+GSM386519-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386519-tbl-1.txt,.txt,1077.14,Genetic
+GSM386520-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386520-tbl-1.txt,.txt,1074.61,Genetic
+GSM386521-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386521-tbl-1.txt,.txt,982.31,Genetic
+GSM386522-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386522-tbl-1.txt,.txt,1014.85,Genetic
+GSM386523-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386523-tbl-1.txt,.txt,991.17,Genetic
+GSM386524-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386524-tbl-1.txt,.txt,1048.87,Genetic
+GSM386525-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386525-tbl-1.txt,.txt,999.54,Genetic
+GSM386526-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386526-tbl-1.txt,.txt,1011.9,Genetic
+GSM386527-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386527-tbl-1.txt,.txt,985.73,Genetic
+GSM386528-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386528-tbl-1.txt,.txt,968.49,Genetic
+GSM386529-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386529-tbl-1.txt,.txt,1007.39,Genetic
+GSM386530-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386530-tbl-1.txt,.txt,947.71,Genetic
+GSM386531-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386531-tbl-1.txt,.txt,998.26,Genetic
+GSM386532-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386532-tbl-1.txt,.txt,1014.4,Genetic
+GSM386533-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386533-tbl-1.txt,.txt,948.86,Genetic
+GSM386534-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386534-tbl-1.txt,.txt,1077.38,Genetic
+GSM386535-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386535-tbl-1.txt,.txt,974.35,Genetic
+GSM386536-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386536-tbl-1.txt,.txt,970.2,Genetic
+GSM386537-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386537-tbl-1.txt,.txt,1043.53,Genetic
+GSM386538-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386538-tbl-1.txt,.txt,1028.83,Genetic
+GSM386539-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386539-tbl-1.txt,.txt,975.24,Genetic
+GSM386540-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386540-tbl-1.txt,.txt,989.91,Genetic
+GSM386541-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386541-tbl-1.txt,.txt,1044.95,Genetic
+GSM386542-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386542-tbl-1.txt,.txt,999.35,Genetic
+GSM386543-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386543-tbl-1.txt,.txt,1025.4,Genetic
+GSM386544-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386544-tbl-1.txt,.txt,957.29,Genetic
+GSM386545-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386545-tbl-1.txt,.txt,1065.91,Genetic
+GSM386546-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386546-tbl-1.txt,.txt,1042.91,Genetic
+GSM386547-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386547-tbl-1.txt,.txt,999.51,Genetic
+GSM386548-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386548-tbl-1.txt,.txt,1063.88,Genetic
+GSM386549-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386549-tbl-1.txt,.txt,933.87,Genetic
+GSM386550-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386550-tbl-1.txt,.txt,1038.79,Genetic
+GSM386551-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386551-tbl-1.txt,.txt,1014.33,Genetic
+GSM386552-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386552-tbl-1.txt,.txt,994.83,Genetic
+GSM386553-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386553-tbl-1.txt,.txt,1058.63,Genetic
+GSM386554-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386554-tbl-1.txt,.txt,974.78,Genetic
+GSM386555-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386555-tbl-1.txt,.txt,1032.88,Genetic
+GSM386556-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386556-tbl-1.txt,.txt,996.25,Genetic
+GSM386557-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386557-tbl-1.txt,.txt,985.81,Genetic
+GSM386558-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386558-tbl-1.txt,.txt,960.98,Genetic
+GSM386559-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386559-tbl-1.txt,.txt,1008.92,Genetic
+GSM386560-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386560-tbl-1.txt,.txt,1022.47,Genetic
+GSM386561-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386561-tbl-1.txt,.txt,1034.08,Genetic
+GSM386562-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386562-tbl-1.txt,.txt,964.8,Genetic
+GSM386563-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386563-tbl-1.txt,.txt,999.7,Genetic
+GSM386564-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386564-tbl-1.txt,.txt,1062.05,Genetic
+GSM386565-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386565-tbl-1.txt,.txt,1001.15,Genetic
+GSM386566-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386566-tbl-1.txt,.txt,1067.29,Genetic
+GSM386567-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386567-tbl-1.txt,.txt,1035.11,Genetic
+GSM386568-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386568-tbl-1.txt,.txt,969.01,Genetic
+GSM386569-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386569-tbl-1.txt,.txt,985.92,Genetic
+GSM386570-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386570-tbl-1.txt,.txt,984.26,Genetic
+GSM386571-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386571-tbl-1.txt,.txt,1002.73,Genetic
+GSM386572-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386572-tbl-1.txt,.txt,1013.34,Genetic
+GSM386573-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386573-tbl-1.txt,.txt,993.68,Genetic
+GSM386574-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386574-tbl-1.txt,.txt,969.08,Genetic
+GSM386575-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386575-tbl-1.txt,.txt,976.08,Genetic
+GSM386576-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386576-tbl-1.txt,.txt,1025.77,Genetic
+GSM386577-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386577-tbl-1.txt,.txt,1019.96,Genetic
+GSM386578-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386578-tbl-1.txt,.txt,984.17,Genetic
+GSM386579-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386579-tbl-1.txt,.txt,1000.73,Genetic
+GSM386580-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386580-tbl-1.txt,.txt,956.45,Genetic
+GSM386581-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386581-tbl-1.txt,.txt,981.17,Genetic
+GSM386582-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386582-tbl-1.txt,.txt,1039.89,Genetic
+GSM386583-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386583-tbl-1.txt,.txt,1015.72,Genetic
+GSM386584-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386584-tbl-1.txt,.txt,1079.05,Genetic
+GSM386585-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386585-tbl-1.txt,.txt,975.99,Genetic
+GSM386586-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386586-tbl-1.txt,.txt,976.0,Genetic
+GSM386587-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386587-tbl-1.txt,.txt,1016.13,Genetic
+GSM386588-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386588-tbl-1.txt,.txt,1011.25,Genetic
+GSM386589-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386589-tbl-1.txt,.txt,955.31,Genetic
+GSM386590-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386590-tbl-1.txt,.txt,1013.88,Genetic
+GSM386591-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386591-tbl-1.txt,.txt,1041.13,Genetic
+GSM386592-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386592-tbl-1.txt,.txt,983.28,Genetic
+GSM386593-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386593-tbl-1.txt,.txt,1022.78,Genetic
+GSM386594-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386594-tbl-1.txt,.txt,1001.3,Genetic
+GSM386595-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386595-tbl-1.txt,.txt,995.0,Genetic
+GSM386596-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386596-tbl-1.txt,.txt,1024.44,Genetic
+GSM386597-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386597-tbl-1.txt,.txt,980.49,Genetic
+GSM386598-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386598-tbl-1.txt,.txt,984.67,Genetic
+GSM386599-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386599-tbl-1.txt,.txt,1049.4,Genetic
+GSM386600-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386600-tbl-1.txt,.txt,992.9,Genetic
+GSM386601-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386601-tbl-1.txt,.txt,1024.52,Genetic
+GSM386602-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386602-tbl-1.txt,.txt,995.15,Genetic
+GSM386603-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386603-tbl-1.txt,.txt,1024.36,Genetic
+GSM386604-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386604-tbl-1.txt,.txt,1005.74,Genetic
+GSM386605-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386605-tbl-1.txt,.txt,1049.28,Genetic
+GSM386606-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386606-tbl-1.txt,.txt,982.63,Genetic
+GSM386607-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386607-tbl-1.txt,.txt,936.79,Genetic
+GSM386608-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386608-tbl-1.txt,.txt,1063.5,Genetic
+GSM386609-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386609-tbl-1.txt,.txt,982.03,Genetic
+GSM386610-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386610-tbl-1.txt,.txt,979.65,Genetic
+GSM386611-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386611-tbl-1.txt,.txt,1006.55,Genetic
+GSM386612-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386612-tbl-1.txt,.txt,970.79,Genetic
+GSM386613-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386613-tbl-1.txt,.txt,996.54,Genetic
+GSM386614-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386614-tbl-1.txt,.txt,984.92,Genetic
+GSM386615-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386615-tbl-1.txt,.txt,970.14,Genetic
+GSM386616-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386616-tbl-1.txt,.txt,1035.18,Genetic
+GSM386617-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386617-tbl-1.txt,.txt,931.17,Genetic
+GSM386618-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386618-tbl-1.txt,.txt,944.06,Genetic
+GSM386619-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386619-tbl-1.txt,.txt,997.47,Genetic
+GSM386620-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386620-tbl-1.txt,.txt,1061.09,Genetic
+GSM386621-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386621-tbl-1.txt,.txt,1050.96,Genetic
+GSM386622-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386622-tbl-1.txt,.txt,1080.89,Genetic
+GSM386623-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386623-tbl-1.txt,.txt,1018.86,Genetic
+GSM386624-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386624-tbl-1.txt,.txt,979.52,Genetic
+GSM386625-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386625-tbl-1.txt,.txt,1004.46,Genetic
+GSM386626-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386626-tbl-1.txt,.txt,973.54,Genetic
+GSM386627-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386627-tbl-1.txt,.txt,979.56,Genetic
+GSM386628-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386628-tbl-1.txt,.txt,970.5,Genetic
+GSM386629-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386629-tbl-1.txt,.txt,1019.35,Genetic
+GSM386630-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386630-tbl-1.txt,.txt,1019.88,Genetic
+GSM386631-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386631-tbl-1.txt,.txt,964.14,Genetic
+GSM386632-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386632-tbl-1.txt,.txt,997.26,Genetic
+GSM386633-tbl-1.txt,Genetics_Complete_code\data\raw\GSM Sample Tables\GSM386633-tbl-1.txt,.txt,999.52,Genetic
+removed_probes.csv,Genetics_Complete_code\data\removed\removed_probes.csv,.csv,1698.69,Genetic
+correlation_filter_report.txt,Genetics_Complete_code\data\reports\correlation_filter_report.txt,.txt,0.24,Genetic
+dataset_validation_report.txt,Genetics_Complete_code\data\reports\dataset_validation_report.txt,.txt,0.33,Genetic
+duplicate_features.csv,Genetics_Complete_code\data\reports\duplicate_features.csv,.csv,0.02,Genetic
+genetic_dataset_report.txt,Genetics_Complete_code\data\reports\genetic_dataset_report.txt,.txt,0.34,Genetic
+knn_imputation_report.txt,Genetics_Complete_code\data\reports\knn_imputation_report.txt,.txt,0.23,Genetic
+label_report.txt,Genetics_Complete_code\data\reports\label_report.txt,.txt,0.34,Genetic
+mutual_information_report.txt,Genetics_Complete_code\data\reports\mutual_information_report.txt,.txt,0.22,Genetic
+mutual_information_scores.csv,Genetics_Complete_code\data\reports\mutual_information_scores.csv,.csv,699.97,Genetic
+non_numeric_columns.csv,Genetics_Complete_code\data\reports\non_numeric_columns.csv,.csv,0.01,Genetic
+probe_filter_report.txt,Genetics_Complete_code\data\reports\probe_filter_report.txt,.txt,0.27,Genetic
+probe_mapping_report.txt,Genetics_Complete_code\data\reports\probe_mapping_report.txt,.txt,0.28,Genetic
+removed_correlated_features.csv,Genetics_Complete_code\data\reports\removed_correlated_features.csv,.csv,0.02,Genetic
+removed_low_variance_features.csv,Genetics_Complete_code\data\reports\removed_low_variance_features.csv,.csv,0.02,Genetic
+variance_threshold_report.txt,Genetics_Complete_code\data\reports\variance_threshold_report.txt,.txt,0.24,Genetic
+zscore_normalization_report.txt,Genetics_Complete_code\data\reports\zscore_normalization_report.txt,.txt,0.25,Genetic
+genetic_transformer_fold_1.pth,Genetics_Complete_code\genetics\checkpoints\genetic_transformer_fold_1.pth,.pth,524.27,Genetic
+genetic_transformer_fold_2.pth,Genetics_Complete_code\genetics\checkpoints\genetic_transformer_fold_2.pth,.pth,524.27,Genetic
+genetic_transformer_fold_3.pth,Genetics_Complete_code\genetics\checkpoints\genetic_transformer_fold_3.pth,.pth,524.27,Genetic
+genetic_transformer_fold_4.pth,Genetics_Complete_code\genetics\checkpoints\genetic_transformer_fold_4.pth,.pth,524.27,Genetic
+genetic_transformer_fold_5.pth,Genetics_Complete_code\genetics\checkpoints\genetic_transformer_fold_5.pth,.pth,524.27,Genetic
+config.py,Genetics_Complete_code\genetics\config.py,.py,1.41,Genetic
+dataset.py,Genetics_Complete_code\genetics\dataset.py,.py,0.54,Genetic
+evaluate.py,Genetics_Complete_code\genetics\evaluate.py,.py,0.0,Genetic
+inference.py,Genetics_Complete_code\genetics\inference.py,.py,0.0,Genetic
+model.py,Genetics_Complete_code\genetics\model.py,.py,3.08,Genetic
+baseline_cv_results.csv,Genetics_Complete_code\genetics\outputs\baseline_cv_results.csv,.csv,0.61,Genetic
+biological_interpretation_report.txt,Genetics_Complete_code\genetics\outputs\biological_interpretation\biological_interpretation_report.txt,.txt,8.03,Genetic
+biological_interpretation_stable_genes.csv,Genetics_Complete_code\genetics\outputs\biological_interpretation\biological_interpretation_stable_genes.csv,.csv,10.91,Genetic
+Linear_SVM_fold_results.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Linear_SVM_fold_results.csv,.csv,0.72,Genetic
+Linear_SVM_oof_predictions.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Linear_SVM_oof_predictions.csv,.csv,2.92,Genetic
+Linear_SVM_oof_results.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Linear_SVM_oof_results.csv,.csv,0.2,Genetic
+Logistic_Regression_fold_results.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Logistic_Regression_fold_results.csv,.csv,0.74,Genetic
+Logistic_Regression_oof_predictions.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Logistic_Regression_oof_predictions.csv,.csv,2.97,Genetic
+Logistic_Regression_oof_results.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Logistic_Regression_oof_results.csv,.csv,0.22,Genetic
+Random_Forest_fold_results.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Random_Forest_fold_results.csv,.csv,0.69,Genetic
+Random_Forest_oof_predictions.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Random_Forest_oof_predictions.csv,.csv,2.91,Genetic
+Random_Forest_oof_results.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\Random_Forest_oof_results.csv,.csv,0.2,Genetic
+all_model_fold_results.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\all_model_fold_results.csv,.csv,2.0,Genetic
+model_comparison.csv,Genetics_Complete_code\genetics\outputs\classical_baselines\model_comparison.csv,.csv,0.62,Genetic
+feature_size_fold_results.csv,Genetics_Complete_code\genetics\outputs\feature_size_experiment\feature_size_fold_results.csv,.csv,3.69,Genetic
+feature_size_summary.csv,Genetics_Complete_code\genetics\outputs\feature_size_experiment\feature_size_summary.csv,.csv,1.41,Genetic
+all_folds_top100_features.csv,Genetics_Complete_code\genetics\outputs\feature_stability\all_folds_top100_features.csv,.csv,16.75,Genetic
+core_features_all_5_folds.csv,Genetics_Complete_code\genetics\outputs\feature_stability\core_features_all_5_folds.csv,.csv,0.07,Genetic
+feature_selection_frequency.csv,Genetics_Complete_code\genetics\outputs\feature_stability\feature_selection_frequency.csv,.csv,29.89,Genetic
+fold_1_top100_features.csv,Genetics_Complete_code\genetics\outputs\feature_stability\fold_1_top100_features.csv,.csv,3.36,Genetic
+fold_2_top100_features.csv,Genetics_Complete_code\genetics\outputs\feature_stability\fold_2_top100_features.csv,.csv,3.37,Genetic
+fold_3_top100_features.csv,Genetics_Complete_code\genetics\outputs\feature_stability\fold_3_top100_features.csv,.csv,3.37,Genetic
+fold_4_top100_features.csv,Genetics_Complete_code\genetics\outputs\feature_stability\fold_4_top100_features.csv,.csv,3.38,Genetic
+fold_5_top100_features.csv,Genetics_Complete_code\genetics\outputs\feature_stability\fold_5_top100_features.csv,.csv,3.37,Genetic
+stable_features_3plus_folds.csv,Genetics_Complete_code\genetics\outputs\feature_stability\stable_features_3plus_folds.csv,.csv,0.96,Genetic
+stable_features_4plus_folds.csv,Genetics_Complete_code\genetics\outputs\feature_stability\stable_features_4plus_folds.csv,.csv,0.2,Genetic
+final_project_results_report.txt,Genetics_Complete_code\genetics\outputs\final_summary\final_project_results_report.txt,.txt,2.82,Genetic
+master_project_summary.csv,Genetics_Complete_code\genetics\outputs\final_summary\master_project_summary.csv,.csv,0.68,Genetic
+feature_size_final.csv,Genetics_Complete_code\genetics\outputs\final_visualizations\feature_size_final.csv,.csv,0.29,Genetic
+final_candidate_genes.csv,Genetics_Complete_code\genetics\outputs\final_visualizations\final_candidate_genes.csv,.csv,10.91,Genetic
+model_comparison_final.csv,Genetics_Complete_code\genetics\outputs\final_visualizations\model_comparison_final.csv,.csv,0.17,Genetic
+visualization_summary.txt,Genetics_Complete_code\genetics\outputs\final_visualizations\visualization_summary.txt,.txt,0.61,Genetic
+genbank_sequence_annotations.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\genbank_sequence_annotations.csv,.csv,4.73,Genetic
+ncbi_gene_mapping_raw.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\ncbi_gene_mapping_raw.csv,.csv,0.58,Genetic
+ncbi_sequence_gene_mapping_raw.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\ncbi_sequence_gene_mapping_raw.csv,.csv,0.71,Genetic
+stable_3plus_features_gene_annotation.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\stable_3plus_features_gene_annotation.csv,.csv,1.63,Genetic
+stable_3plus_features_gene_annotation_v2.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\stable_3plus_features_gene_annotation_v2.csv,.csv,1.75,Genetic
+stable_3plus_features_with_genbank.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\stable_3plus_features_with_genbank.csv,.csv,1.18,Genetic
+stable_4plus_features_with_genbank.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\stable_4plus_features_with_genbank.csv,.csv,0.27,Genetic
+stable_5of5_features_with_genbank.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\stable_5of5_features_with_genbank.csv,.csv,0.11,Genetic
+stable_features_with_genbank.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\stable_features_with_genbank.csv,.csv,35.84,Genetic
+verified_stable_gene_annotations.csv,Genetics_Complete_code\genetics\outputs\gene_annotation\verified_stable_gene_annotations.csv,.csv,4.4,Genetic
+fold_1.pth,Genetics_Complete_code\genetics\outputs\leakage_safe\checkpoints\fold_1.pth,.pth,521.65,Genetic
+fold_2.pth,Genetics_Complete_code\genetics\outputs\leakage_safe\checkpoints\fold_2.pth,.pth,521.65,Genetic
+fold_3.pth,Genetics_Complete_code\genetics\outputs\leakage_safe\checkpoints\fold_3.pth,.pth,521.65,Genetic
+fold_4.pth,Genetics_Complete_code\genetics\outputs\leakage_safe\checkpoints\fold_4.pth,.pth,521.65,Genetic
+fold_5.pth,Genetics_Complete_code\genetics\outputs\leakage_safe\checkpoints\fold_5.pth,.pth,521.65,Genetic
+fold_1_selected_features.csv,Genetics_Complete_code\genetics\outputs\leakage_safe\fold_1_selected_features.csv,.csv,28.86,Genetic
+fold_2_selected_features.csv,Genetics_Complete_code\genetics\outputs\leakage_safe\fold_2_selected_features.csv,.csv,28.82,Genetic
+fold_3_selected_features.csv,Genetics_Complete_code\genetics\outputs\leakage_safe\fold_3_selected_features.csv,.csv,28.91,Genetic
+fold_4_selected_features.csv,Genetics_Complete_code\genetics\outputs\leakage_safe\fold_4_selected_features.csv,.csv,28.91,Genetic
+fold_5_selected_features.csv,Genetics_Complete_code\genetics\outputs\leakage_safe\fold_5_selected_features.csv,.csv,28.87,Genetic
+fold_metrics.csv,Genetics_Complete_code\genetics\outputs\leakage_safe\fold_metrics.csv,.csv,0.47,Genetic
+out_of_fold_predictions.csv,Genetics_Complete_code\genetics\outputs\leakage_safe\out_of_fold_predictions.csv,.csv,2.93,Genetic
+genetic_gan_augmentation_sensitivity_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\augmentation_sensitivity\genetic_gan_augmentation_sensitivity_report.txt,.txt,3.18,Genetic
+genetic_gan_augmentation_sensitivity_results.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\augmentation_sensitivity\genetic_gan_augmentation_sensitivity_results.csv,.csv,1.41,Genetic
+gan_training_losses.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\conditional_gan\gan_training_losses.csv,.csv,33.39,Genetic
+genetic_balanced_training_dataset.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\conditional_gan\genetic_balanced_training_dataset.csv,.csv,2657.21,Genetic
+genetic_conditional_gan.pt,Genetics_Complete_code\genetics\outputs\objective2_genetic\conditional_gan\genetic_conditional_gan.pt,.pt,5296.64,Genetic
+genetic_conditional_gan_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\conditional_gan\genetic_conditional_gan_report.txt,.txt,2.07,Genetic
+genetic_gan_scaler.npz,Genetics_Complete_code\genetics\outputs\objective2_genetic\conditional_gan\genetic_gan_scaler.npz,.npz,16.12,Genetic
+synthetic_control_samples.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\conditional_gan\synthetic_control_samples.csv,.csv,524.52,Genetic
+genetic_ctgan_synthetic_controls_46.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\ctgan\genetic_ctgan_synthetic_controls_46.csv,.csv,68.6,Genetic
+ctgan_vs_custom_gan_distribution_comparison.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\ctgan_validation\ctgan_vs_custom_gan_distribution_comparison.csv,.csv,0.55,Genetic
+ctgan_vs_custom_gan_downstream_comparison.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\ctgan_validation\ctgan_vs_custom_gan_downstream_comparison.csv,.csv,0.46,Genetic
+ctgan_vs_custom_gan_validation_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\ctgan_validation\ctgan_vs_custom_gan_validation_report.txt,.txt,1.57,Genetic
+fold_safe_gan_validation_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\fold_safe_gan_validation\fold_safe_gan_validation_report.txt,.txt,5.57,Genetic
+fold_safe_gan_validation_results.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\fold_safe_gan_validation\fold_safe_gan_validation_results.csv,.csv,2.42,Genetic
+fold_safe_gan_validation_summary.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\fold_safe_gan_validation\fold_safe_gan_validation_summary.csv,.csv,1.11,Genetic
+feature_distribution_comparison.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\synthetic_validation\feature_distribution_comparison.csv,.csv,123.98,Genetic
+genetic_synthetic_validation_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\synthetic_validation\genetic_synthetic_validation_report.txt,.txt,1.08,Genetic
+genetic_test_1000_features_unseen.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\train_test_split\genetic_test_1000_features_unseen.csv,.csv,461.95,Genetic
+genetic_test_unseen.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\train_test_split\genetic_test_unseen.csv,.csv,15361.2,Genetic
+genetic_train.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\train_test_split\genetic_train.csv,.csv,58145.23,Genetic
+genetic_train_1000_features.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\train_test_split\genetic_train_1000_features.csv,.csv,1748.87,Genetic
+genetic_train_test_split_1000_features_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\train_test_split\genetic_train_test_split_1000_features_report.txt,.txt,1.45,Genetic
+genetic_train_test_split_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\train_test_split\genetic_train_test_split_report.txt,.txt,1.28,Genetic
+stable_features_statistical_validation.csv,Genetics_Complete_code\genetics\outputs\statistical_validation\stable_features_statistical_validation.csv,.csv,4.81,Genetic
+positional_encoding.py,Genetics_Complete_code\genetics\positional_encoding.py,.py,0.0,Genetic
+save_top100_fold_features.py,Genetics_Complete_code\genetics\save_top100_fold_features.py,.py,10.82,Genetic
+test_model.py,Genetics_Complete_code\genetics\test_model.py,.py,1.57,Genetic
+train.py,Genetics_Complete_code\genetics\train.py,.py,0.0,Genetic
+train_baseline.py,Genetics_Complete_code\genetics\train_baseline.py,.py,10.99,Genetic
+train_classical_baselines.py,Genetics_Complete_code\genetics\train_classical_baselines.py,.py,14.46,Genetic
+train_feature_size_experiment.py,Genetics_Complete_code\genetics\train_feature_size_experiment.py,.py,13.07,Genetic
+train_leakage_safe.py,Genetics_Complete_code\genetics\train_leakage_safe.py,.py,19.83,Genetic
+transformer.py,Genetics_Complete_code\genetics\transformer.py,.py,0.0,Genetic
+genetic_ctgan.py,Genetics_Complete_code\src\genetic_ctgan.py,.py,10.85,Genetic
+genetic_ctgan_utility_validation.py,Genetics_Complete_code\src\genetic_ctgan_utility_validation.py,.py,9.45,Genetic
+genetic_ctgan_validation.py,Genetics_Complete_code\src\genetic_ctgan_validation.py,.py,14.01,Genetic
+step10_variance_threshold.py,Genetics_Complete_code\src\step10_variance_threshold.py,.py,2.73,Genetic
+step11_mutual_information.py,Genetics_Complete_code\src\step11_mutual_information.py,.py,2.08,Genetic
+step12_correlation_filter.py,Genetics_Complete_code\src\step12_correlation_filter.py,.py,1.96,Genetic
+step18_annotate_stable_probes.py,Genetics_Complete_code\src\step18_annotate_stable_probes.py,.py,8.84,Genetic
+step19_genbank_to_gene.py,Genetics_Complete_code\src\step19_genbank_to_gene.py,.py,12.31,Genetic
+step19b_genbank_sequence_to_gene.py,Genetics_Complete_code\src\step19b_genbank_sequence_to_gene.py,.py,14.05,Genetic
+step1_merge_samples.py,Genetics_Complete_code\src\step1_merge_samples.py,.py,1.25,Genetic
+step20_extract_sequence_annotations.py,Genetics_Complete_code\src\step20_extract_sequence_annotations.py,.py,11.71,Genetic
+step21_create_verified_gene_annotation.py,Genetics_Complete_code\src\step21_create_verified_gene_annotation.py,.py,9.86,Genetic
+step22_statistical_validation.py,Genetics_Complete_code\src\step22_statistical_validation.py,.py,12.46,Genetic
+step24_biological_interpretation.py,Genetics_Complete_code\src\step24_biological_interpretation.py,.py,18.16,Genetic
+step25_final_project_summary.py,Genetics_Complete_code\src\step25_final_project_summary.py,.py,16.73,Genetic
+step26_final_visualizations.py,Genetics_Complete_code\src\step26_final_visualizations.py,.py,8.3,Genetic
+step28_train_genetic_transformer.py,Genetics_Complete_code\src\step28_train_genetic_transformer.py,.py,14.64,Genetic
+step2_5_missing_distribution.py,Genetics_Complete_code\src\step2_5_missing_distribution.py,.py,3.56,Genetic
+step2_data_quality_assessment.py,Genetics_Complete_code\src\step2_data_quality_assessment.py,.py,3.1,Genetic
+step30_genetic_train_test_split.py,Genetics_Complete_code\src\step30_genetic_train_test_split.py,.py,7.66,Genetic
+step31_genetic_conditional_gan.py,Genetics_Complete_code\src\step31_genetic_conditional_gan.py,.py,21.23,Genetic
+step32_genetic_synthetic_validation.py,Genetics_Complete_code\src\step32_genetic_synthetic_validation.py,.py,13.72,Genetic
+step35_genetic_gan_utility_validation.py,Genetics_Complete_code\src\step35_genetic_gan_utility_validation.py,.py,13.83,Genetic
+step36_genetic_gan_augmentation_sensitivity.py,Genetics_Complete_code\src\step36_genetic_gan_augmentation_sensitivity.py,.py,14.3,Genetic
+step37_fold_safe_genetic_gan_validation.py,Genetics_Complete_code\src\step37_fold_safe_genetic_gan_validation.py,.py,18.5,Genetic
+step3_filter_probes.py,Genetics_Complete_code\src\step3_filter_probes.py,.py,2.78,Genetic
+step4_knn_imputation.py,Genetics_Complete_code\src\step4_knn_imputation.py,.py,2.49,Genetic
+step5_zscore_normalization.py,Genetics_Complete_code\src\step5_zscore_normalization.py,.py,2.76,Genetic
+step6_extract_labels.py,Genetics_Complete_code\src\step6_extract_labels.py,.py,2.61,Genetic
+step7_probe_mapping.py,Genetics_Complete_code\src\step7_probe_mapping.py,.py,3.29,Genetic
+step8_build_ml_dataset.py,Genetics_Complete_code\src\step8_build_ml_dataset.py,.py,3.01,Genetic
+step9_dataset_validation.py,Genetics_Complete_code\src\step9_dataset_validation.py,.py,3.51,Genetic
+tempCodeRunnerFile.py,Genetics_Complete_code\src\tempCodeRunnerFile.py,.py,0.0,Genetic
+genetic_service.py,backend\services\genetic_service.py,.py,10.2,Genetic
+genetic_input.csv,data\demo\P001\genetic_input.csv,.csv,26.99,Genetic
+genetic_input.csv,data\demo\P002\genetic_input.csv,.csv,27.02,Genetic
+genetic_input.csv,data\demo\P003\genetic_input.csv,.csv,26.98,Genetic
+genetic_input.csv,data\demo\P004\genetic_input.csv,.csv,27.11,Genetic
+genetic_input.csv,data\demo\P005\genetic_input.csv,.csv,27.01,Genetic
+genetics_detailed.md,genetics_detailed.md,.md,34.47,Genetic
+genetic_128d_embeddings.csv,Genetic_Model\03_representation_learning\genetic_128d_embeddings.csv,.csv,162.61,"Genetic, Alignment"
+genetic_transformer_128d.pt,Genetic_Model\03_representation_learning\genetic_transformer_128d.pt,.pt,1112.56,"Genetic, Alignment"
+genetic_128_to_32_alignment.pt,Genetic_Model\04_cross_modal_alignment\genetic_128_to_32_alignment.pt,.pt,45.12,"Genetic, Alignment"
+genetic_128_to_32_alignment_report.txt,Genetic_Model\04_cross_modal_alignment\genetic_128_to_32_alignment_report.txt,.txt,1.01,"Genetic, Alignment"
+genetic_32d_aligned_representation.csv,Genetic_Model\04_cross_modal_alignment\genetic_32d_aligned_representation.csv,.csv,43.74,"Genetic, Alignment"
+genetic_32d_validation_report.txt,Genetic_Model\04_cross_modal_alignment\genetic_32d_validation_report.txt,.txt,0.7,"Genetic, Alignment"
+genetic_128d_technical_summary.txt,Genetics_Complete_code\genetic_128d_technical_summary.txt,.txt,35.31,"Genetic, Alignment"
+genetic_128d_training_report.txt,Genetics_Complete_code\genetic_128d_training_report.txt,.txt,26.55,"Genetic, Alignment"
+genetic_128d_embedding_report.txt,Genetics_Complete_code\genetics\outputs\genetic_embedding\genetic_128d_embedding_report.txt,.txt,0.35,"Genetic, Alignment"
+genetic_128d_embeddings.csv,Genetics_Complete_code\genetics\outputs\genetic_embedding\genetic_128d_embeddings.csv,.csv,162.61,"Genetic, Alignment"
+genetic_128d_embeddings_trained_oof.csv,Genetics_Complete_code\genetics\outputs\genetic_embedding\genetic_128d_embeddings_trained_oof.csv,.csv,162.08,"Genetic, Alignment"
+genetic_transformer_128d.pt,Genetics_Complete_code\genetics\outputs\genetic_embedding\genetic_transformer_128d.pt,.pt,1112.56,"Genetic, Alignment"
+genetic_transformer_128d_final_report.txt,Genetics_Complete_code\genetics\outputs\genetic_embedding\genetic_transformer_128d_final_report.txt,.txt,0.47,"Genetic, Alignment"
+genetic_transformer_128d_lightweight.pt,Genetics_Complete_code\genetics\outputs\genetic_embedding\genetic_transformer_128d_lightweight.pt,.pt,16559.98,"Genetic, Alignment"
+genetic_transformer_lightweight_cv.csv,Genetics_Complete_code\genetics\outputs\genetic_embedding\genetic_transformer_lightweight_cv.csv,.csv,0.21,"Genetic, Alignment"
+genetic_objective2_input.csv,Genetics_Complete_code\genetics\outputs\genetic_embedding\objective2_input\genetic_objective2_input.csv,.csv,162.08,"Genetic, Alignment"
+genetic_objective2_input_report.txt,Genetics_Complete_code\genetics\outputs\genetic_embedding\objective2_input\genetic_objective2_input_report.txt,.txt,0.67,"Genetic, Alignment"
+out_of_fold_embeddings.npy,Genetics_Complete_code\genetics\outputs\leakage_safe\out_of_fold_embeddings.npy,.npy,29.12,"Genetic, Alignment"
+genetic_128_to_32_alignment.pt,Genetics_Complete_code\genetics\outputs\objective2_genetic\cross_modal_alignment\genetic_128_to_32_alignment.pt,.pt,45.12,"Genetic, Alignment"
+genetic_128_to_32_alignment_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\cross_modal_alignment\genetic_128_to_32_alignment_report.txt,.txt,1.01,"Genetic, Alignment"
+genetic_32d_aligned_representation.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\cross_modal_alignment\genetic_32d_aligned_representation.csv,.csv,43.74,"Genetic, Alignment"
+genetic_32d_validation_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\cross_modal_alignment\genetic_32d_validation_report.txt,.txt,0.7,"Genetic, Alignment"
+embedding_gan_training_history.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan\embedding_gan_training_history.csv,.csv,41.99,"Genetic, Alignment"
+genetic_balanced_128d_embedding_dataset.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan\genetic_balanced_128d_embedding_dataset.csv,.csv,243.14,"Genetic, Alignment"
+genetic_embedding_conditional_gan.pt,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan\genetic_embedding_conditional_gan.pt,.pt,563.43,"Genetic, Alignment"
+genetic_embedding_conditional_gan_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan\genetic_embedding_conditional_gan_report.txt,.txt,0.62,"Genetic, Alignment"
+genetic_embedding_gan_test_unseen.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan\genetic_embedding_gan_test_unseen.csv,.csv,35.65,"Genetic, Alignment"
+genetic_embedding_gan_train.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan\genetic_embedding_gan_train.csv,.csv,129.19,"Genetic, Alignment"
+synthetic_control_128d_embeddings.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan\synthetic_control_128d_embeddings.csv,.csv,66.58,"Genetic, Alignment"
+genetic_gan_downstream_utility_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan_utility_validation\genetic_gan_downstream_utility_report.txt,.txt,1.74,"Genetic, Alignment"
+genetic_gan_downstream_utility_results.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan_utility_validation\genetic_gan_downstream_utility_results.csv,.csv,0.43,"Genetic, Alignment"
+corrected_embedding_distribution_comparison.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan_validation\corrected_embedding_distribution_comparison.csv,.csv,22.55,"Genetic, Alignment"
+corrected_genetic_embedding_synthetic_validation_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan_validation\corrected_genetic_embedding_synthetic_validation_report.txt,.txt,1.69,"Genetic, Alignment"
+embedding_distribution_comparison.csv,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan_validation\embedding_distribution_comparison.csv,.csv,22.6,"Genetic, Alignment"
+genetic_embedding_synthetic_validation_report.txt,Genetics_Complete_code\genetics\outputs\objective2_genetic\embedding_gan_validation\genetic_embedding_synthetic_validation_report.txt,.txt,1.35,"Genetic, Alignment"
+step27_genetic_128_embedding.py,Genetics_Complete_code\src\step27_genetic_128_embedding.py,.py,7.88,"Genetic, Alignment"
+step29_genetic_embedding_validation.py,Genetics_Complete_code\src\step29_genetic_embedding_validation.py,.py,9.37,"Genetic, Alignment"
+step33_genetic_embedding_conditional_gan.py,Genetics_Complete_code\src\step33_genetic_embedding_conditional_gan.py,.py,17.34,"Genetic, Alignment"
+step34_genetic_embedding_synthetic_validation.py,Genetics_Complete_code\src\step34_genetic_embedding_synthetic_validation.py,.py,14.19,"Genetic, Alignment"
+step38_genetic_128_to_32_alignment.py,Genetics_Complete_code\src\step38_genetic_128_to_32_alignment.py,.py,7.11,"Genetic, Alignment"
+step39_validate_genetic_32d.py,Genetics_Complete_code\src\step39_validate_genetic_32d.py,.py,9.46,"Genetic, Alignment"
+genetic_32d_normalized.npy,05_multimodal_fusion\genetic_32d_normalized.npy,.npy,14.62,"Genetic, Alignment, Fusion"
+M3_1_genetic_expert.pt,05_multimodal_fusion\M3_1_genetic_expert.pt,.pt,22.14,"Genetic, Fusion"
+M3_1_genetic_scaler.joblib,05_multimodal_fusion\M3_1_genetic_scaler.joblib,.joblib,1.35,"Genetic, Fusion"
+genetic_input.csv,05_multimodal_fusion\M4_demo_patients\P001\genetic_input.csv,.csv,26.99,"Genetic, Fusion"
+genetic_input.csv,05_multimodal_fusion\M4_demo_patients\P002\genetic_input.csv,.csv,27.02,"Genetic, Fusion"
+genetic_input.csv,05_multimodal_fusion\M4_demo_patients\P003\genetic_input.csv,.csv,26.98,"Genetic, Fusion"
+genetic_input.csv,05_multimodal_fusion\M4_demo_patients\P004\genetic_input.csv,.csv,27.11,"Genetic, Fusion"
+genetic_input.csv,05_multimodal_fusion\M4_demo_patients\P005\genetic_input.csv,.csv,27.01,"Genetic, Fusion"
+genetic_targets.npy,05_multimodal_fusion\genetic_targets.npy,.npy,1.03,"Genetic, Fusion"
+final_candidate_gene_evidence.csv,Genetics_Complete_code\genetics\outputs\final_summary\final_candidate_gene_evidence.csv,.csv,10.91,"Genetic, Fusion"
+evidence_tier_summary.csv,Genetics_Complete_code\genetics\outputs\integrated_evidence\evidence_tier_summary.csv,.csv,0.27,"Genetic, Fusion"
+integrated_stable_feature_evidence.csv,Genetics_Complete_code\genetics\outputs\integrated_evidence\integrated_stable_feature_evidence.csv,.csv,6.88,"Genetic, Fusion"
+step23_integrate_feature_evidence.py,Genetics_Complete_code\src\step23_integrate_feature_evidence.py,.py,14.69,"Genetic, Fusion"
+00_setup_cross_modal_workspace.ipynb,00_setup_cross_modal_workspace.ipynb,.ipynb,7.92,Other
+ 01_baseline_freeze_and_artifact_audit.ipynb,06_cross_modal_learning\00_setup_and_baseline_audit\notebooks\ 01_baseline_freeze_and_artifact_audit.ipynb,.ipynb,63.19,Other
+APP_MANIFEST.json,APP_MANIFEST.json,.json,0.72,Other
+Complete_all_3_model_code.ipynb,Complete_all_3_model_code.ipynb,.ipynb,4030.17,Other
+MODEL_MANIFEST.json,MODEL_MANIFEST.json,.json,2.53,Other
+README.md,README.md,.md,1.21,Other
+Untitled.ipynb,Untitled.ipynb,.ipynb,0.33,Other
+Untitled1.ipynb,Untitled1.ipynb,.ipynb,0.07,Other
+Untitled2.ipynb,Untitled2.ipynb,.ipynb,7.87,Other
+__init__.py,backend\app\__init__.py,.py,0.25,Other
+main.py,backend\app\main.py,.py,29.06,Other
+requirements.txt,backend\requirements.txt,.txt,1.36,Other
+__init__.py,backend\schemas\__init__.py,.py,0.38,Other
+patient_schema.py,backend\schemas\patient_schema.py,.py,7.54,Other
+result_schema.py,backend\schemas\result_schema.py,.py,7.17,Other
+__init__.py,backend\services\__init__.py,.py,0.54,Other
+__init__.py,backend\utils\__init__.py,.py,0.32,Other
+paths.py,backend\utils\paths.py,.py,7.08,Other
+backend_file_inventory.txt,backend_file_inventory.txt,.txt,10.56,Other
+MODEL_ARCHITECTURE.md,docs\models\MODEL_ARCHITECTURE.md,.md,0.1,Other
+PROJECT_STATUS.md,docs\project\PROJECT_STATUS.md,.md,0.13,Other
+UI_ARCHITECTURE.md,docs\ui\UI_ARCHITECTURE.md,.md,0.11,Other

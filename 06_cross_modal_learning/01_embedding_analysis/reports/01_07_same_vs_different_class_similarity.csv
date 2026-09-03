@@ -1,0 +1,4 @@
+Comparison,Same_Class_Mean_Similarity,Different_Class_Mean_Similarity,Similarity_Gap,Interpretation
+Genetic vs Behavioral,-0.0069070125464349985,0.011342001147568226,-0.018249013694003224,Different-class representations show higher cross-modal similarity
+Genetic vs Environmental,-0.004102139221504331,0.006407615379430354,-0.010509754600934684,Different-class representations show higher cross-modal similarity
+Behavioral vs Environmental,0.046893304027616975,-0.024173502577468753,0.07106680660508573,Same-class representations show higher cross-modal similarity

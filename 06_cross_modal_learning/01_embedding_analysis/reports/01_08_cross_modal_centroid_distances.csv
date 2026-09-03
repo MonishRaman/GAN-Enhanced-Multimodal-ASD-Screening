@@ -1,0 +1,13 @@
+Representation_1,Representation_2,Relationship,Euclidean_Distance
+Genetic — NON-ASD,Behavioral — NON-ASD,Same Class,4.277846336364746
+Genetic — NON-ASD,Behavioral — ASD,Different Class,4.050505638122559
+Genetic — NON-ASD,Environmental — NON-ASD,Same Class,1.2908579111099243
+Genetic — NON-ASD,Environmental — ASD,Different Class,1.483619213104248
+Genetic — ASD,Behavioral — NON-ASD,Different Class,3.960721731185913
+Genetic — ASD,Behavioral — ASD,Same Class,4.015944004058838
+Genetic — ASD,Environmental — NON-ASD,Different Class,0.412571519613266
+Genetic — ASD,Environmental — ASD,Same Class,1.3787716627120972
+Behavioral — NON-ASD,Environmental — NON-ASD,Same Class,3.962472915649414
+Behavioral — NON-ASD,Environmental — ASD,Different Class,4.406350135803223
+Behavioral — ASD,Environmental — NON-ASD,Different Class,3.9699127674102783
+Behavioral — ASD,Environmental — ASD,Same Class,3.862567901611328

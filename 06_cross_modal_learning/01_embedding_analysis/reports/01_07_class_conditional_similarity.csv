@@ -1,0 +1,13 @@
+Comparison,Modality_A,Modality_B,Class_A,Class_B,Class_A_Name,Class_B_Name,Class_Relation,Samples_A,Samples_B,Total_Comparisons,Mean_Cosine_Similarity,Std_Cosine_Similarity,Median_Cosine_Similarity,Min_Cosine_Similarity,Max_Cosine_Similarity
+Genetic vs Behavioral,Genetic,Behavioral,0,0,NON-ASD,NON-ASD,Same Class,29,29,841,-0.015377242,0.13845655,-0.015463417,-0.35283777,0.3489934
+Genetic vs Behavioral,Genetic,Behavioral,0,1,NON-ASD,ASD,Different Class,29,87,2523,0.017509533,0.14251225,0.019491741,-0.43853542,0.5380729
+Genetic vs Behavioral,Genetic,Behavioral,1,0,ASD,NON-ASD,Different Class,87,29,2523,0.005174469,0.17474434,0.008676963,-0.5562814,0.50247973
+Genetic vs Behavioral,Genetic,Behavioral,1,1,ASD,ASD,Same Class,87,87,7569,-0.005965876,0.17324865,-0.009142336,-0.6192702,0.58091307
+Genetic vs Environmental,Genetic,Environmental,0,0,NON-ASD,NON-ASD,Same Class,29,29,841,0.0068046325,0.16739097,0.0064056944,-0.4731143,0.49803632
+Genetic vs Environmental,Genetic,Environmental,0,1,NON-ASD,ASD,Different Class,29,87,2523,0.014071373,0.17227226,0.016910326,-0.52672374,0.5723775
+Genetic vs Environmental,Genetic,Environmental,1,0,ASD,NON-ASD,Different Class,87,29,2523,-0.0012561425,0.17163879,-0.0019152513,-0.5545002,0.50298554
+Genetic vs Environmental,Genetic,Environmental,1,1,ASD,ASD,Same Class,87,87,7569,-0.0053140027,0.17399976,-0.004732092,-0.6171626,0.68662006
+Behavioral vs Environmental,Behavioral,Environmental,0,0,NON-ASD,NON-ASD,Same Class,29,29,841,-0.012902943,0.16247524,-0.00070846826,-0.49671915,0.4698972
+Behavioral vs Environmental,Behavioral,Environmental,0,1,NON-ASD,ASD,Different Class,29,87,2523,-0.054600034,0.18053767,-0.05757199,-0.6264153,0.5453155
+Behavioral vs Environmental,Behavioral,Environmental,1,0,ASD,NON-ASD,Different Class,87,29,2523,0.0062530288,0.1727997,-0.007065377,-0.4923954,0.52219987
+Behavioral vs Environmental,Behavioral,Environmental,1,1,ASD,ASD,Same Class,87,87,7569,0.05353733,0.18644905,0.055771895,-0.5419744,0.6383688

@@ -1,0 +1,4 @@
+Modality,Samples,Embedding Dimension,Embedding Shape,Label Shape,Sample-Label Match,Is 32D,Unique Labels,Class Distribution
+Genetic,116,32,"(116, 32)","(116,)",True,True,"[0, 1]","{0: 29, 1: 87}"
+Behavioral,880,32,"(880, 32)","(880,)",True,True,"[0, 1]","{0: 439, 1: 441}"
+Environmental,47768,32,"(47768, 32)","(47768,)",True,True,"[0, 1]","{0: 45650, 1: 2118}"
