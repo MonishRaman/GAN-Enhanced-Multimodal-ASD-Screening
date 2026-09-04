@@ -1,0 +1,13 @@
+Parameter,Value
+Analysis Type,Knowledge-Level Cross-Modal Representation Analysis
+Patient-Level Matching,NOT USED
+Genetic Samples,116
+Behavioral Samples,116
+Environmental Samples,116
+Total Samples,348
+Embedding Dimension,32
+UMAP Components,2
+n_neighbors,15
+min_dist,0.1
+Metric,euclidean
+Random State,42

@@ -1,0 +1,4 @@
+Modality,Embedding Exists,Targets Exist,Alignment Model Exists,Expert Model Exists,Embedding Shape,Target Shape,Is 32D,Has NaN,Has Inf,Status
+Genetic,True,True,True,True,"(116, 32)","(116,)",True,False,False,READY
+Behavioral,True,True,True,True,"(880, 32)","(880,)",True,False,False,READY
+Environmental,True,True,True,True,"(47768, 32)","(47768,)",True,False,False,READY

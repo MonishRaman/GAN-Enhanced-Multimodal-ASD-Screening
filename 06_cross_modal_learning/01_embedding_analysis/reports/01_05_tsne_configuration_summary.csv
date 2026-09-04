@@ -1,0 +1,10 @@
+Parameter,Value
+Analysis Level,Knowledge-Level Cross-Modal Analysis
+Patient-Level Matching Used,No
+Total Balanced Samples,348
+Samples Per Modality,116
+Embedding Dimension Input,32
+t-SNE Output Dimension,2
+Perplexity,30
+Iterations,1500
+Random State,42

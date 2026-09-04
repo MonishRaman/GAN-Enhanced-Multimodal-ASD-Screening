@@ -1,0 +1,7 @@
+Metric,Value
+Mean Same-Class Cosine Similarity,-0.046105220913887024
+Mean Different-Class Cosine Similarity,0.04610522463917732
+Cosine Compatibility Gap,-0.09221044182777405
+Mean Same-Class Euclidean Distance,3.1314101219177246
+Mean Different-Class Euclidean Distance,3.0472801675399146
+Distance Separation Gap,-0.08412995437781001
