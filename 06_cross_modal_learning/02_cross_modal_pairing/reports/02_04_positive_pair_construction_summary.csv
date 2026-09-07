@@ -1,0 +1,11 @@
+Metric,Value
+Pairing Strategy,Balanced Class-Conditional Pairing
+Pair Type,Positive
+Pair Label,1
+Relationship Definition,Same-Class Cross-Modal
+Total Positive Pairs,174
+Pairs Per Class Per Modality Combination,29
+Source Embedding Dimension,32
+Target Embedding Dimension,32
+Patient-Level Matching,Not Used
+Random Seed,42

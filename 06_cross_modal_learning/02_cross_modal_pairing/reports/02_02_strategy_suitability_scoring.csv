@@ -1,0 +1,5 @@
+Strategy,Knowledge_Level_Validity,Imbalance_Control,Diversity_Preservation,Bias_Avoidance,Scalability,Reproducibility,Total_Score
+Balanced Class-Conditional Pairing,3,3,3,3,3,3,18
+Centroid / Prototype Pairing,3,3,1,3,3,3,16
+Random Same-Class Pairing,3,1,3,3,3,2,15
+Similarity / Distribution-Aware Pairing,2,1,3,1,2,2,11

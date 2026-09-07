@@ -1,0 +1,5 @@
+Validation,Expected,Actual,Status
+All pairs are different-class,True,True,PASS
+Source embeddings are 32D,True,True,PASS
+Target embeddings are 32D,True,True,PASS
+Expected pair count,174,174,PASS

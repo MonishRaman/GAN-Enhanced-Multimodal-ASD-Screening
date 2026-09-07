@@ -1,0 +1,7 @@
+Modality_A,Modality_B,Class,Samples_A,Samples_B,Possible_Same_Class_Pairs
+Genetic,Behavioral,0,29,439,12731
+Genetic,Behavioral,1,87,441,38367
+Genetic,Environmental,0,29,45650,1323850
+Genetic,Environmental,1,87,2118,184266
+Behavioral,Environmental,0,439,45650,20040350
+Behavioral,Environmental,1,441,2118,934038

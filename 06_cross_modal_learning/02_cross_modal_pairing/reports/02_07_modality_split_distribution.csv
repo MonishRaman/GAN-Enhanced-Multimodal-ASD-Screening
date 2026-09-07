@@ -1,0 +1,4 @@
+source_modality,target_modality,Train_Count,Validation_Count,Total
+Behavioral,Environmental,96,20,116
+Genetic,Behavioral,94,22,116
+Genetic,Environmental,88,28,116

@@ -1,0 +1,2 @@
+Selected_Strategy,Analysis_Level,Patient_Level_Matching,Positive_Pair_Definition,Negative_Pair_Definition,Modality_Balance,Class_Balance,Representation_Diversity,Exhaustive_Cartesian_Product,Sampling_Reproducibility,Selection_Status
+Balanced Class-Conditional Pairing,Knowledge-Level Cross-Modal Learning,Not Used,Same-Class Cross-Modal Relationship,Different-Class Cross-Modal Relationship,Required,Required,Preserved,Not Used,Fixed Random Seed,Scientifically Selected

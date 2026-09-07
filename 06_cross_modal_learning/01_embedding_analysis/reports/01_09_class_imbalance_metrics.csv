@@ -1,0 +1,4 @@
+Modality,Majority Class Count,Minority Class Count,Imbalance Ratio,Minority Class Percentage,Imbalance Severity
+Genetic,87,29,3.0,25.0,Moderate Imbalance
+Behavioral,441,439,1.0046,49.89,Balanced
+Environmental,45650,2118,21.5534,4.43,Extreme Imbalance

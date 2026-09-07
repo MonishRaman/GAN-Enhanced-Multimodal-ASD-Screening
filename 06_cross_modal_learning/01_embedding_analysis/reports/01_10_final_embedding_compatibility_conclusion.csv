@@ -1,0 +1,2 @@
+Analysis Stage,Analysis Type,Structural Compatibility,Numerical Compatibility,Natural Cross-Modal Alignment,Patient-Level Matching,Class-Level Analysis,Dataset Imbalance,Balanced Comparative Sampling,Final Decision,Next Phase
+01_embedding_analysis,Knowledge-Level Cross-Modal Representation Analysis,Confirmed,Confirmed,Limited / Partial,Not Used,Valid,Present and Documented,Used Where Required,Proceed with Explicit Knowledge-Level Cross-Modal Learning,02_cross_modal_pairing

@@ -1,0 +1,30 @@
+
+STEP 02.3 — CROSS-MODAL PAIRING STRATEGY SELECTION
+
+FINAL SELECTED STRATEGY:
+Balanced Class-Conditional Pairing
+
+SCIENTIFIC DECISION:
+
+Balanced class-conditional pairing is selected as the primary
+cross-modal pairing methodology.
+
+The strategy supports knowledge-level relationships between
+independently learned modality-specific representations.
+
+Patient-level correspondence is not used or assumed.
+
+Positive relationships are constructed using same-class semantic
+compatibility.
+
+Negative relationships are constructed using different-class
+semantic relationships.
+
+Balanced sampling is required to control modality size differences
+and class imbalance.
+
+The selected methodology preserves representation diversity while
+avoiding exhaustive Cartesian pair generation.
+
+NEXT STEP:
+02.4 — Cross-Modal Pair Construction

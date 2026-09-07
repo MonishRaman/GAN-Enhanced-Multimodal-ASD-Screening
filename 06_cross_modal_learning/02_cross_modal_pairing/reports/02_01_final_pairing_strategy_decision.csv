@@ -1,0 +1,14 @@
+Methodological_Component,Decision
+Analysis_Level,Knowledge-Level Cross-Modal Learning
+Patient_Level_Matching,Not Used
+Shared_Patient_Correspondence,Not Available / Not Assumed
+Embedding_Space,32-Dimensional Learned Representations
+Positive_Pairs,Same-Class Cross-Modal Relationships
+Negative_Pairs,Different-Class Cross-Modal Relationships
+Pairing_Strategy,Balanced Class-Conditional Sampling
+Exhaustive_Cartesian_Product,Not Used
+Modality_Balance,Required
+Class_Balance,Required
+Sampling_Reproducibility,Fixed Random Seed Required
+Pair_Metadata,Required
+Scientific_Interpretation,"Pairs represent semantic relationships between independently learned modality knowledge spaces, not paired patients."

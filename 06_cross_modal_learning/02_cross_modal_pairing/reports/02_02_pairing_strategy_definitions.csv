@@ -1,0 +1,5 @@
+Strategy,Core Principle,Patient Matching,Class Supervision,Modality Balance,Class Balance,Scalability
+Random Same-Class Pairing,Randomly pair samples from different modalities sharing the same class,No,Yes,Not Guaranteed,Not Guaranteed,High
+Balanced Class-Conditional Pairing,Construct controlled same-class and different-class relationships with balanced modality and class contributions,No,Yes,Controlled,Controlled,High
+Centroid / Prototype Pairing,Represent each modality-class group using an aggregate centroid and compare prototypes,No,Yes,Naturally Controlled,Naturally Controlled,Very High
+Similarity / Distribution-Aware Pairing,Pair representations based on existing geometric similarity or distributional proximity,No,Optional / Combined,Requires Control,Requires Control,Moderate

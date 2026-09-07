@@ -1,0 +1,8 @@
+Requirement,Rule
+Modality Pair Balance,"Genetic-Behavioral, Genetic-Environmental, and Behavioral-Environmental pairs should have controlled and comparable representation."
+Class Balance,ASD and NON-ASD semantic relationships should be controlled to prevent majority-class dominance.
+Positive / Negative Balance,Positive same-class and negative different-class relationships should be explicitly controlled.
+Sampling Reproducibility,All randomized pair generation must use fixed random seeds.
+No Cartesian Explosion,Do not generate every possible cross-product pair.
+No Patient Matching,Pair indices must never be interpreted as patient identity correspondence.
+Pair Metadata,"Every generated pair must retain modality, class, relationship type, and source index metadata."

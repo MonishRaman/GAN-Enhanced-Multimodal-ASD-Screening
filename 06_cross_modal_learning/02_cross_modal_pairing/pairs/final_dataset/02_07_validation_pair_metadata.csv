@@ -1,0 +1,71 @@
+source_modality,target_modality,source_index,target_index,source_class,target_class,class_name,pair_label,pair_type,relationship,final_pair_type,final_pair_label,semantic_relationship,is_different_class
+Genetic,Behavioral,26,580,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,95,13627,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,18,38561,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,24,13039,0,1,,,negative,,negative,0,different_class,True
+Genetic,Environmental,47,36243,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,22,15821,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,40,24182,1,0,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,112,132,1,0,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,274,15703,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,102,20703,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,56,14938,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,87,18070,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,10,737,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,10,26320,0,1,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,104,861,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,37,412,1,0,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,772,20659,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,18,135,0,1,,,negative,,negative,0,different_class,True
+Genetic,Environmental,65,32363,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,28,17360,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,50,46304,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,13,21118,0,1,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,694,6867,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,93,23906,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,87,8323,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,11,25866,0,1,,,negative,,negative,0,different_class,True
+Genetic,Environmental,19,15064,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,454,11622,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,698,28560,0,1,,,negative,,negative,0,different_class,True
+Genetic,Environmental,9,32120,0,1,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,747,40333,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,5,14412,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,736,43667,0,1,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,601,42097,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,712,37349,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,11,763,0,1,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,807,7369,0,1,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,447,5504,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,92,521,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,17,13571,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,24,310,0,1,,,negative,,negative,0,different_class,True
+Genetic,Environmental,45,23838,1,0,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,22,394,0,1,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,47,591,1,0,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,712,37864,1,0,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,8,816,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,4,386,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,6,869,0,1,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,104,588,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,38,44611,1,0,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,82,16134,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,21,25886,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,787,45111,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,17,271,0,1,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,628,28375,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,854,23894,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,99,19912,1,0,,,negative,,negative,0,different_class,True
+Genetic,Environmental,25,23218,0,1,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,73,101,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,5,399,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,13,761,0,1,,,negative,,negative,0,different_class,True
+Genetic,Behavioral,92,532,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,19,158,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,37,434,1,1,ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Behavioral,23,464,0,1,,,negative,,negative,0,different_class,True
+Genetic,Environmental,11,26023,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Behavioral,Environmental,854,24112,1,0,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,152,13580,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
+Genetic,Environmental,4,7669,0,1,,,negative,,negative,0,different_class,True
+Behavioral,Environmental,361,25807,0,0,NON-ASD,1.0,Positive,Same-Class Cross-Modal,positive,1,,
