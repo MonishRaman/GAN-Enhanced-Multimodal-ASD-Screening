@@ -1,0 +1,10 @@
+{
+    "loss_name": "BCEWithLogitsLoss",
+    "task_type": "binary_cross_modal_relationship_classification",
+    "positive_label": 1,
+    "negative_label": 0,
+    "model_output": "raw_relationship_logit",
+    "sigmoid_applied_in_loss": true,
+    "class_weighting": false,
+    "reduction": "mean"
+}

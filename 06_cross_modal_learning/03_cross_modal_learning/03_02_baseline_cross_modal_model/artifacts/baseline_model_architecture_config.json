@@ -1,0 +1,21 @@
+{
+    "phase": "03.02",
+    "model_name": "BaselineCrossModalModel",
+    "purpose": "Establish a simple cross-modal relationship learning reference before GAN-based modeling.",
+    "embedding_dimension": 32,
+    "feature_fusion": [
+        "source_embedding",
+        "target_embedding",
+        "absolute_difference",
+        "elementwise_product"
+    ],
+    "fusion_dimension": 128,
+    "hidden_layers": [
+        128,
+        64
+    ],
+    "dropout": 0.2,
+    "output": "single_relationship_logit",
+    "total_parameters": 24833,
+    "random_seed": 42
+}
