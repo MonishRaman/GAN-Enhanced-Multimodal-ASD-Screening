@@ -1,0 +1,6 @@
+Assumption,Allowed,Reason
+Same row index means same patient,False,Datasets were collected independently and do not share verified patient correspondence.
+Random cross-modal samples are biologically paired,False,Random samples from different modalities cannot be interpreted as measurements from the same individual.
+Sample IDs can be inferred from array position,False,Array position is only a dataset-specific index and contains no cross-modal identity information.
+Different modalities represent identical populations,False,Dataset sizes and class distributions differ substantially across modalities.
+Pairing establishes patient-level ground truth,False,"Knowledge-level pairing represents semantic relationships, not patient identity correspondence."

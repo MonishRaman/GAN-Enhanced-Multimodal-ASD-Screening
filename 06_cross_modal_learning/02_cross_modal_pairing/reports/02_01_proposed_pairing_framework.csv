@@ -1,0 +1,8 @@
+Component,Decision,Justification
+Learning Level,Knowledge-Level / Representation-Level,No verified patient correspondence exists across modalities.
+Positive Pair Definition,Same-Class Cross-Modal Relationship,Pairs share diagnostic class semantics without claiming individual identity correspondence.
+Negative Pair Definition,Different-Class Cross-Modal Relationship,Provides controlled semantic contrast between ASD and NON-ASD representation knowledge.
+Modality Balance,Equal Controlled Contribution,Prevents large datasets from dominating cross-modal learning.
+Class Balance,Controlled Class-Conditional Sampling,Prevents majority classes from dominating pair generation.
+Pair Generation,Sampled Rather Than Exhaustive Cartesian Product,Avoids pair-space explosion and repeated-pair bias.
+Patient-Level Matching,Explicitly Prohibited,Datasets contain independent populations without shared patient identity correspondence.

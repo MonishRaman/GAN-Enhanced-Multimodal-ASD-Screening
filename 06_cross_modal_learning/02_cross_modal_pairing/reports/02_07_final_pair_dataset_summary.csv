@@ -1,0 +1,13 @@
+Metric,Value
+Total Cross-Modal Pairs,348
+Positive Same-Class Pairs,174
+Negative Different-Class Pairs,174
+Embedding Dimension,32
+Source Embedding Shape,"(348, 32)"
+Target Embedding Shape,"(348, 32)"
+Training Pairs,278
+Validation Pairs,70
+Positive-Negative Balance Ratio,1.0
+Random Seed,42
+Patient-Level Matching,Not Used
+Methodology,Knowledge-Level Cross-Modal Pairing

@@ -1,0 +1,20 @@
+Metric,Value
+Training Pairs,1776
+Validation Pairs,448
+Total Pairs,2224
+Embedding Dimension,32
+Training Positive Pairs,888
+Training Negative Pairs,888
+Validation Positive Pairs,224
+Validation Negative Pairs,224
+Training Source-Target-Label Alignment,Verified
+Validation Source-Target-Label Alignment,Verified
+NaN Values,0
+Infinite Values,0
+Dataset-Metadata Correspondence,Verified
+Source Representation Overlap,0
+Target Representation Overlap,3
+Overall Representation Overlap,3
+Exact Pair Overlap,0
+Training DataLoader Batches,28
+Validation DataLoader Batches,7

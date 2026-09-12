@@ -1,0 +1,5 @@
+Strategy,Description,Knowledge_Level_Valid,Preserves_Class_Semantics,Patient_Assumption,Primary_Concern
+Unconditional Random Pairing,Randomly pair samples across modalities without considering class labels.,False,False,False,Pairs may connect semantically unrelated ASD and NON-ASD representations.
+Class-Conditional Random Pairing,Pair samples across modalities only when they share the same diagnostic class.,True,True,False,Requires balancing to prevent dominant classes or modalities from controlling training.
+Class Centroid Pairing,Pair aggregate class centroids across modality representation spaces.,True,True,False,Removes individual representation diversity.
+Prototype / Distribution-Aware Pairing,Select representative samples or prototypes and pair them based on class-level distribution structure.,True,True,False,More complex and requires additional selection criteria.

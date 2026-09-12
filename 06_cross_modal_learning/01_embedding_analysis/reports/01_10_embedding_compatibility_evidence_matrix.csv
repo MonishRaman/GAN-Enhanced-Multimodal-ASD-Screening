@@ -1,0 +1,8 @@
+Assessment Area,Evidence,Result,Interpretation
+Embedding Structural Validity,All three modalities contain valid 32D embeddings,PASS,Common representation dimensionality is available
+Sample-Label Integrity,All embedding sets have valid sample-label correspondence,PASS,Class-level analysis is structurally valid
+Numerical Scale Compatibility,Embeddings have approximately zero mean and unit variance,PASS,Numerical magnitude differences are controlled
+Cross-Modal Same-Class Similarity,Compatibility varies across modality pairs,PARTIAL,Some transferable class-level relationships exist
+Class Centroid Alignment,Limited natural class-level centroid alignment observed,PARTIAL,Representation spaces remain modality-specific
+Dataset Distribution,Large differences in dataset size and class balance,CONTROLLED,Balanced sampling is required for comparative analysis
+Patient-Level Correspondence,No shared patient identities across modalities,NOT REQUIRED,Knowledge-level cross-modal methodology is appropriate

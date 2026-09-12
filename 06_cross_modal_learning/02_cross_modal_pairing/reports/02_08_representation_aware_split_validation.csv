@@ -1,0 +1,11 @@
+Validation_Check,Result,Status
+Training Pair Count,1776,PASS
+Validation Pair Count,448,PASS
+Total Pair Count,2224,PASS
+Training Positive / Negative Balance,888 / 888,PASS
+Validation Positive / Negative Balance,224 / 224,PASS
+Embedding Dimension,32D,PASS
+Exact Train-Validation Pair Overlap,0,PASS
+Representation-Level Overlap,2,FAIL
+Training Duplicate Pairs,0,PASS
+Validation Duplicate Pairs,0,PASS

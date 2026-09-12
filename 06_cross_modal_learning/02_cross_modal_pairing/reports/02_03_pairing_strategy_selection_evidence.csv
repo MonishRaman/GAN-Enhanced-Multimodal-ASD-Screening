@@ -1,0 +1,7 @@
+Evidence_Area,Evidence,Decision_Impact
+Knowledge-Level Methodology,No patient-level correspondence is available or required,Supports semantic class-based pairing
+Embedding Compatibility,Representations are structurally valid but naturally only partially aligned,Supports explicit controlled cross-modal learning
+Dataset Size Imbalance,Large differences exist across modality sample sizes,Requires balanced modality contribution
+Class Imbalance,Genetic and Environmental modalities show substantial imbalance,Requires class-conditional balancing
+Representation Diversity,Individual embeddings contain more information than class centroids alone,Favors sample-level pairing over prototype-only pairing
+Strategy Comparison,Balanced Class-Conditional Pairing received the highest suitability score,Provides quantitative support for selection

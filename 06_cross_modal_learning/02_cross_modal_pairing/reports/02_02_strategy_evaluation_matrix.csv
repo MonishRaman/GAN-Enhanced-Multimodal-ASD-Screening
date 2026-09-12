@@ -1,0 +1,5 @@
+Strategy,Knowledge_Level_Validity,Dataset_Imbalance_Control,Class_Imbalance_Control,Preserves_Representation_Diversity,Avoids_Similarity_Selection_Bias,Scalability,Reproducibility,Overall_Suitability
+Random Same-Class Pairing,High,Low,Low,High,High,High,Moderate,Moderate
+Balanced Class-Conditional Pairing,High,High,High,High,High,High,High,High
+Centroid / Prototype Pairing,High,High,High,Low,High,High,High,Moderate
+Similarity / Distribution-Aware Pairing,Moderate,Requires Additional Control,Requires Additional Control,High,Low,Moderate,Moderate,Partial

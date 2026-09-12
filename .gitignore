@@ -8,4 +8,7 @@ node_modules/
 .idea/
 .DS_Store
 
+# Jupyter creates these transient copies next to notebooks.
+.ipynb_checkpoints/
+
 data/results/generated/*

@@ -1,0 +1,4 @@
+Modality,Total_Samples,NON_ASD_Count,ASD_Count,NON_ASD_Percentage,ASD_Percentage,Imbalance_Ratio
+Genetic,116,29,87,25.0,75.0,3.0
+Behavioral,880,439,441,49.89,50.11,1.0046
+Environmental,47768,45650,2118,95.57,4.43,21.5534

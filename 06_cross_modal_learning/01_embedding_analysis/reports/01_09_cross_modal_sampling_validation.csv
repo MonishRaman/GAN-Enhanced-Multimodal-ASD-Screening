@@ -1,0 +1,4 @@
+Modality,Original Sample Count,Cross-Modal Sample Count,Original Class 0,Original Class 1,Purpose
+Genetic,116,116,29,87,Reference modality
+Behavioral,880,116,439,441,Sampled for equal modality representation
+Environmental,47768,116,45650,2118,Sampled for equal modality representation

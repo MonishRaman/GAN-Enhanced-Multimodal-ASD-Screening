@@ -1,0 +1,4 @@
+Modality,Samples,Embedding_Dimension,Class_Labels_Available,Embedding_Representation_Available,Class_Label_Available,Shared_Patient_ID_Available,Cross_Modal_Row_Correspondence_Available
+Genetic,116,32,"[np.int64(0), np.int64(1)]",True,True,False,False
+Behavioral,880,32,"[np.int64(0), np.int64(1)]",True,True,False,False
+Environmental,47768,32,"[np.int64(0), np.int64(1)]",True,True,False,False
