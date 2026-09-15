@@ -1,0 +1,42 @@
+{
+    "phase": "03.06",
+    "experiment": "GAN Training",
+    "input_dimension": 32,
+    "target_dimension": 32,
+    "generator_architecture": [
+        32,
+        64,
+        128,
+        64,
+        32
+    ],
+    "discriminator_architecture": [
+        32,
+        64,
+        32,
+        1
+    ],
+    "semantic_relationship_architecture": [
+        128,
+        128,
+        64,
+        1
+    ],
+    "epochs": 50,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "loss_function": "BCEWithLogitsLoss",
+    "semantic_loss_weight": 1.0,
+    "random_seed": 42,
+    "train_samples": 1776,
+    "validation_samples": 448,
+    "train_positive": 888,
+    "train_negative": 888,
+    "validation_positive": 224,
+    "validation_negative": 224,
+    "baseline_reference_roc_auc": 0.662667,
+    "primary_selection_metric": "validation_semantic_roc_auc",
+    "dataset": "Phase 02.08 representation-aware split",
+    "training_type": "unpaired class-consistent cross-modal representation learning"
+}
