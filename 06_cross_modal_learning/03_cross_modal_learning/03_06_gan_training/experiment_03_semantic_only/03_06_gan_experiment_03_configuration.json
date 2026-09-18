@@ -1,0 +1,61 @@
+{
+    "phase": "03.06",
+    "experiment": "Experiment 3 - Semantic-Only Generator Training",
+    "experiment_name": "experiment_03_semantic_only",
+    "purpose": "Diagnostic ablation to determine whether the Generator can learn the frozen baseline semantic relationship without adversarial training.",
+    "hypothesis": "Removing the adversarial objective may allow the Generator to learn the semantic relationship more effectively.",
+    "dataset": {
+        "source": "Phase 02.08 representation-aware split",
+        "train_pairs": 1776,
+        "validation_pairs": 448,
+        "embedding_dimension": 32,
+        "train_class_0": 888,
+        "train_class_1": 888,
+        "validation_class_0": 224,
+        "validation_class_1": 224
+    },
+    "generator": {
+        "architecture": "32 -> 64 -> 128 -> 64 -> 32",
+        "total_parameters": 20768,
+        "trainable_parameters": 20768
+    },
+    "baseline": {
+        "architecture": "128 -> 128 -> 64 -> 1",
+        "total_parameters": 24833,
+        "trainable_parameters": 0,
+        "frozen": true,
+        "reference_validation_roc_auc": 0.6626674107142857
+    },
+    "training": {
+        "epochs": 50,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "Adam",
+        "seed": 42
+    },
+    "loss": {
+        "semantic_loss": "BCEWithLogitsLoss",
+        "semantic_weight": 1.0,
+        "adversarial_loss": "disabled",
+        "adversarial_weight": 0.0,
+        "generator_objective": "L_G = 1.0 * L_semantic"
+    },
+    "model_selection": {
+        "metric": "validation_semantic_roc_auc",
+        "direction": "maximize"
+    },
+    "controlled_change_from_experiment_02": {
+        "experiment_02": "L_G = 0.1 * L_adv + 1.0 * L_semantic",
+        "experiment_03": "L_G = 1.0 * L_semantic",
+        "changed_component": "Adversarial loss removed",
+        "unchanged_components": [
+            "dataset",
+            "generator architecture",
+            "baseline architecture",
+            "learning rate",
+            "batch size",
+            "seed",
+            "number of epochs"
+        ]
+    }
+}

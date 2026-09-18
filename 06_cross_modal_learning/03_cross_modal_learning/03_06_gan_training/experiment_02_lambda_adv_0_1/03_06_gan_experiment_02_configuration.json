@@ -1,0 +1,60 @@
+{
+    "phase": "03.06 GAN Training",
+    "experiment": "Experiment 02",
+    "experiment_name": "lambda_adv_0.1_lambda_semantic_1.0",
+    "purpose": "Controlled experiment reducing adversarial loss contribution while keeping semantic loss unchanged.",
+    "hypothesis": "Reducing the adversarial loss weight from 1.0 to 0.1 may reduce interference with semantic relationship preservation.",
+    "dataset": {
+        "source": "Phase 02.08 representation-aware split",
+        "training_pairs": 1776,
+        "validation_pairs": 448,
+        "embedding_dimension": 32,
+        "training_positive": 888,
+        "training_negative": 888,
+        "validation_positive": 224,
+        "validation_negative": 224,
+        "training_type": "unpaired_class_consistent_cross_modal_pairs"
+    },
+    "generator": {
+        "architecture": "32-64-128-64-32",
+        "parameters": 20768
+    },
+    "discriminator": {
+        "architecture": "32-64-32-1",
+        "parameters": 4225
+    },
+    "frozen_baseline": {
+        "architecture": "128-128-64-1",
+        "parameters": 24833,
+        "trainable_parameters": 0,
+        "reference_roc_auc": 0.662667
+    },
+    "training": {
+        "epochs": 50,
+        "batch_size": 32,
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "seed": 42
+    },
+    "loss": {
+        "adversarial_loss": "BCEWithLogitsLoss",
+        "semantic_loss": "BCEWithLogitsLoss",
+        "adversarial_weight": 0.1,
+        "semantic_weight": 1.0,
+        "generator_objective": "L_G = 0.1 * L_adv + 1.0 * L_semantic"
+    },
+    "model_selection": {
+        "primary_metric": "validation_semantic_roc_auc",
+        "baseline_comparison": true
+    },
+    "controlled_change_from_experiment_01": {
+        "adversarial_weight": "1.0 -> 0.1",
+        "semantic_weight": "1.0 -> 1.0",
+        "architecture_changed": false,
+        "dataset_changed": false,
+        "optimizer_changed": false,
+        "learning_rate_changed": false,
+        "batch_size_changed": false,
+        "seed_changed": false
+    }
+}
