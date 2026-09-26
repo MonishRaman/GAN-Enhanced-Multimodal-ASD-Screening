@@ -1,0 +1,41 @@
+{
+    "phase": "05_multimodal_integration",
+    "notebook": "05_02_modality_inference",
+    "objective": "Generate frozen 128-D modality-specific representations.",
+    "training_performed": false,
+    "checkpoint_modified": false,
+    "projection_128_to_32_performed": false,
+    "cross_modal_inference_performed": false,
+    "multimodal_fusion_performed": false,
+    "demo_patients": [
+        "P001",
+        "P002",
+        "P003",
+        "P004",
+        "P005"
+    ],
+    "modalities": {
+        "Genetic": {
+            "input_dimension": 1000,
+            "output_dimension": 128,
+            "model": "GeneticTransformer"
+        },
+        "Behavioral": {
+            "raw_dimension": 18,
+            "processed_dimension": 87,
+            "output_dimension": 128,
+            "model": "BehavioralEncoder",
+            "sklearn_compatibility": "1.6.1"
+        },
+        "Environmental": {
+            "input_dimension": 31,
+            "output_dimension": 128,
+            "model": "EnvironmentalEncoder"
+        }
+    },
+    "outputs": {
+        "genetic": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_02_modality_inference\\05_02_genetic_128d_embeddings.csv",
+        "behavioral": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_02_modality_inference\\05_02_behavioral_128d_embeddings.csv",
+        "environmental": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_02_modality_inference\\05_02_environmental_128d_embeddings.csv"
+    }
+}

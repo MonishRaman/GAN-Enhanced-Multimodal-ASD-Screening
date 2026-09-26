@@ -1,0 +1,11 @@
+Component,Metric,Value
+Cross-Modal Relationship Inference,ROC-AUC,0.6626674107142857
+Cross-Modal Relationship Inference,Accuracy,0.6116071428571429
+Cross-Modal Relationship Inference,Balanced Accuracy,0.6116071428571429
+Cross-Modal Relationship Inference,Precision,0.6068376068376068
+Cross-Modal Relationship Inference,Recall,0.6339285714285714
+Cross-Modal Relationship Inference,F1 Score,0.6200873362445415
+Multimodal Fusion,Genetic Weight,0.31937
+Multimodal Fusion,Behavioral Weight,0.400219
+Multimodal Fusion,Environmental Weight,0.280411
+Multimodal Fusion,Decision Threshold,0.5

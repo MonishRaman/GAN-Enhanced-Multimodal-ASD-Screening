@@ -46,6 +46,17 @@ function setVisible(id, visible) {
     element.style.display = visible ? "" : "none";
 }
 
+function formatProbabilityPercent(value) {
+    const probability = Number(value);
+
+    if (!Number.isFinite(probability)) {
+        return "—";
+    }
+
+    const percent = probability * 100;
+    return `${percent < 1 ? percent.toFixed(4) : percent.toFixed(2)}%`;
+}
+
 
 /* =========================================================
    BACKEND STATUS
@@ -230,10 +241,7 @@ function createModalityRow(result) {
     const probabilityValue =
         Number(result.probability);
 
-    probability.textContent =
-        Number.isFinite(probabilityValue)
-            ? `${(probabilityValue * 100).toFixed(2)}%`
-            : "—";
+    probability.textContent = formatProbabilityPercent(probabilityValue);
 
     row.appendChild(modality);
     row.appendChild(prediction);
@@ -384,6 +392,8 @@ function renderAnalysisResult(data) {
     showResults(true);
 
     const fusion = data.fusion || {};
+    const crossModal = data.cross_modal || {};
+    const finalResult = data.cross_modal || fusion;
 
     /* Patient */
     setText(
@@ -394,7 +404,7 @@ function renderAnalysisResult(data) {
     /* Final prediction */
     setText(
         "finalPrediction",
-        fusion.final_prediction || "—"
+        finalResult.final_prediction || finalResult.prediction || "—"
     );
 
     setText(
@@ -404,13 +414,13 @@ function renderAnalysisResult(data) {
 
     /* Final probability */
     const probability =
-        Number(fusion.final_probability);
+        Number(
+            finalResult.final_probability ?? finalResult.probability
+        );
 
     setText(
         "finalProbability",
-        Number.isFinite(probability)
-            ? `${(probability * 100).toFixed(2)}%`
-            : "—"
+        formatProbabilityPercent(probability)
     );
 
     const probabilityBar = $("finalProbabilityBar");
@@ -424,7 +434,7 @@ function renderAnalysisResult(data) {
 
     /* Threshold */
     const threshold =
-        Number(fusion.threshold);
+        Number(finalResult.threshold);
 
     setText(
         "finalThreshold",
@@ -436,14 +446,14 @@ function renderAnalysisResult(data) {
     /* Fusion mode */
     setText(
         "fusionMode",
-        fusion.mode || data.mode || "—"
+        crossModal.model || fusion.mode || data.mode || "—"
     );
 
     /* Modalities used */
     setText(
         "modalitiesUsed",
-        Array.isArray(fusion.modalities_used)
-            ? fusion.modalities_used
+        Array.isArray(finalResult.modalities_used)
+            ? finalResult.modalities_used
                   .map(item =>
                       item.charAt(0).toUpperCase() +
                       item.slice(1)
@@ -534,12 +544,14 @@ function renderAnalysisResult(data) {
             "prediction-non-asd"
         );
 
-        if (fusion.final_prediction === "ASD") {
+        if (
+            (finalResult.final_prediction || finalResult.prediction) === "ASD"
+        ) {
             resultPrediction.classList.add(
                 "prediction-asd"
             );
         } else if (
-            fusion.final_prediction === "NON-ASD"
+            (finalResult.final_prediction || finalResult.prediction) === "NON-ASD"
         ) {
             resultPrediction.classList.add(
                 "prediction-non-asd"

@@ -1,0 +1,59 @@
+{
+    "system_name": "ASD Multimodal Knowledge-Level Evidence Fusion System",
+    "phase": "06_final_results",
+    "status": "FINAL_VERIFIED",
+    "representation_pipeline": {
+        "genetic": {
+            "representation_dimension": 128,
+            "common_dimension": 32
+        },
+        "behavioral": {
+            "representation_dimension": 128,
+            "common_dimension": 32
+        },
+        "environmental": {
+            "representation_dimension": 128,
+            "common_dimension": 32
+        }
+    },
+    "cross_modal_relationship_model": {
+        "input_dimension": 128,
+        "feature_construction": [
+            "source_32d",
+            "target_32d",
+            "absolute_difference",
+            "elementwise_product"
+        ],
+        "architecture": [
+            "128",
+            "128",
+            "64",
+            "1"
+        ],
+        "validation_roc_auc": 0.6626674107142857
+    },
+    "multimodal_fusion": {
+        "method": "weighted probability evidence fusion",
+        "weights": {
+            "Genetic": 0.31937,
+            "Behavioral": 0.400219,
+            "Environmental": 0.280411
+        },
+        "weight_sum": 1.0,
+        "decision_threshold": 0.5,
+        "missing_modality_support": true,
+        "patient_matching_training": false,
+        "row_wise_multimodal_training": false
+    },
+    "gan_status": {
+        "evaluated": true,
+        "selected_for_final_production": false,
+        "final_system_uses_gan_generated_data": false
+    },
+    "reproducibility": {
+        "training_performed_in_final_results": false,
+        "checkpoint_modified": false,
+        "patient_level_matching_performed": false,
+        "row_wise_multimodal_training_performed": false
+    }
+}

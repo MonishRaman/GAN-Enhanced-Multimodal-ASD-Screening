@@ -1,0 +1,45 @@
+{
+  "project_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening",
+  "modalities": {
+    "Genetic": {
+      "model_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Genetic_Model",
+      "preprocessing_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Genetic_Model\\02_preprocessing",
+      "preprocessor_files": [],
+      "feature_name_files": [],
+      "raw_data_files": [
+        "Genetic_Model\\01_raw_data\\Genetic_dataset.csv"
+      ]
+    },
+    "Behavioral": {
+      "model_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Behavioral_Model",
+      "preprocessing_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Behavioral_Model\\02_preprocessing",
+      "preprocessor_files": [
+        "Behavioral_Model\\02_preprocessing\\behavioral_preprocessor.joblib"
+      ],
+      "feature_name_files": [
+        "Behavioral_Model\\02_preprocessing\\behavioral_processed_feature_names.txt"
+      ],
+      "raw_data_files": [
+        "Behavioral_Model\\01_raw_data\\behavioral_dataset.csv"
+      ]
+    },
+    "Environmental": {
+      "model_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Environmental_Model",
+      "preprocessing_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Environmental_Model\\02_preprocessing",
+      "preprocessor_files": [
+        "Environmental_Model\\02_preprocessing\\environmental_preprocessor.joblib"
+      ],
+      "feature_name_files": [
+        "Environmental_Model\\02_preprocessing\\environmental_processed_feature_names.txt"
+      ],
+      "raw_data_files": [
+        "Environmental_Model\\01_raw_data\\environmental_dataset.csv"
+      ]
+    }
+  },
+  "expected_model_input_dimensions": {
+    "Genetic": 1,
+    "Behavioral": 87,
+    "Environmental": 31
+  }
+}

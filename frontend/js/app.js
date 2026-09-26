@@ -10,7 +10,7 @@
     // CONFIGURATION
     // ---------------------------------------------------------
 
-    const BACKEND_BASE_URL = "http://127.0.0.1:8000";
+    const BACKEND_BASE_URL = "http://127.0.0.1:8001";
 
     const DEMO_PATIENTS = [
         "P001",
@@ -69,6 +69,14 @@
             "#clearButton",
             "[data-action='clear']"
         );
+    }
+
+    function getUploadedFiles() {
+        return {
+            genetic: findElement("#geneticFile", "#genetic-file")?.files?.[0] || null,
+            behavioral: findElement("#behavioralFile", "#behavioral-file")?.files?.[0] || null,
+            environmental: findElement("#environmentalFile", "#environmental-file")?.files?.[0] || null
+        };
     }
 
     // ---------------------------------------------------------
@@ -252,6 +260,17 @@
             patientId,
             mode
         );
+    }
+
+    async function analyzeUploadedPatient(patientId, files) {
+        if (
+            window.ASD_API &&
+            typeof window.ASD_API.analyzeCrossModalUpload === "function"
+        ) {
+            return window.ASD_API.analyzeCrossModalUpload(patientId, files);
+        }
+
+        throw new Error("Cross-modal upload API is not available.");
     }
 
     // ---------------------------------------------------------
@@ -495,19 +514,31 @@
             const modeInput =
                 getModeInput();
 
-            const patientId =
-                validatePatientId(
-                    patientInput
-                        ? patientInput.value
-                        : ""
-                );
-
             const mode =
                 validateMode(
                     modeInput
                         ? modeInput.value
                         : "all_three"
                 );
+
+            const uploadedFiles = getUploadedFiles();
+            const selectedFileCount = Object.values(uploadedFiles)
+                .filter(Boolean)
+                .length;
+
+            if (selectedFileCount > 0 && selectedFileCount < 3) {
+                throw new Error(
+                    "Please select Genetic, Behavioral, and Environmental CSV files."
+                );
+            }
+
+            const enteredPatientId = patientInput
+                ? patientInput.value
+                : "";
+
+            const patientId = selectedFileCount === 3
+                ? enteredPatientId.trim().toUpperCase()
+                : validatePatientId(enteredPatientId);
 
             setLoading(true);
 
@@ -516,11 +547,9 @@
                 "Connecting to backend..."
             );
 
-            const result =
-                await analyzePatient(
-                    patientId,
-                    mode
-                );
+            const result = selectedFileCount === 3
+                ? await analyzeUploadedPatient(patientId, uploadedFiles)
+                : await analyzePatient(patientId, mode);
 
             setBackendStatus(
                 true,
@@ -567,6 +596,15 @@
         if (patientInput) {
             patientInput.value = "";
         }
+
+        ["#geneticFile", "#behavioralFile", "#environmentalFile"].forEach(
+            selector => {
+                const fileInput = document.querySelector(selector);
+                if (fileInput) {
+                    fileInput.value = "";
+                }
+            }
+        );
 
         const errorElement = findElement(
             "#error-message",

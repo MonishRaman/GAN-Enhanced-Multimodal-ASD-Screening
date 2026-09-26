@@ -1,0 +1,72 @@
+{
+    "model_name": "FinalCrossModalASDNetwork",
+    "task": "Binary ASD classification",
+    "output_classes": {
+        "0": "NON-ASD",
+        "1": "ASD"
+    },
+    "input_dimensions": {
+        "genetic": 32,
+        "behavioral": 32,
+        "environmental": 32
+    },
+    "architecture": {
+        "genetic_branch": "32 -> 64 -> 32",
+        "behavioral_branch": "32 -> 64 -> 32",
+        "environmental_branch": "32 -> 64 -> 32",
+        "cross_modal_features": [
+            "G",
+            "B",
+            "E",
+            "|G-B|",
+            "|G-E|",
+            "|B-E|",
+            "G*B",
+            "G*E",
+            "B*E"
+        ],
+        "fusion_input_dimension": 288,
+        "joint_representation": "288 -> 128 -> 64 -> 32",
+        "classifier": "32 -> 1",
+        "activation": "sigmoid"
+    },
+    "training": {
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "epochs": 50,
+        "batch_size": 64,
+        "seed": 42,
+        "loss": "BCEWithLogitsLoss",
+        "best_epoch": 1,
+        "best_validation_auc": 0.9879877499999999
+    },
+    "data_strategy": {
+        "data_type": "unpaired",
+        "pairing_method": "class-conditional pseudo-triplets",
+        "patient_matching": false,
+        "row_wise_concatenation": false,
+        "matched_patient_validation_available": false
+    },
+    "evaluation": {
+        "test_roc_auc": 0.9855881666666667,
+        "test_accuracy_at_0_50": 0.9441666666666667,
+        "test_balanced_accuracy_at_0_50": 0.9441666666666666,
+        "test_precision_at_0_50": 0.9280436877610022,
+        "test_recall_at_0_50": 0.963,
+        "test_f1_at_0_50": 0.9451987567479143,
+        "test_brier_score": 0.04470509639526401,
+        "test_log_loss": 0.16524178311386958
+    },
+    "threshold_selection": {
+        "default_inference_threshold": 0.5,
+        "method": "Youden J",
+        "exploratory_threshold": 0.7,
+        "selection_dataset": "test_set",
+        "threshold_is_exploratory": true,
+        "note": "The exploratory threshold was selected from the test set and therefore should not be treated as an unbiased final threshold estimate."
+    },
+    "artifacts": {
+        "best_model": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\07_final_cross_modal_asd\\models\\07_final_cross_modal_asd_best.pt",
+        "predictions": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\07_final_cross_modal_asd\\results\\07_final_cross_modal_predictions.csv"
+    }
+}

@@ -1,0 +1,2 @@
+Evaluation_Component,Validation_Samples,ROC_AUC,Accuracy,Balanced_Accuracy,Precision,Recall,F1_Score
+Cross-Modal Relationship Inference,448,0.6626674107142857,0.6116071428571429,0.6116071428571429,0.6068376068376068,0.6339285714285714,0.6200873362445415

@@ -1,0 +1,5 @@
+condition,roc_auc
+All three modalities,0.9855881666666667
+Genetic removed,0.9909692777777778
+Behavioral removed,0.7993228333333333
+Environmental removed,0.9837528888888889

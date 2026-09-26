@@ -69,112 +69,46 @@
                  INPUT PANEL
             ====================================================== -->
             <section class="analysis-card">
-
                 <div class="card-header">
                     <div>
-                        <h3>Patient Analysis</h3>
-                        <p>
-                            Provide the patient information required
-                            for inference.
-                        </p>
+                        <h3>Upload One Patient's Multimodal Data</h3>
+                        <p>Upload the three CSV files belonging to the same patient.</p>
                     </div>
                 </div>
-
 
                 <div class="form-grid">
-
-                    <!-- PATIENT ID -->
                     <div class="form-group">
-
-                        <label for="patientId">
-                            Patient ID
-                        </label>
-
-                        <input
-                            type="text"
-                            id="patientId"
-                            name="patientId"
-                            placeholder="Example: P001"
-                            autocomplete="off"
-                        >
-
-                        <small>
-                            Demo patients: P001 – P005
-                        </small>
-
+                        <label for="patientId">Patient ID (optional for CSV upload)</label>
+                        <input type="text" id="patientId" name="patientId" placeholder="Example: P006" autocomplete="off">
+                        <small>Enter a demo ID to analyze data/demo, or leave it blank when uploading three CSV files.</small>
                     </div>
 
-
-                    <!-- ANALYSIS MODE -->
                     <div class="form-group">
-
-                        <label for="analysisMode">
-                            Analysis Mode
-                        </label>
-
-                        <select
-                            id="analysisMode"
-                            name="analysisMode"
-                        >
-
-                            <option value="all_three">
-                                All Three Modalities
-                            </option>
-
-                            <option value="genetic">
-                                Genetic
-                            </option>
-
-                            <option value="behavioral">
-                                Behavioral
-                            </option>
-
-                            <option value="environmental">
-                                Environmental
-                            </option>
-
-                        </select>
-
-                        <small>
-                            Select the modalities to include in analysis.
-                        </small>
-
+                        <label for="geneticFile">Genetic CSV</label>
+                        <input type="file" id="geneticFile" accept=".csv,text/csv">
+                        <small>One patient row with the required genetic features.</small>
                     </div>
 
+                    <div class="form-group">
+                        <label for="behavioralFile">Behavioral CSV</label>
+                        <input type="file" id="behavioralFile" accept=".csv,text/csv">
+                        <small>One patient row in the trained behavioral input format.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="environmentalFile">Environmental CSV</label>
+                        <input type="file" id="environmentalFile" accept=".csv,text/csv">
+                        <small>One patient row with the required environmental features.</small>
+                    </div>
                 </div>
 
-
-                <!-- ACTION BUTTON -->
                 <div class="action-row">
-
-                    <button
-                        id="analyzeButton"
-                        type="button"
-                        class="primary-button"
-                    >
-                        Analyze Patient
-                    </button>
-
-                    <button
-                        id="clearButton"
-                        type="button"
-                        class="secondary-button"
-                    >
-                        Clear
-                    </button>
-
+                    <button id="analyzeButton" type="button" class="primary-button">Analyze Patient</button>
+                    <button id="clearButton" type="button" class="secondary-button">Clear</button>
                 </div>
 
-
-                <!-- ERROR / STATUS MESSAGE -->
-                <div
-                    id="messageArea"
-                    class="message-area"
-                    aria-live="polite"
-                ></div>
-
+                <div id="messageArea" class="message-area" aria-live="polite"></div>
             </section>
-
 
             <!-- =====================================================
                  LOADING AREA
@@ -230,7 +164,7 @@
                 <div class="final-result-card">
 
                     <div class="result-label">
-                        Final Multimodal Prediction
+                        Final Cross-Modal Prediction
                     </div>
 
                     <div
@@ -298,11 +232,10 @@
                 ================================================== -->
                 <div class="section-title">
 
-                    <h3>Multimodal Fusion</h3>
+                    <h3>Cross-Modal Model</h3>
 
                     <p>
-                        Contribution of each modality to the final
-                        prediction.
+                        Feature-level interaction of Genetic, Behavioral, and Environmental representations.
                     </p>
 
                 </div>
@@ -314,7 +247,7 @@
 
                         <div class="summary-item">
 
-                            <span>Fusion Mode</span>
+                            <span>Model</span>
 
                             <strong id="fusionMode">
                                 —
@@ -347,7 +280,7 @@
 
                     <!-- FUSION WEIGHTS -->
                     <div class="section-subtitle">
-                        Fusion Weights
+                        Model Architecture
                     </div>
 
                     <div
@@ -362,7 +295,7 @@
 
                     <!-- CONTRIBUTIONS -->
                     <div class="section-subtitle">
-                        Modality Contributions
+                        Model Inputs
                     </div>
 
                     <div

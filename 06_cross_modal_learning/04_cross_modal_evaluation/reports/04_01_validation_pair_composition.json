@@ -1,0 +1,36 @@
+{
+    "evaluation": {
+        "phase": "04",
+        "subphase": "04.01",
+        "analysis": "Validation Pair Composition",
+        "total_validation_pairs": 448
+    },
+    "pair_type": {
+        "negative": 224,
+        "positive": 224
+    },
+    "modality_combinations": {
+        "Behavioral-Environmental": 352,
+        "Genetic-Behavioral": 48,
+        "Genetic-Environmental": 48
+    },
+    "modality_combination_class_counts": {
+        "Behavioral-Environmental": {
+            "class_0": 176,
+            "class_1": 176
+        },
+        "Genetic-Behavioral": {
+            "class_0": 24,
+            "class_1": 24
+        },
+        "Genetic-Environmental": {
+            "class_0": 24,
+            "class_1": 24
+        }
+    },
+    "verification": {
+        "total_pairs_verified": true,
+        "expected_modality_combinations_verified": true,
+        "label_balance_verified": true
+    }
+}

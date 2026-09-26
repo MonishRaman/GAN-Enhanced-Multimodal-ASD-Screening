@@ -1,0 +1,272 @@
+
+============================================================
+PHASE 07 — FINAL CROSS-MODAL ASD CLASSIFIER
+============================================================
+
+MODEL
+------------------------------------------------------------
+Model:
+    FinalCrossModalASDNetwork
+
+Task:
+    Binary ASD classification
+
+Output:
+    ASD probability
+    ASD / NON-ASD classification
+
+------------------------------------------------------------
+INPUT REPRESENTATIONS
+------------------------------------------------------------
+Genetic:
+    32-D
+
+Behavioral:
+    32-D
+
+Environmental:
+    32-D
+
+The modality-specific encoders and 128-D to 32-D
+projection models were treated as frozen representations.
+
+------------------------------------------------------------
+FINAL ARCHITECTURE
+------------------------------------------------------------
+Genetic branch:
+    32 -> 64 -> 32
+
+Behavioral branch:
+    32 -> 64 -> 32
+
+Environmental branch:
+    32 -> 64 -> 32
+
+Cross-modal feature construction:
+    G
+    B
+    E
+    |G-B|
+    |G-E|
+    |B-E|
+    G*B
+    G*E
+    B*E
+
+Cross-modal fusion:
+    288 -> 128 -> 64 -> 32
+
+Final classifier:
+    32 -> 1 -> sigmoid
+
+------------------------------------------------------------
+DATA METHODOLOGY
+------------------------------------------------------------
+The three source datasets are unpaired.
+
+Original dataset sizes:
+    Genetic       : 116
+    Behavioral    : 880
+    Environmental : 47768
+
+No cross-modal patient matching was performed.
+
+No row-wise concatenation was performed.
+
+Training and evaluation used class-conditional
+pseudo-triplets.
+
+A pseudo-triplet combines independently sampled
+Genetic, Behavioral and Environmental representations
+from the same diagnostic class.
+
+These samples are NOT claimed to belong to the same
+individual.
+
+------------------------------------------------------------
+TRAINING
+------------------------------------------------------------
+Optimizer:
+    Adam
+
+Learning rate:
+    0.001
+
+Maximum epochs:
+    50
+
+Batch size:
+    64
+
+Random seed:
+    42
+
+Loss:
+    BCEWithLogitsLoss
+
+Best validation epoch:
+    1
+
+Best validation ROC-AUC:
+    0.987988
+
+------------------------------------------------------------
+TEST PERFORMANCE AT DEFAULT THRESHOLD = 0.50
+------------------------------------------------------------
+ROC-AUC:
+    0.985588
+
+Accuracy:
+    0.944167
+
+Balanced Accuracy:
+    0.944167
+
+Precision:
+    0.928044
+
+Recall / Sensitivity:
+    0.963000
+
+F1 Score:
+    0.945199
+
+Brier Score:
+    0.044705
+
+Log Loss:
+    0.165242
+
+------------------------------------------------------------
+CONFUSION MATRIX
+------------------------------------------------------------
+Rows:
+    True classes
+
+Columns:
+    Predicted classes
+
+Order:
+    [NON-ASD, ASD]
+
+[[2776  224]
+ [ 111 2889]]
+
+------------------------------------------------------------
+EXPLORATORY THRESHOLD ANALYSIS
+------------------------------------------------------------
+Threshold-selection method:
+    Youden J
+
+Exploratory threshold:
+    0.70
+
+Exploratory test-set results at this threshold:
+
+Accuracy:
+    0.952667
+
+Balanced Accuracy:
+    0.952667
+
+Precision:
+    0.952365
+
+Recall:
+    0.953000
+
+F1:
+    0.952682
+
+Sensitivity:
+    0.953000
+
+Specificity:
+    0.952333
+
+Youden J:
+    0.905333
+
+IMPORTANT:
+The exploratory threshold was selected using the test set.
+Therefore these threshold-optimized metrics are NOT treated
+as an unbiased final performance estimate.
+
+The default 0.50 threshold remains the primary reported
+threshold in this phase.
+
+------------------------------------------------------------
+INFERENCE
+------------------------------------------------------------
+Expected input:
+
+    Genetic 32-D representation
+    Behavioral 32-D representation
+    Environmental 32-D representation
+
+Processing:
+
+    Three modality branches
+            ↓
+    Cross-modal feature interactions
+            ↓
+    Joint representation
+            ↓
+    ASD classifier
+            ↓
+    ASD probability
+            ↓
+    ASD / NON-ASD
+
+------------------------------------------------------------
+MODEL ARTIFACT
+------------------------------------------------------------
+C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\07_final_cross_modal_asd\models\07_final_cross_modal_asd_best.pt
+
+------------------------------------------------------------
+RESULT ARTIFACT
+------------------------------------------------------------
+C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\07_final_cross_modal_asd\results\07_final_cross_modal_predictions.csv
+
+------------------------------------------------------------
+CONFIGURATION
+------------------------------------------------------------
+C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\07_final_cross_modal_asd\results\07_final_cross_modal_model_config.json
+
+------------------------------------------------------------
+FIGURES
+------------------------------------------------------------
+C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\07_final_cross_modal_asd\figures\07_final_cross_modal_roc_curve.png
+
+C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\07_final_cross_modal_asd\figures\07_final_cross_modal_confusion_matrix.png
+
+============================================================
+SCIENTIFIC LIMITATION
+============================================================
+
+The source modalities are unpaired.
+
+Therefore this experiment does not constitute
+patient-level validation using simultaneously measured
+Genetic, Behavioral and Environmental data from the
+same individuals.
+
+The evaluation demonstrates cross-modal ASD classification
+under a class-conditional pseudo-triplet protocol.
+
+A true patient-level multimodal validation requires a dataset
+where Genetic, Behavioral and Environmental measurements are
+matched for the same individuals.
+
+============================================================
+PHASE 07 STATUS
+============================================================
+
+TECHNICAL STATUS:
+    COMPLETE
+
+RESEARCH INTERPRETATION:
+    Cross-modal feature-level ASD classifier developed
+    and evaluated under the unpaired-data protocol.
+
+============================================================
