@@ -1,0 +1,44 @@
+{
+  "phase": "05.05",
+  "name": "Multimodal Fusion",
+  "status": "PASSED",
+  "fusion_method": "knowledge-level weighted probability evidence fusion",
+  "training_performed": false,
+  "checkpoint_modified": false,
+  "row_wise_training_fusion": false,
+  "patient_matching_training": false,
+  "single_patient_inference": true,
+  "input_dimensions": {
+    "genetic": 32,
+    "behavioral": 32,
+    "environmental": 32
+  },
+  "fusion_weights": {
+    "genetic": 0.3193696934948564,
+    "behavioral": 0.4002188871066364,
+    "environmental": 0.2804114193985071
+  },
+  "weight_sum": 0.9999999999999999,
+  "decision_threshold": 0.5,
+  "three_modal_validation": {
+    "rows": 5,
+    "max_probability_difference": 2.2773134633613523e-07,
+    "predictions_match": true,
+    "status": "PASSED"
+  },
+  "flexible_validation": {
+    "rows": 35,
+    "max_probability_difference": 3.636311072252596e-07,
+    "predictions_match": true,
+    "status": "PASSED"
+  },
+  "flexible_modes": [
+    "ANY-ONE",
+    "ANY-TWO",
+    "ALL-THREE"
+  ],
+  "outputs": {
+    "three_modal_csv": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_05_multimodal_fusion\\05_05_three_modal_fusion_results.csv",
+    "flexible_csv": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_05_multimodal_fusion\\05_05_flexible_multimodal_results.csv"
+  }
+}

@@ -212,6 +212,26 @@ class FusionResult(BaseModel):
         return float(value)
 
 
+class CrossModalResult(BaseModel):
+    """Final feature-level cross-modal ASD prediction."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    model: str
+    probability: float = Field(..., ge=0.0, le=1.0)
+    prediction: PredictionLabel
+    prediction_numeric: int = Field(
+        ...,
+        ge=0,
+        le=1,
+        description="Numeric prediction using the configured threshold.",
+    )
+    threshold: float = Field(default=0.5, ge=0.0, le=1.0)
+    modalities_used: List[ModalityName] = Field(default_factory=list, min_length=3, max_length=3)
+    joint_embedding_dimension: int = Field(default=32, ge=1)
+
+
+
 # ============================================================================
 # COMPLETE PATIENT RESULT
 # ============================================================================
@@ -239,6 +259,8 @@ class PatientInferenceResult(BaseModel):
     )
 
     fusion: Optional[FusionResult] = None
+
+    cross_modal: Optional[CrossModalResult] = None
 
     status: Literal[
         "success",

@@ -1,0 +1,13 @@
+category,file,path,size_bytes
+final_artifact,final_cross_modal_metrics.csv,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\final_artifacts\final_cross_modal_metrics.csv,256
+final_artifact,final_cross_modal_predictions.csv,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\final_artifacts\final_cross_modal_predictions.csv,35148
+final_artifact,final_flexible_multimodal_results.csv,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\final_artifacts\final_flexible_multimodal_results.csv,2526
+final_artifact,final_fusion_weights.csv,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\final_artifacts\final_fusion_weights.csv,86
+final_artifact,final_metrics.csv,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\final_artifacts\final_metrics.csv,594
+final_artifact,final_model_config.json,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\final_artifacts\final_model_config.json,1799
+final_artifact,final_three_modal_results.csv,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\final_artifacts\final_three_modal_results.csv,1116
+figure,06_01_final_architecture.png,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\figures\06_01_final_architecture.png,91579
+figure,06_02_cross_modal_performance.png,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\figures\06_02_cross_modal_performance.png,66779
+figure,06_03_multimodal_fusion_weights.png,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\figures\06_03_multimodal_fusion_weights.png,44131
+report,final_system_summary.txt,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\reports\final_system_summary.txt,1928
+report,final_system_validation_report.json,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\06_cross_modal_learning\06_final_results\reports\final_system_validation_report.json,1912

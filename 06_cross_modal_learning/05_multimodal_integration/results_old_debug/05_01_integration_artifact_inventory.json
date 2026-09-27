@@ -1,0 +1,1247 @@
+{
+    "phase": "05",
+    "stage": "05.01_integration_setup",
+    "project_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening",
+    "cross_modal_root": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning",
+    "model_checkpoint_files": [
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_best_model.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_final_model.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_training_history.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\checkpoints\\03_06_gan_best_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\checkpoints\\03_06_gan_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_best_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_final_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_final_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_training_history.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_final_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_training_history.pt"
+    ],
+    "modality_artifacts": [
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_08_representation_aware_split.ipynb",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\02_04_positive_cross_modal_embedding_pairs.npz",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\02_05_negative_cross_modal_embedding_pairs.npz",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\reports\\02_08_representation_aware_split_validation.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\reports\\.ipynb_checkpoints\\02_08_representation_aware_split_validation-checkpoint.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_train_representation_disjoint_metadata.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_train_representation_disjoint_pairs.npz",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_validation_representation_disjoint_metadata.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_validation_representation_disjoint_pairs.npz",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\.ipynb_checkpoints\\02_08_train_representation_disjoint_metadata-checkpoint.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\.ipynb_checkpoints\\02_08_validation_representation_disjoint_metadata-checkpoint.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\.ipynb_checkpoints\\02_08_representation_aware_split-checkpoint.ipynb",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_embedding_value_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_l2_norm_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_per_dimension_means.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_per_dimension_std.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04A_balanced_pca_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04A_balanced_pca_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04_pca_by_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04_pca_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_05_tsne_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_05_tsne_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_06_umap_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_06_umap_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_07_overall_cross_modal_similarity_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_07_same_vs_different_class_similarity.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_08_centroid_cosine_similarity_heatmap.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_09_class_percentage_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_09_raw_class_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_04_pca_visualization.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_05_tsne_visualization.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_06_umap_visualization.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_07_cross_modal_similarity.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_08_class_centroid_analysis.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_09_label_class_distribution_validation.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_10_embedding_compatibility_conclusion.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_embedding_analysis.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_01_embedding_inspection.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_02_global_representation_statistics.csv",
+            "matched_terms": [
+                "embedding",
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_02_per_dimension_statistics.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_03_distribution_comparison.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04A_balanced_pca_explained_variance.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04A_balanced_pca_sampling_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04_pca_explained_variance.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_05_tsne_configuration_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_05_tsne_coordinates.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_06_umap_configuration_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_06_umap_coordinates.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_balanced_sampling_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_class_conditional_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_cross_modal_similarity_final_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_overall_cross_modal_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_same_vs_different_class_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_centroid_cosine_similarity_matrix.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_centroid_euclidean_distance_matrix.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_class_centroid_final_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_class_centroid_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_cross_modal_centroid_distances.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_cross_modal_centroid_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_same_vs_different_class_centroid_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_class_distribution_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_class_imbalance_metrics.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_cross_modal_sampling_validation.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_embedding_compatibility_evidence_matrix.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_final_embedding_compatibility_conclusion.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_scientific_conclusion.txt",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_04_pca_visualization-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_05_tsne_visualization-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_06_umap_visualization-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_07_cross_modal_similarity-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_08_class_centroid_analysis-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_09_label_class_distribution_validation-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_10_embedding_compatibility_conclusion-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_embedding_analysis-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        }
+    ],
+    "representation_artifacts": [
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_08_representation_aware_split.ipynb",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\02_04_positive_cross_modal_embedding_pairs.npz",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\02_05_negative_cross_modal_embedding_pairs.npz",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\reports\\02_08_representation_aware_split_validation.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\reports\\.ipynb_checkpoints\\02_08_representation_aware_split_validation-checkpoint.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_train_representation_disjoint_metadata.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_train_representation_disjoint_pairs.npz",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_validation_representation_disjoint_metadata.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_validation_representation_disjoint_pairs.npz",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\.ipynb_checkpoints\\02_08_train_representation_disjoint_metadata-checkpoint.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\.ipynb_checkpoints\\02_08_validation_representation_disjoint_metadata-checkpoint.csv",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\.ipynb_checkpoints\\02_08_representation_aware_split-checkpoint.ipynb",
+            "matched_terms": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_embedding_value_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_l2_norm_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_per_dimension_means.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_03_per_dimension_std.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04A_balanced_pca_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04A_balanced_pca_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04_pca_by_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_04_pca_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_05_tsne_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_05_tsne_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_06_umap_by_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_06_umap_class_and_modality.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_07_overall_cross_modal_similarity_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_07_same_vs_different_class_similarity.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_08_centroid_cosine_similarity_heatmap.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_09_class_percentage_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\figures\\01_09_raw_class_distribution.png",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_04_pca_visualization.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_05_tsne_visualization.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_06_umap_visualization.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_07_cross_modal_similarity.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_08_class_centroid_analysis.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_09_label_class_distribution_validation.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_10_embedding_compatibility_conclusion.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_embedding_analysis.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_01_embedding_inspection.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_02_global_representation_statistics.csv",
+            "matched_terms": [
+                "embedding",
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_02_per_dimension_statistics.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_03_distribution_comparison.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04A_balanced_pca_explained_variance.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04A_balanced_pca_sampling_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04_pca_explained_variance.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_05_tsne_configuration_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_05_tsne_coordinates.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_06_umap_configuration_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_06_umap_coordinates.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_balanced_sampling_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_class_conditional_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_cross_modal_similarity_final_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_overall_cross_modal_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_same_vs_different_class_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_centroid_cosine_similarity_matrix.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_centroid_euclidean_distance_matrix.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_class_centroid_final_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_class_centroid_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_cross_modal_centroid_distances.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_cross_modal_centroid_similarity.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_same_vs_different_class_centroid_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_class_distribution_summary.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_class_imbalance_metrics.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_cross_modal_sampling_validation.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_embedding_compatibility_evidence_matrix.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_final_embedding_compatibility_conclusion.csv",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_scientific_conclusion.txt",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_04_pca_visualization-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_05_tsne_visualization-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_06_umap_visualization-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_07_cross_modal_similarity-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_08_class_centroid_analysis-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_09_label_class_distribution_validation-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_10_embedding_compatibility_conclusion-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\.ipynb_checkpoints\\01_embedding_analysis-checkpoint.ipynb",
+            "matched_terms": [
+                "embedding"
+            ]
+        }
+    ],
+    "code_model_definition_files": [
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_01_baseline_cross_modal_evaluation.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_02_modality_combination_evaluation.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_03_probability_analysis.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_04_threshold_analysis.ipynb",
+            "matched_terms": [
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_01_dataset_preparation\\03_01_dataset_preparation.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_01_dataset_preparation\\03_01_dataset_preparation_pair_level_split_audit.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_02_baseline_cross_modal_model\\03_02_baseline_cross_modal_model.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_03_cross_modal_loss_design\\03_03_cross_modal_loss_design.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\03_04_baseline_training.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\03_04_initial_experiment_archive.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_05_gan_architecture\\03_05_gan_architecture.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training_experiment_02.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training_experiment_03_semantic_only.ipynb.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\_archive\\03_cross_modal_training_original\\notebooks\\03_01_dataset_preparation_pair_level_split_audit.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\.ipynb_checkpoints\\03_04_baseline_training-checkpoint.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_03_cross_modal_loss_design\\.ipynb_checkpoints\\03_03_cross_modal_loss_design-checkpoint.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_01_pairing_strategy_design.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_02_pairing_strategy_comparison.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_03_pairing_strategy_selection.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_04_positive_cross_modal_pair_construction.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_05_negative_cross_modal_pair_construction.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_06_pair_balance_dataset_validation.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_07_final_pair_dataset_creation.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_08_representation_aware_split.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_04_pca_visualization.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_05_tsne_visualization.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_06_umap_visualization.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_07_cross_modal_similarity.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_08_class_centroid_analysis.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_09_label_class_distribution_validation.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_10_embedding_compatibility_conclusion.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_embedding_analysis.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\00_setup_and_baseline_audit\\notebooks\\ 01_baseline_freeze_and_artifact_audit.ipynb",
+            "matched_terms": [
+                "Embedding",
+                "128",
+                "32",
+                "encoder"
+            ]
+        }
+    ],
+    "demo_patients": {
+        "P001": [
+            "05_multimodal_fusion\\M4_final_P001_P005_flexible_multimodal_results.csv",
+            "05_multimodal_fusion\\M4_final_P001_P005_three_modal_fusion_results.csv",
+            "data\\demo\\P001",
+            "data\\results\\demo\\M4_final_P001_P005_flexible_multimodal_results.csv",
+            "data\\results\\demo\\M4_final_P001_P005_three_modal_fusion_results.csv",
+            "data\\demo\\P001\\behavioral_input.csv",
+            "data\\demo\\P001\\environmental_input.csv",
+            "data\\demo\\P001\\genetic_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P001",
+            "05_multimodal_fusion\\M4_demo_patients\\P001\\behavioral_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P001\\demo_metadata.json",
+            "05_multimodal_fusion\\M4_demo_patients\\P001\\environmental_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P001\\genetic_input.csv",
+            "05_multimodal_fusion\\FINAL_PROJECT_AUDIT\\FINAL_OUTPUTS\\M4_final_P001_P005_flexible_multimodal_results.csv",
+            "05_multimodal_fusion\\FINAL_PROJECT_AUDIT\\FINAL_OUTPUTS\\M4_final_P001_P005_three_modal_fusion_results.csv"
+        ],
+        "P002": [
+            "data\\demo\\P002",
+            "data\\demo\\P002\\behavioral_input.csv",
+            "data\\demo\\P002\\environmental_input.csv",
+            "data\\demo\\P002\\genetic_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P002",
+            "05_multimodal_fusion\\M4_demo_patients\\P002\\behavioral_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P002\\demo_metadata.json",
+            "05_multimodal_fusion\\M4_demo_patients\\P002\\environmental_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P002\\genetic_input.csv"
+        ],
+        "P003": [
+            "data\\demo\\P003",
+            "data\\demo\\P003\\behavioral_input.csv",
+            "data\\demo\\P003\\environmental_input.csv",
+            "data\\demo\\P003\\genetic_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P003",
+            "05_multimodal_fusion\\M4_demo_patients\\P003\\behavioral_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P003\\demo_metadata.json",
+            "05_multimodal_fusion\\M4_demo_patients\\P003\\environmental_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P003\\genetic_input.csv"
+        ],
+        "P004": [
+            "data\\demo\\P004",
+            "data\\demo\\P004\\behavioral_input.csv",
+            "data\\demo\\P004\\environmental_input.csv",
+            "data\\demo\\P004\\genetic_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P004",
+            "05_multimodal_fusion\\M4_demo_patients\\P004\\behavioral_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P004\\demo_metadata.json",
+            "05_multimodal_fusion\\M4_demo_patients\\P004\\environmental_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P004\\genetic_input.csv"
+        ],
+        "P005": [
+            "05_multimodal_fusion\\M4_final_P001_P005_flexible_multimodal_results.csv",
+            "05_multimodal_fusion\\M4_final_P001_P005_three_modal_fusion_results.csv",
+            "data\\demo\\P005",
+            "data\\results\\demo\\M4_final_P001_P005_flexible_multimodal_results.csv",
+            "data\\results\\demo\\M4_final_P001_P005_three_modal_fusion_results.csv",
+            "data\\demo\\P005\\behavioral_input.csv",
+            "data\\demo\\P005\\environmental_input.csv",
+            "data\\demo\\P005\\genetic_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P005",
+            "05_multimodal_fusion\\M4_demo_patients\\P005\\behavioral_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P005\\demo_metadata.json",
+            "05_multimodal_fusion\\M4_demo_patients\\P005\\environmental_input.csv",
+            "05_multimodal_fusion\\M4_demo_patients\\P005\\genetic_input.csv",
+            "05_multimodal_fusion\\FINAL_PROJECT_AUDIT\\FINAL_OUTPUTS\\M4_final_P001_P005_flexible_multimodal_results.csv",
+            "05_multimodal_fusion\\FINAL_PROJECT_AUDIT\\FINAL_OUTPUTS\\M4_final_P001_P005_three_modal_fusion_results.csv"
+        ]
+    }
+}

@@ -1,0 +1,36 @@
+patient_id,available_modalities,num_modalities,genetic_probability,behavioral_probability,environmental_probability,final_probability,final_prediction,final_prediction_numeric
+P001,Genetic,1,0.519817,,,0.519817,ASD,1
+P001,Behavioral,1,,0.577138,,0.577138,ASD,1
+P001,Environmental,1,,,0.080968,0.080968,NON-ASD,0
+P001,Genetic + Behavioral,2,0.519817,0.577138,,0.5516976432540432,ASD,1
+P001,Genetic + Environmental,2,0.519817,,0.080968,0.3146450325167653,NON-ASD,0
+P001,Behavioral + Environmental,2,,0.577138,0.080968,0.3727219864413885,NON-ASD,0
+P001,Genetic + Behavioral + Environmental,3,0.519817,0.577138,0.080968,0.4196996758362241,NON-ASD,0
+P002,Genetic,1,0.517192,,,0.517192,ASD,1
+P002,Behavioral,1,,0.0,,0.0,NON-ASD,0
+P002,Environmental,1,,,0.095078,0.095078,NON-ASD,0
+P002,Genetic + Behavioral,2,0.517192,0.0,,0.2295415115953121,NON-ASD,0
+P002,Genetic + Environmental,2,0.517192,,0.095078,0.3198440286426126,NON-ASD,0
+P002,Behavioral + Environmental,2,,0.0,0.095078,0.039170981190168,NON-ASD,0
+P002,Genetic + Behavioral + Environmental,3,0.517192,0.0,0.095078,0.191836407451563,NON-ASD,0
+P003,Genetic,1,0.515415,,,0.515415,ASD,1
+P003,Behavioral,1,,0.240194,,0.240194,NON-ASD,0
+P003,Environmental,1,,,0.048148,0.048148,NON-ASD,0
+P003,Genetic + Behavioral,2,0.515415,0.240194,,0.3623433069551992,NON-ASD,0
+P003,Genetic + Environmental,2,0.515415,,0.048148,0.2969569660749173,NON-ASD,0
+P003,Behavioral + Environmental,2,,0.240194,0.048148,0.1610733805754537,NON-ASD,0
+P003,Genetic + Behavioral + Environmental,3,0.515415,0.240194,0.048148,0.2742393549635421,NON-ASD,0
+P004,Genetic,1,0.520541,,,0.520541,ASD,1
+P004,Behavioral,1,,1e-06,,1e-06,NON-ASD,0
+P004,Environmental,1,,,0.06139,0.06139,NON-ASD,0
+P004,Genetic + Behavioral,2,0.520541,1e-06,,0.2310284297472191,NON-ASD,0
+P004,Genetic + Environmental,2,0.520541,,0.06139,0.3058773821225646,NON-ASD,0
+P004,Behavioral + Environmental,2,,1e-06,0.06139,0.0252925223740846,NON-ASD,0
+P004,Genetic + Behavioral + Environmental,3,0.520541,1e-06,0.06139,0.1834598768772675,NON-ASD,0
+P005,Genetic,1,0.517319,,,0.517319,ASD,1
+P005,Behavioral,1,,0.929673,,0.929673,ASD,1
+P005,Environmental,1,,,0.085321,0.085321,NON-ASD,0
+P005,Genetic + Behavioral,2,0.517319,0.929673,,0.7466609648711245,ASD,1
+P005,Genetic + Environmental,2,0.517319,,0.085321,0.3153500320661038,NON-ASD,0
+P005,Behavioral + Environmental,2,,0.929673,0.085321,0.5818102314322898,ASD,1
+P005,Genetic + Behavioral + Environmental,3,0.517319,0.929673,0.085321,0.5612136866166537,ASD,1

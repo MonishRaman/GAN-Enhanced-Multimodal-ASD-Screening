@@ -1,0 +1,171 @@
+{
+    "stage": "05_01_exact_modality_pipeline_inspection",
+    "modality_roots": {
+        "Genetic": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Genetic_Model",
+        "Behavioral": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Behavioral_Model",
+        "Environmental": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Environmental_Model"
+    },
+    "representation_checkpoints": {
+        "Genetic": [
+            "Genetic_Model\\03_representation_learning\\genetic_transformer_128d.pt"
+        ],
+        "Behavioral": [
+            "Behavioral_Model\\03_representation_learning\\behavioral_encoder_128d.pt"
+        ],
+        "Environmental": [
+            "Environmental_Model\\03_representation_learning\\environmental_encoder_128d.pt"
+        ]
+    },
+    "alignment_checkpoints": {
+        "Genetic": [
+            "Genetic_Model\\04_cross_modal_alignment\\genetic_128_to_32_alignment.pt"
+        ],
+        "Behavioral": [
+            "Behavioral_Model\\04_cross_modal_alignment\\behavioral_128_to_32_alignment.pt"
+        ],
+        "Environmental": [
+            "Environmental_Model\\04_cross_modal_alignment\\environmental_128_to_32_alignment.pt"
+        ]
+    },
+    "aligned_representation_files": {
+        "Genetic": [
+            "Genetic_Model\\04_cross_modal_alignment\\genetic_128_to_32_alignment.pt",
+            "Genetic_Model\\04_cross_modal_alignment\\genetic_128_to_32_alignment_report.txt",
+            "Genetic_Model\\04_cross_modal_alignment\\genetic_32d_aligned_representation.csv",
+            "Genetic_Model\\04_cross_modal_alignment\\genetic_32d_validation_report.txt"
+        ],
+        "Behavioral": [
+            "Behavioral_Model\\04_cross_modal_alignment\\behavioral_128_to_32_alignment.pt",
+            "Behavioral_Model\\04_cross_modal_alignment\\behavioral_128_to_32_alignment_report.txt",
+            "Behavioral_Model\\04_cross_modal_alignment\\behavioral_32d_aligned_representation.csv",
+            "Behavioral_Model\\04_cross_modal_alignment\\behavioral_32d_validation_report.txt"
+        ],
+        "Environmental": [
+            "Environmental_Model\\04_cross_modal_alignment\\environmental_128_to_32_alignment.pt",
+            "Environmental_Model\\04_cross_modal_alignment\\environmental_128_to_32_alignment_report.txt",
+            "Environmental_Model\\04_cross_modal_alignment\\environmental_32d_aligned_representation.csv",
+            "Environmental_Model\\04_cross_modal_alignment\\environmental_32d_validation_report.txt"
+        ]
+    },
+    "representation_checkpoint_details": {
+        "Genetic": [
+            {
+                "path": "Genetic_Model\\03_representation_learning\\genetic_transformer_128d.pt",
+                "object_type": "<class 'collections.OrderedDict'>",
+                "keys": [
+                    "feature_embedding.weight",
+                    "feature_embedding.bias",
+                    "transformer.layers.0.self_attn.in_proj_weight",
+                    "transformer.layers.0.self_attn.in_proj_bias",
+                    "transformer.layers.0.self_attn.out_proj.weight",
+                    "transformer.layers.0.self_attn.out_proj.bias",
+                    "transformer.layers.0.linear1.weight",
+                    "transformer.layers.0.linear1.bias",
+                    "transformer.layers.0.linear2.weight",
+                    "transformer.layers.0.linear2.bias",
+                    "transformer.layers.0.norm1.weight",
+                    "transformer.layers.0.norm1.bias",
+                    "transformer.layers.0.norm2.weight",
+                    "transformer.layers.0.norm2.bias",
+                    "transformer.layers.1.self_attn.in_proj_weight",
+                    "transformer.layers.1.self_attn.in_proj_bias",
+                    "transformer.layers.1.self_attn.out_proj.weight",
+                    "transformer.layers.1.self_attn.out_proj.bias",
+                    "transformer.layers.1.linear1.weight",
+                    "transformer.layers.1.linear1.bias",
+                    "transformer.layers.1.linear2.weight",
+                    "transformer.layers.1.linear2.bias",
+                    "transformer.layers.1.norm1.weight",
+                    "transformer.layers.1.norm1.bias",
+                    "transformer.layers.1.norm2.weight",
+                    "transformer.layers.1.norm2.bias",
+                    "output_projection.0.weight",
+                    "output_projection.0.bias",
+                    "output_projection.1.weight",
+                    "output_projection.1.bias"
+                ]
+            }
+        ],
+        "Behavioral": [
+            {
+                "path": "Behavioral_Model\\03_representation_learning\\behavioral_encoder_128d.pt",
+                "object_type": "<class 'dict'>",
+                "keys": [
+                    "model_state_dict",
+                    "input_dim",
+                    "embedding_dim",
+                    "target_column"
+                ]
+            }
+        ],
+        "Environmental": [
+            {
+                "path": "Environmental_Model\\03_representation_learning\\environmental_encoder_128d.pt",
+                "object_type": "<class 'dict'>",
+                "keys": [
+                    "model_state_dict",
+                    "input_dim",
+                    "embedding_dim",
+                    "feature_columns",
+                    "target_column",
+                    "target_definition",
+                    "best_validation_auc",
+                    "test_accuracy",
+                    "test_balanced_accuracy",
+                    "test_precision",
+                    "test_recall",
+                    "test_f1",
+                    "test_roc_auc"
+                ]
+            }
+        ]
+    },
+    "alignment_checkpoint_details": {
+        "Genetic": [
+            {
+                "path": "Genetic_Model\\04_cross_modal_alignment\\genetic_128_to_32_alignment.pt",
+                "object_type": "<class 'collections.OrderedDict'>",
+                "keys": [
+                    "network.0.weight",
+                    "network.0.bias",
+                    "network.1.weight",
+                    "network.1.bias",
+                    "network.1.running_mean",
+                    "network.1.running_var",
+                    "network.1.num_batches_tracked",
+                    "network.3.weight",
+                    "network.3.bias"
+                ]
+            }
+        ],
+        "Behavioral": [
+            {
+                "path": "Behavioral_Model\\04_cross_modal_alignment\\behavioral_128_to_32_alignment.pt",
+                "object_type": "<class 'dict'>",
+                "keys": [
+                    "model_state_dict",
+                    "input_dimension",
+                    "output_dimension",
+                    "seed",
+                    "architecture",
+                    "purpose"
+                ]
+            }
+        ],
+        "Environmental": [
+            {
+                "path": "Environmental_Model\\04_cross_modal_alignment\\environmental_128_to_32_alignment.pt",
+                "object_type": "<class 'dict'>",
+                "keys": [
+                    "model_state_dict",
+                    "input_dimension",
+                    "output_dimension",
+                    "normalization_mean",
+                    "normalization_std",
+                    "seed",
+                    "reconstruction_mse"
+                ]
+            }
+        ]
+    }
+}

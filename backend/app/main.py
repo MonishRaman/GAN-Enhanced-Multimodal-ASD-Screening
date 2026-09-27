@@ -20,12 +20,12 @@ No model is trained or modified here.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 import numpy as np
 import pandas as pd
 import torch
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.schemas.patient_schema import (
@@ -37,12 +37,14 @@ from backend.schemas.result_schema import (
     ErrorResponse,
     FusionContribution,
     FusionResult,
+    CrossModalResult,
     ModalityResult,
     PatientInferenceResult,
 )
 from backend.services.behavioral_service import BehavioralService
 from backend.services.environmental_service import EnvironmentalService
 from backend.services.fusion_service import FusionService
+from backend.services.cross_modal_service import cross_modal_service
 from backend.services.genetic_service import GeneticService
 from backend.utils.paths import (
     get_behavioral_input_path,
@@ -72,6 +74,8 @@ app.add_middleware(
     allow_origins=[
         "http://127.0.0.1:5500",
         "http://localhost:5500",
+        "http://127.0.0.1:5501",
+        "http://localhost:5501",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -226,113 +230,22 @@ def _behavioral_aligned_embedding(
     input_data: pd.DataFrame,
 ) -> np.ndarray:
     """
-    Reproduce the already-frozen Behavioral representation path
-    without modifying BehavioralService.
+    Read the aligned representation produced by BehavioralService.
 
-    Pipeline:
-
-        raw DataFrame
-            ↓
-        frozen preprocessor
-            ↓
-        87-D processed features
-            ↓
-        frozen encoder
-            ↓
-        128-D embedding
-            ↓
-        frozen alignment
-            ↓
-        32-D aligned representation
-
-    The behavioral expert probability itself is still obtained from
-    BehavioralService.predict().
+    The service owns the frozen preprocessing, encoder, alignment,
+    scaler, and expert pipeline; this helper only validates its
+    returned representation for cross-modal inference.
     """
 
-    data = behavioral_service._prepare_input(
-        input_data
-    )
+    result = behavioral_service.predict(input_data)
 
-    processed = behavioral_service.preprocessor.transform(
-        data
-    )
-
-    if hasattr(
-        processed,
-        "toarray",
-    ):
-        processed = processed.toarray()
-
-    processed = np.asarray(
-        processed,
-        dtype=np.float32,
-    )
-
-    if processed.ndim == 1:
-        processed = processed.reshape(
-            1,
-            -1,
-        )
-
-    if processed.ndim != 2:
+    if "aligned_embedding_32" not in result:
         raise ValueError(
-            "Behavioral preprocessor returned an invalid shape: "
-            f"{processed.shape}"
-        )
-
-    if processed.shape[1] != behavioral_service.input_dim:
-        raise ValueError(
-            "Unexpected behavioral preprocessor output dimension. "
-            f"Expected {behavioral_service.input_dim}, "
-            f"received {processed.shape[1]}."
-        )
-
-    processed_tensor = torch.tensor(
-        processed,
-        dtype=torch.float32,
-    )
-
-    embedding_128 = behavioral_service.encoder(
-        processed_tensor
-    )
-
-    embedding_128 = torch.as_tensor(
-        embedding_128,
-        dtype=torch.float32,
-    )
-
-    if embedding_128.ndim != 2:
-        raise ValueError(
-            "Behavioral encoder returned an invalid shape: "
-            f"{tuple(embedding_128.shape)}"
-        )
-
-    if embedding_128.shape[1] != behavioral_service.embedding_dim:
-        raise ValueError(
-            "Unexpected behavioral embedding dimension. "
-            f"Expected {behavioral_service.embedding_dim}, "
-            f"received {embedding_128.shape[1]}."
-        )
-
-    aligned_32 = behavioral_service.alignment(
-        embedding_128
-    )
-
-    if aligned_32.ndim != 2:
-        raise ValueError(
-            "Behavioral alignment returned an invalid shape: "
-            f"{tuple(aligned_32.shape)}"
-        )
-
-    if aligned_32.shape[1] != behavioral_service.alignment_output_dim:
-        raise ValueError(
-            "Unexpected behavioral aligned dimension. "
-            f"Expected {behavioral_service.alignment_output_dim}, "
-            f"received {aligned_32.shape[1]}."
+            "Behavioral service did not return an aligned 32-D representation."
         )
 
     return _extract_single_embedding(
-        aligned_32.detach().cpu().numpy(),
+        result["aligned_embedding_32"],
         "behavioral",
     )
 
@@ -386,8 +299,9 @@ def _run_behavioral(
         dataframe
     )
 
-    embedding = _behavioral_aligned_embedding(
-        dataframe
+    embedding = _extract_single_embedding(
+        result["aligned_embedding_32"],
+        "behavioral",
     )
 
     probability = _safe_probability(
@@ -647,6 +561,7 @@ def _run_demo_patient(
     # ------------------------------------------------------------------------
 
     fusion_result = None
+    cross_modal_result = None
 
     if mode == "all_three":
         if (
@@ -658,21 +573,26 @@ def _run_demo_patient(
                 "All-three inference requires all three modality outputs."
             )
 
-        fusion_output = fusion_service.predict(
+        cross_modal_output = cross_modal_service.predict(
             genetic_output["embedding"],
             behavioral_output["embedding"],
             environmental_output["embedding"],
         )
 
-        fusion_result = _build_fusion_result(
-            mode,
-            [
-                "genetic",
-                "behavioral",
-                "environmental",
-            ],
-            fusion_output,
+        individual_output = fusion_service.predict(
+            genetic_output["embedding"],
+            behavioral_output["embedding"],
+            environmental_output["embedding"],
         )
+        modality_results = [
+            _modality_result(
+                modality,
+                individual_output["modalities"][modality]["probability"],
+            )
+            for modality in ["genetic", "behavioral", "environmental"]
+        ]
+
+        cross_modal_result = CrossModalResult(**cross_modal_output)
 
     elif mode in {
         "genetic_behavioral",
@@ -780,6 +700,7 @@ def _run_demo_patient(
         mode=mode,
         modality_results=modality_results,
         fusion=fusion_result,
+        cross_modal=cross_modal_result,
         status="success",
         message="Inference completed successfully.",
     )
@@ -1046,6 +967,7 @@ def infer(
         # --------------------------------------------------------------------
 
         fusion_result = None
+        cross_modal_result = None
 
         if request.mode == "all_three":
             if (
@@ -1057,27 +979,20 @@ def infer(
                     "All-three inference requires all three modalities."
                 )
 
-            fusion_output = fusion_service.predict(
+            cross_modal_output = cross_modal_service.predict(
                 genetic_output["embedding"],
                 behavioral_output["embedding"],
                 environmental_output["embedding"],
             )
 
-            fusion_result = _build_fusion_result(
-                request.mode,
-                [
-                    "genetic",
-                    "behavioral",
-                    "environmental",
-                ],
-                fusion_output,
-            )
+            cross_modal_result = CrossModalResult(**cross_modal_output)
 
         return PatientInferenceResult(
             patient_id=request.patient_id,
             mode=request.mode,
             modality_results=modality_results,
             fusion=fusion_result,
+            cross_modal=cross_modal_result,
             status="success",
             message="Inference completed successfully.",
         )
@@ -1099,3 +1014,113 @@ def infer(
             status_code=500,
             detail=f"Inference failed: {exc}",
         ) from exc
+
+# ============================================================================
+# FINAL CROSS-MODAL CSV UPLOAD ENDPOINT
+# ============================================================================
+
+@app.post("/api/cross-modal/upload", response_model=PatientInferenceResult)
+async def cross_modal_upload(
+    patient_id: Optional[str] = Form(None),
+    genetic_file: Optional[UploadFile] = File(None),
+    behavioral_file: Optional[UploadFile] = File(None),
+    environmental_file: Optional[UploadFile] = File(None),
+) -> PatientInferenceResult:
+    """
+    Run the final feature-level cross-modal ASD model from three patient CSVs.
+
+    Each CSV must contain exactly one patient row. The existing frozen
+    modality services own all preprocessing/encoding/alignment.
+    """
+    import tempfile
+
+    patient_id = (patient_id or "uploaded-patient").strip()
+    if "/" in patient_id or "\\" in patient_id:
+        raise HTTPException(status_code=400, detail="Patient ID must not contain path separators.")
+
+    files = {
+        "genetic": genetic_file,
+        "behavioral": behavioral_file,
+        "environmental": environmental_file,
+    }
+
+    missing = [name for name, upload in files.items() if upload is None]
+    if missing:
+        raise HTTPException(
+            status_code=400,
+            detail="Missing required CSV file(s): " + ", ".join(missing),
+        )
+
+    for name, upload in files.items():
+        filename = (upload.filename or "").lower()
+        if not filename.endswith(".csv"):
+            raise HTTPException(status_code=400, detail=f"{name.capitalize()} input must be a CSV file.")
+
+    try:
+        with tempfile.TemporaryDirectory(prefix="asd_cross_modal_") as temp_dir:
+            paths = {}
+            for name, upload in files.items():
+                path = Path(temp_dir) / f"{name}.csv"
+                content = await upload.read()
+                if not content:
+                    raise ValueError(f"{name.capitalize()} CSV is empty.")
+                path.write_bytes(content)
+                paths[name] = path
+
+            genetic_df = pd.read_csv(paths["genetic"])
+            behavioral_df = pd.read_csv(paths["behavioral"])
+            environmental_df = pd.read_csv(paths["environmental"])
+
+            for name, df in {"genetic": genetic_df, "behavioral": behavioral_df, "environmental": environmental_df}.items():
+                if df.empty:
+                    raise ValueError(f"{name.capitalize()} CSV contains no rows.")
+                if len(df) != 1:
+                    raise ValueError(
+                        f"{name.capitalize()} CSV must contain exactly one patient row; received {len(df)} rows."
+                    )
+
+            genetic_output = _run_genetic(paths["genetic"])
+            behavioral_output = _run_behavioral(paths["behavioral"])
+            environmental_output = _run_environmental(paths["environmental"])
+
+            cross_output = cross_modal_service.predict(
+                genetic_output["embedding"],
+                behavioral_output["embedding"],
+                environmental_output["embedding"],
+            )
+
+            cross_result = CrossModalResult(**cross_output)
+
+            # Use the frozen modality experts only for individual reporting.
+            # The cross-modal result above remains the sole final prediction.
+            individual_output = fusion_service.predict(
+                genetic_output["embedding"],
+                behavioral_output["embedding"],
+                environmental_output["embedding"],
+            )
+            modality_results = [
+                _modality_result(
+                    modality,
+                    individual_output["modalities"][modality]["probability"],
+                )
+                for modality in ["genetic", "behavioral", "environmental"]
+            ]
+
+            return PatientInferenceResult(
+                patient_id=patient_id,
+                mode="all_three",
+                modality_results=modality_results,
+                fusion=None,
+                cross_modal=cross_result,
+                status="success",
+                message="Final cross-modal ASD inference completed successfully.",
+            )
+
+    except HTTPException:
+        raise
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Cross-modal inference failed: {exc}") from exc

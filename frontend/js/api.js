@@ -3,7 +3,7 @@
 // Frontend -> Backend API Communication
 // ============================================================
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "http://127.0.0.1:8001";
 
 function extractErrorMessage(data, status) {
     const detail = data?.detail;
@@ -101,6 +101,43 @@ async function analyzePatient(patientId, mode) {
 
 
 /**
+ * Run the final cross-modal model from three CSV files for one patient.
+ *
+ * @param {string} patientId
+ * @param {{genetic: File, behavioral: File, environmental: File}} files
+ * @returns {Promise<Object>}
+ */
+async function analyzeCrossModalUpload(patientId, files) {
+    const formData = new FormData();
+    formData.append("patient_id", patientId);
+    formData.append("genetic_file", files.genetic);
+    formData.append("behavioral_file", files.behavioral);
+    formData.append("environmental_file", files.environmental);
+
+    const response = await fetch(`${API_BASE_URL}/api/cross-modal/upload`, {
+        method: "POST",
+        body: formData
+    });
+
+    let data = null;
+
+    try {
+        data = await response.json();
+    } catch (error) {
+        throw new Error(
+            `Backend returned an invalid response (HTTP ${response.status}).`
+        );
+    }
+
+    if (!response.ok) {
+        throw new Error(extractErrorMessage(data, response.status));
+    }
+
+    return data;
+}
+
+
+/**
  * Run general inference using explicit modality file paths.
  *
  * @param {string} patientId
@@ -168,6 +205,7 @@ window.ASD_API = {
     API_BASE_URL,
     checkBackendHealth,
     analyzePatient,
+    analyzeCrossModalUpload,
     inferPatient,
     getApiErrorMessage
 };

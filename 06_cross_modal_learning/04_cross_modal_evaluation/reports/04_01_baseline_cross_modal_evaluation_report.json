@@ -1,0 +1,42 @@
+{
+    "evaluation": {
+        "phase": "04",
+        "subphase": "04.01",
+        "name": "Baseline Cross-Modal Evaluation",
+        "dataset": "Phase 02.08 representation-aware validation pairs",
+        "validation_samples": 448,
+        "classification_threshold": 0.5
+    },
+    "model": {
+        "name": "BaselineCrossModalModel",
+        "architecture": "128 -> 128 -> 64 -> 1",
+        "input_embedding_dimension": 32,
+        "interaction_dimension": 128,
+        "total_parameters": 24833,
+        "trainable_parameters": 0,
+        "checkpoint_epoch": 13,
+        "checkpoint_path": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_best_model.pt"
+    },
+    "metrics": {
+        "roc_auc": 0.6626674107142857,
+        "accuracy": 0.6116071428571429,
+        "balanced_accuracy": 0.6116071428571428,
+        "precision": 0.6068376068376068,
+        "recall": 0.6339285714285714,
+        "specificity": 0.5892857142857143,
+        "f1_score": 0.6200873362445415
+    },
+    "confusion_matrix": {
+        "true_negative": 132,
+        "false_positive": 92,
+        "false_negative": 82,
+        "true_positive": 142
+    },
+    "reproducibility": {
+        "checkpoint_roc_auc": 0.6626674107142857,
+        "evaluated_roc_auc": 0.6626674107142857,
+        "absolute_difference": 0.0,
+        "tolerance": 1e-06,
+        "verified": true
+    }
+}

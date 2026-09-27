@@ -672,3 +672,8 @@ select:focus {
         flex: none;
     }
 }
+
+/* Final cross-modal upload UI */
+input[type="file"] { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.message-area.error { color: #b91c1c; margin-top: 12px; }
+.message-area.success { color: #15803d; margin-top: 12px; }

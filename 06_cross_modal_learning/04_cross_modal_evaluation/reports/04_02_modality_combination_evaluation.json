@@ -1,0 +1,68 @@
+{
+    "evaluation": {
+        "phase": "04",
+        "subphase": "04.02",
+        "name": "Modality Combination Evaluation",
+        "dataset": "Phase 02.08 representation-aware validation pairs",
+        "total_validation_pairs": 448,
+        "classification_threshold": 0.5
+    },
+    "modality_combinations": [
+        {
+            "modality_combination": "Genetic-Behavioral",
+            "samples": 48,
+            "class_0": 24,
+            "class_1": 24,
+            "roc_auc": 0.8072916666666667,
+            "accuracy": 0.7291666666666666,
+            "balanced_accuracy": 0.7291666666666667,
+            "precision": 0.72,
+            "recall": 0.75,
+            "specificity": 0.7083333333333334,
+            "f1_score": 0.7346938775510204,
+            "true_negative": 17,
+            "false_positive": 7,
+            "false_negative": 6,
+            "true_positive": 18
+        },
+        {
+            "modality_combination": "Genetic-Environmental",
+            "samples": 48,
+            "class_0": 24,
+            "class_1": 24,
+            "roc_auc": 0.5017361111111112,
+            "accuracy": 0.5,
+            "balanced_accuracy": 0.5,
+            "precision": 0.5,
+            "recall": 0.5416666666666666,
+            "specificity": 0.4583333333333333,
+            "f1_score": 0.52,
+            "true_negative": 11,
+            "false_positive": 13,
+            "false_negative": 11,
+            "true_positive": 13
+        },
+        {
+            "modality_combination": "Behavioral-Environmental",
+            "samples": 352,
+            "class_0": 176,
+            "class_1": 176,
+            "roc_auc": 0.6596074380165289,
+            "accuracy": 0.6107954545454546,
+            "balanced_accuracy": 0.6107954545454546,
+            "precision": 0.6065573770491803,
+            "recall": 0.6306818181818182,
+            "specificity": 0.5909090909090909,
+            "f1_score": 0.6183844011142061,
+            "true_negative": 104,
+            "false_positive": 72,
+            "false_negative": 65,
+            "true_positive": 111
+        }
+    ],
+    "baseline_reference": {
+        "checkpoint": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_best_model.pt",
+        "checkpoint_epoch": 13,
+        "overall_validation_roc_auc": 0.6626674107142857
+    }
+}

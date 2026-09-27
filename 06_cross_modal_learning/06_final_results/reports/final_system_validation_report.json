@@ -1,0 +1,59 @@
+{
+    "phase": "06_final_results",
+    "status": "PASSED",
+    "system": "ASD Multimodal Knowledge-Level Evidence Fusion System",
+    "cross_modal_validation": {
+        "status": "PASSED",
+        "validation_pairs": 448,
+        "class_0": 224,
+        "class_1": 224,
+        "roc_auc": 0.6626674107142857,
+        "accuracy": 0.6116071428571429,
+        "balanced_accuracy": 0.6116071428571429,
+        "precision": 0.6068376068376068,
+        "recall": 0.6339285714285714,
+        "f1_score": 0.6200873362445415
+    },
+    "multimodal_fusion": {
+        "status": "PASSED",
+        "method": "weighted probability evidence fusion",
+        "genetic_weight": 0.31937,
+        "behavioral_weight": 0.400219,
+        "environmental_weight": 0.280411,
+        "weight_sum": 1.0,
+        "decision_threshold": 0.5
+    },
+    "flexible_multimodal_inference": {
+        "status": "PASSED",
+        "supported_modes": [
+            "ANY-ONE",
+            "ANY-TWO",
+            "ALL-THREE"
+        ],
+        "missing_modality_handling": "available evidence with renormalized weights"
+    },
+    "gan": {
+        "evaluated": true,
+        "selected_for_final_production": false
+    },
+    "methodological_controls": {
+        "patient_level_matching": false,
+        "row_wise_multimodal_training": false,
+        "checkpoint_modification": false,
+        "training_in_final_results": false
+    },
+    "final_artifacts": {
+        "final_model_config": true,
+        "final_fusion_weights": true,
+        "final_cross_modal_predictions": true,
+        "final_cross_modal_metrics": true,
+        "final_three_modal_results": true,
+        "final_flexible_multimodal_results": true,
+        "final_metrics": true
+    },
+    "final_figures": {
+        "final_architecture": true,
+        "cross_modal_performance": true,
+        "fusion_weights": true
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "evaluation": {
+        "phase": "04",
+        "subphase": "04.01",
+        "analysis": "Baseline Probability Distribution",
+        "validation_samples": 448,
+        "classification_threshold": 0.5
+    },
+    "class_0": {
+        "samples": 224,
+        "mean": 0.45505332946777344,
+        "std": 0.19943703711032867,
+        "median": 0.45475733280181885,
+        "minimum": 0.03269292041659355,
+        "maximum": 0.8974871039390564
+    },
+    "class_1": {
+        "samples": 224,
+        "mean": 0.5757140517234802,
+        "std": 0.20390905439853668,
+        "median": 0.5970785617828369,
+        "minimum": 0.12415113300085068,
+        "maximum": 0.9379035830497742
+    },
+    "mean_probability_difference": 0.12066072225570679,
+    "interpretation": {
+        "class_1_mean_higher_than_class_0": true,
+        "note": "Probabilities represent the predicted cross-modal pair relationship class defined during Phase 02.08. They should not be interpreted directly as ASD diagnostic probabilities."
+    },
+    "figure": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\04_cross_modal_evaluation\\figures\\04_01_baseline_probability_distribution.png"
+}

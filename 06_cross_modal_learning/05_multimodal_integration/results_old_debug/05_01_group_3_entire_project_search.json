@@ -1,0 +1,1237 @@
+{
+    "stage": "05.01_group_3_entire_project_search",
+    "all_model_files": [
+        "05_multimodal_fusion\\M3_1_behavioral_expert.pt",
+        "05_multimodal_fusion\\M3_1_behavioral_scaler.joblib",
+        "05_multimodal_fusion\\M3_1_environmental_expert.pt",
+        "05_multimodal_fusion\\M3_1_environmental_scaler.joblib",
+        "05_multimodal_fusion\\M3_1_genetic_expert.pt",
+        "05_multimodal_fusion\\M3_1_genetic_scaler.joblib",
+        "05_multimodal_fusion\\M3_multimodal_knowledge_fusion.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_best_model.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_final_model.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_training_history.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\checkpoints\\03_06_gan_best_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\checkpoints\\03_06_gan_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_best_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_final_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_final_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_training_history.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_final_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_training_history.pt",
+        "Behavioral_Model\\02_preprocessing\\behavioral_preprocessor.joblib",
+        "Behavioral_Model\\03_representation_learning\\behavioral_encoder_128d.pt",
+        "Behavioral_Model\\04_cross_modal_alignment\\behavioral_128_to_32_alignment.pt",
+        "Environmental_complete_code_directory\\environmental_pca_128_to_32.joblib",
+        "Environmental_complete_code_directory\\environmental_representation_model.keras",
+        "Environmental_Model\\02_preprocessing\\environmental_preprocessor.joblib",
+        "Environmental_Model\\03_representation_learning\\environmental_encoder_128d.pt",
+        "Environmental_Model\\04_cross_modal_alignment\\environmental_128_to_32_alignment.pt",
+        "Genetic_Model\\03_representation_learning\\genetic_transformer_128d.pt",
+        "Genetic_Model\\04_cross_modal_alignment\\genetic_128_to_32_alignment.pt",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_1.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_2.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_3.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_4.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_5.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_transformer_128d.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_transformer_128d_lightweight.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_1.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_2.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_3.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_4.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_5.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\conditional_gan\\genetic_conditional_gan.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\cross_modal_alignment\\genetic_128_to_32_alignment.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\genetic_embedding_conditional_gan.pt"
+    ],
+    "phase_03_model_files": [
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_best_model.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_final_model.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\checkpoints\\03_04_baseline_training_history.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\checkpoints\\03_06_gan_best_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\checkpoints\\03_06_gan_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_best_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_final_discriminator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_final_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_02_lambda_adv_0_1\\checkpoints\\03_06_gan_experiment_02_training_history.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_best_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_final_generator.pt",
+        "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\experiment_03_semantic_only\\checkpoints\\03_06_gan_experiment_03_training_history.pt"
+    ],
+    "other_model_files": [
+        "05_multimodal_fusion\\M3_1_behavioral_expert.pt",
+        "05_multimodal_fusion\\M3_1_behavioral_scaler.joblib",
+        "05_multimodal_fusion\\M3_1_environmental_expert.pt",
+        "05_multimodal_fusion\\M3_1_environmental_scaler.joblib",
+        "05_multimodal_fusion\\M3_1_genetic_expert.pt",
+        "05_multimodal_fusion\\M3_1_genetic_scaler.joblib",
+        "05_multimodal_fusion\\M3_multimodal_knowledge_fusion.pt",
+        "Behavioral_Model\\02_preprocessing\\behavioral_preprocessor.joblib",
+        "Behavioral_Model\\03_representation_learning\\behavioral_encoder_128d.pt",
+        "Behavioral_Model\\04_cross_modal_alignment\\behavioral_128_to_32_alignment.pt",
+        "Environmental_complete_code_directory\\environmental_pca_128_to_32.joblib",
+        "Environmental_complete_code_directory\\environmental_representation_model.keras",
+        "Environmental_Model\\02_preprocessing\\environmental_preprocessor.joblib",
+        "Environmental_Model\\03_representation_learning\\environmental_encoder_128d.pt",
+        "Environmental_Model\\04_cross_modal_alignment\\environmental_128_to_32_alignment.pt",
+        "Genetic_Model\\03_representation_learning\\genetic_transformer_128d.pt",
+        "Genetic_Model\\04_cross_modal_alignment\\genetic_128_to_32_alignment.pt",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_1.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_2.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_3.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_4.pth",
+        "Genetics_Complete_code\\genetics\\checkpoints\\genetic_transformer_fold_5.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_transformer_128d.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_transformer_128d_lightweight.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_1.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_2.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_3.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_4.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\checkpoints\\fold_5.pth",
+        "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\conditional_gan\\genetic_conditional_gan.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\cross_modal_alignment\\genetic_128_to_32_alignment.pt",
+        "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\genetic_embedding_conditional_gan.pt"
+    ],
+    "model_source_matches": [
+        {
+            "path": "Complete_all_3_model_code.ipynb",
+            "matched_terms": [
+                "class Genetic",
+                "class Behavioral",
+                "class Environmental",
+                "BehavioralEncoder",
+                "EnvironmentalEncoder",
+                "genetic_model",
+                "behavioral_model",
+                "environmental_model"
+            ]
+        },
+        {
+            "path": ".ipynb_checkpoints\\Complete_all_3_model_code-checkpoint.ipynb",
+            "matched_terms": [
+                "class Genetic",
+                "class Behavioral",
+                "class Environmental",
+                "BehavioralEncoder",
+                "EnvironmentalEncoder",
+                "genetic_model",
+                "behavioral_model",
+                "environmental_model"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\dataset.py",
+            "matched_terms": [
+                "class Genetic"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\model.py",
+            "matched_terms": [
+                "class Genetic"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step27_genetic_128_embedding.py",
+            "matched_terms": [
+                "class Genetic"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step31_genetic_conditional_gan.py",
+            "matched_terms": [
+                "class Genetic"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step37_fold_safe_genetic_gan_validation.py",
+            "matched_terms": [
+                "class Genetic"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step38_genetic_128_to_32_alignment.py",
+            "matched_terms": [
+                "class Genetic"
+            ]
+        },
+        {
+            "path": "backend\\services\\behavioral_service.py",
+            "matched_terms": [
+                "class Behavioral",
+                "BehavioralEncoder",
+                "behavioral_model"
+            ]
+        },
+        {
+            "path": "backend\\services\\environmental_service.py",
+            "matched_terms": [
+                "class Environmental",
+                "EnvironmentalEncoder",
+                "environmental_model"
+            ]
+        },
+        {
+            "path": "backend\\services\\genetic_service.py",
+            "matched_terms": [
+                "class Genetic",
+                "genetic_model"
+            ]
+        },
+        {
+            "path": "backend\\utils\\paths.py",
+            "matched_terms": [
+                "genetic_model",
+                "behavioral_model",
+                "environmental_model"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\05_multimodal_integration\\notebooks\\05_01_integration_setup.ipynb",
+            "matched_terms": [
+                "class Genetic",
+                "class Behavioral",
+                "class Environmental",
+                "GeneticModel",
+                "BehavioralModel",
+                "EnvironmentalModel"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_08_representation_aware_split.ipynb",
+            "matched_terms": [
+                "genetic_model",
+                "behavioral_model",
+                "environmental_model"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_08_class_centroid_analysis.ipynb",
+            "matched_terms": [
+                "genetic_model"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\00_setup_and_baseline_audit\\notebooks\\ 01_baseline_freeze_and_artifact_audit.ipynb",
+            "matched_terms": [
+                "genetic_model",
+                "behavioral_model",
+                "environmental_model"
+            ]
+        }
+    ],
+    "dimension_128_source_matches": [
+        {
+            "path": "Complete_all_3_model_code.ipynb",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d",
+                "embedding_dim = 128"
+            ]
+        },
+        {
+            "path": ".ipynb_checkpoints\\Complete_all_3_model_code-checkpoint.ipynb",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d",
+                "embedding_dim = 128"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\config.py",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\model.py",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\test_model.py",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\genetic_ctgan.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\genetic_ctgan_utility_validation.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\genetic_ctgan_validation.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step27_genetic_128_embedding.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step28_train_genetic_transformer.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step29_genetic_embedding_validation.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step31_genetic_conditional_gan.py",
+            "matched_terms": [
+                "128",
+                "latent_dim = 128"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step33_genetic_embedding_conditional_gan.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "embedding_dim = 128"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step34_genetic_embedding_synthetic_validation.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step35_genetic_gan_utility_validation.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step36_genetic_gan_augmentation_sensitivity.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step37_fold_safe_genetic_gan_validation.py",
+            "matched_terms": [
+                "128",
+                "hidden_dim = 128"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step38_genetic_128_to_32_alignment.py",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step39_validate_genetic_32d.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\src\\step12_reduce_embedding.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\src\\step9_environmental_representation.py",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "backend\\app\\main.py",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "backend\\services\\behavioral_service.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d",
+                "embedding_dim = 128"
+            ]
+        },
+        {
+            "path": "backend\\services\\environmental_service.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d"
+            ]
+        },
+        {
+            "path": "backend\\services\\genetic_service.py",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d",
+                "embedding_dim = 128"
+            ]
+        },
+        {
+            "path": "backend\\utils\\paths.py",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\05_multimodal_integration\\notebooks\\05_01_integration_setup.ipynb",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d",
+                "128_dim"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_01_baseline_cross_modal_evaluation.ipynb",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_02_modality_combination_evaluation.ipynb",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_03_probability_analysis.ipynb",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_04_threshold_analysis.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_02_baseline_cross_modal_model\\03_02_baseline_cross_modal_model.ipynb",
+            "matched_terms": [
+                "128",
+                "128d",
+                "128-d"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_03_cross_modal_loss_design\\03_03_cross_modal_loss_design.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\03_04_baseline_training.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\03_04_initial_experiment_archive.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_05_gan_architecture\\03_05_gan_architecture.ipynb",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training_experiment_02.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training_experiment_03_semantic_only.ipynb.ipynb",
+            "matched_terms": [
+                "128",
+                "128-d"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_04_baseline_training\\.ipynb_checkpoints\\03_04_baseline_training-checkpoint.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_03_cross_modal_loss_design\\.ipynb_checkpoints\\03_03_cross_modal_loss_design-checkpoint.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_03_pairing_strategy_selection.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_04_pca_visualization.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_06_umap_visualization.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_07_cross_modal_similarity.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_08_class_centroid_analysis.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_09_label_class_distribution_validation.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_10_embedding_compatibility_conclusion.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_embedding_analysis.ipynb",
+            "matched_terms": [
+                "128"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\00_setup_and_baseline_audit\\notebooks\\ 01_baseline_freeze_and_artifact_audit.ipynb",
+            "matched_terms": [
+                "128",
+                "128d"
+            ]
+        }
+    ],
+    "projection_source_matches": [
+        {
+            "path": "Complete_all_3_model_code.ipynb",
+            "matched_terms": [
+                "128 -> 32",
+                "128-d to 32-d",
+                "128-D to 32-D",
+                "projection",
+                "alignment"
+            ]
+        },
+        {
+            "path": ".ipynb_checkpoints\\Complete_all_3_model_code-checkpoint.ipynb",
+            "matched_terms": [
+                "128 -> 32",
+                "128-d to 32-d",
+                "128-D to 32-D",
+                "projection",
+                "alignment"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\model.py",
+            "matched_terms": [
+                "projection"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step22_statistical_validation.py",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step27_genetic_128_embedding.py",
+            "matched_terms": [
+                "projection"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step28_train_genetic_transformer.py",
+            "matched_terms": [
+                "projection"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step29_genetic_embedding_validation.py",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step38_genetic_128_to_32_alignment.py",
+            "matched_terms": [
+                "128-d to 32-d",
+                "128-D to 32-D",
+                "alignment"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\src\\step39_validate_genetic_32d.py",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "backend\\app\\main.py",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "backend\\services\\behavioral_service.py",
+            "matched_terms": [
+                "alignment",
+                "output_dim = 32"
+            ]
+        },
+        {
+            "path": "backend\\services\\environmental_service.py",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "backend\\services\\genetic_service.py",
+            "matched_terms": [
+                "128 -> 32",
+                "projection",
+                "alignment",
+                "output_dim = 32"
+            ]
+        },
+        {
+            "path": "backend\\utils\\paths.py",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\05_multimodal_integration\\notebooks\\05_01_integration_setup.ipynb",
+            "matched_terms": [
+                "128, 32",
+                "128,32",
+                "128 -> 32",
+                "128->32",
+                "128-d to 32-d",
+                "128-D to 32-D",
+                "linear(128, 32",
+                "projection",
+                "projector",
+                "projection_layer",
+                "alignment_layer",
+                "alignment",
+                "latent_dim = 32",
+                "embedding_dim = 32",
+                "output_dim = 32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_01_baseline_cross_modal_evaluation.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\04_cross_modal_evaluation\\notebooks\\04_02_modality_combination_evaluation.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_01_dataset_preparation\\03_01_dataset_preparation.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_02_baseline_cross_modal_model\\03_02_baseline_cross_modal_model.ipynb",
+            "matched_terms": [
+                "embedding_dim = 32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training.ipynb",
+            "matched_terms": [
+                "alignment",
+                "embedding_dim = 32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training_experiment_02.ipynb",
+            "matched_terms": [
+                "embedding_dim = 32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\03_cross_modal_learning\\03_06_gan_training\\03_06_gan_training_experiment_03_semantic_only.ipynb.ipynb",
+            "matched_terms": [
+                "embedding_dim = 32"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_02_pairing_strategy_comparison.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_03_pairing_strategy_selection.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_07_final_pair_dataset_creation.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\notebooks\\02_08_representation_aware_split.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_08_class_centroid_analysis.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\notebooks\\01_10_embedding_compatibility_conclusion.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\00_setup_and_baseline_audit\\notebooks\\ 01_baseline_freeze_and_artifact_audit.ipynb",
+            "matched_terms": [
+                "alignment"
+            ]
+        }
+    ],
+    "representation_candidates": [
+        {
+            "path": "Environmental_complete_code_directory\\environmental_embedding_dimension_auc.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\environmental_embedding_test.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\environmental_embedding_test_32d.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\environmental_embedding_test_32d_with_target.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\environmental_embedding_train.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\environmental_embedding_train_32d.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Environmental_complete_code_directory\\environmental_embedding_train_32d_with_target.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetic_Model\\03_representation_learning\\genetic_128d_embeddings.csv",
+            "matched_keywords": [
+                "embedding",
+                "embeddings",
+                "representation"
+            ]
+        },
+        {
+            "path": "Genetic_Model\\03_representation_learning\\genetic_transformer_128d.pt",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "Genetic_Model\\04_cross_modal_alignment\\genetic_32d_aligned_representation.csv",
+            "matched_keywords": [
+                "representation",
+                "aligned"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_128d_embeddings.csv",
+            "matched_keywords": [
+                "embedding",
+                "embeddings"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_128d_embeddings_trained_oof.csv",
+            "matched_keywords": [
+                "embedding",
+                "embeddings"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_transformer_128d.pt",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_transformer_128d_lightweight.pt",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\genetic_transformer_lightweight_cv.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\leakage_safe\\out_of_fold_embeddings.npy",
+            "matched_keywords": [
+                "embedding",
+                "embeddings"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\cross_modal_alignment\\genetic_32d_aligned_representation.csv",
+            "matched_keywords": [
+                "representation",
+                "aligned"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\embedding_gan_training_history.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\genetic_balanced_128d_embedding_dataset.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\genetic_embedding_conditional_gan.pt",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\genetic_embedding_gan_test_unseen.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\genetic_embedding_gan_train.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan\\synthetic_control_128d_embeddings.csv",
+            "matched_keywords": [
+                "embedding",
+                "embeddings"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan_utility_validation\\genetic_gan_downstream_utility_results.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan_validation\\corrected_embedding_distribution_comparison.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\objective2_genetic\\embedding_gan_validation\\embedding_distribution_comparison.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Genetics_Complete_code\\genetics\\outputs\\genetic_embedding\\objective2_input\\genetic_objective2_input.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "Environmental_Model\\03_representation_learning\\environmental_128d_embeddings.csv",
+            "matched_keywords": [
+                "embedding",
+                "embeddings",
+                "representation"
+            ]
+        },
+        {
+            "path": "Environmental_Model\\03_representation_learning\\environmental_encoder_128d.pt",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "Environmental_Model\\03_representation_learning\\environmental_test_predictions.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "Environmental_Model\\04_cross_modal_alignment\\environmental_32d_aligned_representation.csv",
+            "matched_keywords": [
+                "representation",
+                "aligned"
+            ]
+        },
+        {
+            "path": "Behavioral_Model\\03_representation_learning\\behavioral_128d_embeddings.csv",
+            "matched_keywords": [
+                "embedding",
+                "embeddings",
+                "representation"
+            ]
+        },
+        {
+            "path": "Behavioral_Model\\03_representation_learning\\behavioral_encoder_128d.pt",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "Behavioral_Model\\03_representation_learning\\behavioral_test_predictions.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "Behavioral_Model\\04_cross_modal_alignment\\behavioral_32d_aligned_representation.csv",
+            "matched_keywords": [
+                "representation",
+                "aligned"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\02_04_positive_cross_modal_embedding_pairs.npz",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\02_05_negative_cross_modal_embedding_pairs.npz",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\reports\\02_08_representation_aware_split_validation.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\reports\\.ipynb_checkpoints\\02_08_representation_aware_split_validation-checkpoint.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_train_representation_disjoint_metadata.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_train_representation_disjoint_pairs.npz",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_validation_representation_disjoint_metadata.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\02_08_validation_representation_disjoint_pairs.npz",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\.ipynb_checkpoints\\02_08_train_representation_disjoint_metadata-checkpoint.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\02_cross_modal_pairing\\pairs\\representation_aware_split\\.ipynb_checkpoints\\02_08_validation_representation_disjoint_metadata-checkpoint.csv",
+            "matched_keywords": [
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_01_embedding_inspection.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_02_global_representation_statistics.csv",
+            "matched_keywords": [
+                "embedding",
+                "representation"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_02_per_dimension_statistics.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_03_distribution_comparison.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04A_balanced_pca_explained_variance.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04A_balanced_pca_sampling_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_04_pca_explained_variance.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_05_tsne_configuration_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_05_tsne_coordinates.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_06_umap_configuration_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_06_umap_coordinates.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_balanced_sampling_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_class_conditional_similarity.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_cross_modal_similarity_final_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_overall_cross_modal_similarity.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_07_same_vs_different_class_similarity.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_centroid_cosine_similarity_matrix.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_centroid_euclidean_distance_matrix.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_class_centroid_final_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_class_centroid_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_cross_modal_centroid_distances.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_cross_modal_centroid_similarity.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_08_same_vs_different_class_centroid_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_class_distribution_summary.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_class_imbalance_metrics.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_09_cross_modal_sampling_validation.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_embedding_compatibility_evidence_matrix.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        },
+        {
+            "path": "06_cross_modal_learning\\01_embedding_analysis\\reports\\01_10_final_embedding_compatibility_conclusion.csv",
+            "matched_keywords": [
+                "embedding"
+            ]
+        }
+    ]
+}

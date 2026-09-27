@@ -1,0 +1,4 @@
+modality,samples,total_columns,representation_dimensions,path
+Genetic,116,34,32,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Genetic_Model\04_cross_modal_alignment\genetic_32d_aligned_representation.csv
+Behavioral,880,34,32,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Behavioral_Model\04_cross_modal_alignment\behavioral_32d_aligned_representation.csv
+Environmental,47768,34,32,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Environmental_Model\04_cross_modal_alignment\environmental_32d_aligned_representation.csv

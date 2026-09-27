@@ -1,0 +1,119 @@
+{
+    "phase": "05.04",
+    "title": "Cross-Modal Inference",
+    "status": "PASSED",
+    "objective": "Run frozen Phase 03 cross-modal baseline inference on the Phase 02.08 representation-aware validation pairs.",
+    "training_performed": false,
+    "checkpoint_modified": false,
+    "validation_dataset": {
+        "source_embeddings_shape": [
+            448,
+            32
+        ],
+        "target_embeddings_shape": [
+            448,
+            32
+        ],
+        "pair_labels_shape": [
+            448
+        ],
+        "total_pairs": 448,
+        "class_0": 224,
+        "class_1": 224
+    },
+    "pair_feature_construction": {
+        "source_dimension": 32,
+        "target_dimension": 32,
+        "absolute_difference_dimension": 32,
+        "elementwise_product_dimension": 32,
+        "total_dimension": 128,
+        "formula": "[S, T, |S-T|, S*T]"
+    },
+    "baseline_model": {
+        "input_dimension": 128,
+        "hidden_dimensions": [
+            128,
+            64
+        ],
+        "output_dimension": 1,
+        "parameter_count": 24833,
+        "frozen": true
+    },
+    "overall_metrics": {
+        "roc_auc": 0.6626674107142857,
+        "accuracy": 0.6116071428571429,
+        "balanced_accuracy": 0.6116071428571428,
+        "precision": 0.6068376068376068,
+        "recall": 0.6339285714285714,
+        "f1": 0.6200873362445415,
+        "confusion_matrix": [
+            [
+                132,
+                92
+            ],
+            [
+                82,
+                142
+            ]
+        ]
+    },
+    "modality_combination_metrics": [
+        {
+            "modality_combination": "Behavioral-Environmental",
+            "n_pairs": 352,
+            "class_0": 176,
+            "class_1": 176,
+            "roc_auc": 0.6596074380165289,
+            "accuracy": 0.6107954545454546,
+            "balanced_accuracy": 0.6107954545454546,
+            "precision": 0.6065573770491803,
+            "recall": 0.6306818181818182,
+            "f1": 0.6183844011142061,
+            "tn": 104,
+            "fp": 72,
+            "fn": 65,
+            "tp": 111
+        },
+        {
+            "modality_combination": "Genetic-Behavioral",
+            "n_pairs": 48,
+            "class_0": 24,
+            "class_1": 24,
+            "roc_auc": 0.8072916666666667,
+            "accuracy": 0.7291666666666666,
+            "balanced_accuracy": 0.7291666666666667,
+            "precision": 0.72,
+            "recall": 0.75,
+            "f1": 0.7346938775510204,
+            "tn": 17,
+            "fp": 7,
+            "fn": 6,
+            "tp": 18
+        },
+        {
+            "modality_combination": "Genetic-Environmental",
+            "n_pairs": 48,
+            "class_0": 24,
+            "class_1": 24,
+            "roc_auc": 0.5017361111111112,
+            "accuracy": 0.5,
+            "balanced_accuracy": 0.5,
+            "precision": 0.5,
+            "recall": 0.5416666666666666,
+            "f1": 0.52,
+            "tn": 11,
+            "fp": 13,
+            "fn": 11,
+            "tp": 13
+        }
+    ],
+    "interpretation": {
+        "output_type": "cross-modal relationship probability",
+        "clinical_diagnostic_probability": false,
+        "note": "The model output represents the probability assigned to the cross-modal pair relationship class. It should not be interpreted as an individual ASD diagnostic probability."
+    },
+    "artifacts": {
+        "prediction_csv": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_04_cross_modal_inference\\05_04_cross_modal_predictions.csv",
+        "modality_metrics_csv": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_04_cross_modal_inference\\05_04_modality_combination_metrics.csv"
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "phase": "05.03",
+    "notebook": "05_03_common_projection.ipynb",
+    "objective": "Project frozen 128-D modality representations into a common 32-D dimensional space.",
+    "training_performed": false,
+    "checkpoint_modified": false,
+    "fusion_performed": false,
+    "cross_modal_inference_performed": false,
+    "input_dimension": 128,
+    "output_dimension": 32,
+    "modalities": {
+        "Genetic": {
+            "architecture": "128 -> 64 -> 32",
+            "checkpoint": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Genetic_Model\\04_cross_modal_alignment\\genetic_128_to_32_alignment.pt",
+            "input_rows": 5,
+            "output_dimensions": 32
+        },
+        "Behavioral": {
+            "architecture": "128 -> 64 -> 32",
+            "checkpoint": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Behavioral_Model\\04_cross_modal_alignment\\behavioral_128_to_32_alignment.pt",
+            "input_rows": 5,
+            "output_dimensions": 32
+        },
+        "Environmental": {
+            "architecture": "128 -> 64 -> 32",
+            "checkpoint": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Environmental_Model\\04_cross_modal_alignment\\environmental_128_to_32_alignment.pt",
+            "input_rows": 5,
+            "output_dimensions": 32
+        }
+    },
+    "outputs": {
+        "Genetic": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_03_common_projection\\05_03_genetic_32d_projection.csv",
+        "Behavioral": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_03_common_projection\\05_03_behavioral_32d_projection.csv",
+        "Environmental": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\05_multimodal_integration\\reports\\05_03_common_projection\\05_03_environmental_32d_projection.csv"
+    }
+}

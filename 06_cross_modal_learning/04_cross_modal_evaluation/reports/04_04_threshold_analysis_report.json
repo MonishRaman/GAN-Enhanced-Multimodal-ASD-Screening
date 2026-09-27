@@ -1,0 +1,383 @@
+{
+    "phase": "04.04",
+    "title": "Baseline Cross-Modal Threshold Analysis",
+    "dataset": {
+        "validation_samples": 448,
+        "class_0": 224,
+        "class_1": 224
+    },
+    "model": {
+        "name": "BaselineCrossModalModel",
+        "official_roc_auc": 0.6626674107142857
+    },
+    "threshold_range": {
+        "minimum": 0.1,
+        "maximum": 0.9,
+        "step": 0.05,
+        "number_of_thresholds": 17
+    },
+    "default_threshold_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.6116071428571429,
+        "balanced_accuracy": 0.6116071428571428,
+        "precision": 0.6068376068376068,
+        "recall_sensitivity": 0.6339285714285714,
+        "specificity": 0.5892857142857143,
+        "f1_score": 0.6200873362445415,
+        "youden_j": 0.2232142857142856,
+        "tn": 132,
+        "fp": 92,
+        "fn": 82,
+        "tp": 142
+    },
+    "threshold_results": [
+        {
+            "threshold": 0.1,
+            "samples": 448,
+            "predicted_class_0": 7,
+            "predicted_class_1": 441,
+            "tn": 7,
+            "fp": 217,
+            "fn": 0,
+            "tp": 224,
+            "accuracy": 0.515625,
+            "balanced_accuracy": 0.515625,
+            "precision": 0.5079365079365079,
+            "recall_sensitivity": 1.0,
+            "specificity": 0.03125,
+            "f1_score": 0.6736842105263158,
+            "youden_j": 0.03125
+        },
+        {
+            "threshold": 0.15,
+            "samples": 448,
+            "predicted_class_0": 17,
+            "predicted_class_1": 431,
+            "tn": 14,
+            "fp": 210,
+            "fn": 3,
+            "tp": 221,
+            "accuracy": 0.5245535714285714,
+            "balanced_accuracy": 0.5245535714285714,
+            "precision": 0.5127610208816705,
+            "recall_sensitivity": 0.9866071428571429,
+            "specificity": 0.0625,
+            "f1_score": 0.6748091603053435,
+            "youden_j": 0.049107142857142794
+        },
+        {
+            "threshold": 0.2,
+            "samples": 448,
+            "predicted_class_0": 34,
+            "predicted_class_1": 414,
+            "tn": 27,
+            "fp": 197,
+            "fn": 7,
+            "tp": 217,
+            "accuracy": 0.5446428571428571,
+            "balanced_accuracy": 0.5446428571428571,
+            "precision": 0.5241545893719807,
+            "recall_sensitivity": 0.96875,
+            "specificity": 0.12053571428571429,
+            "f1_score": 0.6802507836990596,
+            "youden_j": 0.08928571428571419
+        },
+        {
+            "threshold": 0.25,
+            "samples": 448,
+            "predicted_class_0": 56,
+            "predicted_class_1": 392,
+            "tn": 38,
+            "fp": 186,
+            "fn": 18,
+            "tp": 206,
+            "accuracy": 0.5446428571428571,
+            "balanced_accuracy": 0.5446428571428571,
+            "precision": 0.5255102040816326,
+            "recall_sensitivity": 0.9196428571428571,
+            "specificity": 0.16964285714285715,
+            "f1_score": 0.6688311688311688,
+            "youden_j": 0.08928571428571419
+        },
+        {
+            "threshold": 0.3,
+            "samples": 448,
+            "predicted_class_0": 81,
+            "predicted_class_1": 367,
+            "tn": 53,
+            "fp": 171,
+            "fn": 28,
+            "tp": 196,
+            "accuracy": 0.5558035714285714,
+            "balanced_accuracy": 0.5558035714285714,
+            "precision": 0.5340599455040872,
+            "recall_sensitivity": 0.875,
+            "specificity": 0.23660714285714285,
+            "f1_score": 0.6632825719120136,
+            "youden_j": 0.1116071428571428
+        },
+        {
+            "threshold": 0.35,
+            "samples": 448,
+            "predicted_class_0": 107,
+            "predicted_class_1": 341,
+            "tn": 74,
+            "fp": 150,
+            "fn": 33,
+            "tp": 191,
+            "accuracy": 0.5915178571428571,
+            "balanced_accuracy": 0.5915178571428571,
+            "precision": 0.5601173020527859,
+            "recall_sensitivity": 0.8526785714285714,
+            "specificity": 0.33035714285714285,
+            "f1_score": 0.6761061946902654,
+            "youden_j": 0.1830357142857142
+        },
+        {
+            "threshold": 0.4,
+            "samples": 448,
+            "predicted_class_0": 143,
+            "predicted_class_1": 305,
+            "tn": 95,
+            "fp": 129,
+            "fn": 48,
+            "tp": 176,
+            "accuracy": 0.6049107142857143,
+            "balanced_accuracy": 0.6049107142857143,
+            "precision": 0.5770491803278689,
+            "recall_sensitivity": 0.7857142857142857,
+            "specificity": 0.42410714285714285,
+            "f1_score": 0.665406427221172,
+            "youden_j": 0.2098214285714286
+        },
+        {
+            "threshold": 0.45,
+            "samples": 448,
+            "predicted_class_0": 173,
+            "predicted_class_1": 275,
+            "tn": 110,
+            "fp": 114,
+            "fn": 63,
+            "tp": 161,
+            "accuracy": 0.6049107142857143,
+            "balanced_accuracy": 0.6049107142857143,
+            "precision": 0.5854545454545454,
+            "recall_sensitivity": 0.71875,
+            "specificity": 0.49107142857142855,
+            "f1_score": 0.6452905811623246,
+            "youden_j": 0.2098214285714286
+        },
+        {
+            "threshold": 0.5,
+            "samples": 448,
+            "predicted_class_0": 214,
+            "predicted_class_1": 234,
+            "tn": 132,
+            "fp": 92,
+            "fn": 82,
+            "tp": 142,
+            "accuracy": 0.6116071428571429,
+            "balanced_accuracy": 0.6116071428571428,
+            "precision": 0.6068376068376068,
+            "recall_sensitivity": 0.6339285714285714,
+            "specificity": 0.5892857142857143,
+            "f1_score": 0.6200873362445415,
+            "youden_j": 0.2232142857142856
+        },
+        {
+            "threshold": 0.55,
+            "samples": 448,
+            "predicted_class_0": 248,
+            "predicted_class_1": 200,
+            "tn": 150,
+            "fp": 74,
+            "fn": 98,
+            "tp": 126,
+            "accuracy": 0.6160714285714286,
+            "balanced_accuracy": 0.6160714285714286,
+            "precision": 0.63,
+            "recall_sensitivity": 0.5625,
+            "specificity": 0.6696428571428571,
+            "f1_score": 0.5943396226415094,
+            "youden_j": 0.2321428571428572
+        },
+        {
+            "threshold": 0.6,
+            "samples": 448,
+            "predicted_class_0": 280,
+            "predicted_class_1": 168,
+            "tn": 166,
+            "fp": 58,
+            "fn": 114,
+            "tp": 110,
+            "accuracy": 0.6160714285714286,
+            "balanced_accuracy": 0.6160714285714286,
+            "precision": 0.6547619047619048,
+            "recall_sensitivity": 0.49107142857142855,
+            "specificity": 0.7410714285714286,
+            "f1_score": 0.5612244897959183,
+            "youden_j": 0.2321428571428572
+        },
+        {
+            "threshold": 0.65,
+            "samples": 448,
+            "predicted_class_0": 314,
+            "predicted_class_1": 134,
+            "tn": 179,
+            "fp": 45,
+            "fn": 135,
+            "tp": 89,
+            "accuracy": 0.5982142857142857,
+            "balanced_accuracy": 0.5982142857142857,
+            "precision": 0.664179104477612,
+            "recall_sensitivity": 0.39732142857142855,
+            "specificity": 0.7991071428571429,
+            "f1_score": 0.4972067039106145,
+            "youden_j": 0.1964285714285714
+        },
+        {
+            "threshold": 0.7,
+            "samples": 448,
+            "predicted_class_0": 346,
+            "predicted_class_1": 102,
+            "tn": 196,
+            "fp": 28,
+            "fn": 150,
+            "tp": 74,
+            "accuracy": 0.6026785714285714,
+            "balanced_accuracy": 0.6026785714285714,
+            "precision": 0.7254901960784313,
+            "recall_sensitivity": 0.33035714285714285,
+            "specificity": 0.875,
+            "f1_score": 0.4539877300613497,
+            "youden_j": 0.2053571428571428
+        },
+        {
+            "threshold": 0.75,
+            "samples": 448,
+            "predicted_class_0": 374,
+            "predicted_class_1": 74,
+            "tn": 206,
+            "fp": 18,
+            "fn": 168,
+            "tp": 56,
+            "accuracy": 0.5848214285714286,
+            "balanced_accuracy": 0.5848214285714286,
+            "precision": 0.7567567567567568,
+            "recall_sensitivity": 0.25,
+            "specificity": 0.9196428571428571,
+            "f1_score": 0.37583892617449666,
+            "youden_j": 0.1696428571428572
+        },
+        {
+            "threshold": 0.8,
+            "samples": 448,
+            "predicted_class_0": 410,
+            "predicted_class_1": 38,
+            "tn": 216,
+            "fp": 8,
+            "fn": 194,
+            "tp": 30,
+            "accuracy": 0.5491071428571429,
+            "balanced_accuracy": 0.5491071428571429,
+            "precision": 0.7894736842105263,
+            "recall_sensitivity": 0.13392857142857142,
+            "specificity": 0.9642857142857143,
+            "f1_score": 0.22900763358778625,
+            "youden_j": 0.09821428571428581
+        },
+        {
+            "threshold": 0.85,
+            "samples": 448,
+            "predicted_class_0": 428,
+            "predicted_class_1": 20,
+            "tn": 222,
+            "fp": 2,
+            "fn": 206,
+            "tp": 18,
+            "accuracy": 0.5357142857142857,
+            "balanced_accuracy": 0.5357142857142857,
+            "precision": 0.9,
+            "recall_sensitivity": 0.08035714285714286,
+            "specificity": 0.9910714285714286,
+            "f1_score": 0.14754098360655737,
+            "youden_j": 0.0714285714285714
+        },
+        {
+            "threshold": 0.9,
+            "samples": 448,
+            "predicted_class_0": 441,
+            "predicted_class_1": 7,
+            "tn": 224,
+            "fp": 0,
+            "fn": 217,
+            "tp": 7,
+            "accuracy": 0.515625,
+            "balanced_accuracy": 0.515625,
+            "precision": 1.0,
+            "recall_sensitivity": 0.03125,
+            "specificity": 1.0,
+            "f1_score": 0.06060606060606061,
+            "youden_j": 0.03125
+        }
+    ],
+    "metric_summary": [
+        {
+            "metric": "Accuracy",
+            "maximum_value": 0.6160714285714286,
+            "thresholds_with_maximum": [
+                0.55,
+                0.6
+            ]
+        },
+        {
+            "metric": "Balanced Accuracy",
+            "maximum_value": 0.6160714285714286,
+            "thresholds_with_maximum": [
+                0.55,
+                0.6
+            ]
+        },
+        {
+            "metric": "Precision",
+            "maximum_value": 1.0,
+            "thresholds_with_maximum": [
+                0.9
+            ]
+        },
+        {
+            "metric": "Sensitivity / Recall",
+            "maximum_value": 1.0,
+            "thresholds_with_maximum": [
+                0.1
+            ]
+        },
+        {
+            "metric": "Specificity",
+            "maximum_value": 1.0,
+            "thresholds_with_maximum": [
+                0.9
+            ]
+        },
+        {
+            "metric": "F1 Score",
+            "maximum_value": 0.6802507836990596,
+            "thresholds_with_maximum": [
+                0.2
+            ]
+        },
+        {
+            "metric": "Youden's J",
+            "maximum_value": 0.2321428571428572,
+            "thresholds_with_maximum": [
+                0.55,
+                0.6
+            ]
+        }
+    ],
+    "artifacts": {
+        "threshold_csv": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\04_cross_modal_evaluation\\reports\\04_04_threshold_analysis.csv",
+        "threshold_curve_figure": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\04_cross_modal_evaluation\\figures\\04_04_threshold_metrics_curve.png",
+        "youden_j_figure": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\04_cross_modal_evaluation\\figures\\04_04_youden_j_threshold_curve.png"
+    }
+}

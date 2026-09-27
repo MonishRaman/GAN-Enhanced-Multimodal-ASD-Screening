@@ -1,0 +1,16 @@
+{
+    "behavioral": {
+        "preprocessor": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Behavioral_Model\\02_preprocessing\\behavioral_preprocessor.joblib",
+        "serialized_sklearn_version": "1.6.1",
+        "raw_input_dimensions": 18,
+        "processed_dimensions": 87,
+        "note": "Original preprocessor was verified separately using its compatible sklearn 1.6.1 environment."
+    },
+    "environmental": {
+        "preprocessor": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\Environmental_Model\\02_preprocessing\\environmental_preprocessor.joblib",
+        "processed_feature_dimension": 31
+    },
+    "genetic": {
+        "preprocessing_structure": "Genetic pipeline uses its modality-specific raw-data/representation structure."
+    }
+}

@@ -1,0 +1,7 @@
+modality,stage,output_dimension,model_path,exists,input_dimension
+Genetic,representation_learning,128,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Genetic_Model\03_representation_learning\genetic_transformer_128d.pt,True,
+Behavioral,representation_learning,128,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Behavioral_Model\03_representation_learning\behavioral_encoder_128d.pt,True,
+Environmental,representation_learning,128,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Environmental_Model\03_representation_learning\environmental_encoder_128d.pt,True,
+Genetic,cross_modal_alignment,32,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Genetic_Model\04_cross_modal_alignment\genetic_128_to_32_alignment.pt,True,128.0
+Behavioral,cross_modal_alignment,32,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Behavioral_Model\04_cross_modal_alignment\behavioral_128_to_32_alignment.pt,True,128.0
+Environmental,cross_modal_alignment,32,C:\Users\shasw\Documents\GitHub\GAN-Enhanced-Multimodal-ASD-Screening\Environmental_Model\04_cross_modal_alignment\environmental_128_to_32_alignment.pt,True,128.0

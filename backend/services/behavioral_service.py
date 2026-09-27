@@ -901,9 +901,12 @@ class BehavioralService:
         # STANDARD RESULT FORMAT
         # ---------------------------------------------------------------
 
-        return self._format_result(
+        result = self._format_result(
             probability
         )
+        result["aligned_embedding_32"] = aligned_numpy.tolist()
+
+        return result
 
     # -------------------------------------------------------------------
     # RESULT FORMAT

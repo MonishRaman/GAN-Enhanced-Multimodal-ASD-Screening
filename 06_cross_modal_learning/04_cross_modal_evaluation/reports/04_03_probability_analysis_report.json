@@ -1,0 +1,150 @@
+{
+    "phase": "04.03",
+    "title": "Baseline Probability Analysis",
+    "model": {
+        "name": "BaselineCrossModalModel",
+        "architecture": "128 -> 128 -> 64 -> 1",
+        "input_dimension": 128,
+        "parameters": 24833,
+        "checkpoint_epoch": 13,
+        "checkpoint_roc_auc": 0.6626674107142857
+    },
+    "dataset": {
+        "validation_samples": 448,
+        "class_0": 224,
+        "class_1": 224,
+        "embedding_dimension": 32
+    },
+    "overall_metrics": {
+        "roc_auc": 0.6626674107142857,
+        "accuracy_at_0_5": 0.6116071428571429,
+        "precision_at_0_5": 0.6068376068376068,
+        "recall_at_0_5": 0.6339285714285714,
+        "f1_at_0_5": 0.6200873362445415,
+        "brier_score": 0.23422305285930634,
+        "log_loss": 0.6606383323669434,
+        "mean_probability": 0.5153837203979492,
+        "std_probability": 0.21051548421382904,
+        "min_probability": 0.03269292041659355,
+        "max_probability": 0.9379035830497742
+    },
+    "class_probability_summary": {
+        "class_0": {
+            "count": 224,
+            "mean": 0.45505332946777344,
+            "std": 0.19943703711032867,
+            "min": 0.03269292041659355,
+            "q25": 0.30876055359840393,
+            "median": 0.45475733280181885,
+            "q75": 0.6132078170776367,
+            "max": 0.8974871039390564
+        },
+        "class_1": {
+            "count": 224,
+            "mean": 0.5757140517234802,
+            "std": 0.20390905439853668,
+            "min": 0.12415113300085068,
+            "q25": 0.41482019424438477,
+            "median": 0.5970785617828369,
+            "q75": 0.7499440908432007,
+            "max": 0.9379035830497742
+        },
+        "mean_probability_difference_class1_minus_class0": 0.12066072225570679
+    },
+    "quantiles": {
+        "overall": {
+            "q00": 0.03269292041659355,
+            "q05": 0.16642609238624573,
+            "q10": 0.2209625542163849,
+            "q25": 0.3563366234302521,
+            "q50": 0.5155884027481079,
+            "q75": 0.6864515542984009,
+            "q90": 0.7928190231323242,
+            "q95": 0.8438357710838318,
+            "q100": 0.9379035830497742
+        },
+        "class_0": {
+            "q00": 0.03269292041659355,
+            "q05": 0.142112135887146,
+            "q10": 0.18219849467277527,
+            "q25": 0.30876055359840393,
+            "q50": 0.45475733280181885,
+            "q75": 0.6132078170776367,
+            "q90": 0.7189957499504089,
+            "q95": 0.7778735160827637,
+            "q100": 0.8974871039390564
+        },
+        "class_1": {
+            "q00": 0.12415113300085068,
+            "q05": 0.2191852629184723,
+            "q10": 0.27134692668914795,
+            "q25": 0.41482019424438477,
+            "q50": 0.5970785617828369,
+            "q75": 0.7499440908432007,
+            "q90": 0.8383545279502869,
+            "q95": 0.8716344833374023,
+            "q100": 0.9379035830497742
+        }
+    },
+    "calibration": {
+        "n_bins": 10,
+        "mean_absolute_calibration_error": 0.08459434215372014,
+        "table": [
+            {
+                "mean_predicted_probability": 0.07093783148697444,
+                "observed_positive_fraction": 0.0,
+                "absolute_calibration_error": 0.07093783148697444
+            },
+            {
+                "mean_predicted_probability": 0.16019213061641763,
+                "observed_positive_fraction": 0.25925925925925924,
+                "absolute_calibration_error": 0.09906712864284162
+            },
+            {
+                "mean_predicted_probability": 0.2530271347532881,
+                "observed_positive_fraction": 0.44680851063829785,
+                "absolute_calibration_error": 0.19378137588500977
+            },
+            {
+                "mean_predicted_probability": 0.3517657013670091,
+                "observed_positive_fraction": 0.3225806451612903,
+                "absolute_calibration_error": 0.029185056205718762
+            },
+            {
+                "mean_predicted_probability": 0.45192593965731875,
+                "observed_positive_fraction": 0.4788732394366197,
+                "absolute_calibration_error": 0.026947299779300937
+            },
+            {
+                "mean_predicted_probability": 0.5495953297976292,
+                "observed_positive_fraction": 0.48484848484848486,
+                "absolute_calibration_error": 0.06474684494914429
+            },
+            {
+                "mean_predicted_probability": 0.6517583411751371,
+                "observed_positive_fraction": 0.5454545454545454,
+                "absolute_calibration_error": 0.10630379572059168
+            },
+            {
+                "mean_predicted_probability": 0.7531139608472586,
+                "observed_positive_fraction": 0.6875,
+                "absolute_calibration_error": 0.06561396084725857
+            },
+            {
+                "mean_predicted_probability": 0.8503181549810594,
+                "observed_positive_fraction": 0.7419354838709677,
+                "absolute_calibration_error": 0.1083826711100917
+            },
+            {
+                "mean_predicted_probability": 0.9190225430897304,
+                "observed_positive_fraction": 1.0,
+                "absolute_calibration_error": 0.08097745691026959
+            }
+        ]
+    },
+    "artifacts": {
+        "prediction_csv": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\04_cross_modal_evaluation\\reports\\04_03_probability_predictions.csv",
+        "calibration_figure": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\04_cross_modal_evaluation\\figures\\04_03_probability_calibration_curve.png",
+        "distribution_figure": "C:\\Users\\shasw\\Documents\\GitHub\\GAN-Enhanced-Multimodal-ASD-Screening\\06_cross_modal_learning\\04_cross_modal_evaluation\\figures\\04_03_class_probability_distribution.png"
+    }
+}
