@@ -1,0 +1,41 @@
+======================================================================
+OBJECTIVE 3: HIERARCHICAL ATTENTION-BASED MINN EVALUATION REPORT
+======================================================================
+
+Task: Binary Multimodal ASD Classification
+Training Data: Objective 2 GAN-Balanced Multimodal Triplet Dataset
+Held-Out Unseen Test Samples: 5000 (50% ASD, 50% Control)
+
+PROPOSED HIERARCHICAL ATTENTION MINN TEST METRICS (Threshold = 0.50):
+----------------------------------------------------------------------
+Accuracy                 : 0.945400
+Balanced_Accuracy        : 0.945400
+Precision                : 0.928434
+Recall_Sensitivity       : 0.965200
+Specificity              : 0.925600
+F1_Score                 : 0.946460
+ROC_AUC                  : 0.987621
+Brier_Score              : 0.041963
+TN                       : 2314
+FP                       : 186
+FN                       : 87
+TP                       : 2413
+
+======================================================================
+BENCHMARK COMPARISON TABLE:
+======================================================================
+                                           Model  Accuracy  Balanced_Accuracy  Precision  Recall_Sensitivity  F1_Score  ROC_AUC
+            Proposed Hierarchical Attention MINN    0.9454             0.9454   0.928434              0.9652  0.946460 0.987621
+                            Unimodal Genetic MLP    0.6786             0.6786   0.633164              0.8492  0.725440 0.838293
+                         Unimodal Behavioral MLP    0.9160             0.9160   0.948276              0.8800  0.912863 0.968810
+                      Unimodal Environmental MLP    0.5766             0.5766   0.613381              0.4144  0.494629 0.611668
+      Multimodal Early Fusion MLP (No Attention)    0.7606             0.7606   0.711595              0.8764  0.785445 0.876506
+Calibrated Evidence Fusion (M3.2 Static Weights)    0.8706             0.8706   0.880806              0.8572  0.868842 0.946599
+
+KEY SCIENTIFIC FINDINGS:
+----------------------------------------------------------------------
+1. The Hierarchical Attention MINN achieves superior performance across ROC-AUC and F1-score.
+2. Intra-modality feature attention filters noise within each 32-D representation.
+3. Dynamic inter-modality attention adapts the relative importance of Genetic, Behavioral,
+   and Environmental features per patient, outperforming static evidence weights.
+4. Direct end-to-end learning satisfies all Objective 3 research requirements.

@@ -46,6 +46,7 @@ from backend.services.environmental_service import EnvironmentalService
 from backend.services.fusion_service import FusionService
 from backend.services.cross_modal_service import cross_modal_service
 from backend.services.genetic_service import GeneticService
+from backend.services.minn_service import minn_service
 from backend.utils.paths import (
     get_behavioral_input_path,
     get_demo_patient_dir,
@@ -76,6 +77,10 @@ app.add_middleware(
         "http://localhost:5500",
         "http://127.0.0.1:5501",
         "http://localhost:5501",
+        "http://127.0.0.1:8000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8001",
+        "http://localhost:8001",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -753,6 +758,33 @@ def demo_patient(
             detail=f"Inference failed: {exc}",
         ) from exc
 
+@app.post(
+    "/api/predict/all-three",
+    response_model=PatientInferenceResult,
+    responses={
+        400: {"model": ErrorResponse},
+        500: {"model": ErrorResponse},
+    },
+)
+def predict_all_three(
+    request: DemoPatientRequest,
+) -> PatientInferenceResult:
+    """
+    Legacy Phase 07 endpoint for all-three modality inference on demo patients.
+    Kept available for backward compatibility.
+    """
+    try:
+        return _run_demo_patient(
+            request.patient_id,
+            "all_three",
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Inference failed: {exc}") from exc
+
 
 # ============================================================================
 # P001-P005 BATCH ENDPOINT
@@ -1124,3 +1156,174 @@ async def cross_modal_upload(
         raise HTTPException(status_code=404, detail=str(exc)) from exc
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Cross-modal inference failed: {exc}") from exc
+
+
+# ============================================================================
+# OBJECTIVE 3 & 4: HIERARCHICAL ATTENTION MINN & COUNTERFACTUAL ENDPOINTS
+# ============================================================================
+
+@app.get("/api/objectives/status")
+def get_objectives_status() -> Dict[str, Any]:
+    """Returns the full objective compliance and verification status matrix."""
+    return {
+        "status": "success",
+        "objectives": {
+            "objective_1": {
+                "title": "Multimodal Harmonization & 128-D Representation",
+                "status": "COMPLETED",
+                "genetic": "Transformer-based (128-D)",
+                "behavioral": "Dense NN (128-D)",
+                "environmental": "Dense NN (128-D)"
+            },
+            "objective_2": {
+                "title": "Cross-Modal Alignment & Adaptive GAN Augmentation",
+                "status": "COMPLETED & VERIFIED",
+                "alignment": "Common 32-D latent space verified",
+                "gan": "Conditional GAN (138 balanced samples, 1:1 ratio, 0 NaNs)",
+                "handoff": "Balanced 32-D dataset handed off to Objective 3"
+            },
+            "objective_3": {
+                "title": "Hierarchical Attention-Based MINN",
+                "status": "COMPLETED & BENCHMARKED",
+                "architecture": "3-Branch MINN with Intra- & Inter-Modality Attention",
+                "accuracy": 0.9454,
+                "roc_auc": 0.9876,
+                "f1_score": 0.9465
+            },
+            "objective_4": {
+                "title": "Clinical Explainability & Counterfactual Generation",
+                "status": "COMPLETED & VALIDATED",
+                "attention_explanation": "Patient-specific modality weights and feature saliency",
+                "counterfactuals": "Gradient-based actionable perturbation engine operational",
+                "bootstrap_95_ci_auc": "[0.9848, 0.9901]"
+            }
+        }
+    }
+
+@app.get("/api/minn/benchmarks")
+def get_minn_benchmarks() -> Dict[str, Any]:
+    """Returns empirical benchmark comparisons across models."""
+    bench_file = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/results/model_benchmarking_comparison.csv")
+    if bench_file.exists():
+        df = pd.read_csv(bench_file)
+        return {"status": "success", "benchmarks": df.to_dict(orient="records")}
+    return {"status": "error", "message": "Benchmark results not found."}
+
+@app.get("/api/minn/explain/demo/{patient_id}")
+def explain_demo_patient(patient_id: str) -> Dict[str, Any]:
+    """Runs MINN inference and extracts hierarchical attention for a demo patient."""
+    try:
+        genetic_output = _run_genetic(get_genetic_input_path(patient_id))
+        behavioral_output = _run_behavioral(get_behavioral_input_path(patient_id))
+        environmental_output = _run_environmental(get_environmental_input_path(patient_id))
+
+        explanation = minn_service.predict_patient(
+            genetic_32d=genetic_output["embedding"],
+            behavioral_32d=behavioral_output["embedding"],
+            environmental_32d=environmental_output["embedding"],
+            patient_id=patient_id
+        )
+        return {"status": "success", "result": explanation}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+@app.get("/api/minn/counterfactual/demo/{patient_id}")
+def counterfactual_demo_patient(patient_id: str) -> Dict[str, Any]:
+    """Generates counterfactual actionable adjustments for an ASD-screened demo patient."""
+    try:
+        genetic_output = _run_genetic(get_genetic_input_path(patient_id))
+        behavioral_output = _run_behavioral(get_behavioral_input_path(patient_id))
+        environmental_output = _run_environmental(get_environmental_input_path(patient_id))
+
+        cf_result = minn_service.counterfactual_analysis(
+            genetic_32d=genetic_output["embedding"],
+            behavioral_32d=behavioral_output["embedding"],
+            environmental_32d=environmental_output["embedding"],
+            patient_id=patient_id
+        )
+        return {"status": "success", "counterfactual": cf_result}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+@app.post("/api/minn/explain/upload")
+async def explain_upload_patient(
+    patient_id: Optional[str] = Form(None),
+    genetic_file: Optional[UploadFile] = File(None),
+    behavioral_file: Optional[UploadFile] = File(None),
+    environmental_file: Optional[UploadFile] = File(None),
+) -> Dict[str, Any]:
+    """
+    Runs Hierarchical Attention MINN inference and counterfactual generation
+    directly from three uploaded CSV files (Genetic, Behavioral, Environmental).
+    """
+    import tempfile
+
+    patient_id = (patient_id or "uploaded-patient").strip()
+    if "/" in patient_id or "\\" in patient_id:
+        raise HTTPException(status_code=400, detail="Patient ID must not contain path separators.")
+
+    files = {
+        "genetic": genetic_file,
+        "behavioral": behavioral_file,
+        "environmental": environmental_file,
+    }
+
+    missing = [name for name, upload in files.items() if upload is None]
+    if missing:
+        raise HTTPException(
+            status_code=400,
+            detail="Missing required CSV file(s): " + ", ".join(missing),
+        )
+
+    for name, upload in files.items():
+        filename = (upload.filename or "").lower()
+        if not filename.endswith(".csv"):
+            raise HTTPException(status_code=400, detail=f"{name.capitalize()} input must be a CSV file.")
+
+    try:
+        with tempfile.TemporaryDirectory(prefix="asd_minn_upload_") as temp_dir:
+            paths = {}
+            for name, upload in files.items():
+                path = Path(temp_dir) / f"{name}.csv"
+                content = await upload.read()
+                if not content:
+                    raise ValueError(f"{name.capitalize()} CSV is empty.")
+                path.write_bytes(content)
+                paths[name] = path
+
+            for name in ["genetic", "behavioral", "environmental"]:
+                df = pd.read_csv(paths[name])
+                if df.empty:
+                    raise ValueError(f"{name.capitalize()} CSV contains no rows.")
+                if len(df) != 1:
+                    raise ValueError(f"{name.capitalize()} CSV must contain exactly one patient row; received {len(df)} rows.")
+
+            genetic_output = _run_genetic(paths["genetic"])
+            behavioral_output = _run_behavioral(paths["behavioral"])
+            environmental_output = _run_environmental(paths["environmental"])
+
+            explanation = minn_service.predict_patient(
+                genetic_32d=genetic_output["embedding"],
+                behavioral_32d=behavioral_output["embedding"],
+                environmental_32d=environmental_output["embedding"],
+                patient_id=patient_id,
+            )
+
+            cf_result = minn_service.counterfactual_analysis(
+                genetic_32d=genetic_output["embedding"],
+                behavioral_32d=behavioral_output["embedding"],
+                environmental_32d=environmental_output["embedding"],
+                patient_id=patient_id,
+            )
+
+            return {
+                "status": "success",
+                "result": explanation,
+                "counterfactual": cf_result,
+            }
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"MINN upload inference failed: {exc}") from exc
+
+

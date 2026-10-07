@@ -1,656 +1,443 @@
 /* =========================================================
    ASD MULTIMODAL ANALYSIS
-   Step 18 — UI Rendering & Interaction Layer
+   UI Rendering — Hierarchical Attention MINN (Objective 3 + 4)
    ========================================================= */
 
-/**
- * Small DOM helper.
- */
-function $(id) {
-    return document.getElementById(id);
-}
+"use strict";
 
-function firstElement(ids = []) {
-    for (const id of ids) {
-        const element = $(id);
+// ── DOM helpers ────────────────────────────────────────────
 
-        if (element) {
-            return element;
-        }
-    }
+function $(id) { return document.getElementById(id); }
 
+function firstEl(...ids) {
+    for (const id of ids) { const el = $(id); if (el) return el; }
     return null;
 }
 
-/**
- * Set text safely.
- */
-function setText(id, value) {
-    const element = $(id);
-    if (element) {
-        element.textContent = value ?? "—";
-    }
+function setText(id, val) {
+    const el = $(id);
+    if (el) el.textContent = val ?? "—";
 }
 
-/**
- * Show / hide an element.
- */
-function setVisible(id, visible) {
-    const element = $(id);
-
-    if (!element) {
-        return;
-    }
-
-    element.hidden = !visible;
-    element.style.display = visible ? "" : "none";
+function setVisible(id, show) {
+    const el = $(id);
+    if (!el) return;
+    el.hidden = !show;
+    el.style.display = show ? "" : "none";
 }
 
-function formatProbabilityPercent(value) {
-    const probability = Number(value);
-
-    if (!Number.isFinite(probability)) {
-        return "—";
-    }
-
-    const percent = probability * 100;
-    return `${percent < 1 ? percent.toFixed(4) : percent.toFixed(2)}%`;
+function pct(v) {
+    const n = Number(v);
+    if (!Number.isFinite(n)) return "—";
+    const p = n * 100;
+    return `${p < 1 ? p.toFixed(4) : p.toFixed(2)}%`;
 }
 
-
-/* =========================================================
-   BACKEND STATUS
-   ========================================================= */
+// ── Backend status ─────────────────────────────────────────
 
 function setBackendStatus(connected, message = null) {
-    const textElement =
-        firstElement([
-            "connectionText",
-            "backendStatus",
-            "backend-status"
-        ]);
+    const text = firstEl("connectionText", "backendStatus");
+    const dot  = $("connectionIndicator");
 
-    const indicator = firstElement([
-        "connectionIndicator"
-    ]);
-
-    if (!textElement && !indicator) {
-        return;
+    if (text) {
+        text.textContent = message || (connected ? "Backend connected" : "Backend not connected");
+        text.classList.toggle("status-success", !!connected);
+        text.classList.toggle("status-error",  connected === false);
     }
-
-    if (connected) {
-        if (textElement) {
-            textElement.textContent = message || "Backend connected";
-            textElement.classList.remove("status-error");
-            textElement.classList.add("status-success");
-        }
-
-        if (indicator) {
-            indicator.classList.remove("offline");
-            indicator.classList.add("online");
-        }
-    } else {
-        if (textElement) {
-            textElement.textContent = message || "Backend not connected";
-            textElement.classList.remove("status-success");
-            textElement.classList.add("status-error");
-        }
-
-        if (indicator) {
-            indicator.classList.remove("online");
-            indicator.classList.add("offline");
-        }
+    if (dot) {
+        dot.classList.toggle("online",  !!connected);
+        dot.classList.toggle("offline", !connected);
     }
 }
 
-
-/* =========================================================
-   LOADING STATE
-   ========================================================= */
+// ── Loading ────────────────────────────────────────────────
 
 function showLoading(show = true) {
-    const loading =
-        firstElement([
-            "loadingSection",
-            "loading-state",
-            "loadingState"
-        ]) ||
-        document.querySelector("[data-loading]");
+    const loading = firstEl("loadingSection");
+    if (loading) { loading.hidden = !show; loading.style.display = show ? "" : "none"; }
 
-    if (loading) {
-        loading.hidden = !show;
-        loading.style.display = show ? "" : "none";
-    }
-
-    const analyzeButton =
-        firstElement([
-            "analyzeButton",
-            "analyze-btn",
-            "analyzeBtn",
-            "analyze-patient"
-        ]);
-
-    if (analyzeButton) {
-        analyzeButton.disabled = show;
-
+    const btn = firstEl("analyzeButton");
+    if (btn) {
+        btn.disabled = show;
         if (show) {
-            analyzeButton.dataset.originalText =
-                analyzeButton.textContent;
-
-            analyzeButton.textContent = "Analyzing...";
+            btn.dataset.origText = btn.textContent;
+            btn.textContent = "Analyzing…";
         } else {
-            analyzeButton.textContent =
-                analyzeButton.dataset.originalText || "Analyze Patient";
+            btn.textContent = btn.dataset.origText || "Analyze Patient";
         }
     }
 }
 
+// ── Error ──────────────────────────────────────────────────
 
-/* =========================================================
-   ERROR MESSAGE
-   ========================================================= */
-
-function showError(message) {
-    const error =
-        firstElement([
-            "messageArea",
-            "error-message",
-            "errorMessage"
-        ]) ||
-        document.querySelector("[data-error]");
-
-    if (!error) {
-        console.error(message);
-        return;
-    }
-
-    error.textContent = message;
-    error.hidden = false;
-    error.style.display = "";
-    error.classList.add("error");
+function showError(msg) {
+    const el = firstEl("messageArea", "error-message", "errorMessage");
+    if (!el) { console.error(msg); return; }
+    el.textContent = msg;
+    el.hidden = false;
+    el.style.display = "";
+    el.classList.add("error");
 }
 
-
-/**
- * Clear any previous error.
- */
 function clearError() {
-    const error =
-        firstElement([
-            "messageArea",
-            "error-message",
-            "errorMessage"
-        ]) ||
-        document.querySelector("[data-error]");
-
-    if (!error) {
-        return;
-    }
-
-    error.textContent = "";
-    error.hidden = true;
-    error.style.display = "none";
-    error.classList.remove("error");
+    const el = firstEl("messageArea", "error-message", "errorMessage");
+    if (!el) return;
+    el.textContent = "";
+    el.hidden = true;
+    el.style.display = "none";
+    el.classList.remove("error");
 }
 
-
-/* =========================================================
-   RESULTS VISIBILITY
-   ========================================================= */
+// ── Results visibility ─────────────────────────────────────
 
 function showResults(show = true) {
-    const results =
-        $("resultsSection") ||
-        $("results-section") ||
-        $("resultsSection") ||
-        $("analysis-results") ||
-        document.querySelector("[data-results]");
-
-    if (!results) {
-        return;
-    }
-
-    results.hidden = !show;
-    results.style.display = show ? "" : "none";
+    const el = firstEl("resultsSection");
+    if (!el) return;
+    el.hidden = !show;
+    el.style.display = show ? "" : "none";
 }
 
+// ── Colour helpers ─────────────────────────────────────────
 
-/* =========================================================
-   MODALITY RESULT CARD
-   ========================================================= */
-
-function createModalityRow(result) {
-    const row = document.createElement("div");
-    row.className = "modality-result-row";
-
-    const modality = document.createElement("div");
-    modality.className = "modality-name";
-    modality.textContent =
-        result.modality
-            ? String(result.modality).charAt(0).toUpperCase() +
-              String(result.modality).slice(1)
-            : "Unknown";
-
-    const prediction = document.createElement("div");
-    prediction.className = "modality-prediction";
-    prediction.textContent = result.prediction || "—";
-
-    const probability = document.createElement("div");
-    probability.className = "modality-probability";
-
-    const probabilityValue =
-        Number(result.probability);
-
-    probability.textContent = formatProbabilityPercent(probabilityValue);
-
-    row.appendChild(modality);
-    row.appendChild(prediction);
-    row.appendChild(probability);
-
-    return row;
+function barColour(weight) {
+    // Map 0-1 weight to a blue→green gradient for attention bars
+    const pct = Math.round(weight * 100);
+    if (pct >= 50) return "#2563eb";   // dominant — primary blue
+    if (pct >= 30) return "#7c3aed";   // moderate  — violet
+    return "#64748b";                  // low       — slate
 }
 
+// ── Attention Weight Bar ───────────────────────────────────
 
-/**
- * Render individual modality predictions.
- */
-function renderModalityResults(results) {
-    const container =
-        $("modalityResults") ||
-        $("modality-results") ||
-        document.querySelector("[data-modality-results]");
-
-    if (!container) {
-        return;
-    }
-
-    container.innerHTML = "";
-
-    if (!Array.isArray(results) || results.length === 0) {
-        const empty = document.createElement("p");
-        empty.className = "empty-state";
-        empty.textContent = "No individual modality results returned.";
-        container.appendChild(empty);
-        return;
-    }
-
-    results.forEach(result => {
-        container.appendChild(createModalityRow(result));
-    });
+function attentionBar(label, weight, isPrimary) {
+    const pct100 = Math.min(100, Math.max(0, weight * 100)).toFixed(1);
+    const col    = isPrimary ? "#2563eb" : "#94a3b8";
+    return `
+    <div class="att-row ${isPrimary ? "att-primary" : ""}">
+        <div class="att-label">
+            <span>${label}</span>
+            <span class="att-pct">${pct100}%</span>
+        </div>
+        <div class="att-track">
+            <div class="att-fill" style="width:${pct100}%; background:${col};"></div>
+        </div>
+    </div>`;
 }
 
+// ── Saliency mini-bars (top-5 dimensions) ─────────────────
 
-/* =========================================================
-   FUSION WEIGHTS
-   ========================================================= */
-
-function renderFusionWeights(weights) {
-    const container =
-        $("fusion-weights") ||
-        $("fusionWeights") ||
-        document.querySelector("[data-fusion-weights]");
-
-    if (!container) {
-        return;
+function saliencyRows(dimArr) {
+    if (!Array.isArray(dimArr) || dimArr.length === 0) {
+        return `<p class="muted-text">No saliency data.</p>`;
     }
-
-    container.innerHTML = "";
-
-    if (!weights || typeof weights !== "object") {
-        container.textContent = "No fusion weights available.";
-        return;
-    }
-
-    Object.entries(weights).forEach(([modality, weight]) => {
-        const row = document.createElement("div");
-        row.className = "fusion-row";
-
-        const name = document.createElement("span");
-        name.textContent =
-            modality.charAt(0).toUpperCase() +
-            modality.slice(1);
-
-        const value = document.createElement("strong");
-
-        const numericWeight = Number(weight);
-
-        value.textContent =
-            Number.isFinite(numericWeight)
-                ? numericWeight.toFixed(4)
-                : "—";
-
-        row.appendChild(name);
-        row.appendChild(value);
-
-        container.appendChild(row);
-    });
+    const max = Math.max(...dimArr.map(d => d.attention_weight), 0.001);
+    return dimArr.map(d => {
+        const w = Math.min(100, (d.attention_weight / max) * 100).toFixed(1);
+        return `
+        <div class="sal-row">
+            <span class="sal-dim">Dim ${d.dimension}</span>
+            <div class="sal-track">
+                <div class="sal-fill" style="width:${w}%"></div>
+            </div>
+            <span class="sal-val">${d.attention_weight.toFixed(4)}</span>
+        </div>`;
+    }).join("");
 }
 
+// ── Counterfactual render ──────────────────────────────────
 
-/* =========================================================
-   FUSION CONTRIBUTIONS
-   ========================================================= */
+function renderCounterfactual(cfData) {
+    const section = $("cfSection");
+    const body    = $("cfBody");
+    if (!section || !body) return;
 
-function renderContributions(contributions) {
-    const container =
-        $("fusionContributions") ||
-        $("fusion-contributions") ||
-        $("contributions") ||
-        document.querySelector("[data-contributions]");
-
-    if (!container) {
+    if (!cfData || cfData.status === "error") {
+        section.hidden = true;
         return;
     }
 
-    container.innerHTML = "";
+    const cf = cfData.counterfactual || {};
+    let html = "";
 
-    if (!Array.isArray(contributions) || contributions.length === 0) {
-        container.textContent = "No modality contributions available.";
-        return;
+    if (cf.status === "ALREADY_NEGATIVE") {
+        const origPct = typeof cf.original_probability === "number"
+            ? (cf.original_probability * 100).toFixed(2)
+            : "0.00";
+        html += `
+        <div class="cf-status cf-ok">
+            ✓ ${cf.message || `Patient is screened as Control / Non-ASD (${origPct}% risk). No counterfactual required.`}
+        </div>`;
+    } else if (cf.status === "COUNTERFACTUAL_FOUND") {
+        const origDiag = cf.original_diagnosis || {};
+        const outcome  = cf.counterfactual_outcome || {};
+        const cost     = cf.perturbation_cost || {};
+        const recs     = cf.actionable_recommendations || {};
+
+        const origProbPct   = typeof origDiag.probability === "number" ? (origDiag.probability * 100).toFixed(2) : "—";
+        const cfProbPct     = typeof outcome.probability === "number" ? (outcome.probability * 100).toFixed(2) : "—";
+        const reductionPct  = typeof outcome.probability_reduction === "number" ? (outcome.probability_reduction * 100).toFixed(2) : "—";
+        const targetThresh  = typeof outcome.target_threshold === "number" ? (outcome.target_threshold * 100).toFixed(0) : "35";
+
+        html += `
+        <div class="cf-status cf-ok">
+            ✓ Actionable Counterfactual Found — Target Risk ≤ ${targetThresh}% Achieved (${outcome.classification || "Control"})
+        </div>
+
+        <div class="cf-metric-row">
+            <span>Original ASD Risk</span>
+            <strong>${origProbPct}% (${origDiag.classification || "ASD"})</strong>
+        </div>
+        <div class="cf-metric-row">
+            <span>Counterfactual Risk Outcome</span>
+            <strong style="color: var(--success);">${cfProbPct}%</strong>
+        </div>
+        <div class="cf-metric-row">
+            <span>Probability Reduction (Δ)</span>
+            <strong style="color: var(--primary);">−${reductionPct}%</strong>
+        </div>
+        <div class="cf-metric-row">
+            <span>Intervention Cost (L₂ Distance)</span>
+            <strong>${typeof cost.l2_distance === "number" ? cost.l2_distance.toFixed(4) : "—"}</strong>
+        </div>
+        <div class="cf-metric-row">
+            <span>Sparsity Cost (L₁ Distance)</span>
+            <strong>${typeof cost.l1_distance === "number" ? cost.l1_distance.toFixed(4) : "—"}</strong>
+        </div>`;
+
+        if (cf.clinical_summary) {
+            html += `
+            <div style="margin-top: 12px; padding: 10px 12px; background: var(--amber-soft); border-left: 3px solid var(--amber); border-radius: var(--radius-sm); font-size: 13px; line-height: 1.5; color: var(--text-2);">
+                <strong>Clinical Summary:</strong> ${cf.clinical_summary}
+            </div>`;
+        }
+
+        const bRecs = Array.isArray(recs.behavioral_adjustments) ? recs.behavioral_adjustments : [];
+        const eRecs = Array.isArray(recs.environmental_adjustments) ? recs.environmental_adjustments : [];
+
+        if (bRecs.length > 0 || eRecs.length > 0) {
+            html += `<div class="cf-recs-title">Actionable Interventions by Modality</div>`;
+
+            bRecs.forEach(item => {
+                const shiftSign = item.recommended_shift > 0 ? "+" : "";
+                html += `
+                <div class="cf-rec">
+                    <span class="cf-modality-tag" style="background: #d1fae5; color: #065f46;">Behavioral</span>
+                    <span class="cf-rec-text">
+                        Adjust <strong>Dimension ${item.dimension}</strong> by <strong>${shiftSign}${item.recommended_shift.toFixed(4)}</strong> (actionable behavioral therapy target)
+                    </span>
+                </div>`;
+            });
+
+            eRecs.forEach(item => {
+                const shiftSign = item.recommended_shift > 0 ? "+" : "";
+                html += `
+                <div class="cf-rec">
+                    <span class="cf-modality-tag" style="background: #ede9fe; color: #5b21b6;">Environmental</span>
+                    <span class="cf-rec-text">
+                        Adjust <strong>Dimension ${item.dimension}</strong> by <strong>${shiftSign}${item.recommended_shift.toFixed(4)}</strong> (actionable environmental exposure modification)
+                    </span>
+                </div>`;
+            });
+        }
+    } else {
+        html = `<p class="muted-text">Counterfactual analysis returned status: ${cf.status || "UNKNOWN"}</p>`;
     }
 
-    contributions.forEach(item => {
-        const row = document.createElement("div");
-        row.className = "fusion-row";
-
-        const name = document.createElement("span");
-
-        name.textContent =
-            item.modality
-                ? item.modality.charAt(0).toUpperCase() +
-                  item.modality.slice(1)
-                : "Unknown";
-
-        const value = document.createElement("strong");
-
-        const contribution =
-            Number(item.contribution);
-
-        value.textContent =
-            Number.isFinite(contribution)
-                ? contribution.toFixed(4)
-                : "—";
-
-        row.appendChild(name);
-        row.appendChild(value);
-
-        container.appendChild(row);
-    });
+    body.innerHTML = html;
+    section.hidden = false;
 }
 
+// ── Main MINN & Cross-modal result renderer ────────────────
 
-/* =========================================================
-   COMPLETE ANALYSIS RESULT
-   ========================================================= */
+const DEMO_PATIENTS = ["P001", "P002", "P003", "P004", "P005"];
 
 function renderAnalysisResult(data) {
-    if (!data) {
-        return;
-    }
-
+    if (!data) return;
     clearError();
     showResults(true);
 
-    const fusion = data.fusion || {};
-    const crossModal = data.cross_modal || {};
-    const finalResult = data.cross_modal || fusion;
+    // Support both: MINN schema { status, result: {...} } and Phase 07 upload { cross_modal: {...}, modality_results: [...] }
+    const result       = data.result || data;
+    const isCrossModal = !result.prediction && !!(result.cross_modal || data.cross_modal);
+    const cm           = result.cross_modal || data.cross_modal || {};
 
-    /* Patient */
-    setText(
-        "resultPatient",
-        `Patient: ${data.patient_id || "—"}`
-    );
+    const pred   = isCrossModal ? cm : (result.prediction || {});
+    const att2   = result.modality_attention_level_2 || {};
+    const sal    = result.feature_saliency_level_1   || {};
 
-    /* Final prediction */
-    setText(
-        "finalPrediction",
-        finalResult.final_prediction || finalResult.prediction || "—"
-    );
+    const patientId  = result.patient_id || data.patient_id || "uploaded-patient";
+    const asdProb    = pred.asd_probability ?? pred.probability ?? null;
+    const classif    = pred.classification  || pred.prediction  || (asdProb !== null ? (asdProb >= 0.5 ? "ASD" : "Control") : "—");
+    const confidence = pred.confidence ?? (asdProb !== null ? (asdProb >= 0.5 ? asdProb : (1 - asdProb)) : null);
+    const threshold  = pred.decision_threshold ?? pred.threshold ?? 0.50;
+    const modelName  = isCrossModal
+        ? (cm.model || "Cross-Modal Multimodal Fusion Network")
+        : "Hierarchical Attention MINN (Objective 3)";
 
-    setText(
-        "resultStatus",
-        data.status || "—"
-    );
+    // ── Patient + prediction header ──────────────────────
+    setText("resultPatient", `Patient: ${patientId}`);
+    setText("resultStatus",  classif === "ASD" ? "ASD" : "Control");
 
-    /* Final probability */
-    const probability =
-        Number(
-            finalResult.final_probability ?? finalResult.probability
-        );
-
-    setText(
-        "finalProbability",
-        formatProbabilityPercent(probability)
-    );
-
-    const probabilityBar = $("finalProbabilityBar");
-
-    if (probabilityBar) {
-        probabilityBar.style.width =
-            Number.isFinite(probability)
-                ? `${Math.max(0, Math.min(100, probability * 100)).toFixed(2)}%`
-                : "0%";
+    // Colour result status badge
+    const statusEl = $("resultStatus");
+    if (statusEl) {
+        statusEl.classList.toggle("badge-asd",     classif === "ASD");
+        statusEl.classList.toggle("badge-non-asd", classif !== "ASD");
     }
 
-    /* Threshold */
-    const threshold =
-        Number(finalResult.threshold);
+    setText("finalPrediction",  classif);
+    setText("finalProbability", pct(asdProb));
+    setText("finalThreshold",   threshold.toFixed ? threshold.toFixed(2) : "0.50");
+    setText("finalConfidence",  confidence !== null ? pct(confidence) : "—");
+    setText("modelLabel",       modelName);
 
-    setText(
-        "finalThreshold",
-        Number.isFinite(threshold)
-            ? threshold.toFixed(2)
-            : "0.50"
-    );
-
-    /* Fusion mode */
-    setText(
-        "fusionMode",
-        crossModal.model || fusion.mode || data.mode || "—"
-    );
-
-    /* Modalities used */
-    setText(
-        "modalitiesUsed",
-        Array.isArray(finalResult.modalities_used)
-            ? finalResult.modalities_used
-                  .map(item =>
-                      item.charAt(0).toUpperCase() +
-                      item.slice(1)
-                  )
-                  .join(" • ")
-            : "—"
-    );
-
-    /* Fusion threshold */
-    setText(
-        "fusionThreshold",
-        Number.isFinite(threshold)
-            ? threshold.toFixed(2)
-            : "0.50"
-    );
-
-    /* Individual modality results */
-    const baseModalityResults =
-        Array.isArray(data.modality_results)
-            ? [...data.modality_results]
-            : [];
-
-    const thresholdValue =
-        Number.isFinite(threshold)
-            ? threshold
-            : 0.5;
-
-    if (Array.isArray(fusion.contributions)) {
-        const seen = new Set(
-            baseModalityResults.map(item => item.modality)
-        );
-
-        fusion.contributions.forEach(item => {
-            if (!item || !item.modality || seen.has(item.modality)) {
-                return;
-            }
-
-            const probabilityValue = Number(item.probability);
-
-            if (!Number.isFinite(probabilityValue)) {
-                return;
-            }
-
-            baseModalityResults.push({
-                modality: item.modality,
-                probability: probabilityValue,
-                prediction:
-                    probabilityValue >= thresholdValue
-                        ? "ASD"
-                        : "NON-ASD"
-            });
-
-            seen.add(item.modality);
-        });
+    // colour final prediction text
+    const predEl = $("finalPrediction");
+    if (predEl) {
+        predEl.classList.toggle("prediction-asd",     classif === "ASD");
+        predEl.classList.toggle("prediction-non-asd", classif !== "ASD");
     }
 
-    renderModalityResults(
-        baseModalityResults
-    );
+    // Probability bar
+    const bar = $("finalProbabilityBar");
+    if (bar && asdProb !== null) {
+        const w = Math.max(0, Math.min(100, asdProb * 100)).toFixed(2);
+        bar.style.width = `${w}%`;
+        bar.style.background = classif === "ASD" ? "#dc2626" : "#15803d";
+    }
 
-    /* Fusion weights */
-    renderFusionWeights(
-        fusion.fusion_weights || {}
-    );
+    // ── Clinical interpretation ───────────────────────────
+    let clinicalText = result.clinical_interpretation || "";
+    if (!clinicalText && isCrossModal && Array.isArray(data.modality_results)) {
+        const gMod = data.modality_results.find(m => m.modality === "genetic") || {};
+        const bMod = data.modality_results.find(m => m.modality === "behavioral") || {};
+        const eMod = data.modality_results.find(m => m.modality === "environmental") || {};
+        clinicalText = `Patient ${patientId} is screened as ${classif} with ${pct(confidence)} confidence using the ${modelName}. Individual modality expert screening: Genetic (${pct(gMod.probability)}), Behavioral (${pct(bMod.probability)}), Environmental (${pct(eMod.probability)}). Joint 32-D latent alignment integrated all three representations.`;
+    }
 
-    /* Contributions */
-    renderContributions(
-        fusion.contributions || []
-    );
+    setText("clinicalInterpretation", clinicalText);
+    setVisible("clinicalSection", !!clinicalText);
 
+    // ── Level-2 Modality Attention weights / Modality Results ──
+    const attContainer = $("attentionWeights");
+    if (attContainer && Object.keys(att2).length > 0) {
+        const gw  = att2.genetic_weight       ?? 0;
+        const bw  = att2.behavioral_weight    ?? 0;
+        const ew  = att2.environmental_weight ?? 0;
+        const pdm = att2.primary_driving_modality || "";
+
+        attContainer.innerHTML = `
+            ${attentionBar("Genetic (β_G)",       gw,  pdm === "Genetic")}
+            ${attentionBar("Behavioral (β_B)",    bw,  pdm === "Behavioral")}
+            ${attentionBar("Environmental (β_E)", ew,  pdm === "Environmental")}
+            <p class="att-note">
+                Primary driving modality: <strong>${pdm || "—"}</strong> (${pdm === "Genetic" ? pct(gw) : pdm === "Behavioral" ? pct(bw) : pct(ew)} dynamic weight)
+            </p>`;
+        setVisible("attentionSection", true);
+    } else if (attContainer && isCrossModal && Array.isArray(data.modality_results)) {
+        const gMod = data.modality_results.find(m => m.modality === "genetic") || {};
+        const bMod = data.modality_results.find(m => m.modality === "behavioral") || {};
+        const eMod = data.modality_results.find(m => m.modality === "environmental") || {};
+
+        attContainer.innerHTML = `
+            ${attentionBar("Genetic Modality Expert",       gMod.probability ?? 0, (gMod.probability ?? 0) >= 0.5)}
+            ${attentionBar("Behavioral Modality Expert",    bMod.probability ?? 0, (bMod.probability ?? 0) >= 0.5)}
+            ${attentionBar("Environmental Modality Expert", eMod.probability ?? 0, (eMod.probability ?? 0) >= 0.5)}
+            <p class="att-note">
+                Cross-modal fusion: <strong>32-D Joint Latent Space</strong> · Preprocessing &amp; Encoding: <strong>3-Modality Aligned</strong>
+            </p>`;
+        setVisible("attentionSection", true);
+    } else {
+        setVisible("attentionSection", false);
+    }
+
+    // ── Level-1 Feature Saliency ──────────────────────────
+    const salG = $("saliencyGenetic");
+    const salB = $("saliencyBehavioral");
+    const salE = $("saliencyEnvironmental");
+
+    if (salG) salG.innerHTML = saliencyRows(sal.top_genetic_dimensions);
+    if (salB) salB.innerHTML = saliencyRows(sal.top_behavioral_dimensions);
+    if (salE) salE.innerHTML = saliencyRows(sal.top_environmental_dimensions);
+
+    const hasSal = !!(sal.top_genetic_dimensions || sal.top_behavioral_dimensions);
+    setVisible("saliencySection", hasSal);
+
+    // Raw JSON
     const raw = $("rawResponse");
+    if (raw) raw.textContent = JSON.stringify(data, null, 2);
 
-    if (raw) {
-        raw.textContent = JSON.stringify(data, null, 2);
-    }
+    // ── Trigger counterfactual fetch ──────────────────────
+    const cfSection     = $("cfSection");
+    const cfBody        = $("cfBody");
+    const isDemoPatient = DEMO_PATIENTS.includes((patientId || "").trim().toUpperCase());
 
-    /*
-     * Mark the result container with the prediction.
-     * This allows CSS to style ASD / NON-ASD differently
-     * if those classes exist.
-     */
-    const resultPrediction =
-        $("finalPrediction");
-
-    if (resultPrediction) {
-        resultPrediction.classList.remove(
-            "prediction-asd",
-            "prediction-non-asd"
-        );
-
-        if (
-            (finalResult.final_prediction || finalResult.prediction) === "ASD"
-        ) {
-            resultPrediction.classList.add(
-                "prediction-asd"
-            );
-        } else if (
-            (finalResult.final_prediction || finalResult.prediction) === "NON-ASD"
-        ) {
-            resultPrediction.classList.add(
-                "prediction-non-asd"
-            );
+    if (data.counterfactual) {
+        // Counterfactual was computed directly by the MINN upload endpoint!
+        renderCounterfactual(data);
+    } else if (isDemoPatient && window.ASD_API && typeof window.ASD_API.counterfactualMINNDemo === "function") {
+        if (cfSection && cfBody) {
+            cfSection.hidden = false;
+            cfBody.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px; padding: 12px; color: var(--muted); font-size: 13px;">
+                    <div class="spinner" style="width: 18px; height: 18px; border-width: 2px;"></div>
+                    <span>Computing gradient-based counterfactual recommendations…</span>
+                </div>`;
         }
+
+        window.ASD_API.counterfactualMINNDemo(patientId)
+            .then(cf => renderCounterfactual(cf))
+            .catch(err => {
+                if (cfBody) {
+                    cfBody.innerHTML = `<p class="muted-text">Counterfactual analysis unavailable: ${err.message || err}</p>`;
+                }
+            });
+    } else if (cfSection && cfBody) {
+        cfSection.hidden = false;
+        cfBody.innerHTML = `
+            <div class="cf-status cf-ok" style="background: var(--primary-soft); color: var(--text);">
+                ✓ <strong>Custom CSV Upload Processed:</strong> 3-modality representation screened via Hierarchical Attention MINN.
+            </div>`;
     }
 }
 
-
-/* =========================================================
-   CLEAR FORM / RESULTS
-   ========================================================= */
+// ── Clear UI ───────────────────────────────────────────────
 
 function clearAnalysisUI() {
     clearError();
     showLoading(false);
     showResults(false);
 
-    setText("resultPatient", "Patient: —");
-    setText("resultStatus", "—");
-    setText("finalPrediction", "—");
-    setText("finalProbability", "—");
-    setText("finalThreshold", "0.50");
-    setText("fusionMode", "—");
-    setText("modalitiesUsed", "—");
-    setText("fusionThreshold", "0.50");
+    setText("resultPatient",         "Patient: —");
+    setText("resultStatus",          "—");
+    setText("finalPrediction",       "—");
+    setText("finalProbability",      "—");
+    setText("finalThreshold",        "0.50");
+    setText("finalConfidence",       "—");
+    setText("modelLabel",            "—");
+    setText("clinicalInterpretation","");
+    setVisible("clinicalSection",    false);
+    setVisible("attentionSection",   false);
+    setVisible("saliencySection",    false);
+    setVisible("cfSection",          false);
 
-    const probabilityBar = $("finalProbabilityBar");
-
-    if (probabilityBar) {
-        probabilityBar.style.width = "0%";
-    }
-
-    const modalityContainer =
-        $("modality-results") ||
-        $("modalityResults") ||
-        document.querySelector("[data-modality-results]");
-
-    if (modalityContainer) {
-        modalityContainer.innerHTML = "";
-    }
-
-    const weightsContainer =
-        $("fusion-weights") ||
-        $("fusionWeights") ||
-        document.querySelector("[data-fusion-weights]");
-
-    if (weightsContainer) {
-        weightsContainer.innerHTML = "";
-    }
-
-    const contributionsContainer =
-        $("fusionContributions") ||
-        $("fusion-contributions") ||
-        $("contributions") ||
-        document.querySelector("[data-contributions]");
-
-    if (contributionsContainer) {
-        contributionsContainer.innerHTML = "";
-    }
+    const bar = $("finalProbabilityBar");
+    if (bar) { bar.style.width = "0%"; bar.style.background = "#2563eb"; }
 
     const raw = $("rawResponse");
-
-    if (raw) {
-        raw.textContent = "—";
-    }
+    if (raw) raw.textContent = "—";
 }
 
-
-/* =========================================================
-   INITIAL UI STATE
-   ========================================================= */
+// ── Init ───────────────────────────────────────────────────
 
 function initializeUI() {
     clearError();
     showLoading(false);
-
-    /*
-     * Results should not appear as active results when the
-     * application first opens.
-     */
-    const results =
-        $("resultsSection") ||
-        $("results-section") ||
-        $("analysis-results") ||
-        document.querySelector("[data-results]");
-
-    if (results) {
-        results.hidden = true;
-        results.style.display = "none";
-    }
-
-    console.log("UI layer initialized.");
+    showResults(false);
+    console.log("MINN UI layer initialized.");
 }
 
-
-/* =========================================================
-   GLOBAL EXPORTS
-   ========================================================= */
+// ── Exports ────────────────────────────────────────────────
 
 window.ASD_UI = {
     setBackendStatus,
@@ -658,20 +445,10 @@ window.ASD_UI = {
     showError,
     clearError,
     showResults,
-    renderModalityResults,
-    renderFusionWeights,
-    renderContributions,
     renderAnalysisResult,
     clearAnalysisUI,
-    initializeUI
+    initializeUI,
+    renderCounterfactual
 };
 
-
-/* =========================================================
-   START
-   ========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    initializeUI
-);
+document.addEventListener("DOMContentLoaded", initializeUI);

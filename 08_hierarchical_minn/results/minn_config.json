@@ -1,0 +1,19 @@
+{
+    "model_name": "HierarchicalAttentionMINN",
+    "objective": "Objective 3: Hierarchical Attention Multimodal Feature Fusion",
+    "inputs": {
+        "genetic_dim": 32,
+        "behavioral_dim": 32,
+        "environmental_dim": 32
+    },
+    "branch_architecture": "32 -> 64 -> 32 (BatchNorm + GELU + Dropout)",
+    "attention_levels": {
+        "level_1_intra_modality": "Feature-level softmax attention per modality",
+        "level_2_inter_modality": "Dynamic per-patient softmax attention over [Genetic, Behavioral, Environmental]"
+    },
+    "fusion_type": "Adaptive Attention-Weighted Concatenation (96-D)",
+    "classifier": "96 -> 48 -> 16 -> 1 with Dropout & Sigmoid",
+    "training_data": "GAN-Augmented Aligned 32-D Balanced Dataset",
+    "best_epoch": 1,
+    "best_val_auc": 0.9905648888888888
+}

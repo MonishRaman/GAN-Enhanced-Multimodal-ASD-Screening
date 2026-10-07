@@ -1,0 +1,594 @@
+[
+    {
+        "patient_id": "PATIENT_001_HIGH_ASD",
+        "attention_explanation": {
+            "patient_id": "PATIENT_001_HIGH_ASD",
+            "prediction": {
+                "asd_probability": 0.9993,
+                "classification": "ASD",
+                "confidence": 0.9993,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.415,
+                "behavioral_weight": 0.3231,
+                "environmental_weight": 0.262,
+                "primary_driving_modality": "Genetic"
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "attention_weight": 0.2603
+                    },
+                    {
+                        "dimension": 28,
+                        "attention_weight": 0.0444
+                    },
+                    {
+                        "dimension": 32,
+                        "attention_weight": 0.0389
+                    },
+                    {
+                        "dimension": 21,
+                        "attention_weight": 0.0324
+                    },
+                    {
+                        "dimension": 10,
+                        "attention_weight": 0.0322
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 12,
+                        "attention_weight": 0.0773
+                    },
+                    {
+                        "dimension": 31,
+                        "attention_weight": 0.0716
+                    },
+                    {
+                        "dimension": 25,
+                        "attention_weight": 0.0458
+                    },
+                    {
+                        "dimension": 9,
+                        "attention_weight": 0.0442
+                    },
+                    {
+                        "dimension": 24,
+                        "attention_weight": 0.0403
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 20,
+                        "attention_weight": 0.0516
+                    },
+                    {
+                        "dimension": 2,
+                        "attention_weight": 0.0472
+                    },
+                    {
+                        "dimension": 5,
+                        "attention_weight": 0.0428
+                    },
+                    {
+                        "dimension": 19,
+                        "attention_weight": 0.0424
+                    },
+                    {
+                        "dimension": 25,
+                        "attention_weight": 0.0422
+                    }
+                ]
+            },
+            "clinical_interpretation": "Patient PATIENT_001_HIGH_ASD is screened as ASD with 99.9% confidence. Diagnostic decision was primarily driven by the Genetic modality (41.5% dynamic weight)."
+        },
+        "counterfactual_explanation": {
+            "patient_id": "PATIENT_001_HIGH_ASD",
+            "status": "COUNTERFACTUAL_FOUND",
+            "original_diagnosis": {
+                "probability": 0.9993,
+                "classification": "ASD"
+            },
+            "counterfactual_outcome": {
+                "probability": 0.2354,
+                "classification": "Control (Non-ASD)",
+                "probability_reduction": 0.764,
+                "target_threshold": 0.35
+            },
+            "perturbation_cost": {
+                "l2_distance": 0.8784,
+                "l1_distance": 5.5703
+            },
+            "actionable_recommendations": {
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 20,
+                        "recommended_shift": 0.207
+                    },
+                    {
+                        "dimension": 30,
+                        "recommended_shift": 0.202
+                    },
+                    {
+                        "dimension": 10,
+                        "recommended_shift": 0.1991
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 21,
+                        "recommended_shift": 0.0932
+                    },
+                    {
+                        "dimension": 23,
+                        "recommended_shift": -0.0875
+                    },
+                    {
+                        "dimension": 16,
+                        "recommended_shift": -0.0863
+                    }
+                ]
+            },
+            "clinical_summary": "For patient PATIENT_001_HIGH_ASD (original risk 99.9%), a target probability of 23.5% is achievable through an L2 intervention distance of 0.88, primarily requiring adjustments to Behavioral Dimensions [20, 30, 10] and Environmental Exposures [21, 23, 16]."
+        }
+    },
+    {
+        "patient_id": "PATIENT_002_MODERATE_ASD",
+        "attention_explanation": {
+            "patient_id": "PATIENT_002_MODERATE_ASD",
+            "prediction": {
+                "asd_probability": 0.9946,
+                "classification": "ASD",
+                "confidence": 0.9946,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.3271,
+                "behavioral_weight": 0.3938,
+                "environmental_weight": 0.2792,
+                "primary_driving_modality": "Behavioral"
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "attention_weight": 0.1144
+                    },
+                    {
+                        "dimension": 28,
+                        "attention_weight": 0.0393
+                    },
+                    {
+                        "dimension": 21,
+                        "attention_weight": 0.0383
+                    },
+                    {
+                        "dimension": 25,
+                        "attention_weight": 0.0369
+                    },
+                    {
+                        "dimension": 19,
+                        "attention_weight": 0.0343
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 12,
+                        "attention_weight": 0.0812
+                    },
+                    {
+                        "dimension": 31,
+                        "attention_weight": 0.0684
+                    },
+                    {
+                        "dimension": 25,
+                        "attention_weight": 0.0569
+                    },
+                    {
+                        "dimension": 9,
+                        "attention_weight": 0.0414
+                    },
+                    {
+                        "dimension": 8,
+                        "attention_weight": 0.0382
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 2,
+                        "attention_weight": 0.0434
+                    },
+                    {
+                        "dimension": 16,
+                        "attention_weight": 0.0418
+                    },
+                    {
+                        "dimension": 19,
+                        "attention_weight": 0.0409
+                    },
+                    {
+                        "dimension": 20,
+                        "attention_weight": 0.0391
+                    },
+                    {
+                        "dimension": 6,
+                        "attention_weight": 0.039
+                    }
+                ]
+            },
+            "clinical_interpretation": "Patient PATIENT_002_MODERATE_ASD is screened as ASD with 99.5% confidence. Diagnostic decision was primarily driven by the Behavioral modality (39.4% dynamic weight)."
+        },
+        "counterfactual_explanation": {
+            "patient_id": "PATIENT_002_MODERATE_ASD",
+            "status": "COUNTERFACTUAL_FOUND",
+            "original_diagnosis": {
+                "probability": 0.9946,
+                "classification": "ASD"
+            },
+            "counterfactual_outcome": {
+                "probability": 0.2378,
+                "classification": "Control (Non-ASD)",
+                "probability_reduction": 0.7568,
+                "target_threshold": 0.35
+            },
+            "perturbation_cost": {
+                "l2_distance": 1.1818,
+                "l1_distance": 8.4362
+            },
+            "actionable_recommendations": {
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 21,
+                        "recommended_shift": -0.2261
+                    },
+                    {
+                        "dimension": 30,
+                        "recommended_shift": 0.2213
+                    },
+                    {
+                        "dimension": 5,
+                        "recommended_shift": 0.2187
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 5,
+                        "recommended_shift": -0.1985
+                    },
+                    {
+                        "dimension": 6,
+                        "recommended_shift": -0.1902
+                    },
+                    {
+                        "dimension": 26,
+                        "recommended_shift": -0.1901
+                    }
+                ]
+            },
+            "clinical_summary": "For patient PATIENT_002_MODERATE_ASD (original risk 99.5%), a target probability of 23.8% is achievable through an L2 intervention distance of 1.18, primarily requiring adjustments to Behavioral Dimensions [21, 30, 5] and Environmental Exposures [5, 6, 26]."
+        }
+    },
+    {
+        "patient_id": "PATIENT_003_BORDERLINE",
+        "attention_explanation": {
+            "patient_id": "PATIENT_003_BORDERLINE",
+            "prediction": {
+                "asd_probability": 0.9997,
+                "classification": "ASD",
+                "confidence": 0.9997,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.4109,
+                "behavioral_weight": 0.3509,
+                "environmental_weight": 0.2383,
+                "primary_driving_modality": "Genetic"
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "attention_weight": 0.2315
+                    },
+                    {
+                        "dimension": 2,
+                        "attention_weight": 0.0372
+                    },
+                    {
+                        "dimension": 32,
+                        "attention_weight": 0.0357
+                    },
+                    {
+                        "dimension": 10,
+                        "attention_weight": 0.0357
+                    },
+                    {
+                        "dimension": 25,
+                        "attention_weight": 0.0353
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 12,
+                        "attention_weight": 0.0828
+                    },
+                    {
+                        "dimension": 31,
+                        "attention_weight": 0.0653
+                    },
+                    {
+                        "dimension": 25,
+                        "attention_weight": 0.054
+                    },
+                    {
+                        "dimension": 9,
+                        "attention_weight": 0.0394
+                    },
+                    {
+                        "dimension": 29,
+                        "attention_weight": 0.0364
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 5,
+                        "attention_weight": 0.0378
+                    },
+                    {
+                        "dimension": 18,
+                        "attention_weight": 0.0372
+                    },
+                    {
+                        "dimension": 6,
+                        "attention_weight": 0.0364
+                    },
+                    {
+                        "dimension": 12,
+                        "attention_weight": 0.0349
+                    },
+                    {
+                        "dimension": 20,
+                        "attention_weight": 0.0344
+                    }
+                ]
+            },
+            "clinical_interpretation": "Patient PATIENT_003_BORDERLINE is screened as ASD with 100.0% confidence. Diagnostic decision was primarily driven by the Genetic modality (41.1% dynamic weight)."
+        },
+        "counterfactual_explanation": {
+            "patient_id": "PATIENT_003_BORDERLINE",
+            "status": "COUNTERFACTUAL_FOUND",
+            "original_diagnosis": {
+                "probability": 0.9997,
+                "classification": "ASD"
+            },
+            "counterfactual_outcome": {
+                "probability": 0.0918,
+                "classification": "Control (Non-ASD)",
+                "probability_reduction": 0.9079,
+                "target_threshold": 0.35
+            },
+            "perturbation_cost": {
+                "l2_distance": 1.1695,
+                "l1_distance": 7.5553
+            },
+            "actionable_recommendations": {
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 2,
+                        "recommended_shift": -0.3464
+                    },
+                    {
+                        "dimension": 11,
+                        "recommended_shift": 0.3411
+                    },
+                    {
+                        "dimension": 26,
+                        "recommended_shift": 0.3271
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 24,
+                        "recommended_shift": 0.1049
+                    },
+                    {
+                        "dimension": 23,
+                        "recommended_shift": -0.1005
+                    },
+                    {
+                        "dimension": 5,
+                        "recommended_shift": -0.0992
+                    }
+                ]
+            },
+            "clinical_summary": "For patient PATIENT_003_BORDERLINE (original risk 100.0%), a target probability of 9.2% is achievable through an L2 intervention distance of 1.17, primarily requiring adjustments to Behavioral Dimensions [2, 11, 26] and Environmental Exposures [24, 23, 5]."
+        }
+    },
+    {
+        "patient_id": "PATIENT_004_CONTROL",
+        "attention_explanation": {
+            "patient_id": "PATIENT_004_CONTROL",
+            "prediction": {
+                "asd_probability": 0.0035,
+                "classification": "Control",
+                "confidence": 0.9965,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.3582,
+                "behavioral_weight": 0.3841,
+                "environmental_weight": 0.2577,
+                "primary_driving_modality": "Behavioral"
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "attention_weight": 0.0584
+                    },
+                    {
+                        "dimension": 2,
+                        "attention_weight": 0.0575
+                    },
+                    {
+                        "dimension": 4,
+                        "attention_weight": 0.0449
+                    },
+                    {
+                        "dimension": 13,
+                        "attention_weight": 0.0446
+                    },
+                    {
+                        "dimension": 9,
+                        "attention_weight": 0.0435
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 28,
+                        "attention_weight": 0.0906
+                    },
+                    {
+                        "dimension": 29,
+                        "attention_weight": 0.0835
+                    },
+                    {
+                        "dimension": 18,
+                        "attention_weight": 0.0732
+                    },
+                    {
+                        "dimension": 22,
+                        "attention_weight": 0.0628
+                    },
+                    {
+                        "dimension": 20,
+                        "attention_weight": 0.0451
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 5,
+                        "attention_weight": 0.0401
+                    },
+                    {
+                        "dimension": 6,
+                        "attention_weight": 0.0376
+                    },
+                    {
+                        "dimension": 28,
+                        "attention_weight": 0.0364
+                    },
+                    {
+                        "dimension": 18,
+                        "attention_weight": 0.0361
+                    },
+                    {
+                        "dimension": 11,
+                        "attention_weight": 0.0345
+                    }
+                ]
+            },
+            "clinical_interpretation": "Patient PATIENT_004_CONTROL is screened as Control with 99.7% confidence. Diagnostic decision was primarily driven by the Behavioral modality (38.4% dynamic weight)."
+        },
+        "counterfactual_explanation": {
+            "patient_id": "PATIENT_004_CONTROL",
+            "status": "ALREADY_NON_ASD",
+            "message": "Patient is negative for ASD."
+        }
+    },
+    {
+        "patient_id": "PATIENT_005_CONTROL",
+        "attention_explanation": {
+            "patient_id": "PATIENT_005_CONTROL",
+            "prediction": {
+                "asd_probability": 0.0788,
+                "classification": "Control",
+                "confidence": 0.9212,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.2909,
+                "behavioral_weight": 0.3408,
+                "environmental_weight": 0.3683,
+                "primary_driving_modality": "Environmental"
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 25,
+                        "attention_weight": 0.0696
+                    },
+                    {
+                        "dimension": 32,
+                        "attention_weight": 0.0528
+                    },
+                    {
+                        "dimension": 21,
+                        "attention_weight": 0.0417
+                    },
+                    {
+                        "dimension": 9,
+                        "attention_weight": 0.0415
+                    },
+                    {
+                        "dimension": 28,
+                        "attention_weight": 0.0391
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 28,
+                        "attention_weight": 0.0676
+                    },
+                    {
+                        "dimension": 29,
+                        "attention_weight": 0.067
+                    },
+                    {
+                        "dimension": 22,
+                        "attention_weight": 0.0548
+                    },
+                    {
+                        "dimension": 18,
+                        "attention_weight": 0.0493
+                    },
+                    {
+                        "dimension": 20,
+                        "attention_weight": 0.0434
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 6,
+                        "attention_weight": 0.055
+                    },
+                    {
+                        "dimension": 20,
+                        "attention_weight": 0.0508
+                    },
+                    {
+                        "dimension": 16,
+                        "attention_weight": 0.0433
+                    },
+                    {
+                        "dimension": 2,
+                        "attention_weight": 0.0395
+                    },
+                    {
+                        "dimension": 9,
+                        "attention_weight": 0.0392
+                    }
+                ]
+            },
+            "clinical_interpretation": "Patient PATIENT_005_CONTROL is screened as Control with 92.1% confidence. Diagnostic decision was primarily driven by the Environmental modality (36.8% dynamic weight)."
+        },
+        "counterfactual_explanation": {
+            "patient_id": "PATIENT_005_CONTROL",
+            "status": "ALREADY_NON_ASD",
+            "message": "Patient is negative for ASD."
+        }
+    }
+]

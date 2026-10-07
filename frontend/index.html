@@ -3,356 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ASD Multimodal Analysis</title>
-
+    <title>ASD Multimodal Analysis — Hierarchical Attention MINN</title>
+    <meta name="description" content="ASD screening via Hierarchical Attention MINN with dynamic modality attention (β), feature saliency (α), and counterfactual explanations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <div id="app">
+<div id="app">
 
-        <!-- =========================================================
-             HEADER
-        ========================================================== -->
-        <header class="app-header">
-            <div class="header-content">
+    <!-- ═══════════════════════════════════════════════════
+         HEADER
+    ════════════════════════════════════════════════════ -->
+    <header class="app-header">
+        <div class="header-inner">
 
-                <div class="brand">
-                    <div class="brand-icon">ASD</div>
-
-                    <div>
-                        <h1>ASD Multimodal Analysis</h1>
-                        <p>
-                            Genetic • Behavioral • Environmental
-                            Multimodal Screening Framework
-                        </p>
-                    </div>
+            <div class="brand">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
                 </div>
-
-                <div class="system-status">
-                    <span id="connectionIndicator"
-                          class="status-dot offline"></span>
-
-                    <span id="connectionText">
-                        Backend not connected
-                    </span>
-                </div>
-
-            </div>
-        </header>
-
-
-        <!-- =========================================================
-             MAIN CONTENT
-        ========================================================== -->
-        <main class="main-container">
-
-            <!-- INTRODUCTION -->
-            <section class="intro-section">
-
                 <div>
-                    <h2>Multimodal Patient Analysis</h2>
+                    <h1>ASD Multimodal Analysis</h1>
+                    <p>Hierarchical Attention MINN · Genetic · Behavioral · Environmental</p>
+                </div>
+            </div>
 
-                    <p>
-                        Enter a patient identifier and select the analysis
-                        mode. The system combines available modalities and
-                        produces a final screening prediction.
-                    </p>
+            <div class="backend-pill">
+                <span id="connectionIndicator" class="status-dot offline"></span>
+                <span id="connectionText">Connecting…</span>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         MAIN LAYOUT
+    ════════════════════════════════════════════════════ -->
+    <main class="layout">
+
+        <!-- LEFT — Input panel -->
+        <aside class="input-panel card">
+
+            <div class="card-head">
+                <h2>Patient Analysis</h2>
+                <p>Enter a demo patient ID (P001–P005) or upload three CSV files.</p>
+            </div>
+
+            <div class="card-body">
+
+                <!-- Quick-select demo buttons -->
+                <div class="demo-btns">
+                    <span class="demo-label">Demo Patients</span>
+                    <div class="demo-row">
+                        <button class="demo-chip" data-demo-patient="P001">P001</button>
+                        <button class="demo-chip" data-demo-patient="P002">P002</button>
+                        <button class="demo-chip" data-demo-patient="P003">P003</button>
+                        <button class="demo-chip" data-demo-patient="P004">P004</button>
+                        <button class="demo-chip" data-demo-patient="P005">P005</button>
+                    </div>
                 </div>
 
-            </section>
+                <div class="divider">or enter manually</div>
 
-
-            <!-- =====================================================
-                 INPUT PANEL
-            ====================================================== -->
-            <section class="analysis-card">
-                <div class="card-header">
-                    <div>
-                        <h3>Upload One Patient's Multimodal Data</h3>
-                        <p>Upload the three CSV files belonging to the same patient.</p>
-                    </div>
+                <!-- Patient ID -->
+                <div class="form-group">
+                    <label for="patientId" class="form-label">Patient ID</label>
+                    <input type="text" id="patientId" name="patientId"
+                           placeholder="e.g. P001" autocomplete="off">
                 </div>
 
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="patientId">Patient ID (optional for CSV upload)</label>
-                        <input type="text" id="patientId" name="patientId" placeholder="Example: P006" autocomplete="off">
-                        <small>Enter a demo ID to analyze data/demo, or leave it blank when uploading three CSV files.</small>
-                    </div>
+                <div class="divider">or upload CSV files</div>
 
-                    <div class="form-group">
-                        <label for="geneticFile">Genetic CSV</label>
-                        <input type="file" id="geneticFile" accept=".csv,text/csv">
-                        <small>One patient row with the required genetic features.</small>
-                    </div>
+                <!-- File Uploads -->
+                <div class="form-group">
+                    <label for="geneticFile" class="form-label">Genetic CSV</label>
+                    <input type="file" id="geneticFile" accept=".csv,text/csv">
+                </div>
 
-                    <div class="form-group">
-                        <label for="behavioralFile">Behavioral CSV</label>
-                        <input type="file" id="behavioralFile" accept=".csv,text/csv">
-                        <small>One patient row in the trained behavioral input format.</small>
-                    </div>
+                <div class="form-group">
+                    <label for="behavioralFile" class="form-label">Behavioral CSV</label>
+                    <input type="file" id="behavioralFile" accept=".csv,text/csv">
+                </div>
 
-                    <div class="form-group">
-                        <label for="environmentalFile">Environmental CSV</label>
-                        <input type="file" id="environmentalFile" accept=".csv,text/csv">
-                        <small>One patient row with the required environmental features.</small>
-                    </div>
+                <div class="form-group">
+                    <label for="environmentalFile" class="form-label">Environmental CSV</label>
+                    <input type="file" id="environmentalFile" accept=".csv,text/csv">
                 </div>
 
                 <div class="action-row">
-                    <button id="analyzeButton" type="button" class="primary-button">Analyze Patient</button>
-                    <button id="clearButton" type="button" class="secondary-button">Clear</button>
+                    <button id="analyzeButton" type="button" class="btn btn-primary">
+                        Analyze Patient
+                    </button>
+                    <button id="clearButton" type="button" class="btn btn-secondary">
+                        Clear
+                    </button>
                 </div>
 
                 <div id="messageArea" class="message-area" aria-live="polite"></div>
-            </section>
 
-            <!-- =====================================================
-                 LOADING AREA
-            ====================================================== -->
-            <section
-                id="loadingSection"
-                class="loading-section hidden"
-            >
+            </div>
 
-                <div class="loading-spinner"></div>
+        </aside>
 
+
+        <!-- RIGHT — Results column -->
+        <section class="results-col">
+
+            <!-- Loading -->
+            <div id="loadingSection" class="loading-card card" hidden>
+                <div class="spinner"></div>
                 <div>
-                    <strong>Analyzing patient...</strong>
-
-                    <p>
-                        Processing the selected modalities and
-                        calculating the fusion result.
-                    </p>
+                    <strong>Running MINN inference…</strong>
+                    <p>Computing hierarchical attention weights &amp; counterfactuals.</p>
                 </div>
+            </div>
 
-            </section>
 
+            <!-- ─────────────────────────────────────────
+                 RESULTS
+            ────────────────────────────────────────── -->
+            <div id="resultsSection" class="results-stack" hidden>
 
-            <!-- =====================================================
-                 RESULTS SECTION
-            ====================================================== -->
-            <section
-                id="resultsSection"
-                class="results-section hidden"
-            >
-
-                <div class="results-header">
-
+                <!-- PATIENT + STATUS ─────────────────── -->
+                <div class="result-header card">
                     <div>
-                        <h2>Analysis Results</h2>
+                        <div class="result-patient" id="resultPatient">Patient: —</div>
+                        <div class="result-model" id="modelLabel">—</div>
+                    </div>
+                    <span id="resultStatus" class="status-badge">—</span>
+                </div>
 
-                        <p id="resultPatient">
-                            Patient: —
-                        </p>
+
+                <!-- FINAL PREDICTION ─────────────────── -->
+                <div class="prediction-card card">
+
+                    <div class="pred-top">
+                        <div>
+                            <div class="pred-sublabel">MINN Prediction</div>
+                            <div id="finalPrediction" class="pred-value">—</div>
+                        </div>
+                        <div class="pred-right">
+                            <div class="pred-stat">
+                                <span>ASD Probability</span>
+                                <strong id="finalProbability">—</strong>
+                            </div>
+                            <div class="pred-stat">
+                                <span>Confidence</span>
+                                <strong id="finalConfidence">—</strong>
+                            </div>
+                            <div class="pred-stat">
+                                <span>Threshold</span>
+                                <strong id="finalThreshold">0.50</strong>
+                            </div>
+                        </div>
                     </div>
 
-                    <div
-                        id="resultStatus"
-                        class="result-status"
-                    >
-                        —
+                    <div class="prob-bar-track">
+                        <div id="finalProbabilityBar" class="prob-bar-fill" style="width:0%"></div>
                     </div>
 
                 </div>
 
 
-                <!-- FINAL RESULT -->
-                <div class="final-result-card">
-
-                    <div class="result-label">
-                        Final Cross-Modal Prediction
+                <!-- CLINICAL INTERPRETATION ──────────── -->
+                <div id="clinicalSection" class="card section-card" hidden>
+                    <div class="section-head">
+                        <span class="section-icon">🩺</span>
+                        <h3>Clinical Interpretation</h3>
                     </div>
-
-                    <div
-                        id="finalPrediction"
-                        class="final-prediction"
-                    >
-                        —
-                    </div>
-
-                    <div class="probability-container">
-
-                        <span>Final Probability</span>
-
-                        <strong id="finalProbability">
-                            —
-                        </strong>
-
-                    </div>
-
-                    <div class="probability-bar">
-
-                        <div
-                            id="finalProbabilityBar"
-                            class="probability-fill"
-                            style="width: 0%;"
-                        ></div>
-
-                    </div>
-
-                    <div class="threshold-text">
-                        Decision threshold:
-                        <span id="finalThreshold">0.50</span>
-                    </div>
-
+                    <p id="clinicalInterpretation" class="clinical-text"></p>
                 </div>
 
 
-                <!-- =================================================
-                     MODALITY RESULTS
-                ================================================== -->
-                <div class="section-title">
+                <!-- LEVEL-2 ATTENTION WEIGHTS ────────── -->
+                <div id="attentionSection" class="card section-card" hidden>
+                    <div class="section-head">
+                        <span class="section-icon">⚖️</span>
+                        <h3>Modality Attention Weights <em>(β_G, β_B, β_E — Level 2)</em></h3>
+                    </div>
+                    <p class="section-desc">
+                        Dynamic patient-specific inter-modality weights learned by
+                        the Hierarchical Attention MINN. Unlike static fusion,
+                        these change per patient.
+                    </p>
+                    <div id="attentionWeights"></div>
+                </div>
 
-                    <h3>Modality Results</h3>
 
-                    <p>
-                        Individual modality predictions returned
-                        by the analysis pipeline.
+                <!-- LEVEL-1 FEATURE SALIENCY ─────────── -->
+                <div id="saliencySection" class="card section-card" hidden>
+                    <div class="section-head">
+                        <span class="section-icon">🔬</span>
+                        <h3>Feature Saliency <em>(α — Level 1, Top-5 Dims)</em></h3>
+                    </div>
+                    <p class="section-desc">
+                        Intra-modality feature-level attention weights. Higher
+                        bars indicate dimensions with stronger diagnostic signal.
                     </p>
 
+                    <div class="sal-grid">
+
+                        <div class="sal-modality">
+                            <div class="sal-modality-label genetic-label">Genetic (α_G)</div>
+                            <div id="saliencyGenetic"></div>
+                        </div>
+
+                        <div class="sal-modality">
+                            <div class="sal-modality-label behavioral-label">Behavioral (α_B)</div>
+                            <div id="saliencyBehavioral"></div>
+                        </div>
+
+                        <div class="sal-modality">
+                            <div class="sal-modality-label environmental-label">Environmental (α_E)</div>
+                            <div id="saliencyEnvironmental"></div>
+                        </div>
+
+                    </div>
                 </div>
 
 
-                <div
-                    id="modalityResults"
-                    class="modality-grid"
-                >
-
-                    <!-- Populated by ui.js -->
-
-                </div>
-
-
-                <!-- =================================================
-                     FUSION INFORMATION
-                ================================================== -->
-                <div class="section-title">
-
-                    <h3>Cross-Modal Model</h3>
-
-                    <p>
-                        Feature-level interaction of Genetic, Behavioral, and Environmental representations.
+                <!-- COUNTERFACTUAL ───────────────────── -->
+                <div id="cfSection" class="card section-card cf-card" hidden>
+                    <div class="section-head">
+                        <span class="section-icon">💡</span>
+                        <h3>Counterfactual Analysis <em>(Objective 4)</em></h3>
+                    </div>
+                    <p class="section-desc">
+                        Minimal actionable perturbations to shift the prediction
+                        below the diagnostic threshold.
                     </p>
-
+                    <div id="cfBody"></div>
                 </div>
 
 
-                <div class="fusion-card">
-
-                    <div class="fusion-summary">
-
-                        <div class="summary-item">
-
-                            <span>Model</span>
-
-                            <strong id="fusionMode">
-                                —
-                            </strong>
-
-                        </div>
-
-                        <div class="summary-item">
-
-                            <span>Modalities Used</span>
-
-                            <strong id="modalitiesUsed">
-                                —
-                            </strong>
-
-                        </div>
-
-                        <div class="summary-item">
-
-                            <span>Threshold</span>
-
-                            <strong id="fusionThreshold">
-                                —
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- FUSION WEIGHTS -->
-                    <div class="section-subtitle">
-                        Model Architecture
-                    </div>
-
-                    <div
-                        id="fusionWeights"
-                        class="weight-grid"
-                    >
-
-                        <!-- Populated by ui.js -->
-
-                    </div>
-
-
-                    <!-- CONTRIBUTIONS -->
-                    <div class="section-subtitle">
-                        Model Inputs
-                    </div>
-
-                    <div
-                        id="fusionContributions"
-                        class="contribution-list"
-                    >
-
-                        <!-- Populated by ui.js -->
-
-                    </div>
-
-                </div>
-
-
-                <!-- =================================================
-                     TECHNICAL DETAILS
-                ================================================== -->
-                <details class="technical-details">
-
-                    <summary>
-                        Technical Response
-                    </summary>
-
+                <!-- TECHNICAL RAW ────────────────────── -->
+                <details class="card tech-details">
+                    <summary>Raw JSON Response</summary>
                     <pre id="rawResponse">—</pre>
-
                 </details>
 
-            </section>
+            </div><!-- /resultsSection -->
 
-        </main>
+        </section>
 
-
-        <!-- =========================================================
-             FOOTER
-        ========================================================== -->
-        <footer class="app-footer">
-
-            <p>
-                ASD Multimodal Analysis Framework
-            </p>
-
-            <p>
-                Research / Screening Support System
-            </p>
-
-        </footer>
-
-    </div>
+    </main>
 
 
-    <!-- =============================================================
-         JAVASCRIPT
-    ============================================================== -->
+    <!-- ═══════════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════════════ -->
+    <footer class="app-footer">
+        <p>ASD Multimodal Analysis Framework · Hierarchical Attention MINN · Objective 3 &amp; 4</p>
+    </footer>
 
-    <script src="js/api.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/app.js"></script>
+</div><!-- /app -->
+
+
+<!-- ════════════════════════════════════════════════════════
+     SCRIPTS  (order matters)
+════════════════════════════════════════════════════════ -->
+<script src="js/api.js?v=3.0"></script>
+<script src="js/ui.js?v=3.0"></script>
+<script src="js/app.js?v=3.0"></script>
 
 </body>
 </html>

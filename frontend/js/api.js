@@ -1,228 +1,123 @@
 // ============================================================
-// ASD MULTIMODAL ANALYSIS
-// Frontend -> Backend API Communication
+// ASD MULTIMODAL ANALYSIS — API Layer
+// Routes all calls through the new Hierarchical MINN endpoints
+// (Objective 3 + 4).  Legacy endpoints remain for upload flow.
 // ============================================================
 
-const API_BASE_URL = "http://127.0.0.1:8001";
+const API_BASE_URL = "http://127.0.0.1:8000";
+
+// ------------------------------------------------------------
+// Helpers
+// ------------------------------------------------------------
 
 function extractErrorMessage(data, status) {
     const detail = data?.detail;
-
-    if (typeof detail === "string" && detail.trim()) {
-        return detail;
-    }
-
+    if (typeof detail === "string" && detail.trim()) return detail;
     if (Array.isArray(detail) && detail.length > 0) {
         const first = detail[0];
-
-        if (typeof first === "string") {
-            return first;
-        }
-
-        if (first && typeof first.msg === "string") {
-            return first.msg;
-        }
+        if (typeof first === "string") return first;
+        if (first && typeof first.msg === "string") return first.msg;
     }
-
     if (detail && typeof detail === "object") {
-        if (typeof detail.message === "string") {
-            return detail.message;
-        }
-
-        try {
-            return JSON.stringify(detail);
-        } catch (error) {
-            // Fall through to generic message.
-        }
+        if (typeof detail.message === "string") return detail.message;
+        try { return JSON.stringify(detail); } catch (_) { /* fall through */ }
     }
-
-    if (typeof data?.message === "string" && data.message.trim()) {
-        return data.message;
-    }
-
+    if (typeof data?.message === "string" && data.message.trim()) return data.message;
     return `Backend request failed with status ${status}.`;
 }
 
-/**
- * Check whether the FastAPI backend is reachable.
- */
-async function checkBackendHealth() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/health`, {
-            method: "GET"
-        });
-
-        return response.ok;
-    } catch (error) {
-        console.error("Backend health check failed:", error);
-        return false;
-    }
-}
-
-
-/**
- * Send a patient analysis request to the FastAPI backend.
- *
- * @param {string} patientId
- * @param {string} mode
- * @returns {Promise<Object>}
- */
-async function analyzePatient(patientId, mode) {
-
-    const response = await fetch(`${API_BASE_URL}/api/demo`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            patient_id: patientId,
-            mode: mode
-        })
-    });
-
+async function _fetch(url, options = {}) {
+    const response = await fetch(url, options);
     let data = null;
-
-    try {
-        data = await response.json();
-    } catch (error) {
-        throw new Error(
-            `Backend returned an invalid response (HTTP ${response.status}).`
-        );
-    }
-
-    if (!response.ok) {
-        const message = extractErrorMessage(data, response.status);
-
-        throw new Error(message);
-    }
-
+    try { data = await response.json(); }
+    catch (_) { throw new Error(`Backend returned an invalid response (HTTP ${response.status}).`); }
+    if (!response.ok) throw new Error(extractErrorMessage(data, response.status));
     return data;
 }
 
+// ------------------------------------------------------------
+// Health
+// ------------------------------------------------------------
 
-/**
- * Run the final cross-modal model from three CSV files for one patient.
- *
- * @param {string} patientId
- * @param {{genetic: File, behavioral: File, environmental: File}} files
- * @returns {Promise<Object>}
- */
+async function checkBackendHealth() {
+    try {
+        const r = await fetch(`${API_BASE_URL}/health`);
+        return r.ok;
+    } catch (_) { return false; }
+}
+
+// ------------------------------------------------------------
+// PRIMARY: MINN Explain  (Objective 3 + 4 — demo patients)
+// GET /api/minn/explain/demo/{patient_id}
+// ------------------------------------------------------------
+
+async function analyzeMINNDemo(patientId) {
+    return _fetch(`${API_BASE_URL}/api/minn/explain/demo/${encodeURIComponent(patientId)}`);
+}
+
+// ------------------------------------------------------------
+// PRIMARY: MINN Counterfactual  (Objective 4)
+// GET /api/minn/counterfactual/demo/{patient_id}
+// ------------------------------------------------------------
+
+async function counterfactualMINNDemo(patientId) {
+    return _fetch(`${API_BASE_URL}/api/minn/counterfactual/demo/${encodeURIComponent(patientId)}`);
+}
+
+// ------------------------------------------------------------
+// PRIMARY: MINN Upload-based analysis (3 CSV files -> Objective 3 + 4)
+// POST /api/minn/explain/upload
+// ------------------------------------------------------------
+
 async function analyzeCrossModalUpload(patientId, files) {
     const formData = new FormData();
-    formData.append("patient_id", patientId);
+    if (patientId) formData.append("patient_id", patientId);
     formData.append("genetic_file", files.genetic);
     formData.append("behavioral_file", files.behavioral);
     formData.append("environmental_file", files.environmental);
-
-    const response = await fetch(`${API_BASE_URL}/api/cross-modal/upload`, {
-        method: "POST",
-        body: formData
-    });
-
-    let data = null;
-
-    try {
-        data = await response.json();
-    } catch (error) {
-        throw new Error(
-            `Backend returned an invalid response (HTTP ${response.status}).`
-        );
-    }
-
-    if (!response.ok) {
-        throw new Error(extractErrorMessage(data, response.status));
-    }
-
-    return data;
+    return _fetch(`${API_BASE_URL}/api/minn/explain/upload`, { method: "POST", body: formData });
 }
 
+// ------------------------------------------------------------
+// LEGACY: kept for backward-compat with Phase 07 callers
+// POST /api/predict/all-three or POST /api/demo
+// ------------------------------------------------------------
 
-/**
- * Run general inference using explicit modality file paths.
- *
- * @param {string} patientId
- * @param {string} mode
- * @param {{genetic?: string, behavioral?: string, environmental?: string}} filePaths
- * @returns {Promise<Object>}
- */
-async function inferPatient(patientId, mode, filePaths = {}) {
-
-    const payload = {
-        patient_id: patientId,
-        mode: mode
-    };
-
-    if (filePaths.genetic) {
-        payload.genetic = {
-            modality: "genetic",
-            file_path: filePaths.genetic
-        };
-    }
-
-    if (filePaths.behavioral) {
-        payload.behavioral = {
-            modality: "behavioral",
-            file_path: filePaths.behavioral
-        };
-    }
-
-    if (filePaths.environmental) {
-        payload.environmental = {
-            modality: "environmental",
-            file_path: filePaths.environmental
-        };
-    }
-
-    const response = await fetch(`${API_BASE_URL}/api/infer`, {
+async function predictAllThree(patientId) {
+    return _fetch(`${API_BASE_URL}/api/demo`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ patient_id: patientId, mode: "all_three" })
     });
-
-    let data = null;
-
-    try {
-        data = await response.json();
-    } catch (error) {
-        throw new Error(
-            `Backend returned an invalid response (HTTP ${response.status}).`
-        );
-    }
-
-    if (!response.ok) {
-        const message = extractErrorMessage(data, response.status);
-
-        throw new Error(message);
-    }
-
-    return data;
 }
 
+async function analyzePatient(patientId, _mode) {
+    // Default Analyze Patient workflow routes to the MINN endpoint for demo patients
+    return analyzeMINNDemo(patientId);
+}
+
+// ------------------------------------------------------------
+// Error formatter
+// ------------------------------------------------------------
+
+function getApiErrorMessage(error) {
+    if (!error) return "An unknown backend error occurred.";
+    if (error instanceof TypeError) return "Unable to connect to the backend. Make sure the FastAPI server is running.";
+    return error.message || "An unexpected backend error occurred.";
+}
+
+// ------------------------------------------------------------
+// Exports
+// ------------------------------------------------------------
 
 window.ASD_API = {
     API_BASE_URL,
     checkBackendHealth,
-    analyzePatient,
+    analyzeMINNDemo,
+    counterfactualMINNDemo,
     analyzeCrossModalUpload,
-    inferPatient,
+    predictAllThree,
+    // legacy alias
+    analyzePatient,
     getApiErrorMessage
 };
-
-
-/**
- * Convert backend errors into a user-friendly message.
- */
-function getApiErrorMessage(error) {
-
-    if (!error) {
-        return "An unknown backend error occurred.";
-    }
-
-    if (error instanceof TypeError) {
-        return "Unable to connect to the backend. Make sure the FastAPI server is running.";
-    }
-
-    return error.message || "An unexpected backend error occurred.";
-}

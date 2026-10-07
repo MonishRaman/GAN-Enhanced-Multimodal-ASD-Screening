@@ -1,868 +1,258 @@
 /* =========================================================
    ASD MULTIMODAL ANALYSIS
-   Step 19 — Main Frontend Application Controller
+   Application Controller — Hierarchical Attention MINN
+   (Objective 3 + 4)
    ========================================================= */
 
 (function () {
     "use strict";
 
-    // ---------------------------------------------------------
-    // CONFIGURATION
-    // ---------------------------------------------------------
+    // ── Config ─────────────────────────────────────────────
 
-    const BACKEND_BASE_URL = "http://127.0.0.1:8001";
+    const BACKEND_BASE_URL =
+        (window.ASD_API && window.ASD_API.API_BASE_URL) ||
+        "http://127.0.0.1:8000";
 
-    const DEMO_PATIENTS = [
-        "P001",
-        "P002",
-        "P003",
-        "P004",
-        "P005"
-    ];
+    const DEMO_PATIENTS = ["P001", "P002", "P003", "P004", "P005"];
 
-    // ---------------------------------------------------------
-    // DOM HELPERS
-    // ---------------------------------------------------------
+    // ── DOM helpers ────────────────────────────────────────
 
-    function findElement(...selectors) {
-        for (const selector of selectors) {
-            const element = document.querySelector(selector);
-
-            if (element) {
-                return element;
-            }
+    function findEl(...selectors) {
+        for (const s of selectors) {
+            const el = document.querySelector(s);
+            if (el) return el;
         }
-
         return null;
     }
 
-    function getPatientInput() {
-        return findElement(
-            "#patient-id",
-            "#patientId",
-            "[name='patient_id']",
-            "input[type='text']"
-        );
-    }
-
-    function getModeInput() {
-        return findElement(
-            "#analysis-mode",
-            "#analysisMode",
-            "[name='mode']",
-            "select"
-        );
-    }
-
-    function getAnalyzeButton() {
-        return findElement(
-            "#analyze-btn",
-            "#analyzeButton",
-            "[data-action='analyze']",
-            "button"
-        );
-    }
-
-    function getClearButton() {
-        return findElement(
-            "#clear-btn",
-            "#clearButton",
-            "[data-action='clear']"
-        );
-    }
+    function getPatientInput()   { return findEl("#patient-id","#patientId","[name='patient_id']","input[type='text']"); }
+    function getAnalyzeButton()  { return findEl("#analyzeButton","#analyze-btn","[data-action='analyze']","button"); }
+    function getClearButton()    { return findEl("#clearButton","#clear-btn","[data-action='clear']"); }
 
     function getUploadedFiles() {
         return {
-            genetic: findElement("#geneticFile", "#genetic-file")?.files?.[0] || null,
-            behavioral: findElement("#behavioralFile", "#behavioral-file")?.files?.[0] || null,
-            environmental: findElement("#environmentalFile", "#environmental-file")?.files?.[0] || null
+            genetic:       findEl("#geneticFile","#genetic-file")?.files?.[0]       || null,
+            behavioral:    findEl("#behavioralFile","#behavioral-file")?.files?.[0] || null,
+            environmental: findEl("#environmentalFile","#environmental-file")?.files?.[0] || null
         };
     }
 
-    // ---------------------------------------------------------
-    // STATUS
-    // ---------------------------------------------------------
+    // ── Status ─────────────────────────────────────────────
 
     function setBackendStatus(connected, message) {
-        if (
-            window.ASD_UI &&
-            typeof window.ASD_UI.setBackendStatus === "function"
-        ) {
+        if (window.ASD_UI && typeof window.ASD_UI.setBackendStatus === "function") {
             window.ASD_UI.setBackendStatus(connected, message);
-            return;
-        }
-
-        const statusElement = findElement(
-            "#connectionText",
-            "#backendStatus",
-            "#backend-status"
-        );
-
-        if (!statusElement) {
-            return;
-        }
-
-        statusElement.textContent = message;
-
-        statusElement.classList.remove(
-            "status-success",
-            "status-error",
-            "status-warning"
-        );
-
-        if (connected === true) {
-            statusElement.classList.add("status-success");
-        } else if (connected === false) {
-            statusElement.classList.add("status-error");
-        } else {
-            statusElement.classList.add("status-warning");
         }
     }
 
-    // ---------------------------------------------------------
-    // LOADING STATE
-    // ---------------------------------------------------------
+    // ── Loading ────────────────────────────────────────────
 
     function setLoading(isLoading) {
-        if (
-            window.ASD_UI &&
-            typeof window.ASD_UI.showLoading === "function"
-        ) {
+        if (window.ASD_UI && typeof window.ASD_UI.showLoading === "function") {
             window.ASD_UI.showLoading(isLoading);
-            return;
-        }
-
-        const analyzeButton = getAnalyzeButton();
-
-        if (analyzeButton) {
-            analyzeButton.disabled = isLoading;
-
-            if (isLoading) {
-                analyzeButton.dataset.originalText =
-                    analyzeButton.textContent;
-
-                analyzeButton.textContent = "Analyzing...";
-            } else {
-                analyzeButton.textContent =
-                    analyzeButton.dataset.originalText ||
-                    "Analyze Patient";
-            }
-        }
-
-        const loadingElement = findElement(
-            "#loadingSection",
-            "#loading-state",
-            ".loading-state"
-        );
-
-        if (loadingElement) {
-            loadingElement.hidden = !isLoading;
         }
     }
 
-    // ---------------------------------------------------------
-    // API REQUEST
-    // ---------------------------------------------------------
+    // ── API Calls ──────────────────────────────────────────
 
-    async function callDemoAPI(patientId, mode) {
-
-        const response = await fetch(
-            `${BACKEND_BASE_URL}/api/demo`,
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    patient_id: patientId,
-                    mode: mode
-                })
-            }
-        );
-
-        let payload = null;
-
-        try {
-            payload = await response.json();
-        } catch (error) {
-            payload = {
-                status: "error",
-                message: "Backend returned an invalid JSON response."
-            };
+    /**
+     * PRIMARY PATH: Demo patient → Hierarchical MINN explain endpoint.
+     * GET /api/minn/explain/demo/{patient_id}
+     */
+    async function callMINNExplain(patientId) {
+        if (window.ASD_API && typeof window.ASD_API.analyzeMINNDemo === "function") {
+            return window.ASD_API.analyzeMINNDemo(patientId);
         }
-
-        if (!response.ok) {
-            const message =
-                payload?.detail ||
-                payload?.message ||
-                `Backend request failed with status ${response.status}.`;
-
-            throw new Error(message);
-        }
-
-        return payload;
+        // Fallback inline fetch
+        const r = await fetch(`${BACKEND_BASE_URL}/api/minn/explain/demo/${encodeURIComponent(patientId)}`);
+        const d = await r.json();
+        if (!r.ok) throw new Error(d?.detail || `HTTP ${r.status}`);
+        return d;
     }
 
-    // ---------------------------------------------------------
-    // API LAYER COMPATIBILITY
-    // ---------------------------------------------------------
-
-    async function analyzePatient(patientId, mode) {
-
-        /*
-         * If api.js exposes a reusable API function,
-         * use it. Otherwise use the backend endpoint directly.
-         */
-
-        if (
-            window.ASD_API &&
-            typeof window.ASD_API.analyzePatient === "function"
-        ) {
-            return window.ASD_API.analyzePatient(
-                patientId,
-                mode
-            );
-        }
-
-        if (
-            window.ASD_API &&
-            typeof window.ASD_API.analyzeDemoPatient === "function"
-        ) {
-            return window.ASD_API.analyzeDemoPatient(
-                patientId,
-                mode
-            );
-        }
-
-        if (
-            window.API &&
-            typeof window.API.demoPatient === "function"
-        ) {
-            return window.API.demoPatient(
-                patientId,
-                mode
-            );
-        }
-
-        if (
-            window.API &&
-            typeof window.API.analyzeDemoPatient === "function"
-        ) {
-            return window.API.analyzeDemoPatient(
-                patientId,
-                mode
-            );
-        }
-
-        return callDemoAPI(
-            patientId,
-            mode
-        );
-    }
-
-    async function analyzeUploadedPatient(patientId, files) {
-        if (
-            window.ASD_API &&
-            typeof window.ASD_API.analyzeCrossModalUpload === "function"
-        ) {
+    /**
+     * UPLOAD PATH: 3 CSV files → cross-modal upload endpoint.
+     * POST /api/cross-modal/upload
+     */
+    async function callUploadAnalyze(patientId, files) {
+        if (window.ASD_API && typeof window.ASD_API.analyzeCrossModalUpload === "function") {
             return window.ASD_API.analyzeCrossModalUpload(patientId, files);
         }
-
-        throw new Error("Cross-modal upload API is not available.");
+        throw new Error("Upload API is unavailable.");
     }
 
-    // ---------------------------------------------------------
-    // UI RENDERING COMPATIBILITY
-    // ---------------------------------------------------------
+    // ── Render ─────────────────────────────────────────────
 
     function renderResult(result) {
-
-        /*
-         * ui.js is responsible for presentation.
-         * We support several possible exported function names
-         * so the controller remains compatible with the UI layer.
-         */
-
-        if (
-            window.ASD_UI &&
-            typeof window.ASD_UI.renderAnalysisResult === "function"
-        ) {
+        if (window.ASD_UI && typeof window.ASD_UI.renderAnalysisResult === "function") {
             window.ASD_UI.renderAnalysisResult(result);
             return;
         }
-
-        if (
-            window.ASD_UI &&
-            typeof window.ASD_UI.renderResult === "function"
-        ) {
-            window.ASD_UI.renderResult(result);
-            return;
-        }
-
-        if (
-            window.UI &&
-            typeof window.UI.renderAnalysisResult === "function"
-        ) {
-            window.UI.renderAnalysisResult(result);
-            return;
-        }
-
-        if (
-            window.UI &&
-            typeof window.UI.renderResult === "function"
-        ) {
-            window.UI.renderResult(result);
-            return;
-        }
-
-        /*
-         * Last-resort rendering.
-         * This ensures the application still shows the backend
-         * response even if ui.js does not expose a renderer.
-         */
-
-        renderFallbackResult(result);
+        console.log("Backend result:", result);
     }
 
-    // ---------------------------------------------------------
-    // FALLBACK RESULT RENDERER
-    // ---------------------------------------------------------
-
-    function renderFallbackResult(result) {
-
-        const resultsContainer = findElement(
-            "#results",
-            "#analysis-results",
-            ".analysis-results"
-        );
-
-        if (!resultsContainer) {
-            console.log(
-                "Backend result:",
-                result
-            );
-
-            return;
-        }
-
-        const fusion = result?.fusion || {};
-
-        const probability =
-            typeof fusion.final_probability === "number"
-                ? fusion.final_probability
-                : null;
-
-        const prediction =
-            fusion.final_prediction ||
-            "—";
-
-        const modalities =
-            Array.isArray(fusion.modalities_used)
-                ? fusion.modalities_used.join(", ")
-                : "—";
-
-        resultsContainer.innerHTML = `
-            <div class="result-summary">
-
-                <h3>Analysis Complete</h3>
-
-                <p>
-                    <strong>Patient:</strong>
-                    ${escapeHTML(result?.patient_id || "—")}
-                </p>
-
-                <p>
-                    <strong>Prediction:</strong>
-                    ${escapeHTML(prediction)}
-                </p>
-
-                <p>
-                    <strong>Final Probability:</strong>
-                    ${
-                        probability !== null
-                            ? `${(probability * 100).toFixed(2)}%`
-                            : "—"
-                    }
-                </p>
-
-                <p>
-                    <strong>Modalities Used:</strong>
-                    ${escapeHTML(modalities)}
-                </p>
-
-            </div>
-        `;
-    }
-
-    // ---------------------------------------------------------
-    // ERROR RENDERING
-    // ---------------------------------------------------------
+    // ── Error ──────────────────────────────────────────────
 
     function showError(error) {
-
         const message =
-            window.ASD_API &&
-            typeof window.ASD_API.getApiErrorMessage === "function"
+            (window.ASD_API && typeof window.ASD_API.getApiErrorMessage === "function")
                 ? window.ASD_API.getApiErrorMessage(error)
-                : (error && error.message)
-                    ? error.message
-                    : "An unexpected backend error occurred.";
+                : (error?.message || "An unexpected error occurred.");
 
-        console.error(
-            "ASD Multimodal Analysis Error:",
-            error
-        );
+        console.error("ASD Analysis Error:", error);
 
-        if (
-            window.ASD_UI &&
-            typeof window.ASD_UI.showError === "function"
-        ) {
-            window.ASD_UI.showError(
-                message
-            );
-
-            return;
-        }
-
-        if (
-            window.UI &&
-            typeof window.UI.showError === "function"
-        ) {
-            window.UI.showError(
-                message
-            );
-
-            return;
-        }
-
-        const errorElement = findElement(
-            "#error-message",
-            "#error",
-            ".error-message"
-        );
-
-        if (errorElement) {
-            errorElement.textContent =
-                message;
-
-            errorElement.hidden = false;
-        } else {
-            alert(
-                `Analysis failed:\n\n${error.message}`
-            );
+        if (window.ASD_UI && typeof window.ASD_UI.showError === "function") {
+            window.ASD_UI.showError(message);
         }
     }
 
-    // ---------------------------------------------------------
-    // VALIDATION
-    // ---------------------------------------------------------
+    // ── Validation ─────────────────────────────────────────
 
     function validatePatientId(patientId) {
-
-        if (!patientId) {
-            throw new Error(
-                "Please enter a patient ID."
-            );
-        }
-
-        const normalized =
-            patientId.trim().toUpperCase();
-
-        if (!normalized) {
-            throw new Error(
-                "Patient ID cannot be empty."
-            );
-        }
-
-        return normalized;
+        if (!patientId || !patientId.trim()) throw new Error("Please enter a patient ID.");
+        return patientId.trim().toUpperCase();
     }
 
-    function validateMode(mode) {
-
-        const validModes = [
-            "genetic",
-            "behavioral",
-            "environmental",
-            "genetic_behavioral",
-            "genetic_environmental",
-            "behavioral_environmental",
-            "all_three"
-        ];
-
-        if (!validModes.includes(mode)) {
-            throw new Error(
-                `Unsupported analysis mode: ${mode}`
-            );
-        }
-
-        return mode;
-    }
-
-    // ---------------------------------------------------------
-    // ANALYZE BUTTON HANDLER
-    // ---------------------------------------------------------
+    // ── Analyze handler ────────────────────────────────────
 
     async function handleAnalyze() {
-
         try {
+            const patientInput   = getPatientInput();
+            const uploadedFiles  = getUploadedFiles();
+            const fileCount      = Object.values(uploadedFiles).filter(Boolean).length;
 
-            const patientInput =
-                getPatientInput();
-
-            const modeInput =
-                getModeInput();
-
-            const mode =
-                validateMode(
-                    modeInput
-                        ? modeInput.value
-                        : "all_three"
-                );
-
-            const uploadedFiles = getUploadedFiles();
-            const selectedFileCount = Object.values(uploadedFiles)
-                .filter(Boolean)
-                .length;
-
-            if (selectedFileCount > 0 && selectedFileCount < 3) {
-                throw new Error(
-                    "Please select Genetic, Behavioral, and Environmental CSV files."
-                );
+            if (fileCount > 0 && fileCount < 3) {
+                throw new Error("Please select all three CSV files (Genetic, Behavioral, Environmental).");
             }
 
-            const enteredPatientId = patientInput
-                ? patientInput.value
-                : "";
-
-            const patientId = selectedFileCount === 3
-                ? enteredPatientId.trim().toUpperCase()
-                : validatePatientId(enteredPatientId);
+            const rawId      = patientInput ? patientInput.value : "";
+            const patientId  = fileCount === 3
+                ? rawId.trim().toUpperCase()
+                : validatePatientId(rawId);
 
             setLoading(true);
+            setBackendStatus(null, "Connecting to backend…");
 
-            setBackendStatus(
-                null,
-                "Connecting to backend..."
-            );
+            const result = fileCount === 3
+                ? await callUploadAnalyze(patientId, uploadedFiles)
+                : await callMINNExplain(patientId);
 
-            const result = selectedFileCount === 3
-                ? await analyzeUploadedPatient(patientId, uploadedFiles)
-                : await analyzePatient(patientId, mode);
-
-            setBackendStatus(
-                true,
-                "Backend connected"
-            );
-
+            setBackendStatus(true, "Backend connected");
             renderResult(result);
 
-            console.log(
-                "Analysis result:",
-                result
-            );
+            console.log("MINN Analysis result:", result);
 
         } catch (error) {
-
-            const isConnectionError =
-                error instanceof TypeError;
-
+            const isNetworkError = error instanceof TypeError;
             setBackendStatus(
-                !isConnectionError,
-                isConnectionError
-                    ? "Backend connection failed"
-                    : "Backend connected"
+                !isNetworkError,
+                isNetworkError ? "Backend connection failed" : "Backend connected"
             );
-
             showError(error);
-
         } finally {
-
             setLoading(false);
-
         }
     }
 
-    // ---------------------------------------------------------
-    // CLEAR HANDLER
-    // ---------------------------------------------------------
+    // ── Clear handler ──────────────────────────────────────
 
     function handleClear() {
+        const patientInput = getPatientInput();
+        if (patientInput) patientInput.value = "";
 
-        const patientInput =
-            getPatientInput();
+        ["#geneticFile", "#behavioralFile", "#environmentalFile"].forEach(sel => {
+            const f = document.querySelector(sel);
+            if (f) f.value = "";
+        });
 
-        if (patientInput) {
-            patientInput.value = "";
-        }
-
-        ["#geneticFile", "#behavioralFile", "#environmentalFile"].forEach(
-            selector => {
-                const fileInput = document.querySelector(selector);
-                if (fileInput) {
-                    fileInput.value = "";
-                }
-            }
-        );
-
-        const errorElement = findElement(
-            "#error-message",
-            "#error",
-            ".error-message"
-        );
-
-        if (errorElement) {
-            errorElement.hidden = true;
-            errorElement.textContent = "";
-        }
-
-        if (
-            window.ASD_UI &&
-            typeof window.ASD_UI.clearAnalysisUI === "function"
-        ) {
+        if (window.ASD_UI && typeof window.ASD_UI.clearAnalysisUI === "function") {
             window.ASD_UI.clearAnalysisUI();
-            return;
         }
-
-        if (
-            window.UI &&
-            typeof window.UI.clearResults === "function"
-        ) {
-            window.UI.clearResults();
-            return;
-        }
-
-        console.log(
-            "Analysis form cleared."
-        );
     }
 
-    // ---------------------------------------------------------
-    // BACKEND HEALTH CHECK
-    // ---------------------------------------------------------
+    // ── Backend health ─────────────────────────────────────
 
     async function checkBackend() {
-
         try {
+            const healthy =
+                (window.ASD_API && typeof window.ASD_API.checkBackendHealth === "function")
+                    ? await window.ASD_API.checkBackendHealth()
+                    : (await fetch(`${BACKEND_BASE_URL}/health`)).ok;
 
-            if (
-                window.ASD_API &&
-                typeof window.ASD_API.checkBackendHealth === "function"
-            ) {
-                const healthy = await window.ASD_API.checkBackendHealth();
-
-                setBackendStatus(
-                    healthy,
-                    healthy
-                        ? "Backend connected"
-                        : "Backend not connected"
-                );
-
-                return healthy;
-            }
-
-            const response =
-                await fetch(
-                    `${BACKEND_BASE_URL}/health`,
-                    {
-                        method: "GET"
-                    }
-                );
-
-            if (response.ok) {
-
-                setBackendStatus(
-                    true,
-                    "Backend connected"
-                );
-
-                return true;
-            }
-
-        } catch (error) {
-
-            console.warn(
-                "Backend health check failed:",
-                error
-            );
-
+            setBackendStatus(healthy, healthy ? "Backend connected" : "Backend not connected");
+            return healthy;
+        } catch (_) {
+            setBackendStatus(false, "Backend not connected");
+            return false;
         }
-
-        setBackendStatus(
-            false,
-            "Backend not connected"
-        );
-
-        return false;
     }
 
-    // ---------------------------------------------------------
-    // HTML ESCAPING
-    // ---------------------------------------------------------
-
-    function escapeHTML(value) {
-
-        return String(value)
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
-    }
-
-    // ---------------------------------------------------------
-    // EVENT BINDING
-    // ---------------------------------------------------------
+    // ── Event binding ──────────────────────────────────────
 
     function bindEvents() {
+        const analyzeBtn = getAnalyzeButton();
+        const clearBtn   = getClearButton();
+        const patientIn  = getPatientInput();
 
-        const analyzeButton =
-            getAnalyzeButton();
-
-        const clearButton =
-            getClearButton();
-
-        if (analyzeButton) {
-
-            analyzeButton.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-                    handleAnalyze();
-
-                }
-            );
-
+        if (analyzeBtn) {
+            analyzeBtn.addEventListener("click", e => { e.preventDefault(); handleAnalyze(); });
         } else {
-
-            console.warn(
-                "Analyze button not found."
-            );
-
+            console.warn("Analyze button not found.");
         }
 
-        if (clearButton) {
-
-            clearButton.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-                    handleClear();
-
-                }
-            );
-
+        if (clearBtn) {
+            clearBtn.addEventListener("click", e => { e.preventDefault(); handleClear(); });
         }
 
-        const patientInput =
-            getPatientInput();
-
-        if (patientInput) {
-
-            patientInput.addEventListener(
-                "keydown",
-                function (event) {
-
-                    if (
-                        event.key === "Enter"
-                    ) {
-
-                        event.preventDefault();
-
-                        handleAnalyze();
-
-                    }
-
-                }
-            );
-
+        if (patientIn) {
+            patientIn.addEventListener("keydown", e => {
+                if (e.key === "Enter") { e.preventDefault(); handleAnalyze(); }
+            });
         }
 
+        // Demo patient quick-select buttons
+        document.querySelectorAll("[data-demo-patient]").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const pid = btn.dataset.demoPatient;
+                if (patientIn) patientIn.value = pid;
+                handleAnalyze();
+            });
+        });
     }
 
-    // ---------------------------------------------------------
-    // APPLICATION INITIALIZATION
-    // ---------------------------------------------------------
+    // ── Initialize ─────────────────────────────────────────
 
     function initializeApp() {
-
-        console.log(
-            "========================================"
-        );
-
-        console.log(
-            "ASD MULTIMODAL ANALYSIS"
-        );
-
-        console.log(
-            "Frontend application initializing..."
-        );
-
-        console.log(
-            "Demo patients:",
-            DEMO_PATIENTS.join(", ")
-        );
-
-        console.log(
-            "Backend:",
-            BACKEND_BASE_URL
-        );
-
-        console.log(
-            "========================================"
-        );
+        console.log("================================================");
+        console.log("ASD Multimodal — Hierarchical Attention MINN UI");
+        console.log("Demo patients:", DEMO_PATIENTS.join(", "));
+        console.log("Backend:", BACKEND_BASE_URL);
+        console.log("================================================");
 
         bindEvents();
 
-        if (
-            window.ASD_UI &&
-            typeof window.ASD_UI.clearAnalysisUI === "function"
-        ) {
+        if (window.ASD_UI && typeof window.ASD_UI.clearAnalysisUI === "function") {
             window.ASD_UI.clearAnalysisUI();
         }
 
         checkBackend();
-
     }
 
-    // ---------------------------------------------------------
-    // PUBLIC APPLICATION API
-    // ---------------------------------------------------------
+    // ── Public API ─────────────────────────────────────────
 
     window.ASD_APP = {
-
-        initialize: initializeApp,
-
-        analyze: handleAnalyze,
-
-        clear: handleClear,
-
+        initialize:   initializeApp,
+        analyze:      handleAnalyze,
+        clear:        handleClear,
         checkBackend: checkBackend
-
     };
 
-    // ---------------------------------------------------------
-    // START APPLICATION
-    // ---------------------------------------------------------
+    // ── Boot ───────────────────────────────────────────────
 
-    if (
-        document.readyState === "loading"
-    ) {
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            initializeApp
-        );
-
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeApp);
     } else {
-
         initializeApp();
-
     }
 
 })();

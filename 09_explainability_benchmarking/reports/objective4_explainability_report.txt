@@ -1,0 +1,149 @@
+======================================================================
+OBJECTIVE 4: CLINICAL EXPLAINABILITY & COUNTERFACTUAL REPORT
+======================================================================
+
+SUMMARY OF IMPLEMENTATION:
+1. Hierarchical attention extraction successfully provides:
+   - Level 2: Patient-specific modality importance (beta_G, beta_B, beta_E).
+   - Level 1: Top-5 salient latent feature dimensions per modality.
+2. Counterfactual generation successfully computes minimum actionable perturbations
+   to transition ASD-positive cases below the 0.50 diagnostic threshold.
+
+SAMPLE CASE STUDY:
+----------------------------------------------------------------------
+{
+  "patient_id": "PATIENT_001_HIGH_ASD",
+  "attention_explanation": {
+    "patient_id": "PATIENT_001_HIGH_ASD",
+    "prediction": {
+      "asd_probability": 0.9993,
+      "classification": "ASD",
+      "confidence": 0.9993,
+      "decision_threshold": 0.5
+    },
+    "modality_attention_level_2": {
+      "genetic_weight": 0.415,
+      "behavioral_weight": 0.3231,
+      "environmental_weight": 0.262,
+      "primary_driving_modality": "Genetic"
+    },
+    "feature_saliency_level_1": {
+      "top_genetic_dimensions": [
+        {
+          "dimension": 17,
+          "attention_weight": 0.2603
+        },
+        {
+          "dimension": 28,
+          "attention_weight": 0.0444
+        },
+        {
+          "dimension": 32,
+          "attention_weight": 0.0389
+        },
+        {
+          "dimension": 21,
+          "attention_weight": 0.0324
+        },
+        {
+          "dimension": 10,
+          "attention_weight": 0.0322
+        }
+      ],
+      "top_behavioral_dimensions": [
+        {
+          "dimension": 12,
+          "attention_weight": 0.0773
+        },
+        {
+          "dimension": 31,
+          "attention_weight": 0.0716
+        },
+        {
+          "dimension": 25,
+          "attention_weight": 0.0458
+        },
+        {
+          "dimension": 9,
+          "attention_weight": 0.0442
+        },
+        {
+          "dimension": 24,
+          "attention_weight": 0.0403
+        }
+      ],
+      "top_environmental_dimensions": [
+        {
+          "dimension": 20,
+          "attention_weight": 0.0516
+        },
+        {
+          "dimension": 2,
+          "attention_weight": 0.0472
+        },
+        {
+          "dimension": 5,
+          "attention_weight": 0.0428
+        },
+        {
+          "dimension": 19,
+          "attention_weight": 0.0424
+        },
+        {
+          "dimension": 25,
+          "attention_weight": 0.0422
+        }
+      ]
+    },
+    "clinical_interpretation": "Patient PATIENT_001_HIGH_ASD is screened as ASD with 99.9% confidence. Diagnostic decision was primarily driven by the Genetic modality (41.5% dynamic weight)."
+  },
+  "counterfactual_explanation": {
+    "patient_id": "PATIENT_001_HIGH_ASD",
+    "status": "COUNTERFACTUAL_FOUND",
+    "original_diagnosis": {
+      "probability": 0.9993,
+      "classification": "ASD"
+    },
+    "counterfactual_outcome": {
+      "probability": 0.2354,
+      "classification": "Control (Non-ASD)",
+      "probability_reduction": 0.764,
+      "target_threshold": 0.35
+    },
+    "perturbation_cost": {
+      "l2_distance": 0.8784,
+      "l1_distance": 5.5703
+    },
+    "actionable_recommendations": {
+      "behavioral_adjustments": [
+        {
+          "dimension": 20,
+          "recommended_shift": 0.207
+        },
+        {
+          "dimension": 30,
+          "recommended_shift": 0.202
+        },
+        {
+          "dimension": 10,
+          "recommended_shift": 0.1991
+        }
+      ],
+      "environmental_adjustments": [
+        {
+          "dimension": 21,
+          "recommended_shift": 0.0932
+        },
+        {
+          "dimension": 23,
+          "recommended_shift": -0.0875
+        },
+        {
+          "dimension": 16,
+          "recommended_shift": -0.0863
+        }
+      ]
+    },
+    "clinical_summary": "For patient PATIENT_001_HIGH_ASD (original risk 99.9%), a target probability of 23.5% is achievable through an L2 intervention distance of 0.88, primarily requiring adjustments to Behavioral Dimensions [20, 30, 10] and Environmental Exposures [21, 23, 16]."
+  }
+}
