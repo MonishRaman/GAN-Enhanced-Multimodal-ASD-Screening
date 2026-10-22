@@ -128,7 +128,7 @@ function attentionBar(label, weight, isPrimary) {
 
 function saliencyRows(dimArr) {
     if (!Array.isArray(dimArr) || dimArr.length === 0) {
-        return `<p class="muted-text">No saliency data.</p>`;
+        return `<p class="muted-text">Modality not provided in current screening.</p>`;
     }
     const max = Math.max(...dimArr.map(d => d.attention_weight), 0.001);
     return dimArr.map(d => {
@@ -167,7 +167,7 @@ function renderCounterfactual(cfData) {
         <div class="cf-status cf-ok">
             ✓ ${cf.message || `Patient is screened as Control / Non-ASD (${origPct}% risk). No counterfactual required.`}
         </div>`;
-    } else if (cf.status === "COUNTERFACTUAL_FOUND") {
+    } else if (cf.status === "COUNTERFACTUAL_FOUND" || cf.status === "DIAGNOSTIC_FLIP_ACHIEVED" || cf.status === "PARTIAL_REDUCTION_ONLY") {
         const origDiag = cf.original_diagnosis || {};
         const outcome  = cf.counterfactual_outcome || {};
         const cost     = cf.perturbation_cost || {};
@@ -178,18 +178,27 @@ function renderCounterfactual(cfData) {
         const reductionPct  = typeof outcome.probability_reduction === "number" ? (outcome.probability_reduction * 100).toFixed(2) : "—";
         const targetThresh  = typeof outcome.target_threshold === "number" ? (outcome.target_threshold * 100).toFixed(0) : "35";
 
+        let statusClass = "cf-ok";
+        let titleText = `✓ Actionable Counterfactual Found — Target Risk ≤ ${targetThresh}% Achieved (${outcome.classification || "Control"})`;
+        if (cf.status === "DIAGNOSTIC_FLIP_ACHIEVED") {
+            titleText = `✓ Diagnostic Flip Achieved — Clinical Risk Reduced Below 50.0% Threshold (${cfProbPct}%)`;
+        } else if (cf.status === "PARTIAL_REDUCTION_ONLY") {
+            statusClass = "cf-warn";
+            titleText = `⚠️ High Non-Actionable Genomic Risk — Partial Risk Reduction to ${cfProbPct}% Achieved`;
+        }
+
         html += `
-        <div class="cf-status cf-ok">
-            ✓ Actionable Counterfactual Found — Target Risk ≤ ${targetThresh}% Achieved (${outcome.classification || "Control"})
+        <div class="cf-status ${statusClass}">
+            ${titleText}
         </div>
 
         <div class="cf-metric-row">
-            <span>Original ASD Risk</span>
+            <span>Original ASD Screening Risk</span>
             <strong>${origProbPct}% (${origDiag.classification || "ASD"})</strong>
         </div>
         <div class="cf-metric-row">
             <span>Counterfactual Risk Outcome</span>
-            <strong style="color: var(--success);">${cfProbPct}%</strong>
+            <strong style="color: ${statusClass === "cf-ok" ? "var(--success)" : "var(--amber)"}">${cfProbPct}%</strong>
         </div>
         <div class="cf-metric-row">
             <span>Probability Reduction (Δ)</span>
@@ -272,7 +281,7 @@ function renderAnalysisResult(data) {
     const threshold  = pred.decision_threshold ?? pred.threshold ?? 0.50;
     const modelName  = isCrossModal
         ? (cm.model || "Cross-Modal Multimodal Fusion Network")
-        : "Hierarchical Attention MINN (Objective 3)";
+        : (data.model_name || result.model_name || "Hierarchical Attention MINN (Objective 3)");
 
     // ── Patient + prediction header ──────────────────────
     setText("resultPatient", `Patient: ${patientId}`);
@@ -360,7 +369,11 @@ function renderAnalysisResult(data) {
     if (salB) salB.innerHTML = saliencyRows(sal.top_behavioral_dimensions);
     if (salE) salE.innerHTML = saliencyRows(sal.top_environmental_dimensions);
 
-    const hasSal = !!(sal.top_genetic_dimensions || sal.top_behavioral_dimensions);
+    const hasSal = !!(
+        (sal.top_genetic_dimensions && sal.top_genetic_dimensions.length > 0) ||
+        (sal.top_behavioral_dimensions && sal.top_behavioral_dimensions.length > 0) ||
+        (sal.top_environmental_dimensions && sal.top_environmental_dimensions.length > 0)
+    );
     setVisible("saliencySection", hasSal);
 
     // Raw JSON

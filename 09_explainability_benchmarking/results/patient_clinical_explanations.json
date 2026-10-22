@@ -93,46 +93,46 @@
                 "classification": "ASD"
             },
             "counterfactual_outcome": {
-                "probability": 0.2354,
+                "probability": 0.0618,
                 "classification": "Control (Non-ASD)",
-                "probability_reduction": 0.764,
+                "probability_reduction": 0.9376,
                 "target_threshold": 0.35
             },
             "perturbation_cost": {
-                "l2_distance": 0.8784,
-                "l1_distance": 5.5703
+                "l2_distance": 1.7086,
+                "l1_distance": 12.8014
             },
             "actionable_recommendations": {
                 "behavioral_adjustments": [
                     {
-                        "dimension": 20,
-                        "recommended_shift": 0.207
+                        "dimension": 7,
+                        "recommended_shift": -0.2821
                     },
                     {
-                        "dimension": 30,
-                        "recommended_shift": 0.202
+                        "dimension": 11,
+                        "recommended_shift": 0.2747
                     },
                     {
-                        "dimension": 10,
-                        "recommended_shift": 0.1991
+                        "dimension": 2,
+                        "recommended_shift": -0.2727
                     }
                 ],
                 "environmental_adjustments": [
                     {
-                        "dimension": 21,
-                        "recommended_shift": 0.0932
+                        "dimension": 20,
+                        "recommended_shift": -0.2795
                     },
                     {
-                        "dimension": 23,
-                        "recommended_shift": -0.0875
+                        "dimension": 2,
+                        "recommended_shift": -0.2769
                     },
                     {
-                        "dimension": 16,
-                        "recommended_shift": -0.0863
+                        "dimension": 1,
+                        "recommended_shift": -0.2655
                     }
                 ]
             },
-            "clinical_summary": "For patient PATIENT_001_HIGH_ASD (original risk 99.9%), a target probability of 23.5% is achievable through an L2 intervention distance of 0.88, primarily requiring adjustments to Behavioral Dimensions [20, 30, 10] and Environmental Exposures [21, 23, 16]."
+            "clinical_summary": "For patient PATIENT_001_HIGH_ASD (original risk 99.9%), a target probability of 6.2% is achievable through an L2 intervention distance of 1.71, primarily requiring adjustments to Behavioral Dimensions [7, 11, 2] and Environmental Exposures [20, 2, 1]."
         }
     },
     {
@@ -229,46 +229,46 @@
                 "classification": "ASD"
             },
             "counterfactual_outcome": {
-                "probability": 0.2378,
+                "probability": 0.3453,
                 "classification": "Control (Non-ASD)",
-                "probability_reduction": 0.7568,
+                "probability_reduction": 0.6493,
                 "target_threshold": 0.35
             },
             "perturbation_cost": {
-                "l2_distance": 1.1818,
-                "l1_distance": 8.4362
+                "l2_distance": 1.699,
+                "l1_distance": 12.8601
             },
             "actionable_recommendations": {
                 "behavioral_adjustments": [
                     {
-                        "dimension": 21,
-                        "recommended_shift": -0.2261
+                        "dimension": 11,
+                        "recommended_shift": 0.2754
                     },
                     {
-                        "dimension": 30,
-                        "recommended_shift": 0.2213
+                        "dimension": 23,
+                        "recommended_shift": 0.2751
                     },
                     {
-                        "dimension": 5,
-                        "recommended_shift": 0.2187
+                        "dimension": 31,
+                        "recommended_shift": -0.2707
                     }
                 ],
                 "environmental_adjustments": [
                     {
-                        "dimension": 5,
-                        "recommended_shift": -0.1985
+                        "dimension": 10,
+                        "recommended_shift": 0.2813
                     },
                     {
-                        "dimension": 6,
-                        "recommended_shift": -0.1902
+                        "dimension": 21,
+                        "recommended_shift": 0.2797
                     },
                     {
-                        "dimension": 26,
-                        "recommended_shift": -0.1901
+                        "dimension": 12,
+                        "recommended_shift": 0.2779
                     }
                 ]
             },
-            "clinical_summary": "For patient PATIENT_002_MODERATE_ASD (original risk 99.5%), a target probability of 23.8% is achievable through an L2 intervention distance of 1.18, primarily requiring adjustments to Behavioral Dimensions [21, 30, 5] and Environmental Exposures [5, 6, 26]."
+            "clinical_summary": "For patient PATIENT_002_MODERATE_ASD (original risk 99.5%), a target probability of 34.5% is achievable through an L2 intervention distance of 1.70, primarily requiring adjustments to Behavioral Dimensions [11, 23, 31] and Environmental Exposures [10, 21, 12]."
         }
     },
     {
@@ -365,46 +365,46 @@
                 "classification": "ASD"
             },
             "counterfactual_outcome": {
-                "probability": 0.0918,
+                "probability": 0.1527,
                 "classification": "Control (Non-ASD)",
-                "probability_reduction": 0.9079,
+                "probability_reduction": 0.8471,
                 "target_threshold": 0.35
             },
             "perturbation_cost": {
-                "l2_distance": 1.1695,
-                "l1_distance": 7.5553
+                "l2_distance": 2.2253,
+                "l1_distance": 16.4278
             },
             "actionable_recommendations": {
                 "behavioral_adjustments": [
                     {
-                        "dimension": 2,
-                        "recommended_shift": -0.3464
+                        "dimension": 7,
+                        "recommended_shift": -0.3836
                     },
                     {
-                        "dimension": 11,
-                        "recommended_shift": 0.3411
+                        "dimension": 31,
+                        "recommended_shift": -0.3773
                     },
                     {
                         "dimension": 26,
-                        "recommended_shift": 0.3271
+                        "recommended_shift": 0.3729
                     }
                 ],
                 "environmental_adjustments": [
                     {
-                        "dimension": 24,
-                        "recommended_shift": 0.1049
+                        "dimension": 13,
+                        "recommended_shift": 0.3749
                     },
                     {
-                        "dimension": 23,
-                        "recommended_shift": -0.1005
+                        "dimension": 27,
+                        "recommended_shift": -0.3703
                     },
                     {
                         "dimension": 5,
-                        "recommended_shift": -0.0992
+                        "recommended_shift": -0.3653
                     }
                 ]
             },
-            "clinical_summary": "For patient PATIENT_003_BORDERLINE (original risk 100.0%), a target probability of 9.2% is achievable through an L2 intervention distance of 1.17, primarily requiring adjustments to Behavioral Dimensions [2, 11, 26] and Environmental Exposures [24, 23, 5]."
+            "clinical_summary": "For patient PATIENT_003_BORDERLINE (original risk 100.0%), a target probability of 15.3% is achievable through an L2 intervention distance of 2.23, primarily requiring adjustments to Behavioral Dimensions [7, 31, 26] and Environmental Exposures [13, 27, 5]."
         }
     },
     {

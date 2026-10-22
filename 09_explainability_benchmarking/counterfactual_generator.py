@@ -13,7 +13,9 @@ import torch
 import torch.nn as nn
 from torch.optim import Adam
 
-PROJECT_ROOT = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening")
+# Resolve paths dynamically relative to this file
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parent
 if str(PROJECT_ROOT / "08_hierarchical_minn") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "08_hierarchical_minn"))
 
@@ -34,6 +36,8 @@ class CounterfactualGenerator:
             self.device = torch.device(device)
 
         self.model = HierarchicalAttentionMINN(in_features=32, branch_hidden=64, branch_out=32).to(self.device)
+        if not model_path.exists():
+            raise FileNotFoundError(f"Trained MINN model checkpoint not found at {model_path}")
         self.model.load_state_dict(torch.load(model_path, map_location=self.device))
         self.model.eval()
 
@@ -50,20 +54,22 @@ class CounterfactualGenerator:
         target_prob: float = 0.35,
         max_iter: int = 150,
         lr: float = 0.05,
-        lambda_pred: float = 50.0,
+        lambda_pred: float = 20.0,
         lambda_l1: float = 0.01
     ) -> Dict[str, Any]:
         """
         Solves:
-            min_{Delta_b, Delta_e} ||Delta||_2^2 + lambda_l1 ||Delta||_1 + lambda_pred * max(0, prob - target_prob)^2
+            min_{Delta_b, Delta_e} ||Delta||_2^2 + lambda_l1 ||Delta||_1 + lambda_pred * max(0, logit - logit_target)^2
+        Uses logit-space optimization to prevent gradient vanishing on saturated predictions.
         """
         g_t = torch.tensor(genetic_32d, dtype=torch.float32).reshape(1, -1).to(self.device)
         b_t = torch.tensor(behavioral_32d, dtype=torch.float32).reshape(1, -1).to(self.device)
         e_t = torch.tensor(environmental_32d, dtype=torch.float32).reshape(1, -1).to(self.device)
 
         with torch.no_grad():
-            _, orig_prob_t = self.model(g_t, b_t, e_t)
+            orig_logit_t, orig_prob_t = self.model(g_t, b_t, e_t)
         orig_prob = float(orig_prob_t.cpu().item())
+        orig_logit = float(orig_logit_t.cpu().item())
 
         if orig_prob < 0.50:
             return {
@@ -72,6 +78,10 @@ class CounterfactualGenerator:
                 "original_probability": round(orig_prob, 4),
                 "message": f"Patient {patient_id} already has a non-ASD prediction ({orig_prob:.4f} < 0.50). No counterfactual required."
             }
+
+        # Safe logit target to prevent numerical overflow
+        safe_target_prob = min(max(target_prob, 1e-4), 0.49)
+        target_logit = float(np.log(safe_target_prob / (1.0 - safe_target_prob)))
 
         # Initialize perturbations for actionable modalities
         delta_b = nn.Parameter(torch.zeros_like(b_t, requires_grad=True))
@@ -89,11 +99,11 @@ class CounterfactualGenerator:
             b_cf = b_t + delta_b
             e_cf = e_t + delta_e
 
-            _, cf_prob = self.model(g_t, b_cf, e_cf)
+            cf_logits, cf_prob = self.model(g_t, b_cf, e_cf)
 
-            # Prediction loss (penalize if probability is above target_prob)
-            prob_penalty = torch.relu(cf_prob - target_prob) ** 2
-            # Distance penalties
+            # Prediction penalty in logit space (prevents vanishing gradient at extreme prob values)
+            prob_penalty = torch.relu(cf_logits - target_logit) ** 2
+            # Distance penalties (L2 and L1)
             dist_l2 = torch.norm(delta_b, p=2) ** 2 + torch.norm(delta_e, p=2) ** 2
             dist_l1 = torch.norm(delta_b, p=1) + torch.norm(delta_e, p=1)
 
@@ -107,7 +117,7 @@ class CounterfactualGenerator:
                 best_delta_b = delta_b.detach().clone()
                 best_delta_e = delta_e.detach().clone()
 
-            # Early stopping if target reached
+            # Early stopping if target probability is fully satisfied
             if current_prob <= target_prob:
                 break
 
@@ -127,16 +137,37 @@ class CounterfactualGenerator:
         top_b_perturb = np.argsort(np.abs(delta_b_np))[::-1][:3]
         top_e_perturb = np.argsort(np.abs(delta_e_np))[::-1][:3]
 
+        if best_cf_prob <= target_prob:
+            status = "COUNTERFACTUAL_FOUND"
+        elif best_cf_prob < 0.50:
+            status = "DIAGNOSTIC_FLIP_ACHIEVED"
+        else:
+            status = "PARTIAL_REDUCTION_ONLY"
+
+        classification = "Control (Non-ASD)" if best_cf_prob < 0.50 else "ASD"
+
+        if status in ("COUNTERFACTUAL_FOUND", "DIAGNOSTIC_FLIP_ACHIEVED"):
+            clinical_summary = (
+                f"For patient {patient_id} (original risk {orig_prob*100:.1f}%), a target probability of {best_cf_prob*100:.1f}% "
+                f"is achievable through an L2 intervention distance of {l2_dist:.2f}, primarily requiring adjustments "
+                f"to Behavioral Dimensions {[int(x+1) for x in top_b_perturb]} and Environmental Exposures {[int(x+1) for x in top_e_perturb]}."
+            )
+        else:
+            clinical_summary = (
+                f"For patient {patient_id} (original risk {orig_prob*100:.1f}%), optimization achieved a partial reduction to {best_cf_prob*100:.1f}%. "
+                f"Due to high non-actionable genetic risk, supplementary clinical consultation is recommended."
+            )
+
         return {
             "patient_id": patient_id,
-            "status": "COUNTERFACTUAL_FOUND",
+            "status": status,
             "original_diagnosis": {
                 "probability": round(orig_prob, 4),
                 "classification": "ASD"
             },
             "counterfactual_outcome": {
                 "probability": round(best_cf_prob, 4),
-                "classification": "Control (Non-ASD)" if best_cf_prob < 0.50 else "ASD",
+                "classification": classification,
                 "probability_reduction": round(orig_prob - best_cf_prob, 4),
                 "target_threshold": target_prob
             },
@@ -154,9 +185,6 @@ class CounterfactualGenerator:
                     for idx in top_e_perturb
                 ]
             },
-            "clinical_summary": (
-                f"For patient {patient_id} (original risk {orig_prob*100:.1f}%), a target probability of {best_cf_prob*100:.1f}% "
-                f"is achievable through an L2 intervention distance of {l2_dist:.2f}, primarily requiring adjustments "
-                f"to Behavioral Dimensions {[int(x+1) for x in top_b_perturb]} and Environmental Exposures {[int(x+1) for x in top_e_perturb]}."
-            )
+            "clinical_summary": clinical_summary
         }
+

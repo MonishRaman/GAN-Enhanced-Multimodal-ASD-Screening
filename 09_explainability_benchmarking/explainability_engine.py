@@ -11,7 +11,8 @@ import numpy as np
 import torch
 
 import sys
-PROJECT_ROOT = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening")
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parent
 if str(PROJECT_ROOT / "08_hierarchical_minn") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "08_hierarchical_minn"))
 

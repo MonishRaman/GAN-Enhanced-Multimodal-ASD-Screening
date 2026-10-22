@@ -14,7 +14,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-PROJECT_ROOT = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening")
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parent
 if str(PROJECT_ROOT / "08_hierarchical_minn") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "08_hierarchical_minn"))
 if str(PROJECT_ROOT / "09_explainability_benchmarking") not in sys.path:

@@ -105,45 +105,45 @@ SAMPLE CASE STUDY:
       "classification": "ASD"
     },
     "counterfactual_outcome": {
-      "probability": 0.2354,
+      "probability": 0.0618,
       "classification": "Control (Non-ASD)",
-      "probability_reduction": 0.764,
+      "probability_reduction": 0.9376,
       "target_threshold": 0.35
     },
     "perturbation_cost": {
-      "l2_distance": 0.8784,
-      "l1_distance": 5.5703
+      "l2_distance": 1.7086,
+      "l1_distance": 12.8014
     },
     "actionable_recommendations": {
       "behavioral_adjustments": [
         {
-          "dimension": 20,
-          "recommended_shift": 0.207
+          "dimension": 7,
+          "recommended_shift": -0.2821
         },
         {
-          "dimension": 30,
-          "recommended_shift": 0.202
+          "dimension": 11,
+          "recommended_shift": 0.2747
         },
         {
-          "dimension": 10,
-          "recommended_shift": 0.1991
+          "dimension": 2,
+          "recommended_shift": -0.2727
         }
       ],
       "environmental_adjustments": [
         {
-          "dimension": 21,
-          "recommended_shift": 0.0932
+          "dimension": 20,
+          "recommended_shift": -0.2795
         },
         {
-          "dimension": 23,
-          "recommended_shift": -0.0875
+          "dimension": 2,
+          "recommended_shift": -0.2769
         },
         {
-          "dimension": 16,
-          "recommended_shift": -0.0863
+          "dimension": 1,
+          "recommended_shift": -0.2655
         }
       ]
     },
-    "clinical_summary": "For patient PATIENT_001_HIGH_ASD (original risk 99.9%), a target probability of 23.5% is achievable through an L2 intervention distance of 0.88, primarily requiring adjustments to Behavioral Dimensions [20, 30, 10] and Environmental Exposures [21, 23, 16]."
+    "clinical_summary": "For patient PATIENT_001_HIGH_ASD (original risk 99.9%), a target probability of 6.2% is achievable through an L2 intervention distance of 1.71, primarily requiring adjustments to Behavioral Dimensions [7, 11, 2] and Environmental Exposures [20, 2, 1]."
   }
 }

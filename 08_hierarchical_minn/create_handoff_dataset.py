@@ -18,7 +18,7 @@ SEED = 42
 torch.manual_seed(SEED)
 np.random.seed(SEED)
 
-PROJECT_ROOT = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 GENETIC_MODEL_DIR = PROJECT_ROOT / "Genetic_Model"
 BEHAVIORAL_MODEL_DIR = PROJECT_ROOT / "Behavioral_Model"
 ENVIRONMENTAL_MODEL_DIR = PROJECT_ROOT / "Environmental_Model"

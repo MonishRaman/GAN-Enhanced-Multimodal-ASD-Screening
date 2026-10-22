@@ -89,11 +89,17 @@ flowchart TD
 ```
 
 ### 2. Architectural Diagrams
-- **Comprehensive Clinical Architecture**: [`performed architecture diagram.png`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/performed%20architecture%20diagram.png)
-- **End-to-End System Flow**: [`performed flow diagram.png`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/performed%20flow%20diagram.png)
-- **Client Protocol Specification**: [`client end-to-end diagram.png`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/client%20end-to-end%20diagram.png)
+- **Comprehensive Clinical Architecture**: [`performed architecture diagram.png`](performed%20architecture%20diagram.png)
+- **End-to-End System Flow**: [`performed flow diagram.png`](performed%20flow%20diagram.png)
+- **Client Protocol Specification**: [`client end-to-end diagram.png`](client%20end-to-end%20diagram.png)
 
-![Performed Architecture Diagram](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/performed%20architecture%20diagram.png)
+<p align="center">
+  <img src="performed architecture diagram.png" alt="Performed Architecture Diagram" width="100%" />
+</p>
+
+<p align="center">
+  <img src="performed flow diagram.png" alt="End-to-End System Flow Diagram" width="100%" />
+</p>
 
 ---
 
@@ -154,9 +160,11 @@ $$\min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{\text{data}}(x|y)} [\log D(x, y)
 - **Integrity**: 0 NaNs, 0 Infs, 0 duplicate vectors across all generated samples.
 - **Kolmogorov-Smirnov (KS) Goodness-of-Fit**: 100% of the 128 latent dimensions passed goodness-of-fit testing; **Median KS statistic = 0.101** (mean = 0.118).
 - **Principal Component Analysis (PCA)**: Synthetic Control embeddings overlap seamlessly with real Control embeddings on PC1 (13.49% variance) and PC2 (8.02% variance), validating that the GAN learned the true data manifold without mode collapse.
-- **Validation Plot**: [`real_vs_synthetic_control_128d_pca.png`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/Genetics_Complete_code/genetics/outputs/objective2_genetic/embedding_gan_validation/real_vs_synthetic_control_128d_pca.png)
+- **Validation Plot**: [`real_vs_synthetic_control_128d_pca.png`](Genetics_Complete_code/genetics/outputs/objective2_genetic/embedding_gan_validation/real_vs_synthetic_control_128d_pca.png)
 
-![GAN PCA Validation](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/Genetics_Complete_code/genetics/outputs/objective2_genetic/embedding_gan_validation/real_vs_synthetic_control_128d_pca.png)
+<p align="center">
+  <img src="Genetics_Complete_code/genetics/outputs/objective2_genetic/embedding_gan_validation/real_vs_synthetic_control_128d_pca.png" alt="GAN PCA Validation" width="100%" />
+</p>
 
 #### 6. Clarification on Modalities Augmented
 > **Did we use Behavioral and Environmental datasets for GAN, or only Genetic?**  
@@ -166,8 +174,8 @@ $$\min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{\text{data}}(x|y)} [\log D(x, y)
 > - **Genetic cohort**: Was the sole modality afflicted with severe clinical scarcity (92 training samples) and acute 3:1 class imbalance.
 
 #### 7. Generation vs. Loading Code Traceability
-- **Where generated**: [`step33_genetic_embedding_conditional_gan.py`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/Genetics_Complete_code/src/step33_genetic_embedding_conditional_gan.py) trains the cGAN and exports the 46 vectors to `synthetic_control_128d_embeddings.csv`.
-- **Where loaded**: [`08_hierarchical_minn/create_handoff_dataset.py`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/create_handoff_dataset.py) loads the 46 synthetic rows, aligns them to 32-D, and writes [`genetic_32d_train_gan_balanced.csv`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/data/genetic_32d_train_gan_balanced.csv) for MINN training.
+- **Where generated**: [`step33_genetic_embedding_conditional_gan.py`](Genetics_Complete_code/src/step33_genetic_embedding_conditional_gan.py) trains the cGAN and exports the 46 vectors to `synthetic_control_128d_embeddings.csv`.
+- **Where loaded**: [`08_hierarchical_minn/create_handoff_dataset.py`](08_hierarchical_minn/create_handoff_dataset.py) loads the 46 synthetic rows, aligns them to 32-D, and writes [`genetic_32d_train_gan_balanced.csv`](08_hierarchical_minn/data/genetic_32d_train_gan_balanced.csv) for MINN training.
 
 ---
 
@@ -208,7 +216,9 @@ Unlike static fusion schemes with hardcoded weights (e.g., Genetic 0.319, Behavi
 
 The standard deviations ($\approx 0.05 - 0.06$) and wide ranges (e.g., $\beta_B \in [13.7\%, 58.7\%]$) empirically prove that the MINN computes **genuinely adaptive attention** per individual.
 
-![Inter-Modality Attention Distribution](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/figures/inter_modality_attention_distribution.png)
+<p align="center">
+  <img src="08_hierarchical_minn/figures/inter_modality_attention_distribution.png" alt="Inter-Modality Attention Distribution" width="100%" />
+</p>
 
 ---
 
@@ -247,11 +257,25 @@ All models were evaluated on the held-out test cohort under both training regime
 | **Proposed MINN** | -0.02% | **+0.0004** | **+1.12%** | **+0.0008** | Attention branches learn balanced representations without majority-class bias; sensitivity rises to 96.52%. |
 
 ### 3. Benchmark Visualizations
-- **ROC Benchmarking across Models**: [`08_hierarchical_minn/figures/minn_comparison_roc_curves.png`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/figures/minn_comparison_roc_curves.png)
-- **Metrics Bar Chart (With vs. Without GAN)**: [`08_hierarchical_minn/figures/minn_comparison_metrics_barchart.png`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/figures/minn_comparison_metrics_barchart.png)
-- **GAN Gain Comparison**: [`08_hierarchical_minn/figures/minn_gan_gain_comparison.png`](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/figures/minn_gan_gain_comparison.png)
+- **ROC Benchmarking across Models**: [`minn_comparison_roc_curves.png`](08_hierarchical_minn/figures/minn_comparison_roc_curves.png)
+- **Metrics Bar Chart (With vs. Without GAN)**: [`minn_comparison_metrics_barchart.png`](08_hierarchical_minn/figures/minn_comparison_metrics_barchart.png)
+- **GAN Gain Comparison**: [`minn_gan_gain_comparison.png`](08_hierarchical_minn/figures/minn_gan_gain_comparison.png)
 
-![ROC Curve Benchmarking](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/figures/roc_curve_benchmarking.png)
+<p align="center">
+  <img src="08_hierarchical_minn/figures/roc_curve_benchmarking.png" alt="ROC Curve Benchmarking" width="100%" />
+</p>
+
+<p align="center">
+  <img src="08_hierarchical_minn/figures/minn_comparison_metrics_barchart.png" alt="Metrics Comparison Bar Chart" width="100%" />
+</p>
+
+<p align="center">
+  <img src="08_hierarchical_minn/figures/training_curves.png" alt="MINN Training Curves" width="100%" />
+</p>
+
+<p align="center">
+  <img src="08_hierarchical_minn/figures/minn_confusion_matrix.png" alt="MINN Confusion Matrix" width="60%" />
+</p>
 
 ---
 
@@ -282,6 +306,10 @@ For every screening request, the system produces three layers of clinical explan
 2. **Tier 2 (Feature Saliency)**: Identifies the top-3 attended latent dimensions per modality ($\alpha_m$ weights).
 3. **Tier 3 (Structured Clinical Narrative)**: Contextualizes the prediction within pediatric diagnostic guidelines.
 
+<p align="center">
+  <img src="09_explainability_benchmarking/figures/patient_attention_profiles.png" alt="Patient Attention Profiles" width="100%" />
+</p>
+
 ### 2. Actionable Counterfactual Generation
 To answer the clinician's core question—*"What targeted interventions would be required to shift a high-risk patient below the screening threshold?"*—the engine performs gradient-based optimization over **actionable features only**:
 
@@ -290,18 +318,20 @@ $$\min_{\Delta_b, \Delta_e} \|\Delta_b\|_2^2 + \|\Delta_e\|_2^2 + \lambda_{L1}(\
 - **Optimization**: Adam optimizer ($\text{lr} = 0.05$, 150 iterations) perturbing behavioral and environmental inputs until predicted risk drops below $p_{\text{target}} = 0.35$.
 
 #### Case Study: Patient P001 (ASD)
-- **Baseline Risk**: 82.3% (ASD Screen-Positive)
-- **Counterfactual Risk**: **33.1%** (Shifted below threshold)
-- **Intervention Cost ($L_2$ Distance)**: 2.31
-- **Top Recommended Adjustments**: Behavioral Dimensions [3, 7, 12] and Environmental Dimensions [2, 5, 11].
+- **Baseline Risk**: 99.99% (ASD Screen-Positive)
+- **Counterfactual Risk**: **21.34%** (Shifted below 35.0% target threshold)
+- **Intervention Cost ($L_2$ Distance)**: 1.61
+- **Top Recommended Adjustments**: Behavioral Dimensions [6, 30, 32] and Environmental Dimensions [11, 24, 32].
 
-![Clinical Counterfactual Case Study](file:///d:/GAN-Enhanced-Multimodal-ASD-Screening/09_explainability_benchmarking/figures/clinical_counterfactual_case_study.png)
+<p align="center">
+  <img src="09_explainability_benchmarking/figures/clinical_counterfactual_case_study.png" alt="Clinical Counterfactual Case Study" width="100%" />
+</p>
 
 ---
 
 ## 💻 Full-Stack Clinical Web Application
 
-The system is deployed as a responsive, clinical-grade web application with a FastAPI backend and a Vanilla JS frontend.
+The system is deployed as a responsive, pre-clinical computational decision-support web application with a FastAPI backend and a modern frontend. All performance metrics reflect in-silico retrospective evaluations.
 
 ### 1. Architecture & Endpoints
 
@@ -315,13 +345,13 @@ The system is deployed as a responsive, clinical-grade web application with a Fa
 ```
 
 ### 2. Demo Patient Profiles (`data/demo/`)
-| Patient ID | Ground Truth | MINN Probability | Screening Outcome | Primary Diagnostic Driver |
-|---|:---:|:---:|:---:|---|
-| **P001** | ASD | 0.823 | **ASD Detected** | High behavioral divergence ($\beta_B = 52\%$), elevated AQ-10 score |
-| **P002** | Control | 0.192 | **Non-ASD** | Low values across all modalities ($\beta_B = 34\%, \beta_G = 36\%$) |
-| **P003** | ASD | 0.742 | **ASD Detected** | Genomic marker dominance ($\beta_G = 56\%$) |
-| **P004** | ASD | 0.684 | **ASD Detected** | Significant environmental exposure footprint ($\beta_E = 52\%$) |
-| **P005** | Control | 0.274 | **Non-ASD** | Mild behavioral score overruled by healthy genetic profile |
+| Patient ID | Ground Truth | MINN Probability | Screening Outcome | Primary Diagnostic Driver | Counterfactual Status |
+|---|:---:|:---:|:---:|---|---|
+| **P001** | ASD | 0.9999 (99.99%) | **ASD Detected** | Behavioral divergence ($\beta_B = 42.16\%$, $\beta_G = 33.02\%$) | Achieved (Risk $\to$ 21.34%, $L_2 = 1.61$) |
+| **P002** | Control | 0.0000 (0.00%) | **Non-ASD** | Low values across all modalities ($\beta_B = 46.91\%$) | ALREADY_NEGATIVE (No change required) |
+| **P003** | ASD | 0.6343 (63.43%) | **ASD Detected** | Genomic marker dominance ($\beta_G = 46.45\%$) | Achieved (Risk $\to$ 1.67%, $L_2 = 0.66$) |
+| **P004** | Control | 0.0000 (0.00%) | **Non-ASD** | Low risk profiles across modalities ($\beta_B = 46.37\%$) | ALREADY_NEGATIVE (No change required) |
+| **P005** | ASD | 1.0000 (100.00%) | **ASD Detected** | Complex behavioral profile ($\beta_B = 39.64\%$, $\beta_G = 35.32\%$) | Achieved (Risk $\to$ 34.71%, $L_2 = 4.64$) |
 
 ### 3. Verified Cross-Modal CSV Upload
 The frontend supports uploading arbitrary patient datasets through `POST /api/minn/explain/upload`. The backend:
@@ -441,8 +471,7 @@ GAN-Enhanced-Multimodal-ASD-Screening/
 
 Comprehensive Word (`.docx`) dossiers with embedded figures and tables are located in the repository root:
 1. **`Final Complete report of the project.docx`**: Complete client submission covering all 4 objectives.
-2. **`gan_used.docx`**: Technical dossier detailing the GAN architecture, equations, training logs, and validation.
-3. **`MINN comparison with other models.docx`**: Empirical comparison of the MINN against Logistic Regression, Random Forest, SVM-RBF, and XGBoost (With vs. Without GAN).
+2. **`MINN comparison with other models.docx`**: Empirical comparison of the MINN against Logistic Regression, Random Forest, SVM-RBF, and XGBoost (With vs. Without GAN).
 
 ---
 

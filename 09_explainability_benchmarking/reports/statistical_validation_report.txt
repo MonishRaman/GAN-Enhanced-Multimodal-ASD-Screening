@@ -21,5 +21,5 @@ Balanced_Accuracy 0.9454        0.9394        0.9518 [0.9394, 0.9518]
 
 STATISTICAL INFERENCE CONCLUSION:
 The 95% confidence intervals confirm that the proposed Hierarchical Attention MINN
-achieves a true population ROC-AUC between 0.9841 and 0.9908 and Accuracy between 93.9% and 95.2%,
+achieves a true population ROC-AUC between 0.9848 and 0.9901 and Accuracy between 93.9% and 95.2%,
 demonstrating robust generalizability and clinical viability.

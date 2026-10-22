@@ -120,27 +120,27 @@
             const patientInput   = getPatientInput();
             const uploadedFiles  = getUploadedFiles();
             const fileCount      = Object.values(uploadedFiles).filter(Boolean).length;
+            const rawId          = patientInput ? patientInput.value.trim() : "";
 
-            if (fileCount > 0 && fileCount < 3) {
-                throw new Error("Please select all three CSV files (Genetic, Behavioral, Environmental).");
+            if (fileCount === 0 && !rawId) {
+                throw new Error("Please select a demo patient, enter a Patient ID, or upload at least one modality CSV file (Genetic, Behavioral, or Environmental).");
             }
 
-            const rawId      = patientInput ? patientInput.value : "";
-            const patientId  = fileCount === 3
-                ? rawId.trim().toUpperCase()
+            const patientId  = fileCount > 0
+                ? (rawId ? rawId.toUpperCase() : "UPLOADED-PATIENT")
                 : validatePatientId(rawId);
 
             setLoading(true);
             setBackendStatus(null, "Connecting to backend…");
 
-            const result = fileCount === 3
+            const result = fileCount > 0
                 ? await callUploadAnalyze(patientId, uploadedFiles)
                 : await callMINNExplain(patientId);
 
             setBackendStatus(true, "Backend connected");
             renderResult(result);
 
-            console.log("MINN Analysis result:", result);
+            console.log("Analysis result:", result);
 
         } catch (error) {
             const isNetworkError = error instanceof TypeError;
@@ -164,6 +164,8 @@
             const f = document.querySelector(sel);
             if (f) f.value = "";
         });
+
+        document.querySelectorAll("[data-demo-patient]").forEach(b => b.classList.remove("active"));
 
         if (window.ASD_UI && typeof window.ASD_UI.clearAnalysisUI === "function") {
             window.ASD_UI.clearAnalysisUI();
@@ -213,6 +215,8 @@
         // Demo patient quick-select buttons
         document.querySelectorAll("[data-demo-patient]").forEach(btn => {
             btn.addEventListener("click", () => {
+                document.querySelectorAll("[data-demo-patient]").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
                 const pid = btn.dataset.demoPatient;
                 if (patientIn) patientIn.value = pid;
                 handleAnalyze();

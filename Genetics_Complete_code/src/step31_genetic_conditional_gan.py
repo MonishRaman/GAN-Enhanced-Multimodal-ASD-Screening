@@ -12,7 +12,7 @@ from sklearn.preprocessing import StandardScaler
 #
 # Input:
 #   92 training samples
-#   1000 genetic features
+#   
 #   69 ASD
 #   23 Control
 #

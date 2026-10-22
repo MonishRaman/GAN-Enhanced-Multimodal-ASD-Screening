@@ -16,9 +16,10 @@ from sklearn.metrics import (
     f1_score, roc_auc_score, brier_score_loss
 )
 
-PROJECT_ROOT = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening")
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parent
 MINN_RES_DIR = PROJECT_ROOT / "08_hierarchical_minn" / "results"
-OUT_DIR = PROJECT_ROOT / "09_explainability_benchmarking"
+OUT_DIR = CURRENT_DIR
 RESULT_DIR = OUT_DIR / "results"
 REPORT_DIR = OUT_DIR / "reports"
 
@@ -113,10 +114,18 @@ def main():
         f.write("EMPIRICAL CONFIDENCE INTERVALS:\n")
         f.write("-" * 70 + "\n")
         f.write(ci_df.to_string(index=False) + "\n\n")
+        # Extract exact values for the conclusion statement
+        auc_row = ci_df[ci_df["Metric"] == "ROC_AUC"].iloc[0]
+        acc_row = ci_df[ci_df["Metric"] == "Accuracy"].iloc[0]
+        auc_low = auc_row["95%_CI_Lower"]
+        auc_high = auc_row["95%_CI_Upper"]
+        acc_low = acc_row["95%_CI_Lower"]
+        acc_high = acc_row["95%_CI_Upper"]
+
         f.write("STATISTICAL INFERENCE CONCLUSION:\n")
         f.write("The 95% confidence intervals confirm that the proposed Hierarchical Attention MINN\n")
-        f.write("achieves a true population ROC-AUC between 0.9841 and 0.9908 and Accuracy between 93.9% and 95.2%,\n")
-        f.write("demonstrating robust generalizability and clinical viability.\n")
+        f.write(f"achieves a true population ROC-AUC between {auc_low:.4f} and {auc_high:.4f} and Accuracy between {acc_low*100:.1f}% and {acc_high*100:.1f}%,\n")
+        f.write("demonstrating robust generalizability and in-silico pre-clinical computational screening viability.\n")
 
     print(f"\n[OK] Statistical report saved to {report_file}")
 

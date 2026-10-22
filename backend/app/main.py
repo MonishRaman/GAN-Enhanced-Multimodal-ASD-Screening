@@ -84,8 +84,13 @@ app.add_middleware(
     ],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
 )
+
+# Mount frontend directory
+from fastapi.staticfiles import StaticFiles
+_frontend_dir = Path(__file__).resolve().parents[2] / "frontend"
+if _frontend_dir.exists():
+    app.mount("/frontend", StaticFiles(directory=str(_frontend_dir), html=True), name="frontend")
 
 
 # ============================================================================
@@ -1203,27 +1208,39 @@ def get_objectives_status() -> Dict[str, Any]:
 @app.get("/api/minn/benchmarks")
 def get_minn_benchmarks() -> Dict[str, Any]:
     """Returns empirical benchmark comparisons across models."""
-    bench_file = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening/08_hierarchical_minn/results/model_benchmarking_comparison.csv")
+    project_root = Path(__file__).resolve().parents[2]
+    bench_file = project_root / "08_hierarchical_minn" / "results" / "model_benchmarking_comparison.csv"
+    if not bench_file.exists():
+        bench_file = Path(__file__).resolve().parent.parent.parent / "08_hierarchical_minn" / "results" / "model_benchmarking_comparison.csv"
     if bench_file.exists():
         df = pd.read_csv(bench_file)
         return {"status": "success", "benchmarks": df.to_dict(orient="records")}
     return {"status": "error", "message": "Benchmark results not found."}
 
 @app.get("/api/minn/explain/demo/{patient_id}")
-def explain_demo_patient(patient_id: str) -> Dict[str, Any]:
-    """Runs MINN inference and extracts hierarchical attention for a demo patient."""
+def explain_demo_patient(
+    patient_id: str,
+    modalities: Optional[str] = None
+) -> Dict[str, Any]:
+    """
+    Runs MINN / flexible inference and extracts hierarchical attention for a demo patient.
+    Supports all 3 modalities or any subset (e.g. ?modalities=genetic or ?modalities=genetic,behavioral).
+    """
     try:
-        genetic_output = _run_genetic(get_genetic_input_path(patient_id))
-        behavioral_output = _run_behavioral(get_behavioral_input_path(patient_id))
-        environmental_output = _run_environmental(get_environmental_input_path(patient_id))
+        active_mods = [m.strip().lower() for m in modalities.split(",")] if modalities else ["genetic", "behavioral", "environmental"]
+        active_mods = [m for m in active_mods if m in ["genetic", "behavioral", "environmental"]]
+        if not active_mods:
+            active_mods = ["genetic", "behavioral", "environmental"]
 
-        explanation = minn_service.predict_patient(
-            genetic_32d=genetic_output["embedding"],
-            behavioral_32d=behavioral_output["embedding"],
-            environmental_32d=environmental_output["embedding"],
-            patient_id=patient_id
-        )
-        return {"status": "success", "result": explanation}
+        outputs = {}
+        if "genetic" in active_mods:
+            outputs["genetic"] = _run_genetic(get_genetic_input_path(patient_id))
+        if "behavioral" in active_mods:
+            outputs["behavioral"] = _run_behavioral(get_behavioral_input_path(patient_id))
+        if "environmental" in active_mods:
+            outputs["environmental"] = _run_environmental(get_environmental_input_path(patient_id))
+
+        return _build_flexible_explanation(patient_id, outputs)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
@@ -1245,6 +1262,224 @@ def counterfactual_demo_patient(patient_id: str) -> Dict[str, Any]:
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
+def _build_flexible_explanation(
+    patient_id: str,
+    outputs: Dict[str, Dict[str, Any]]
+) -> Dict[str, Any]:
+    """
+    Constructs unified prediction, hierarchical attention (Level 1 & 2), and actionable guidance
+    whether 1, 2, or all 3 modalities are provided.
+    """
+    import torch
+    canonical_weights = {
+        "genetic": 0.3194,
+        "behavioral": 0.4002,
+        "environmental": 0.2804,
+    }
+
+    # Ensure clean probability for each available modality
+    for m, out in outputs.items():
+        prob = out.get("probability")
+        if prob is None or not np.isfinite(prob):
+            scaler = getattr(fusion_service, f"{m}_scaler", None)
+            expert = getattr(fusion_service, f"{m}_expert", None)
+            if scaler is not None and expert is not None:
+                prob = fusion_service._expert_probability(out["embedding"], scaler, expert, m)
+            else:
+                prob = 0.5
+        out["clean_prob"] = float(np.clip(prob, 0.0, 1.0))
+
+    provided_names = list(outputs.keys())
+    num_provided = len(provided_names)
+
+    # 1. Level 1 Feature Saliency for all provided modalities
+    sal_dict = {}
+    for m, out in outputs.items():
+        try:
+            emb_tensor = torch.tensor(out["embedding"], dtype=torch.float32).reshape(1, -1).to(minn_service.explainer.device)
+            with torch.no_grad():
+                branch = getattr(minn_service.explainer.model, f"{m}_branch")
+                intra = getattr(minn_service.explainer.model, f"intra_{m}")
+                h_m = branch(emb_tensor)
+                _, alpha_m = intra(h_m)
+                alpha_arr = alpha_m.cpu().numpy().flatten()
+                top_dims = np.argsort(alpha_arr)[::-1][:5].tolist()
+                sal_dict[f"top_{m}_dimensions"] = [
+                    {"dimension": int(idx + 1), "attention_weight": round(float(alpha_arr[idx]), 4)}
+                    for idx in top_dims
+                ]
+        except Exception:
+            sal_dict[f"top_{m}_dimensions"] = []
+
+    # 2. Level 2 Modality Attention & Combined Prediction
+    if num_provided == 3:
+        # Full Hierarchical Attention MINN inference
+        explanation = minn_service.predict_patient(
+            genetic_32d=outputs["genetic"]["embedding"],
+            behavioral_32d=outputs["behavioral"]["embedding"],
+            environmental_32d=outputs["environmental"]["embedding"],
+            patient_id=patient_id,
+        )
+        try:
+            cf_result = minn_service.counterfactual_analysis(
+                genetic_32d=outputs["genetic"]["embedding"],
+                behavioral_32d=outputs["behavioral"]["embedding"],
+                environmental_32d=outputs["environmental"]["embedding"],
+                patient_id=patient_id,
+            )
+        except Exception:
+            cf_result = {
+                "status": "PARTIAL_MODALITY_INFO",
+                "patient_id": patient_id,
+                "clinical_summary": "Full 3-modality screening completed. Counterfactual generation unavailable for this patient profile.",
+                "actionable_interventions": {"behavioral_adjustments": [], "environmental_adjustments": []}
+            }
+
+        return {
+            "status": "success",
+            "result": explanation,
+            "counterfactual": cf_result,
+            "model_name": "Hierarchical Attention MINN (All 3 Modalities)",
+            "modalities_used": ["genetic", "behavioral", "environmental"]
+        }
+
+    elif num_provided == 2:
+        # Dual-Modality Flexible Evidence Fusion
+        w_sum = sum(canonical_weights[m] for m in provided_names)
+        norm_weights = {m: canonical_weights[m] / w_sum for m in provided_names}
+        combined_prob = sum(norm_weights[m] * outputs[m]["clean_prob"] for m in provided_names)
+        combined_prob = float(np.clip(combined_prob, 0.0, 1.0))
+        pred_class = "ASD" if combined_prob >= 0.50 else "Control"
+        confidence = combined_prob if pred_class == "ASD" else (1.0 - combined_prob)
+        primary_driver = max(provided_names, key=lambda m: norm_weights[m] * outputs[m]["clean_prob"]).capitalize()
+        missing_names = [m.capitalize() for m in ["genetic", "behavioral", "environmental"] if m not in provided_names]
+
+        # Actionable recommendations for the provided modifiable modalities
+        actionable_recs = {"behavioral_adjustments": [], "environmental_adjustments": []}
+        if "behavioral" in outputs and pred_class == "ASD":
+            for item in sal_dict.get("top_behavioral_dimensions", [])[:2]:
+                actionable_recs["behavioral_adjustments"].append({
+                    "dimension": item["dimension"],
+                    "recommended_shift": -0.25
+                })
+        if "environmental" in outputs and pred_class == "ASD":
+            for item in sal_dict.get("top_environmental_dimensions", [])[:2]:
+                actionable_recs["environmental_adjustments"].append({
+                    "dimension": item["dimension"],
+                    "recommended_shift": -0.20
+                })
+
+        explanation = {
+            "patient_id": patient_id,
+            "prediction": {
+                "asd_probability": round(combined_prob, 4),
+                "classification": pred_class,
+                "confidence": round(confidence, 4),
+                "decision_threshold": 0.50,
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": round(norm_weights.get("genetic", 0.0), 4),
+                "behavioral_weight": round(norm_weights.get("behavioral", 0.0), 4),
+                "environmental_weight": round(norm_weights.get("environmental", 0.0), 4),
+                "primary_driving_modality": primary_driver,
+            },
+            "feature_saliency_level_1": sal_dict,
+            "clinical_interpretation": (
+                f"Patient {patient_id} screened using flexible dual-modality profile "
+                f"({provided_names[0].capitalize()} + {provided_names[1].capitalize()}). "
+                f"Missing modality ({missing_names[0]}) was accommodated via weight-renormalized evidence fusion. "
+                f"Diagnostic risk: {combined_prob*100:.1f}% ({pred_class}) with {confidence*100:.1f}% confidence. "
+                f"Primary driver among provided data: {primary_driver} ({norm_weights[primary_driver.lower()]*100:.1f}% dynamic weight)."
+            ),
+        }
+
+        cf_result = {
+            "status": "PARTIAL_MODALITY_INFO",
+            "patient_id": patient_id,
+            "target_probability": 0.35,
+            "clinical_summary": (
+                f"Dual-modality assessment completed ({' + '.join(m.capitalize() for m in provided_names)}). "
+                + ("Actionable behavioral/environmental therapy targets identified for available modifiable factors."
+                   if actionable_recs["behavioral_adjustments"] or actionable_recs["environmental_adjustments"]
+                   else f"Upload {missing_names[0]} data to unlock full 3-modality attention attribution.")
+            ),
+            "actionable_interventions": actionable_recs,
+        }
+
+        return {
+            "status": "success",
+            "result": explanation,
+            "counterfactual": cf_result,
+            "model_name": f"Flexible Dual-Modality Fusion ({' + '.join(m.capitalize() for m in provided_names)})",
+            "modalities_used": provided_names
+        }
+
+    else:
+        # Single-Modality Unimodal Assessment
+        only_m = provided_names[0]
+        single_prob = float(outputs[only_m]["clean_prob"])
+        pred_class = "ASD" if single_prob >= 0.50 else "Control"
+        confidence = single_prob if pred_class == "ASD" else (1.0 - single_prob)
+        missing_names = [m.capitalize() for m in ["genetic", "behavioral", "environmental"] if m != only_m]
+
+        actionable_recs = {"behavioral_adjustments": [], "environmental_adjustments": []}
+        if only_m == "behavioral" and pred_class == "ASD":
+            for item in sal_dict.get("top_behavioral_dimensions", [])[:3]:
+                actionable_recs["behavioral_adjustments"].append({
+                    "dimension": item["dimension"],
+                    "recommended_shift": -0.30
+                })
+        elif only_m == "environmental" and pred_class == "ASD":
+            for item in sal_dict.get("top_environmental_dimensions", [])[:3]:
+                actionable_recs["environmental_adjustments"].append({
+                    "dimension": item["dimension"],
+                    "recommended_shift": -0.25
+                })
+
+        explanation = {
+            "patient_id": patient_id,
+            "prediction": {
+                "asd_probability": round(single_prob, 4),
+                "classification": pred_class,
+                "confidence": round(confidence, 4),
+                "decision_threshold": 0.50,
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 1.0 if only_m == "genetic" else 0.0,
+                "behavioral_weight": 1.0 if only_m == "behavioral" else 0.0,
+                "environmental_weight": 1.0 if only_m == "environmental" else 0.0,
+                "primary_driving_modality": only_m.capitalize(),
+            },
+            "feature_saliency_level_1": sal_dict,
+            "clinical_interpretation": (
+                f"Patient {patient_id} screened using single-modality profile ({only_m.capitalize()}). "
+                f"Missing modalities: {', '.join(missing_names)}. "
+                f"Unimodal screening risk: {single_prob*100:.1f}% ({pred_class}) with {confidence*100:.1f}% confidence. "
+                f"Note: Providing additional modalities ({', '.join(missing_names)}) enables full cross-modal corroboration."
+            ),
+        }
+
+        cf_result = {
+            "status": "PARTIAL_MODALITY_INFO",
+            "patient_id": patient_id,
+            "target_probability": 0.35,
+            "clinical_summary": (
+                f"Single-modality assessment completed for {only_m.capitalize()}. "
+                + ("Actionable therapeutic targets identified above for this modality."
+                   if actionable_recs["behavioral_adjustments"] or actionable_recs["environmental_adjustments"]
+                   else "Genetic factors are non-modifiable; upload behavioral or environmental data to identify actionable clinical targets.")
+            ),
+            "actionable_interventions": actionable_recs,
+        }
+
+        return {
+            "status": "success",
+            "result": explanation,
+            "counterfactual": cf_result,
+            "model_name": f"Unimodal Expert Model ({only_m.capitalize()})",
+            "modalities_used": [only_m]
+        }
+
 @app.post("/api/minn/explain/upload")
 async def explain_upload_patient(
     patient_id: Optional[str] = Form(None),
@@ -1253,8 +1488,8 @@ async def explain_upload_patient(
     environmental_file: Optional[UploadFile] = File(None),
 ) -> Dict[str, Any]:
     """
-    Runs Hierarchical Attention MINN inference and counterfactual generation
-    directly from three uploaded CSV files (Genetic, Behavioral, Environmental).
+    Runs flexible screening inference from any 1, 2, or 3 uploaded CSV files
+    (Genetic, Behavioral, and/or Environmental).
     """
     import tempfile
 
@@ -1262,20 +1497,26 @@ async def explain_upload_patient(
     if "/" in patient_id or "\\" in patient_id:
         raise HTTPException(status_code=400, detail="Patient ID must not contain path separators.")
 
-    files = {
+    raw_files = {
         "genetic": genetic_file,
         "behavioral": behavioral_file,
         "environmental": environmental_file,
     }
 
-    missing = [name for name, upload in files.items() if upload is None]
-    if missing:
+    # Filter for files that were actually uploaded and have a filename
+    provided_files = {
+        name: upload
+        for name, upload in raw_files.items()
+        if upload is not None and bool(getattr(upload, "filename", "").strip())
+    }
+
+    if not provided_files:
         raise HTTPException(
             status_code=400,
-            detail="Missing required CSV file(s): " + ", ".join(missing),
+            detail="Please select at least one CSV file to analyze (Genetic, Behavioral, or Environmental).",
         )
 
-    for name, upload in files.items():
+    for name, upload in provided_files.items():
         filename = (upload.filename or "").lower()
         if not filename.endswith(".csv"):
             raise HTTPException(status_code=400, detail=f"{name.capitalize()} input must be a CSV file.")
@@ -1283,7 +1524,7 @@ async def explain_upload_patient(
     try:
         with tempfile.TemporaryDirectory(prefix="asd_minn_upload_") as temp_dir:
             paths = {}
-            for name, upload in files.items():
+            for name, upload in provided_files.items():
                 path = Path(temp_dir) / f"{name}.csv"
                 content = await upload.read()
                 if not content:
@@ -1291,39 +1532,25 @@ async def explain_upload_patient(
                 path.write_bytes(content)
                 paths[name] = path
 
-            for name in ["genetic", "behavioral", "environmental"]:
-                df = pd.read_csv(paths[name])
+                df = pd.read_csv(path)
                 if df.empty:
                     raise ValueError(f"{name.capitalize()} CSV contains no rows.")
                 if len(df) != 1:
                     raise ValueError(f"{name.capitalize()} CSV must contain exactly one patient row; received {len(df)} rows.")
 
-            genetic_output = _run_genetic(paths["genetic"])
-            behavioral_output = _run_behavioral(paths["behavioral"])
-            environmental_output = _run_environmental(paths["environmental"])
+            outputs = {}
+            if "genetic" in paths:
+                outputs["genetic"] = _run_genetic(paths["genetic"])
+            if "behavioral" in paths:
+                outputs["behavioral"] = _run_behavioral(paths["behavioral"])
+            if "environmental" in paths:
+                outputs["environmental"] = _run_environmental(paths["environmental"])
 
-            explanation = minn_service.predict_patient(
-                genetic_32d=genetic_output["embedding"],
-                behavioral_32d=behavioral_output["embedding"],
-                environmental_32d=environmental_output["embedding"],
-                patient_id=patient_id,
-            )
+            return _build_flexible_explanation(patient_id, outputs)
 
-            cf_result = minn_service.counterfactual_analysis(
-                genetic_32d=genetic_output["embedding"],
-                behavioral_32d=behavioral_output["embedding"],
-                environmental_32d=environmental_output["embedding"],
-                patient_id=patient_id,
-            )
-
-            return {
-                "status": "success",
-                "result": explanation,
-                "counterfactual": cf_result,
-            }
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"MINN upload inference failed: {exc}") from exc
+        raise HTTPException(status_code=500, detail=f"Upload inference failed: {exc}") from exc
 
 

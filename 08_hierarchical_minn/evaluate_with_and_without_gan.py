@@ -45,7 +45,7 @@ torch.manual_seed(SEED)
 np.random.seed(SEED)
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-PROJECT_DIR = Path("d:/GAN-Enhanced-Multimodal-ASD-Screening")
+PROJECT_DIR = Path(__file__).resolve().parents[1]
 MINN_DIR = PROJECT_DIR / "08_hierarchical_minn"
 DATA_DIR = MINN_DIR / "data"
 FIGURE_DIR = MINN_DIR / "figures"

@@ -7,7 +7,10 @@
     <meta name="description" content="ASD screening via Hierarchical Attention MINN with dynamic modality attention (β), feature saliency (α), and counterfactual explanations.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="css/style.css?v=4.2">
 </head>
 <body>
 
@@ -39,6 +42,45 @@
 
 
     <!-- ═══════════════════════════════════════════════════
+         CLINICAL BENCHMARK KPI BANNER (OBJECTIVES 1-4)
+    ════════════════════════════════════════════════════ -->
+    <section class="kpi-banner card" aria-label="System Performance Metrics">
+        <div class="kpi-grid">
+            <div class="kpi-item">
+                <span class="kpi-label">Clinical ROC-AUC</span>
+                <span class="kpi-val highlight">0.9876</span>
+                <span class="kpi-sub">95% CI: [0.9848, 0.9901]</span>
+            </div>
+            <div class="kpi-item">
+                <span class="kpi-label">Overall Accuracy</span>
+                <span class="kpi-val">94.54%</span>
+                <span class="kpi-sub">95% CI: [0.9392, 0.9518]</span>
+            </div>
+            <div class="kpi-item">
+                <span class="kpi-label">Sensitivity (Recall)</span>
+                <span class="kpi-val highlight">96.52%</span>
+                <span class="kpi-sub">95% CI: [0.9576, 0.9717]</span>
+            </div>
+            <div class="kpi-item">
+                <span class="kpi-label">Clinical Specificity</span>
+                <span class="kpi-val">92.56%</span>
+                <span class="kpi-sub">95% CI: [0.9153, 0.9362]</span>
+            </div>
+            <div class="kpi-item">
+                <span class="kpi-label">F1-Score / Calibration</span>
+                <span class="kpi-val">0.9465</span>
+                <span class="kpi-sub">Brier Score: 0.0420</span>
+            </div>
+            <div class="kpi-item">
+                <span class="kpi-label">Latent GAN Augmentation</span>
+                <span class="kpi-val success">1:1 Balanced</span>
+                <span class="kpi-sub">138 Samples (69 ASD : 69 Ctrl)</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════
          MAIN LAYOUT
     ════════════════════════════════════════════════════ -->
     <main class="layout">
@@ -47,21 +89,31 @@
         <aside class="input-panel card">
 
             <div class="card-head">
-                <h2>Patient Analysis</h2>
-                <p>Enter a demo patient ID (P001–P005) or upload three CSV files.</p>
+                <h2>Patient Clinical Screening</h2>
+                <p>Select a benchmark demo patient (P001–P005) or upload any 1, 2, or 3 modality CSV files.</p>
             </div>
 
             <div class="card-body">
 
                 <!-- Quick-select demo buttons -->
                 <div class="demo-btns">
-                    <span class="demo-label">Demo Patients</span>
+                    <span class="demo-label">Verified Clinical Demo Patients</span>
                     <div class="demo-row">
-                        <button class="demo-chip" data-demo-patient="P001">P001</button>
-                        <button class="demo-chip" data-demo-patient="P002">P002</button>
-                        <button class="demo-chip" data-demo-patient="P003">P003</button>
-                        <button class="demo-chip" data-demo-patient="P004">P004</button>
-                        <button class="demo-chip" data-demo-patient="P005">P005</button>
+                        <button class="demo-chip" data-demo-patient="P001" title="P001: Screen-Positive ASD (Behavioral-dominant driver)">
+                            <strong>P001</strong> <small>ASD (Beh)</small>
+                        </button>
+                        <button class="demo-chip" data-demo-patient="P002" title="P002: Neurotypical Control (Low risk across modalities)">
+                            <strong>P002</strong> <small>Control</small>
+                        </button>
+                        <button class="demo-chip" data-demo-patient="P003" title="P003: Screen-Positive ASD (Genomic-dominant driver)">
+                            <strong>P003</strong> <small>ASD (Gen)</small>
+                        </button>
+                        <button class="demo-chip" data-demo-patient="P004" title="P004: Neurotypical Control (Low risk across modalities)">
+                            <strong>P004</strong> <small>Control</small>
+                        </button>
+                        <button class="demo-chip" data-demo-patient="P005" title="P005: Screen-Positive ASD (Complex presentation)">
+                            <strong>P005</strong> <small>ASD (Complex)</small>
+                        </button>
                     </div>
                 </div>
 
@@ -74,7 +126,7 @@
                            placeholder="e.g. P001" autocomplete="off">
                 </div>
 
-                <div class="divider">or upload CSV files</div>
+                <div class="divider">or upload CSV files (any 1, 2, or 3)</div>
 
                 <!-- File Uploads -->
                 <div class="form-group">
@@ -264,9 +316,9 @@
 <!-- ════════════════════════════════════════════════════════
      SCRIPTS  (order matters)
 ════════════════════════════════════════════════════════ -->
-<script src="js/api.js?v=3.0"></script>
-<script src="js/ui.js?v=3.0"></script>
-<script src="js/app.js?v=3.0"></script>
+<script src="js/api.js?v=4.2"></script>
+<script src="js/ui.js?v=4.2"></script>
+<script src="js/app.js?v=4.2"></script>
 
 </body>
 </html>

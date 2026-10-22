@@ -65,16 +65,16 @@ async function counterfactualMINNDemo(patientId) {
 }
 
 // ------------------------------------------------------------
-// PRIMARY: MINN Upload-based analysis (3 CSV files -> Objective 3 + 4)
+// PRIMARY: Flexible Upload-based analysis (1, 2, or 3 CSV files)
 // POST /api/minn/explain/upload
 // ------------------------------------------------------------
 
 async function analyzeCrossModalUpload(patientId, files) {
     const formData = new FormData();
     if (patientId) formData.append("patient_id", patientId);
-    formData.append("genetic_file", files.genetic);
-    formData.append("behavioral_file", files.behavioral);
-    formData.append("environmental_file", files.environmental);
+    if (files.genetic) formData.append("genetic_file", files.genetic);
+    if (files.behavioral) formData.append("behavioral_file", files.behavioral);
+    if (files.environmental) formData.append("environmental_file", files.environmental);
     return _fetch(`${API_BASE_URL}/api/minn/explain/upload`, { method: "POST", body: formData });
 }
 
