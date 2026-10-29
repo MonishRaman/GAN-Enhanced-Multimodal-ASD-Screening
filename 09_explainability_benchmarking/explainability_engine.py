@@ -76,6 +76,9 @@ class HierarchicalExplainabilityEngine:
         top_b_dims = np.argsort(alpha_b)[::-1][:5].tolist()
         top_e_dims = np.argsort(alpha_e)[::-1][:5].tolist()
 
+        highest_mod = ["Genetic", "Behavioral", "Environmental"][int(np.argmax(beta))]
+        highest_weight = float(beta[int(np.argmax(beta))])
+
         return {
             "patient_id": patient_id,
             "prediction": {
@@ -88,16 +91,21 @@ class HierarchicalExplainabilityEngine:
                 "genetic_weight": round(beta_genetic, 4),
                 "behavioral_weight": round(beta_behavioral, 4),
                 "environmental_weight": round(beta_environmental, 4),
-                "primary_driving_modality": ["Genetic", "Behavioral", "Environmental"][int(np.argmax(beta))]
+                "highest_attention_modality": highest_mod,
+                "primary_driving_modality": highest_mod,  # Backward compatibility alias
+                "interpretation_note": "Attention weights reflect relative model emphasis and do not prove biological causation or clinical importance."
             },
             "feature_saliency_level_1": {
-                "top_genetic_dimensions": [{"dimension": int(idx + 1), "attention_weight": round(float(alpha_g[idx]), 4)} for idx in top_g_dims],
-                "top_behavioral_dimensions": [{"dimension": int(idx + 1), "attention_weight": round(float(alpha_b[idx]), 4)} for idx in top_b_dims],
-                "top_environmental_dimensions": [{"dimension": int(idx + 1), "attention_weight": round(float(alpha_e[idx]), 4)} for idx in top_e_dims]
+                "top_genetic_dimensions": [{"dimension": int(idx + 1), "label": f"Latent Dim {int(idx + 1)}", "attention_weight": round(float(alpha_g[idx]), 4)} for idx in top_g_dims],
+                "top_behavioral_dimensions": [{"dimension": int(idx + 1), "label": f"Latent Dim {int(idx + 1)}", "attention_weight": round(float(alpha_b[idx]), 4)} for idx in top_b_dims],
+                "top_environmental_dimensions": [{"dimension": int(idx + 1), "label": f"Latent Dim {int(idx + 1)}", "attention_weight": round(float(alpha_e[idx]), 4)} for idx in top_e_dims],
+                "interpretation_note": "Dimensions represent abstract latent features in the aligned space, not validated real-world genes, symptoms, or exposures."
             },
             "clinical_interpretation": (
                 f"Patient {patient_id} is screened as {pred_class} with {confidence*100:.1f}% confidence. "
-                f"Diagnostic decision was primarily driven by the {['Genetic', 'Behavioral', 'Environmental'][int(np.argmax(beta))]} modality "
-                f"({beta[int(np.argmax(beta))]*100:.1f}% dynamic weight)."
+                f"Highest modality attention weight was placed on the {highest_mod} branch "
+                f"({highest_weight*100:.1f}% dynamic weight). "
+                f"Note: Modality attention weights reflect relative network emphasis and do not imply biological causation or clinical importance."
             )
         }
+

@@ -47,7 +47,7 @@
     <section class="kpi-banner card" aria-label="System Performance Metrics">
         <div class="kpi-grid">
             <div class="kpi-item">
-                <span class="kpi-label">Clinical ROC-AUC</span>
+                <span class="kpi-label">Test-set ROC-AUC</span>
                 <span class="kpi-val highlight">0.9876</span>
                 <span class="kpi-sub">95% CI: [0.9848, 0.9901]</span>
             </div>
@@ -62,7 +62,7 @@
                 <span class="kpi-sub">95% CI: [0.9576, 0.9717]</span>
             </div>
             <div class="kpi-item">
-                <span class="kpi-label">Clinical Specificity</span>
+                <span class="kpi-label">Test-set Specificity</span>
                 <span class="kpi-val">92.56%</span>
                 <span class="kpi-sub">95% CI: [0.9153, 0.9362]</span>
             </div>
@@ -76,6 +76,9 @@
                 <span class="kpi-val success">1:1 Balanced</span>
                 <span class="kpi-sub">138 Samples (69 ASD : 69 Ctrl)</span>
             </div>
+        </div>
+        <div style="margin-top: 10px; padding: 6px 12px; background: rgba(37, 99, 235, 0.05); border-radius: 6px; font-size: 11.5px; color: #64748b; text-align: center;">
+            <strong>Experimental Note:</strong> Reported performance metrics are experimental test-set evaluations derived from synthetic / sampled multimodal test combinations, not clinically validated diagnostic performance.
         </div>
     </section>
 
@@ -248,11 +251,11 @@
                 <div id="saliencySection" class="card section-card" hidden>
                     <div class="section-head">
                         <span class="section-icon">🔬</span>
-                        <h3>Feature Saliency <em>(α — Level 1, Top-5 Dims)</em></h3>
+                        <h3>Feature Saliency <em>(α — Level 1, Latent Feature Dimensions)</em></h3>
                     </div>
                     <p class="section-desc">
-                        Intra-modality feature-level attention weights. Higher
-                        bars indicate dimensions with stronger diagnostic signal.
+                        Intra-modality feature-level attention weights across 32-D latent representations.
+                        Bars represent abstract latent dimensions from neural encoders, not individual biological genes, raw symptoms, or specific chemicals.
                     </p>
 
                     <div class="sal-grid">
@@ -280,11 +283,10 @@
                 <div id="cfSection" class="card section-card cf-card" hidden>
                     <div class="section-head">
                         <span class="section-icon">💡</span>
-                        <h3>Counterfactual Analysis <em>(Objective 4)</em></h3>
+                        <h3>Latent-Space Counterfactual Analysis <em>(Objective 4)</em></h3>
                     </div>
                     <p class="section-desc">
-                        Minimal actionable perturbations to shift the prediction
-                        below the diagnostic threshold.
+                        Minimal mathematical perturbations in continuous latent space required to shift the model prediction below the decision threshold. Provided for pre-clinical research and decision support; not direct clinical treatment prescriptions.
                     </p>
                     <div id="cfBody"></div>
                 </div>
@@ -316,9 +318,9 @@
 <!-- ════════════════════════════════════════════════════════
      SCRIPTS  (order matters)
 ════════════════════════════════════════════════════════ -->
-<script src="js/api.js?v=4.2"></script>
-<script src="js/ui.js?v=4.2"></script>
-<script src="js/app.js?v=4.2"></script>
+<script src="js/api.js?v=5.0"></script>
+<script src="js/ui.js?v=5.0"></script>
+<script src="js/app.js?v=5.0"></script>
 
 </body>
 </html>

@@ -226,6 +226,12 @@ class CrossModalResult(BaseModel):
         le=1,
         description="Numeric prediction using the configured threshold.",
     )
+    confidence: Optional[float] = Field(
+        default=None,
+        ge=0.0,
+        le=1.0,
+        description="Confidence of prediction: P(ASD) for ASD, 1 - P(ASD) for Control."
+    )
     threshold: float = Field(default=0.5, ge=0.0, le=1.0)
     modalities_used: List[ModalityName] = Field(default_factory=list, min_length=3, max_length=3)
     joint_embedding_dimension: int = Field(default=32, ge=1)

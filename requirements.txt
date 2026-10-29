@@ -1,0 +1,29 @@
+# ASD Multimodal Screening System — Pinned Dependencies
+# Python Version: 3.10.x (e.g. 3.10.10 or 3.10.11, 64-bit)
+
+# Deep Learning Framework (CPU builds; CUDA optional if GPU available)
+torch==2.1.0+cpu; sys_platform == 'win32'
+torchvision==0.16.0+cpu; sys_platform == 'win32'
+torchaudio==2.1.0+cpu; sys_platform == 'win32'
+--find-links https://download.pytorch.org/whl/torch_stable.html
+
+# Scientific Computing & Data Processing
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.15.2
+scikit-learn==1.7.2
+
+# Web Framework & API Backend
+fastapi==0.139.2
+uvicorn[standard]==0.51.0
+pydantic==2.13.4
+python-multipart==0.0.20
+requests==2.34.2
+
+# Visualization & Statistical Plotting
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Report & Document Generation
+python-docx==1.2.0
+

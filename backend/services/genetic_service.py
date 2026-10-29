@@ -245,6 +245,27 @@ class GeneticService:
         self.alignment_input_dim = 128
         self.alignment_output_dim = 32
 
+        # -------------------------------------------------------------
+        # Canonical 1000 Probe Training Order
+        # -------------------------------------------------------------
+        canonical_file = (
+            PROJECT_ROOT
+            / "Genetics_Complete_code"
+            / "genetics"
+            / "outputs"
+            / "objective2_genetic"
+            / "train_test_split"
+            / "genetic_train_1000_features.csv"
+        )
+        if canonical_file.exists():
+            df_canon = pd.read_csv(canonical_file, nrows=1)
+            self.canonical_probes = [
+                c for c in df_canon.columns
+                if c not in ["GSM_ID", "Source", "Subtype", "Target", "label", "Label", "Class/ASD"]
+            ]
+        else:
+            self.canonical_probes = None
+
     # -----------------------------------------------------------------
     # Input preparation
     # -----------------------------------------------------------------
@@ -290,12 +311,17 @@ class GeneticService:
             )
 
         # ------------------------------------------------------------------
-        # NUMERIC CONVERSION
+        # NUMERIC CONVERSION & CANONICAL FEATURE ORDER ALIGNMENT
         # ------------------------------------------------------------------
 
-        features = dataframe[
-            feature_columns
-        ].copy()
+        # If canonical 1000 probe training order is known and all probes match,
+        # enforce strict canonical order to guarantee preprocessing consistency
+        if self.canonical_probes is not None and set(self.canonical_probes) == set(feature_columns):
+            features = dataframe[self.canonical_probes].copy()
+            self.feature_columns = list(self.canonical_probes)
+        else:
+            features = dataframe[feature_columns].copy()
+            self.feature_columns = feature_columns
 
         features = features.apply(
             pd.to_numeric,

@@ -73,6 +73,8 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://127.0.0.1:3000",
+        "http://localhost:3000",
         "http://127.0.0.1:5500",
         "http://localhost:5500",
         "http://127.0.0.1:5501",
@@ -81,9 +83,12 @@ app.add_middleware(
         "http://localhost:8000",
         "http://127.0.0.1:8001",
         "http://localhost:8001",
+        "http://127.0.0.1:8080",
+        "http://localhost:8080",
     ],
     allow_credentials=True,
     allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Mount frontend directory
@@ -1381,15 +1386,18 @@ def _build_flexible_explanation(
                 "genetic_weight": round(norm_weights.get("genetic", 0.0), 4),
                 "behavioral_weight": round(norm_weights.get("behavioral", 0.0), 4),
                 "environmental_weight": round(norm_weights.get("environmental", 0.0), 4),
+                "highest_attention_modality": primary_driver,
                 "primary_driving_modality": primary_driver,
+                "attention_disclaimer": "Attention weights reflect relative model emphasis during evidence integration; they do not prove clinical etiology or biological causation.",
             },
             "feature_saliency_level_1": sal_dict,
             "clinical_interpretation": (
                 f"Patient {patient_id} screened using flexible dual-modality profile "
                 f"({provided_names[0].capitalize()} + {provided_names[1].capitalize()}). "
-                f"Missing modality ({missing_names[0]}) was accommodated via weight-renormalized evidence fusion. "
-                f"Diagnostic risk: {combined_prob*100:.1f}% ({pred_class}) with {confidence*100:.1f}% confidence. "
-                f"Primary driver among provided data: {primary_driver} ({norm_weights[primary_driver.lower()]*100:.1f}% dynamic weight)."
+                f"Missing modality ({missing_names[0]}) was accommodated via weight-renormalized evidence integration. "
+                f"Screening risk: {combined_prob*100:.1f}% ({pred_class}) with {confidence*100:.1f}% confidence. "
+                f"Modality with highest attention weight: {primary_driver} ({norm_weights[primary_driver.lower()]*100:.1f}%). "
+                f"(Attention weights show model emphasis and do not prove clinical etiology)."
             ),
         }
 
@@ -1448,14 +1456,18 @@ def _build_flexible_explanation(
                 "genetic_weight": 1.0 if only_m == "genetic" else 0.0,
                 "behavioral_weight": 1.0 if only_m == "behavioral" else 0.0,
                 "environmental_weight": 1.0 if only_m == "environmental" else 0.0,
+                "highest_attention_modality": only_m.capitalize(),
                 "primary_driving_modality": only_m.capitalize(),
+                "attention_disclaimer": "Attention weights reflect relative model emphasis during evidence integration; they do not prove clinical etiology or biological causation.",
             },
             "feature_saliency_level_1": sal_dict,
             "clinical_interpretation": (
                 f"Patient {patient_id} screened using single-modality profile ({only_m.capitalize()}). "
                 f"Missing modalities: {', '.join(missing_names)}. "
                 f"Unimodal screening risk: {single_prob*100:.1f}% ({pred_class}) with {confidence*100:.1f}% confidence. "
-                f"Note: Providing additional modalities ({', '.join(missing_names)}) enables full cross-modal corroboration."
+                f"Highest attention weight: {only_m.capitalize()} (100.0%). "
+                f"Note: Attention weights indicate model evidence weighting and do not prove clinical causation. "
+                f"Providing additional modalities ({', '.join(missing_names)}) enables full cross-modal corroboration."
             ),
         }
 
@@ -1479,6 +1491,113 @@ def _build_flexible_explanation(
             "model_name": f"Unimodal Expert Model ({only_m.capitalize()})",
             "modalities_used": [only_m]
         }
+
+def _sanitize_error_msg(exc: Exception) -> str:
+    """Strips internal system paths from exception strings to protect privacy."""
+    import re
+    msg = str(exc)
+    msg = re.sub(r'[A-Za-z]:\\[^:\n\r\t]+', '[internal_path]', msg)
+    msg = re.sub(r'/[a-zA-Z0-9_\-\./]+', '[internal_path]', msg)
+    return msg
+
+
+def _validate_uploaded_modality_df(name: str, df: pd.DataFrame) -> None:
+    """
+    Validates CSV schema, row count, feature count, missing values, and data types
+    prior to running model inference.
+    """
+    if df.empty:
+        raise ValueError(f"{name.capitalize()} CSV contains no data rows.")
+    if len(df) != 1:
+        raise ValueError(f"{name.capitalize()} CSV must contain exactly 1 patient row; received {len(df)} rows.")
+
+    # Missing / NaN check
+    if df.isna().any().any():
+        nan_cols = df.columns[df.isna().any()].tolist()
+        raise ValueError(
+            f"{name.capitalize()} CSV contains NaN/null values in columns: {nan_cols[:5]}. All features must be fully populated."
+        )
+
+    if name == "genetic":
+        non_probe_cols = {"GSM_ID", "gsm_id", "label", "Label", "Class/ASD", "Sample_ID", "sample_id", "ID", "id", "Source", "Subtype", "Target"}
+        probe_cols = [c for c in df.columns if c not in non_probe_cols]
+        if len(probe_cols) != 1000:
+            raise ValueError(
+                f"Genetic CSV must contain exactly 1000 gene expression probe features; found {len(probe_cols)}."
+            )
+        # Check unexpected metadata columns
+        unexpected_meta = [c for c in df.columns if c in non_probe_cols and c not in {"GSM_ID", "Source", "Subtype", "Target", "Class/ASD", "ID", "id", "sample_id", "Sample_ID"}]
+        if unexpected_meta:
+            raise ValueError(f"Genetic CSV contains unexpected column(s): {unexpected_meta[:5]}.")
+
+        for col in probe_cols[:10]:
+            if not np.issubdtype(df[col].dtype, np.number):
+                raise ValueError(f"Genetic probe column '{col}' contains non-numeric data.")
+
+    elif name == "behavioral":
+        req_cols = [
+            'A1_Score', 'A2_Score', 'A3_Score', 'A4_Score', 'A5_Score',
+            'A6_Score', 'A7_Score', 'A8_Score', 'A9_Score', 'A10_Score',
+            'age', 'gender', 'ethnicity', 'jundice', 'austim',
+            'contry_of_res', 'used_app_before', 'relation'
+        ]
+        allowed_cols = set(req_cols) | {"result", "Class/ASD", "class/ASD", "Class", "ASD", "ID", "id", "Patient_ID", "patient_id"}
+        unexpected = [c for c in df.columns if c not in allowed_cols]
+        if unexpected:
+            raise ValueError(
+                f"Behavioral CSV contains unexpected column(s): {unexpected[:5]}. Expected only the 18 standard screening features."
+            )
+
+        missing = [c for c in req_cols if c not in df.columns]
+        if missing:
+            raise ValueError(
+                f"Behavioral CSV is missing required columns: {missing[:5]}. Expected 18 standard screening features."
+            )
+
+        # Feature order check
+        order_in_df = [c for c in df.columns if c in req_cols]
+        if order_in_df != req_cols:
+            raise ValueError(
+                f"Behavioral CSV features are in an incorrect order. Expected order: {req_cols[:3]}..., found: {order_in_df[:3]}..."
+            )
+
+        for q in ['A1_Score', 'A2_Score', 'A3_Score', 'A4_Score', 'A5_Score', 'A6_Score', 'A7_Score', 'A8_Score', 'A9_Score', 'A10_Score']:
+            val = df[q].iloc[0]
+            if val not in [0, 1, 0.0, 1.0]:
+                raise ValueError(f"Behavioral question score '{q}' must be binary (0 or 1); received {val}.")
+
+    elif name == "environmental":
+        req_cols = [
+            'fpl_i1', 'higrade', 'family_r', 'house_gen', 'metro_yn', 'mpc_yn',
+            'currins', 'insgap', 'foodsit', 'k11q61', 'k10q40_r', 'k10q30',
+            'k10q23', 'k10q22', 'k10q20', 'k10q11', 'k10q12', 'k10q13',
+            'k10q14', 'ace1', 'ace3', 'ace4', 'ace5', 'ace6', 'ace7',
+            'ace8', 'ace9', 'ace10', 'hoursleep', 'physactiv', 'screentime'
+        ]
+        allowed_cols = set(req_cols) | {"k2q35a", "Class/ASD", "Target", "ID", "id", "Patient_ID", "patient_id"}
+        unexpected = [c for c in df.columns if c not in allowed_cols]
+        if unexpected:
+            raise ValueError(
+                f"Environmental CSV contains unexpected column(s): {unexpected[:5]}. Expected only the 31 environmental features."
+            )
+
+        missing = [c for c in req_cols if c not in df.columns]
+        if missing:
+            raise ValueError(
+                f"Environmental CSV is missing required columns: {missing[:5]}. Expected 31 environmental exposure features."
+            )
+
+        # Feature order check
+        order_in_df = [c for c in df.columns if c in req_cols]
+        if order_in_df != req_cols:
+            raise ValueError(
+                f"Environmental CSV features are in an incorrect order. Expected order: {req_cols[:3]}..., found: {order_in_df[:3]}..."
+            )
+
+        for col in req_cols:
+            if not np.issubdtype(df[col].dtype, np.number):
+                raise ValueError(f"Environmental feature '{col}' must be numeric; received dtype {df[col].dtype}.")
+
 
 @app.post("/api/minn/explain/upload")
 async def explain_upload_patient(
@@ -1533,10 +1652,7 @@ async def explain_upload_patient(
                 paths[name] = path
 
                 df = pd.read_csv(path)
-                if df.empty:
-                    raise ValueError(f"{name.capitalize()} CSV contains no rows.")
-                if len(df) != 1:
-                    raise ValueError(f"{name.capitalize()} CSV must contain exactly one patient row; received {len(df)} rows.")
+                _validate_uploaded_modality_df(name, df)
 
             outputs = {}
             if "genetic" in paths:
@@ -1549,8 +1665,8 @@ async def explain_upload_patient(
             return _build_flexible_explanation(patient_id, outputs)
 
     except ValueError as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(status_code=400, detail=_sanitize_error_msg(exc)) from exc
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Upload inference failed: {exc}") from exc
+        raise HTTPException(status_code=500, detail=f"Upload inference failed: {_sanitize_error_msg(exc)}") from exc
 
 

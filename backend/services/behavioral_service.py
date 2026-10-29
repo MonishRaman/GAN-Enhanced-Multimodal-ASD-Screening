@@ -706,6 +706,12 @@ class BehavioralService:
             input_data
         )
 
+        # Enforce canonical feature order matching preprocessor
+        if hasattr(self.preprocessor, "feature_names_in_"):
+            cols = [c for c in self.preprocessor.feature_names_in_ if c in data.columns]
+            if len(cols) == len(self.preprocessor.feature_names_in_):
+                data = data[list(self.preprocessor.feature_names_in_)].copy()
+
         # ---------------------------------------------------------------
         # STEP 1
         # FROZEN BEHAVIORAL PREPROCESSOR

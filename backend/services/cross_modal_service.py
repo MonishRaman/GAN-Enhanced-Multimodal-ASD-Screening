@@ -75,10 +75,12 @@ class CrossModalService:
         if not np.isfinite(probability) or not 0.0 <= probability <= 1.0:
             raise RuntimeError(f"Invalid probability returned by final model: {probability}")
         numeric = int(probability >= self.threshold)
+        confidence = probability if numeric else (1.0 - probability)
         return {
             "probability": probability,
             "prediction": "ASD" if numeric else "NON-ASD",
             "prediction_numeric": numeric,
+            "confidence": round(confidence, 4),
             "threshold": self.threshold,
             "model": "Final Cross-Modal ASD Network",
             "joint_embedding_dimension": int(joint.shape[1]),

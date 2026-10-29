@@ -135,7 +135,7 @@ function saliencyRows(dimArr) {
         const w = Math.min(100, (d.attention_weight / max) * 100).toFixed(1);
         return `
         <div class="sal-row">
-            <span class="sal-dim">Dim ${d.dimension}</span>
+            <span class="sal-dim">Latent Dim ${d.dimension}</span>
             <div class="sal-track">
                 <div class="sal-fill" style="width:${w}%"></div>
             </div>
@@ -224,7 +224,8 @@ function renderCounterfactual(cfData) {
         const eRecs = Array.isArray(recs.environmental_adjustments) ? recs.environmental_adjustments : [];
 
         if (bRecs.length > 0 || eRecs.length > 0) {
-            html += `<div class="cf-recs-title">Actionable Interventions by Modality</div>`;
+            html += `<div class="cf-recs-title">Latent-Space Perturbations (Decision-Support Analysis)</div>`;
+            html += `<p style="font-size:12px; color:#64748b; margin-bottom:8px;">Changes indicate mathematical shifts in latent feature space to cross decision boundary; not clinical treatment prescriptions.</p>`;
 
             bRecs.forEach(item => {
                 const shiftSign = item.recommended_shift > 0 ? "+" : "";
@@ -232,7 +233,7 @@ function renderCounterfactual(cfData) {
                 <div class="cf-rec">
                     <span class="cf-modality-tag" style="background: #d1fae5; color: #065f46;">Behavioral</span>
                     <span class="cf-rec-text">
-                        Adjust <strong>Dimension ${item.dimension}</strong> by <strong>${shiftSign}${item.recommended_shift.toFixed(4)}</strong> (actionable behavioral therapy target)
+                        Shift <strong>Latent Dimension ${item.dimension}</strong> by <strong>${shiftSign}${item.recommended_shift.toFixed(4)}</strong> (latent space feature target)
                     </span>
                 </div>`;
             });
@@ -243,7 +244,7 @@ function renderCounterfactual(cfData) {
                 <div class="cf-rec">
                     <span class="cf-modality-tag" style="background: #ede9fe; color: #5b21b6;">Environmental</span>
                     <span class="cf-rec-text">
-                        Adjust <strong>Dimension ${item.dimension}</strong> by <strong>${shiftSign}${item.recommended_shift.toFixed(4)}</strong> (actionable environmental exposure modification)
+                        Shift <strong>Latent Dimension ${item.dimension}</strong> by <strong>${shiftSign}${item.recommended_shift.toFixed(4)}</strong> (latent space feature target)
                     </span>
                 </div>`;
             });
@@ -277,7 +278,10 @@ function renderAnalysisResult(data) {
     const patientId  = result.patient_id || data.patient_id || "uploaded-patient";
     const asdProb    = pred.asd_probability ?? pred.probability ?? null;
     const classif    = pred.classification  || pred.prediction  || (asdProb !== null ? (asdProb >= 0.5 ? "ASD" : "Control") : "—");
-    const confidence = pred.confidence ?? (asdProb !== null ? (asdProb >= 0.5 ? asdProb : (1 - asdProb)) : null);
+    // Ensure strict mathematical consistency: For ASD, confidence is P(ASD); for Control, 1 - P(ASD)
+    const confidence = (asdProb !== null)
+        ? (classif === "ASD" ? asdProb : (1.0 - asdProb))
+        : (pred.confidence ?? null);
     const threshold  = pred.decision_threshold ?? pred.threshold ?? 0.50;
     const modelName  = isCrossModal
         ? (cm.model || "Cross-Modal Multimodal Fusion Network")
@@ -333,14 +337,15 @@ function renderAnalysisResult(data) {
         const gw  = att2.genetic_weight       ?? 0;
         const bw  = att2.behavioral_weight    ?? 0;
         const ew  = att2.environmental_weight ?? 0;
-        const pdm = att2.primary_driving_modality || "";
+        const pdm = att2.highest_attention_modality || att2.primary_driving_modality || "";
 
         attContainer.innerHTML = `
             ${attentionBar("Genetic (β_G)",       gw,  pdm === "Genetic")}
             ${attentionBar("Behavioral (β_B)",    bw,  pdm === "Behavioral")}
             ${attentionBar("Environmental (β_E)", ew,  pdm === "Environmental")}
             <p class="att-note">
-                Primary driving modality: <strong>${pdm || "—"}</strong> (${pdm === "Genetic" ? pct(gw) : pdm === "Behavioral" ? pct(bw) : pct(ew)} dynamic weight)
+                Highest modality attention weight: <strong>${pdm || "—"}</strong> (${pdm === "Genetic" ? pct(gw) : pdm === "Behavioral" ? pct(bw) : pct(ew)} dynamic weight)
+                <br><small style="color:#64748b; display:block; margin-top:4px;">Attention weights reflect model evidence integration; they do not prove clinical etiology or biological causation.</small>
             </p>`;
         setVisible("attentionSection", true);
     } else if (attContainer && isCrossModal && Array.isArray(data.modality_results)) {

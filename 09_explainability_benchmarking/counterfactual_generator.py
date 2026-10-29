@@ -137,6 +137,23 @@ class CounterfactualGenerator:
         top_b_perturb = np.argsort(np.abs(delta_b_np))[::-1][:3]
         top_e_perturb = np.argsort(np.abs(delta_e_np))[::-1][:3]
 
+        # Precise re-evaluation on the exact best_delta vectors
+        with torch.no_grad():
+            _, final_cf_prob_t = self.model(g_t, b_t + best_delta_b, e_t + best_delta_e)
+        best_cf_prob = float(final_cf_prob_t.item())
+
+        # Evaluate sparse top-3 perturbation alone
+        delta_b_top3 = torch.zeros_like(best_delta_b)
+        delta_e_top3 = torch.zeros_like(best_delta_e)
+        for idx in top_b_perturb:
+            delta_b_top3[0, idx] = best_delta_b[0, idx]
+        for idx in top_e_perturb:
+            delta_e_top3[0, idx] = best_delta_e[0, idx]
+
+        with torch.no_grad():
+            _, top3_prob_t = self.model(g_t, b_t + delta_b_top3, e_t + delta_e_top3)
+        top3_sparse_prob = float(top3_prob_t.item())
+
         if best_cf_prob <= target_prob:
             status = "COUNTERFACTUAL_FOUND"
         elif best_cf_prob < 0.50:
@@ -148,19 +165,23 @@ class CounterfactualGenerator:
 
         if status in ("COUNTERFACTUAL_FOUND", "DIAGNOSTIC_FLIP_ACHIEVED"):
             clinical_summary = (
-                f"For patient {patient_id} (original risk {orig_prob*100:.1f}%), a target probability of {best_cf_prob*100:.1f}% "
-                f"is achievable through an L2 intervention distance of {l2_dist:.2f}, primarily requiring adjustments "
-                f"to Behavioral Dimensions {[int(x+1) for x in top_b_perturb]} and Environmental Exposures {[int(x+1) for x in top_e_perturb]}."
+                f"For patient {patient_id} (original model risk {orig_prob*100:.1f}%), a target probability of {best_cf_prob*100:.1f}% "
+                f"is mathematically achievable through an L2 latent perturbation distance of {l2_dist:.2f}, primarily shifting "
+                f"Latent Behavioral Dimensions {[int(x+1) for x in top_b_perturb]} and Latent Environmental Dimensions {[int(x+1) for x in top_e_perturb]}. "
+                f"Note: These shifts represent mathematical counterfactuals in the 32-D latent space and are experimental explanations, not validated direct clinical interventions."
             )
         else:
             clinical_summary = (
-                f"For patient {patient_id} (original risk {orig_prob*100:.1f}%), optimization achieved a partial reduction to {best_cf_prob*100:.1f}%. "
-                f"Due to high non-actionable genetic risk, supplementary clinical consultation is recommended."
+                f"For patient {patient_id} (original model risk {orig_prob*100:.1f}%), latent optimization achieved a partial reduction to {best_cf_prob*100:.1f}%. "
+                f"Due to high non-actionable genetic latent risk, the model prediction remained above threshold. "
+                f"Note: Latent perturbations are exploratory model explanations, not validated clinical interventions."
             )
 
         return {
             "patient_id": patient_id,
             "status": status,
+            "is_latent_space_counterfactual": True,
+            "interpretation_note": "Perturbations represent exploratory mathematical shifts in 32-D latent embeddings, not direct clinical recommendations.",
             "original_diagnosis": {
                 "probability": round(orig_prob, 4),
                 "classification": "ASD"
@@ -176,15 +197,32 @@ class CounterfactualGenerator:
                 "l1_distance": round(l1_dist, 4)
             },
             "actionable_recommendations": {
+                "summary_note": "Adjustments display the top 3 highest-magnitude dimensions for human interpretation. The full mathematical counterfactual operates across all 32 latent dimensions.",
+                "top3_sparse_probability": round(top3_sparse_prob, 4),
                 "behavioral_adjustments": [
-                    {"dimension": int(idx + 1), "recommended_shift": round(float(delta_b_np[idx]), 4)}
+                    {
+                        "dimension": int(idx + 1),
+                        "label": f"Latent Behavioral Dim {int(idx + 1)}",
+                        "recommended_shift": round(float(delta_b_np[idx]), 4),
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
                     for idx in top_b_perturb
                 ],
                 "environmental_adjustments": [
-                    {"dimension": int(idx + 1), "recommended_shift": round(float(delta_e_np[idx]), 4)}
+                    {
+                        "dimension": int(idx + 1),
+                        "label": f"Latent Environmental Dim {int(idx + 1)}",
+                        "recommended_shift": round(float(delta_e_np[idx]), 4),
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
                     for idx in top_e_perturb
                 ]
             },
+            "full_latent_perturbations": {
+                "delta_behavioral_32d": [round(float(v), 6) for v in delta_b_np],
+                "delta_environmental_32d": [round(float(v), 6) for v in delta_e_np]
+            },
             "clinical_summary": clinical_summary
         }
+
 
