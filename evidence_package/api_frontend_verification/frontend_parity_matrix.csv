@@ -1,0 +1,6 @@
+Field_Name,Backend_JSON_Path,P001_Backend_Value,Frontend_DOM_Element,Frontend_Render_Formula,P001_Rendered_UI,Parity_Status,P002_Backend_Value,P002_Rendered_UI
+P(ASD) Display,result.prediction.asd_probability,0.9999,id='finalProbability',(asd_probability * 100).toFixed(2) + '%',99.99%,EXACT_MATCH,,
+Classification,result.prediction.classification,ASD,id='finalPrediction',classification,ASD,EXACT_MATCH,,
+Decision Confidence,result.prediction.confidence,0.9999,id='finalConfidence',(confidence * 100).toFixed(2) + '%',99.99%,EXACT_MATCH,,
+Highest Attention Modality,result.modality_attention_level_2.highest_attention_modality,Behavioral,id='highestAttentionModality',highest_attention_modality,Behavioral,EXACT_MATCH,,
+Control Decision Confidence,result.prediction.confidence,,id='finalConfidence',(confidence * 100).toFixed(2) + '%',,EXACT_MATCH,1.0,100.00%

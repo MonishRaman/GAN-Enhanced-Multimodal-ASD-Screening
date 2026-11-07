@@ -1,0 +1,27 @@
+{
+    "canonical_seed_42": {
+        "without_gan": {
+            "accuracy": 0.9456,
+            "sensitivity": 0.954,
+            "specificity": 0.9372,
+            "roc_auc": 0.98681696,
+            "false_negatives": 115,
+            "false_positives": 157
+        },
+        "with_gan": {
+            "accuracy": 0.9454,
+            "sensitivity": 0.9652,
+            "specificity": 0.9256,
+            "roc_auc": 0.9876214399999999,
+            "false_negatives": 87,
+            "false_positives": 186
+        },
+        "delta_with_minus_without": {
+            "accuracy_delta": -0.0002,
+            "sensitivity_delta": 0.0112,
+            "specificity_delta": -0.0116,
+            "false_negatives_reduced": 28
+        }
+    },
+    "scientific_conclusion": "WGAN-GP minority control augmentation balances the training representation manifold. It does NOT increase overall classification accuracy (-0.02% on seed 42), but yields a clinically valuable reduction in false negatives (115 down to 87, a 24.3% reduction) and increases clinical sensitivity from 95.40% to 96.52% (+1.12%)."
+}

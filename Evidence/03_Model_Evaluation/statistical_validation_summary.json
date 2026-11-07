@@ -1,0 +1,86 @@
+{
+    "evaluation_cohort_combinations": 5000,
+    "dependency_structure": "Three-Way Crossed Clustering (N_Genetic=24, N_Behavioral=132, N_Environmental=7166)",
+    "point_estimates": {
+        "accuracy": 0.9454,
+        "sensitivity": 0.9652,
+        "specificity": 0.9256,
+        "f1_score": 0.9464600902137674,
+        "roc_auc": 0.9876214399999999
+    },
+    "confidence_intervals_95": {
+        "method1_naive_row": {
+            "Accuracy": [
+                0.9392,
+                0.9518
+            ],
+            "Sensitivity": [
+                0.9576080630906908,
+                0.9717141594469513
+            ],
+            "Specificity": [
+                0.915326013280204,
+                0.936162043248601
+            ],
+            "ROC_AUC": [
+                0.9848111668156165,
+                0.9901361333073075
+            ]
+        },
+        "method2_genetic_cluster": {
+            "Accuracy": [
+                0.9165802779386967,
+                0.9699157129164367
+            ],
+            "Sensitivity": [
+                0.9286583740106824,
+                0.9908919874235944
+            ],
+            "Specificity": [
+                0.8792055127685448,
+                0.9676258992805755
+            ],
+            "ROC_AUC": [
+                0.9669809114674482,
+                0.9976568031292797
+            ]
+        },
+        "method3_twoway_crossed": {
+            "Accuracy": [
+                0.9131298171671642,
+                0.97434198485173
+            ],
+            "Sensitivity": [
+                0.9362338116758289,
+                0.9923903671850582
+            ],
+            "Specificity": [
+                0.8671418687641104,
+                0.9723853644904014
+            ],
+            "ROC_AUC": [
+                0.9723010483881371,
+                0.9981722292073084
+            ]
+        },
+        "method4_threeway_crossed": {
+            "Accuracy": [
+                0.9145730828151752,
+                0.9757545260246907
+            ],
+            "Sensitivity": [
+                0.9346617346130891,
+                0.9934797534592963
+            ],
+            "Specificity": [
+                0.8720382395382396,
+                0.975796426396167
+            ],
+            "ROC_AUC": [
+                0.9716997444433527,
+                0.9982908458704349
+            ]
+        }
+    },
+    "statistical_verdict": "Naive row-level bootstrap is overconfident due to subject reuse. Genetic cluster and three-way crossed cluster bootstrap provide the defensible statistical intervals. However, these intervals measure uncertainty over the in-silico data generation process and cannot establish population-level clinical generalization."
+}

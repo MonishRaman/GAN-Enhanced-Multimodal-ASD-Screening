@@ -1,0 +1,28 @@
+{
+    "audit_timestamp": "2026-10-30 07:08:44",
+    "patient_identifier_leakage": {
+        "train_gsm_count": 92,
+        "test_gsm_count": 24,
+        "overlapping_gsm_count": 0,
+        "status": "PASS"
+    },
+    "synthetic_data_provenance": {
+        "training_real_samples": 92,
+        "training_synthetic_samples": 46,
+        "test_real_samples": 24,
+        "test_synthetic_samples": 0,
+        "status": "PASS"
+    },
+    "in_silico_triplet_repetition": {
+        "test_triplet_count": 5000,
+        "genetic_test_subjects": 24,
+        "average_genetic_reuse": 208.33333333333334,
+        "status": "VERIFIED_AND_DOCUMENTED"
+    },
+    "representation_overlap": {
+        "minimum_cross_label_distance": 0.073824216949576,
+        "mean_cross_label_distance": 0.6370733238063416,
+        "percentile_5th_distance": 0.31556991779371013,
+        "status": "PASS"
+    }
+}

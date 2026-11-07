@@ -1,0 +1,186 @@
+{
+    "report_name": "data_flow_and_leakage_audit",
+    "audit_timestamp": "2026-10-30 16:35:08",
+    "cohort_summary": [
+        {
+            "Modality": "Genetic (Raw GSE28521)",
+            "Biological_Source": "Human post-mortem cerebral cortex microarrays",
+            "Total_Records": 116,
+            "Train_Records": 92,
+            "Val_Records": 0,
+            "Test_Records": 24,
+            "Train_Class_Balance": "69 ASD : 23 Control (Imbalanced)",
+            "Test_Class_Balance": "18 ASD : 6 Control (12 ASD : 12 Control)",
+            "Raw_Features": 1000,
+            "Aligned_Features": 32
+        },
+        {
+            "Modality": "Genetic (GAN-Balanced)",
+            "Biological_Source": "GSE28521 + WGAN-GP synthetic minority control vectors",
+            "Total_Records": 162,
+            "Train_Records": 138,
+            "Val_Records": 0,
+            "Test_Records": 24,
+            "Train_Class_Balance": "69 ASD : 69 Control (69 ASD : 69 Ctrl, 46 synthetic)",
+            "Test_Class_Balance": "18 ASD : 6 Control (Strictly 0 synthetic)",
+            "Raw_Features": 32,
+            "Aligned_Features": 32
+        },
+        {
+            "Modality": "Behavioral",
+            "Biological_Source": "Toddler screening questionnaires (Q-CHAT-10 + Demographics)",
+            "Total_Records": 880,
+            "Train_Records": 616,
+            "Val_Records": 132,
+            "Test_Records": 132,
+            "Train_Class_Balance": "431 ASD : 185 Control (70% stratified split)",
+            "Test_Class_Balance": "66 ASD : 66 Control (Balanced test split)",
+            "Raw_Features": 18,
+            "Aligned_Features": 32
+        },
+        {
+            "Modality": "Environmental",
+            "Biological_Source": "National Survey of Children's Health (NSCH 2023) Topical Toxicological Matrix",
+            "Total_Records": 47768,
+            "Train_Records": 33437,
+            "Val_Records": 7165,
+            "Test_Records": 7166,
+            "Train_Class_Balance": "1483 ASD : 31954 Control",
+            "Test_Class_Balance": "318 ASD : 6848 Control",
+            "Raw_Features": 31,
+            "Aligned_Features": 32
+        }
+    ],
+    "in_silico_triplet_reuse": [
+        {
+            "Modality": "Genetic",
+            "Unique_Held_Out_Subjects_In_Pool": 24,
+            "ASD_Subjects_Available": 12,
+            "Control_Subjects_Available": 12,
+            "Draws_Per_Class": 2500,
+            "Average_Reuse_Per_ASD_Subject": 208.33,
+            "Average_Reuse_Per_Control_Subject": 208.33,
+            "Interpretation": "Each held-out genetic subject is repeated ~208.33 times across evaluation combinations."
+        },
+        {
+            "Modality": "Behavioral",
+            "Unique_Held_Out_Subjects_In_Pool": 132,
+            "ASD_Subjects_Available": 66,
+            "Control_Subjects_Available": 66,
+            "Draws_Per_Class": 2500,
+            "Average_Reuse_Per_ASD_Subject": 37.88,
+            "Average_Reuse_Per_Control_Subject": 37.88,
+            "Interpretation": "Each held-out behavioral survey is repeated ~37.88 times across evaluation combinations."
+        },
+        {
+            "Modality": "Environmental",
+            "Unique_Held_Out_Subjects_In_Pool": 7166,
+            "ASD_Subjects_Available": 318,
+            "Control_Subjects_Available": 6848,
+            "Draws_Per_Class": 2500,
+            "Average_Reuse_Per_ASD_Subject": 7.86,
+            "Average_Reuse_Per_Control_Subject": 0.37,
+            "Interpretation": "ASD environmental records repeated ~7.86 times; Control records sampled at 0.37x."
+        }
+    ],
+    "all_modalities_overlap": [
+        {
+            "Modality": "Genetic",
+            "Identifier_Type": "NCBI GEO GSM Sample Accession ID",
+            "Train_Records": 92,
+            "Test_Records": 24,
+            "Overlapping_Records": 0,
+            "Status": "PASS (Zero Overlap)"
+        },
+        {
+            "Modality": "Behavioral",
+            "Identifier_Type": "Stratified Cohort Partition Index",
+            "Train_Records": 616,
+            "Test_Records": 132,
+            "Overlapping_Records": 0,
+            "Status": "PASS (Zero Overlap)"
+        },
+        {
+            "Modality": "Environmental",
+            "Identifier_Type": "NSCH Survey Partition Index",
+            "Train_Records": 33437,
+            "Test_Records": 7166,
+            "Overlapping_Records": 0,
+            "Status": "PASS (Zero Overlap)"
+        }
+    ],
+    "synthetic_provenance": {
+        "check_name": "synthetic_data_provenance",
+        "training_samples_total": 138,
+        "training_real_samples": 92,
+        "training_synthetic_samples": 46,
+        "testing_samples_total": 24,
+        "testing_real_samples": 24,
+        "testing_synthetic_samples": 0,
+        "status": "PASS",
+        "finding": "All 24 test samples are authentic biological tissue microarrays from GSE28521. Zero synthetic leakage."
+    },
+    "train_test_duplicates": [
+        {
+            "Modality": "Genetic (32-D)",
+            "Min_Distance_To_Train": 0.4718,
+            "Mean_Nearest_Train_Distance": 0.8724,
+            "Exact_Feature_Matches": 0,
+            "Partition_Integrity": "PASS (Disjoint Partition)",
+            "Explanation": "Continuous high-dimensional vectors are distinct."
+        },
+        {
+            "Modality": "Behavioral (32-D)",
+            "Min_Distance_To_Train": 0.0025,
+            "Mean_Nearest_Train_Distance": 0.0997,
+            "Exact_Feature_Matches": 0,
+            "Partition_Integrity": "PASS (Disjoint Partition)",
+            "Explanation": "Continuous high-dimensional vectors are distinct."
+        },
+        {
+            "Modality": "Environmental (32-D)",
+            "Min_Distance_To_Train": 0.0,
+            "Mean_Nearest_Train_Distance": 1.8337,
+            "Exact_Feature_Matches": 8,
+            "Partition_Integrity": "PASS (Disjoint Partition)",
+            "Explanation": "Discrete categorical survey responses (NSCH) naturally produce identical response patterns across independent households (2,564 duplicates in full N=47,768 cohort)."
+        }
+    ],
+    "representation_overlap": [
+        {
+            "Metric": "Minimum Distance",
+            "Value": 0.0738,
+            "Threshold": "> 0.0500",
+            "Interpretation": "Cross-label manifold separation heuristic satisfied"
+        },
+        {
+            "Metric": "1st Percentile Distance",
+            "Value": 0.2425,
+            "Threshold": "N/A",
+            "Interpretation": "Low-density boundary region"
+        },
+        {
+            "Metric": "5th Percentile Distance",
+            "Value": 0.3156,
+            "Threshold": "N/A",
+            "Interpretation": "Lower quartile separation"
+        },
+        {
+            "Metric": "Median Distance",
+            "Value": 0.674,
+            "Threshold": "N/A",
+            "Interpretation": "Central inter-class distance"
+        },
+        {
+            "Metric": "Mean Distance",
+            "Value": 0.6371,
+            "Threshold": "N/A",
+            "Interpretation": "Average inter-class distance"
+        }
+    ],
+    "scientific_limitations": [
+        "Zero record overlap confirms strict partitioning of available datasets.",
+        "Minimum distance checks confirm non-collapse of latent embeddings but do not prove clinical generalizability.",
+        "In-silico class-conditional combinations do not substitute for co-collected patient cohorts."
+    ]
+}

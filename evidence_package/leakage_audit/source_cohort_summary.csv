@@ -1,0 +1,5 @@
+Modality,Source_Database,Total_Records,Train_Records,Test_Records,Class_Distribution,Raw_Feature_Count,Aligned_Dim
+Genetic (Raw GSE28521),NCBI GEO GSE28521 (Post-mortem brain cortex),116,92,24,"69 ASD, 23 Ctrl (Train) | 18 ASD, 6 Ctrl (Test)",1000,32
+Genetic (GAN-Augmented),WGAN-GP generated minority control vectors,162,138,24,"69 ASD, 69 Ctrl (Train: 46 synthetic Ctrl) | 18 ASD, 6 Ctrl (Test)",32,32
+Behavioral,Kaggle ASD Screening / Q-CHAT-10 Survey,880,616,132,"441 ASD, 439 Ctrl (Total)",18,32
+Environmental,Maternal / Toxicological survey database,47768,33437,7166,"2118 ASD, 45650 Ctrl (Total)",31,32

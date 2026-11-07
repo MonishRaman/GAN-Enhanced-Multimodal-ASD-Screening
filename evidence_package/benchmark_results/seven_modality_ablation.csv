@@ -1,0 +1,8 @@
+Configuration,Genetic_Active,Behavioral_Active,Environmental_Active,Accuracy,Sensitivity,Specificity,F1_Score,ROC_AUC,True_Positives,True_Negatives,False_Positives,False_Negatives
+Tri-modal (G + B + E),True,True,True,0.9454,0.9652,0.9256,0.9465,0.9876,2413,2314,186,87
+Dual: Genetic + Behavioral (G + B),True,True,False,0.9224,0.982,0.8628,0.9268,0.9888,2455,2157,343,45
+Dual: Genetic + Environmental (G + E),True,False,True,0.6542,0.8532,0.4552,0.7116,0.7981,2133,1138,1362,367
+Dual: Behavioral + Environmental (B + E),False,True,True,0.9442,0.9472,0.9412,0.9444,0.9908,2368,2353,147,132
+Single: Genetic Only (G),True,False,False,0.6444,0.9548,0.334,0.7286,0.8154,2387,835,1665,113
+Single: Behavioral Only (B),False,True,False,0.9154,1.0,0.8308,0.922,0.9911,2500,2077,423,0
+Single: Environmental Only (E),False,False,True,0.5036,0.998,0.0092,0.6678,0.6701,2495,23,2477,5

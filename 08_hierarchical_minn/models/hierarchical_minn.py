@@ -148,3 +148,12 @@ class HierarchicalAttentionMINN(nn.Module):
             return logits, probs, attention_dict
 
         return logits, probs
+
+    def get_attention_weights(self, g, b, e):
+        """
+        Convenience accessor to extract Level-2 inter-modality attention weights (beta).
+        Returns tensor of shape (batch_size, 3) representing [beta_G, beta_B, beta_E].
+        """
+        with torch.no_grad():
+            _, _, attention_dict = self.forward(g, b, e, return_attention=True)
+            return attention_dict["inter_modality"]

@@ -1,0 +1,88 @@
+[
+    {
+        "endpoint": "/api/minn/explain/demo/P001",
+        "status_code": 200,
+        "passed": true,
+        "probability": 0.9999,
+        "prediction": "ASD",
+        "highest_attention_modality": "Behavioral"
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P002",
+        "status_code": 200,
+        "passed": true,
+        "probability": 0.0,
+        "prediction": "Control",
+        "highest_attention_modality": "Behavioral"
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P003",
+        "status_code": 200,
+        "passed": true,
+        "probability": 0.6343,
+        "prediction": "ASD",
+        "highest_attention_modality": "Genetic"
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P004",
+        "status_code": 200,
+        "passed": true,
+        "probability": 0.0,
+        "prediction": "Control",
+        "highest_attention_modality": "Behavioral"
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P005",
+        "status_code": 200,
+        "passed": true,
+        "probability": 1.0,
+        "prediction": "ASD",
+        "highest_attention_modality": "Behavioral"
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P001?modalities=genetic",
+        "status_code": 200,
+        "passed": true
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P001?modalities=behavioral",
+        "status_code": 200,
+        "passed": true
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P001?modalities=environmental",
+        "status_code": 200,
+        "passed": true
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P001?modalities=genetic,behavioral",
+        "status_code": 200,
+        "passed": true
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/P001?modalities=behavioral,environmental",
+        "status_code": 200,
+        "passed": true
+    },
+    {
+        "endpoint": "/api/minn/counterfactual/demo/P001",
+        "status_code": 200,
+        "passed": true,
+        "counterfactual_probability": null,
+        "top3_sparse_probability": null
+    },
+    {
+        "endpoint": "/api/minn/counterfactual/demo/P003",
+        "status_code": 200,
+        "passed": true,
+        "counterfactual_probability": null,
+        "top3_sparse_probability": null
+    },
+    {
+        "endpoint": "/api/minn/explain/demo/INVALID_ID_999",
+        "status_code": 404,
+        "passed": true,
+        "detail": "Demo patient 'INVALID_ID_999' not found.",
+        "verdict": "PASS (Strict HTTP 404 Not Found, no internal server error)"
+    }
+]

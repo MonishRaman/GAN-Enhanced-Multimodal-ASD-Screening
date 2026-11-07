@@ -1,0 +1,58 @@
+================================================================================
+AUDIT SCRIPT 4: DEPENDENCE-AWARE STATISTICAL BOOTSTRAP AUDIT
+Timestamp: 2026-10-30 16:36:47
+PyTorch Device: cpu
+================================================================================
+
+[PART 1: MULTI-WAY DEPENDENCY STRUCTURE AUDIT]
+  Total In-Silico Triplet Combinations: N = 5000
+  Primary Genetic Clusters (Subjects):  24 (12 ASD, 12 Control)
+  Behavioral Clusters (Records):       132 (66 ASD, 66 Control)
+  Environmental Clusters (Records):    2416 (318 ASD, 6848 Control pool)
+
+POINT ESTIMATES (minn_best.pt):
+  Accuracy:    0.9454 (94.54%)
+  Sensitivity: 0.9652 (96.52%)
+  Specificity: 0.9256 (92.56%)
+  F1-Score:    0.9465
+  ROC-AUC:     0.9876
+
+[PART 2: RESAMPLING METHOD 1 — NAIVE ROW-LEVEL BOOTSTRAP]
+  Assumes all 5,000 rows are independent and identically distributed (i.i.d.).
+
+[PART 3: RESAMPLING METHOD 2 — GENETIC PRIMARY CLUSTER BOOTSTRAP]
+  Clusters rows by the 24 primary genetic subjects (12 ASD, 12 Control).
+
+[PART 4: RESAMPLING METHOD 3 — TWO-WAY CROSSED CLUSTER BOOTSTRAP]
+  Simultaneously accounts for repeated sampling across Genetic (24) AND Behavioral (132) source units.
+
+[PART 5: RESAMPLING METHOD 4 — THREE-WAY CROSSED CLUSTER BOOTSTRAP]
+  Simultaneously accounts for repeated sampling across Genetic (24), Behavioral (132), AND Environmental source units.
+
+================================================================================
+COMPARISON OF BOOTSTRAP RESAMPLING METHODS (1,000 REPLICATES):
+================================================================================
+Accuracy       Point = 0.9454:
+  Method 1 (Naive Row):        [0.9392, 0.9518] (Width: 0.0126)
+  Method 2 (Genetic Cluster):  [0.9166, 0.9699] (Width: 0.0533) -> 4.2x wider
+  Method 3 (Two-Way Crossed):  [0.9131, 0.9743] (Width: 0.0612) -> 4.9x wider
+  Method 4 (Three-Way Crossed):[0.9146, 0.9758] (Width: 0.0612) -> 4.9x wider
+Sensitivity    Point = 0.9652:
+  Method 1 (Naive Row):        [0.9576, 0.9717] (Width: 0.0141)
+  Method 2 (Genetic Cluster):  [0.9287, 0.9909] (Width: 0.0622) -> 4.4x wider
+  Method 3 (Two-Way Crossed):  [0.9362, 0.9924] (Width: 0.0562) -> 4.0x wider
+  Method 4 (Three-Way Crossed):[0.9347, 0.9935] (Width: 0.0588) -> 4.2x wider
+Specificity    Point = 0.9256:
+  Method 1 (Naive Row):        [0.9153, 0.9362] (Width: 0.0208)
+  Method 2 (Genetic Cluster):  [0.8792, 0.9676] (Width: 0.0884) -> 4.2x wider
+  Method 3 (Two-Way Crossed):  [0.8671, 0.9724] (Width: 0.1052) -> 5.1x wider
+  Method 4 (Three-Way Crossed):[0.8720, 0.9758] (Width: 0.1038) -> 5.0x wider
+ROC_AUC        Point = 0.9876:
+  Method 1 (Naive Row):        [0.9848, 0.9901] (Width: 0.0053)
+  Method 2 (Genetic Cluster):  [0.9670, 0.9977] (Width: 0.0307) -> 5.8x wider
+  Method 3 (Two-Way Crossed):  [0.9723, 0.9982] (Width: 0.0259) -> 4.9x wider
+  Method 4 (Three-Way Crossed):[0.9717, 0.9983] (Width: 0.0266) -> 5.0x wider
+
+[OK] Saved bootstrap comparison table to D:\GAN-3\GAN-3\evidence_package\statistical_validation\bootstrap_comparison_report.csv
+[OK] Saved statistical methodology doc to D:\GAN-3\GAN-3\evidence_package\statistical_validation\bootstrap_methodology_and_assumptions.md
+[OK] Saved statistical validation summary JSON to D:\GAN-3\GAN-3\evidence_package\statistical_validation\statistical_validation_summary.json

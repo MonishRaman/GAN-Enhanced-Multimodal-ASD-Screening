@@ -1,0 +1,43 @@
+================================================================================
+AUDIT SCRIPT 6: SEVEN MODALITY ABLATION & FASTAPI END-TO-END VERIFICATION
+Timestamp: 2026-10-30 16:39:10
+================================================================================
+
+[PART 1: SEVEN MODALITY ABLATION ON 5,000 TEST COMBINATIONS]
+  Tri-modal (G + B + E)                    Acc:  94.54% | Sens:  96.52% | Spec:  92.56% | AUC: 0.9876 | FN:  87
+  Dual: Genetic + Behavioral (G + B)       Acc:  92.24% | Sens:  98.20% | Spec:  86.28% | AUC: 0.9888 | FN:  45
+  Dual: Genetic + Environmental (G + E)    Acc:  65.42% | Sens:  85.32% | Spec:  45.52% | AUC: 0.7981 | FN: 367
+  Dual: Behavioral + Environmental (B + E) Acc:  94.42% | Sens:  94.72% | Spec:  94.12% | AUC: 0.9908 | FN: 132
+  Single: Genetic Only (G)                 Acc:  64.44% | Sens:  95.48% | Spec:  33.40% | AUC: 0.8154 | FN: 113
+  Single: Behavioral Only (B)              Acc:  91.54% | Sens: 100.00% | Spec:  83.08% | AUC: 0.9911 | FN:   0
+  Single: Environmental Only (E)           Acc:  50.36% | Sens:  99.80% | Spec:   0.92% | AUC: 0.6701 | FN:   5
+
+[OK] Saved 7-modality ablation table to D:\GAN-3\GAN-3\evidence_package\benchmark_results\seven_modality_ablation.csv
+
+[PART 2: FASTAPI REST API VERIFICATION]
+  GET /api/minn/explain/demo/P001: HTTP 200 | Prob: 0.9999 | Pred: ASD | Highest Attn: Behavioral
+  GET /api/minn/explain/demo/P002: HTTP 200 | Prob: 0.0 | Pred: Control | Highest Attn: Behavioral
+  GET /api/minn/explain/demo/P003: HTTP 200 | Prob: 0.6343 | Pred: ASD | Highest Attn: Genetic
+  GET /api/minn/explain/demo/P004: HTTP 200 | Prob: 0.0 | Pred: Control | Highest Attn: Behavioral
+  GET /api/minn/explain/demo/P005: HTTP 200 | Prob: 1.0 | Pred: ASD | Highest Attn: Behavioral
+  GET /api/minn/explain/demo/P001?modalities=genetic: HTTP 200 (Flexible query PASS)
+  GET /api/minn/explain/demo/P001?modalities=behavioral: HTTP 200 (Flexible query PASS)
+  GET /api/minn/explain/demo/P001?modalities=environmental: HTTP 200 (Flexible query PASS)
+  GET /api/minn/explain/demo/P001?modalities=genetic,behavioral: HTTP 200 (Flexible query PASS)
+  GET /api/minn/explain/demo/P001?modalities=behavioral,environmental: HTTP 200 (Flexible query PASS)
+  GET /api/minn/counterfactual/demo/P001: HTTP 200 | Full CF Prob: None | Top-3 Sparse Prob: None
+  GET /api/minn/counterfactual/demo/P003: HTTP 200 | Full CF Prob: None | Top-3 Sparse Prob: None
+  GET /api/minn/explain/demo/INVALID_ID_999: HTTP 404 (Detail: 'Demo patient 'INVALID_ID_999' not found.')
+  -> Invalid Patient Error Handling: PASS (Strict HTTP 404 Not Found with sanitized detail, zero 500 error)
+
+[OK] Saved API results to D:\GAN-3\GAN-3\evidence_package\api_frontend_verification\api_test_results.json
+[OK] Saved demo responses to D:\GAN-3\GAN-3\evidence_package\api_frontend_verification\demo_patient_responses.json
+
+[PART 3: FRONTEND / BACKEND PARITY AUDIT]
+  Non-causal Attention Terminology    : PASS (Verified in frontend/js/ui.js)
+  Non-causal Disclaimer Note          : PASS (Verified in frontend/js/ui.js)
+  Test-set ROC-AUC Labeling           : PASS (Verified in frontend/index.html)
+  Latent Dimension Nomenclature       : PASS (Verified in frontend/js/ui.js)
+  Float Percentage Rendering          : PASS (Verified consistent float formatting)
+
+[OK] Saved frontend parity audit to D:\GAN-3\GAN-3\evidence_package\api_frontend_verification\frontend_parity_audit.md

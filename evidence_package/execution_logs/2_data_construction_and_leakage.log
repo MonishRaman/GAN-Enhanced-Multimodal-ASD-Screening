@@ -1,0 +1,54 @@
+==============================================================================
+AUDIT SCRIPT 2: DATA CONSTRUCTION, LEAKAGE & REPRESENTATION OVERLAP
+Timestamp: 2026-10-30 07:08:44
+==============================================================================
+
+[PART 1: SOURCE COHORT INVENTORY & CHARACTERISTICS]
+               Modality  Total_Records  Train_Records  Test_Records  Raw_Feature_Count  Aligned_Dim
+ Genetic (Raw GSE28521)            116             92            24               1000           32
+Genetic (GAN-Augmented)            162            138            24                 32           32
+             Behavioral            880            616           132                 18           32
+          Environmental          47768          33437          7166                 31           32
+
+[PART 2: IDENTIFIER OVERLAP & SPLIT INDEPENDENCE]
+  Genetic Training Unique GSM_IDs: 92
+  Genetic Testing Unique GSM_IDs:  24
+  Exact Overlapping GSM_IDs:       0
+  -> Identifier Leakage: PASS (Zero subject overlap between train and test)
+
+[PART 3: SYNTHETIC DATA PROVENANCE AUDIT]
+  Training Set Composition: 138 total = 92 real + 46 GAN synthetic
+  Testing Set Composition:  24 total = 24 real + 0 GAN synthetic
+  -> Synthetic Provenance: PASS (Synthetic samples strictly confined to training data; 0 in test set)
+
+[PART 4: IN-SILICO COMBINATIONS & REPETITION RATE]
+  The 5,000 held-out test cohort is formed by sampling class-conditionally with replacement:
+    2,500 ASD triplets drawn from: 12 Genetic ASD cases, 66 Behavioral ASD test cases, 318 Env ASD test cases
+    2,500 Control triplets drawn from: 12 Genetic Control cases, 66 Behavioral Control test cases, 6848 Env Control test cases
+  Quantification of Source Re-use in Test Combinations:
+    Genetic: 2,500 / 12 = 208.33x average reuse per subject
+    Behavioral: 2,500 / 66 = 37.88x average reuse per record
+    Environmental (ASD): 2,500 / 318 = 7.86x average reuse
+    Environmental (Ctrl): 2,500 / 6848 = 0.37x average reuse
+  -> Scientific Finding: Combinations are NOT unique patients. They evaluate mathematical fusion capacity.
+
+[PART 5: PREPROCESSING & SCALING ISOLATION AUDIT]
+  Genetic Alignment Checkpoint:       genetic_128_to_32_alignment.pt (46,208 bytes)
+  Behavioral Alignment Checkpoint:    behavioral_128_to_32_alignment.pt (92,373 bytes)
+  Environmental Alignment Checkpoint: environmental_128_to_32_alignment.pt (94,109 bytes)
+
+[PART 6: CROSS-LABEL REPRESENTATION OVERLAP AUDIT]
+  Sampled Cross-Label Pairwise Distances (10,000 pairs):
+    Minimum Euclidean Distance:    0.0738 (Threshold > 0.05)
+    5th Percentile Distance:       0.3156
+    Mean Pairwise Distance:        0.6371
+  -> Representation Overlap: PASS (Well-separated manifolds; no cross-label collapse)
+
+[PART 7: AUDIT LIMITATIONS & SCIENTIFIC SCOPE]
+1. Data Leakage Absence != Clinical Validation:
+   Zero patient ID overlap confirms technical partition hygiene, but does not substitute
+   for prospective, co-collected multimodal patient cohorts.
+2. The high in-silico metrics reflect the MINN's capacity to recognize multi-modal patterns
+   from these specific datasets; generalization to distinct populations remains to be established.
+
+[OK] Saved leakage audit JSON to D:\GAN-3\GAN-3\evidence_package\leakage_audit\data_flow_and_leakage_audit.json

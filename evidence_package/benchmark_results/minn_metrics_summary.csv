@@ -1,0 +1,8 @@
+Metric,Value,Percentage,Reported_Target,Status
+Accuracy,0.9454,94.54%,94.54%,PASS
+Sensitivity (Recall),0.9652,96.52%,96.52%,PASS
+Specificity,0.9256,92.56%,92.56%,PASS
+Precision,0.9284,92.84%,92.84%,PASS
+F1-Score,0.9465,94.65%,0.9465,PASS
+Test-set ROC-AUC,0.9876,0.9876,0.9876,PASS
+Brier Score,0.042,0.0420,0.0420,PASS

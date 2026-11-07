@@ -1,0 +1,39 @@
+================================================================================
+AUDIT SCRIPT 1: HIERARCHICAL ATTENTION MINN BENCHMARK REPRODUCTION
+Timestamp: 2026-10-30 22:19:59
+PyTorch Device: cpu
+================================================================================
+Model Checkpoint: minn_best.pt
+  File Size:      129,049 bytes
+  SHA-256 Hash:   bb718e18b1615c647005e6adbaa9d271cfbecfc6d149b2ecbec8b96b99d8cb40
+  -> Checkpoint SHA-256 Verified: PASS
+
+Evaluation Dataset Configuration:
+  Total In-Silico Multimodal Test Combinations: 5000
+  Class Distribution: 2500 ASD : 2500 Control (50% / 50% balanced)
+  Batch Size: 64
+  Decision Threshold: 0.50
+
+-------------------------------------------------------
+REPRODUCED EVALUATION POINT ESTIMATES (minn_best.pt):
+-------------------------------------------------------
+  True Negatives (TN):      2314
+  False Positives (FP):     186
+  False Negatives (FN):     87
+  True Positives (TP):      2413
+  Total Samples Evaluated:  5000
+  Accuracy:                 0.945400 (94.54%) [Reported: 94.54%]
+  Balanced Accuracy:        0.945400 (94.54%)
+  Sensitivity (Recall):     0.965200 (96.52%) [Reported: 96.52%]
+  Specificity:              0.925600 (92.56%) [Reported: 92.56%]
+  Precision:                0.928434 (92.84%) [Reported: 92.84%]
+  F1-Score:                 0.946460 [Reported: 0.9465]
+  Test-set ROC-AUC:         0.987621 [Reported: 0.9876]
+  Brier Score:              0.041963 [Reported: 0.0420]
+
+-> Benchmark Reproduction Check: PASS (Exact numerical reproduction confirmed)
+[OK] Saved raw predictions CSV to D:\GAN-3\GAN-3\evidence_package\benchmark_results\test_predictions.csv
+[OK] Saved ROC curve data CSV to D:\GAN-3\GAN-3\evidence_package\benchmark_results\roc_curve_data.csv
+[OK] Saved metrics JSON to D:\GAN-3\GAN-3\evidence_package\benchmark_results\minn_benchmark_metrics.json
+[OK] Saved confusion matrix JSON to D:\GAN-3\GAN-3\evidence_package\benchmark_results\minn_confusion_matrix.json
+[OK] Saved metrics summary CSV to D:\GAN-3\GAN-3\evidence_package\benchmark_results\minn_metrics_summary.csv

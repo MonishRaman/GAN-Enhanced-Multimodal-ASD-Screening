@@ -1,0 +1,26 @@
+{
+    "model_architecture": "HierarchicalAttentionMINN",
+    "checkpoint_file": "minn_best.pt",
+    "checkpoint_sha256": "bb718e18b1615c647005e6adbaa9d271cfbecfc6d149b2ecbec8b96b99d8cb40",
+    "checkpoint_bytes": 129049,
+    "evaluation_date": "2026-10-30 22:20:00",
+    "random_seed": 42,
+    "test_sample_count": 5000,
+    "decision_threshold": 0.5,
+    "reproduced_metrics": {
+        "accuracy": 0.9454,
+        "balanced_accuracy": 0.9454,
+        "sensitivity": 0.9652,
+        "specificity": 0.9256,
+        "precision": 0.928434,
+        "f1_score": 0.94646,
+        "roc_auc": 0.987621,
+        "brier_score": 0.041963
+    },
+    "confusion_matrix": {
+        "TN": 2314,
+        "FP": 186,
+        "FN": 87,
+        "TP": 2413
+    }
+}

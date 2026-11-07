@@ -1,0 +1,5 @@
+Metric,Point_Estimate,Naive_CI_95,Naive_CI_Width,Cluster_CI_95,Cluster_CI_Width,Statistical_Note
+Accuracy,0.9454,"[0.9392, 0.9518]",0.0126,"[0.9166, 0.9699]",0.0533,Cluster bootstrap resamples 24 genetic primary sampling units
+Sensitivity,0.9652,"[0.9576, 0.9717]",0.0141,"[0.9287, 0.9909]",0.0622,Cluster bootstrap resamples 24 genetic primary sampling units
+Specificity,0.9256,"[0.9153, 0.9362]",0.0208,"[0.8792, 0.9676]",0.0884,Cluster bootstrap resamples 24 genetic primary sampling units
+ROC_AUC,0.9876,"[0.9848, 0.9901]",0.0053,"[0.9670, 0.9977]",0.0307,Cluster bootstrap resamples 24 genetic primary sampling units

@@ -1,0 +1,180 @@
+{
+    "audit_target": "Latent-Space Counterfactual Interventions",
+    "audit_timestamp": "2026-10-30 14:48:21",
+    "target_threshold": 0.35,
+    "genetic_invariance_rule": "Delta G = 0 (Genetic features strictly immutable)",
+    "mathematical_interpretation": "Counterfactual perturbations identify directional gradients in the learned latent manifold that alter model output probabilities. Full 32-D continuous optimization discovers joint manifold shifts reaching the <=0.35 screening target. Top-3 sparse perturbations demonstrate localized dimension sensitivity, which successfully flips borderline cases (P003) but cannot overcome high-confidence multi-feature activation (P001, P005).",
+    "patient_results": {
+        "P001": {
+            "original_probability": 0.9999,
+            "full_32d_counterfactual": {
+                "probability": 0.1207,
+                "target_reached": true,
+                "l2_cost": 1.6091
+            },
+            "top3_sparse_counterfactual": {
+                "probability": 0.9998,
+                "target_reached": false
+            },
+            "genetic_invariance_verified": true,
+            "top_recommendations": {
+                "summary_note": "Adjustments display the top 3 highest-magnitude dimensions for human interpretation. The full mathematical counterfactual operates across all 32 latent dimensions.",
+                "top3_sparse_probability": 0.9998,
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 1,
+                        "label": "Latent Behavioral Dim 1",
+                        "recommended_shift": -0.2646,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 3,
+                        "label": "Latent Behavioral Dim 3",
+                        "recommended_shift": 0.2538,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 28,
+                        "label": "Latent Behavioral Dim 28",
+                        "recommended_shift": 0.2426,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 9,
+                        "label": "Latent Environmental Dim 9",
+                        "recommended_shift": -0.2775,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 15,
+                        "label": "Latent Environmental Dim 15",
+                        "recommended_shift": -0.2772,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 32,
+                        "label": "Latent Environmental Dim 32",
+                        "recommended_shift": -0.2766,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ]
+            }
+        },
+        "P003": {
+            "original_probability": 0.6343,
+            "full_32d_counterfactual": {
+                "probability": 0.0021,
+                "target_reached": true,
+                "l2_cost": 0.6552
+            },
+            "top3_sparse_counterfactual": {
+                "probability": 0.1697,
+                "target_reached": true
+            },
+            "genetic_invariance_verified": true,
+            "top_recommendations": {
+                "summary_note": "Adjustments display the top 3 highest-magnitude dimensions for human interpretation. The full mathematical counterfactual operates across all 32 latent dimensions.",
+                "top3_sparse_probability": 0.1697,
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 28,
+                        "label": "Latent Behavioral Dim 28",
+                        "recommended_shift": 0.0835,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 21,
+                        "label": "Latent Behavioral Dim 21",
+                        "recommended_shift": 0.0835,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 26,
+                        "label": "Latent Behavioral Dim 26",
+                        "recommended_shift": 0.0835,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 18,
+                        "label": "Latent Environmental Dim 18",
+                        "recommended_shift": -0.0831,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 29,
+                        "label": "Latent Environmental Dim 29",
+                        "recommended_shift": 0.083,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 24,
+                        "label": "Latent Environmental Dim 24",
+                        "recommended_shift": 0.083,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ]
+            }
+        },
+        "P005": {
+            "original_probability": 1.0,
+            "full_32d_counterfactual": {
+                "probability": 0.3302,
+                "target_reached": true,
+                "l2_cost": 4.6385
+            },
+            "top3_sparse_counterfactual": {
+                "probability": 0.9999,
+                "target_reached": false
+            },
+            "genetic_invariance_verified": true,
+            "top_recommendations": {
+                "summary_note": "Adjustments display the top 3 highest-magnitude dimensions for human interpretation. The full mathematical counterfactual operates across all 32 latent dimensions.",
+                "top3_sparse_probability": 0.9999,
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 24,
+                        "label": "Latent Behavioral Dim 24",
+                        "recommended_shift": 0.9647,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 27,
+                        "label": "Latent Behavioral Dim 27",
+                        "recommended_shift": -0.8228,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 21,
+                        "label": "Latent Behavioral Dim 21",
+                        "recommended_shift": -0.8002,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 18,
+                        "label": "Latent Environmental Dim 18",
+                        "recommended_shift": -1.2225,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 4,
+                        "label": "Latent Environmental Dim 4",
+                        "recommended_shift": 1.0753,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 5,
+                        "label": "Latent Environmental Dim 5",
+                        "recommended_shift": -1.0451,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ]
+            }
+        }
+    }
+}

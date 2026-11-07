@@ -1,0 +1,4 @@
+Modality,Unique_Held_Out_Subjects_In_Pool,ASD_Subjects_Available,Control_Subjects_Available,Draws_Per_Class,Average_Reuse_Per_ASD_Subject,Average_Reuse_Per_Control_Subject,Interpretation
+Genetic,24,12,12,2500,208.33,208.33,Each held-out genetic subject is repeated ~208.33 times across evaluation combinations.
+Behavioral,132,66,66,2500,37.88,37.88,Each held-out behavioral survey is repeated ~37.88 times across evaluation combinations.
+Environmental,7166,318,6848,2500,7.86,0.37,ASD environmental records repeated ~7.86 times; Control records sampled at 0.37x.

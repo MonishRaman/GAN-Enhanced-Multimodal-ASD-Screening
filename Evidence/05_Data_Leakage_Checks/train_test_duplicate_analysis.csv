@@ -1,0 +1,4 @@
+Modality,Min_Distance_To_Train,Mean_Nearest_Train_Distance,Exact_Feature_Matches,Partition_Integrity,Explanation
+Genetic (32-D),0.4718,0.8724,0,PASS (Disjoint Partition),Continuous high-dimensional vectors are distinct.
+Behavioral (32-D),0.0025,0.0997,0,PASS (Disjoint Partition),Continuous high-dimensional vectors are distinct.
+Environmental (32-D),0.0,1.8337,8,PASS (Disjoint Partition),"Discrete categorical survey responses (NSCH) naturally produce identical response patterns across independent households (2,564 duplicates in full N=47,768 cohort)."

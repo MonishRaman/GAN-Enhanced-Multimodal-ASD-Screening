@@ -7,7 +7,7 @@ features required to transition a patient's prediction from ASD to Non-ASD.
 
 from pathlib import Path
 import sys
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Union
 import numpy as np
 import torch
 import torch.nn as nn
@@ -29,16 +29,20 @@ class CounterfactualGenerator:
     Finds minimal, realistic perturbations in actionable modalities (Behavioral & Environmental)
     to shift predicted ASD probability below the clinical decision boundary.
     """
-    def __init__(self, model_path: Path = MODEL_PATH, device: str = None):
+    def __init__(self, model_or_path: Union[Path, str, nn.Module] = MODEL_PATH, device: str = None):
         if device is None:
             self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         else:
             self.device = torch.device(device)
 
-        self.model = HierarchicalAttentionMINN(in_features=32, branch_hidden=64, branch_out=32).to(self.device)
-        if not model_path.exists():
-            raise FileNotFoundError(f"Trained MINN model checkpoint not found at {model_path}")
-        self.model.load_state_dict(torch.load(model_path, map_location=self.device))
+        if isinstance(model_or_path, nn.Module):
+            self.model = model_or_path.to(self.device)
+        else:
+            model_path = Path(model_or_path)
+            if not model_path.exists():
+                raise FileNotFoundError(f"Trained MINN model checkpoint not found at {model_path}")
+            self.model = HierarchicalAttentionMINN(in_features=32, branch_hidden=64, branch_out=32).to(self.device)
+            self.model.load_state_dict(torch.load(model_path, map_location=self.device))
         self.model.eval()
 
         # Freeze model parameters during counterfactual search

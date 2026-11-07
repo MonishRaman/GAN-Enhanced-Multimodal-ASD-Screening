@@ -1,0 +1,373 @@
+[
+    {
+        "relative_path": "evidence_package/api_frontend_verification/api_test_results.json",
+        "file_size_bytes": 2609,
+        "sha256_hash": "cee49cac464ecb7f08275c64b4b4df13e91493b200c22d4f5154e57bd604e97f",
+        "description": "Evidence artifact for api_frontend_verification/api_test_results.json",
+        "associated_requirement": "Requirement 9 (Verify Frontend, Backend, Checkpoint & API)"
+    },
+    {
+        "relative_path": "evidence_package/api_frontend_verification/demo_patient_responses.json",
+        "file_size_bytes": 40716,
+        "sha256_hash": "5f49735850d02f431b090b8c5e88cbed621fad47fd13a74085883cc05b421b9c",
+        "description": "Evidence artifact for api_frontend_verification/demo_patient_responses.json",
+        "associated_requirement": "Requirement 9 (Verify Frontend, Backend, Checkpoint & API)"
+    },
+    {
+        "relative_path": "evidence_package/api_frontend_verification/frontend_parity_audit.md",
+        "file_size_bytes": 1687,
+        "sha256_hash": "23fb3686511de4d277ac178eff1963067c8c4f7e2ae40cc4b48de902fa6c082a",
+        "description": "Evidence artifact for api_frontend_verification/frontend_parity_audit.md",
+        "associated_requirement": "Requirement 9 (Verify Frontend, Backend, Checkpoint & API)"
+    },
+    {
+        "relative_path": "evidence_package/api_frontend_verification/frontend_parity_matrix.csv",
+        "file_size_bytes": 867,
+        "sha256_hash": "3e08d2ab02e7975fb9b06c884f2e34d7c1a2f12bd52b7965d32d4a1fe1182618",
+        "description": "Evidence artifact for api_frontend_verification/frontend_parity_matrix.csv",
+        "associated_requirement": "Requirement 9 (Verify Frontend, Backend, Checkpoint & API)"
+    },
+    {
+        "relative_path": "evidence_package/api_frontend_verification/raw_api_responses.json",
+        "file_size_bytes": 15221,
+        "sha256_hash": "c902a249958372670580c7a9d7797525abd55e3dc32d07c7704214d2c753b089",
+        "description": "Evidence artifact for api_frontend_verification/raw_api_responses.json",
+        "associated_requirement": "Requirement 9 (Verify Frontend, Backend, Checkpoint & API)"
+    },
+    {
+        "relative_path": "evidence_package/attention_counterfactual/attention_weights_demo_patients.csv",
+        "file_size_bytes": 399,
+        "sha256_hash": "53cd27e5e4d7f846a3c5facd0f01af9499fa0310fe99ba0dab14ced761379545",
+        "description": "Evidence artifact for attention_counterfactual/attention_weights_demo_patients.csv",
+        "associated_requirement": "Requirement 7 & 8 (Hierarchical Attention & Latent Counterfactuals)"
+    },
+    {
+        "relative_path": "evidence_package/attention_counterfactual/counterfactual_analysis.json",
+        "file_size_bytes": 8587,
+        "sha256_hash": "498b55e91ddb9a08c61ffdc30d3a399b3eaab8c189d5f4d1b715abeb63c2fff3",
+        "description": "Evidence artifact for attention_counterfactual/counterfactual_analysis.json",
+        "associated_requirement": "Requirement 7 & 8 (Hierarchical Attention & Latent Counterfactuals)"
+    },
+    {
+        "relative_path": "evidence_package/attention_counterfactual/counterfactual_full_vs_sparse.csv",
+        "file_size_bytes": 328,
+        "sha256_hash": "c6d8b159c283fc00f96bf458ee397fea7cce6a48f0be8ab226a2ae151dbe1625",
+        "description": "Continuous 32-D vs Top-3 sparse counterfactual outcomes and Delta G = 0 invariance verification",
+        "associated_requirement": "Requirement 7 & 8 (Hierarchical Attention & Latent Counterfactuals)"
+    },
+    {
+        "relative_path": "evidence_package/attention_counterfactual/live_attention_weights.json",
+        "file_size_bytes": 3013,
+        "sha256_hash": "64e58194d4340f88f9104783615792bce33db5a7e5a5a3c1fd9844dd38421ca8",
+        "description": "Evidence artifact for attention_counterfactual/live_attention_weights.json",
+        "associated_requirement": "Requirement 7 & 8 (Hierarchical Attention & Latent Counterfactuals)"
+    },
+    {
+        "relative_path": "evidence_package/attention_counterfactual/verified_counterfactual_outcomes.csv",
+        "file_size_bytes": 302,
+        "sha256_hash": "43ed99a116e177d6ecf08cca38fda969f60996dd9f0e17a38eb9632c3583839c",
+        "description": "Evidence artifact for attention_counterfactual/verified_counterfactual_outcomes.csv",
+        "associated_requirement": "Requirement 7 & 8 (Hierarchical Attention & Latent Counterfactuals)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/bootstrap_comparison_report.csv",
+        "file_size_bytes": 627,
+        "sha256_hash": "08e3f2fab814c5320d06ff1a7ec0b763c7ec8afba05101b434a388df1b2113db",
+        "description": "Four-method bootstrap comparison report including Method 4 Three-Way Crossed Cluster bounds",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/gan_contribution_analysis.json",
+        "file_size_bytes": 618,
+        "sha256_hash": "ff52d69f19edba6303f838976ef155f24ace4968e952dd9438e76d603bd3636e",
+        "description": "Evidence artifact for benchmark_results/gan_contribution_analysis.json",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/gan_vs_nogan_multi_seed_comparison.csv",
+        "file_size_bytes": 657,
+        "sha256_hash": "5e692f970d82f1fc86b46d143e6ea267994937b8361c0ddc38c65e05b2df3621",
+        "description": "Multi-seed (Seed 42 & 101) GAN vs No-GAN performance metrics, F1-score vs ROC-AUC disambiguation",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/minn_benchmark_metrics.json",
+        "file_size_bytes": 769,
+        "sha256_hash": "d9bf735522c5bcd27b5c6b1ac1a82c716c21fa6708b5ee6a93e2aa0fdc14e3d4",
+        "description": "Reproduced benchmark metrics JSON (Acc: 0.9454, ROC-AUC: 0.9876, Sensitivity: 0.9652)",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/minn_confusion_matrix.json",
+        "file_size_bytes": 704,
+        "sha256_hash": "4715bf44f1a002a97d7042668c2abf0a8b45591ee284db2d19f3c954d1517b49",
+        "description": "Confusion matrix JSON (TN: 2314, FP: 186, FN: 87, TP: 2413)",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/minn_metrics_summary.csv",
+        "file_size_bytes": 326,
+        "sha256_hash": "b4844923de2ba9ad76c255d7efd8f41d0fafb8ea4feb43307a8b0c7f6c96e531",
+        "description": "Evidence artifact for benchmark_results/minn_metrics_summary.csv",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/roc_curve_data.csv",
+        "file_size_bytes": 11378,
+        "sha256_hash": "1b852eb2a4496b47cebd4beff3c858d3728290e5b8d423686fc634bfe9340071",
+        "description": "True positive rate, false positive rate, and decision thresholds across full ROC curve",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/seven_modality_ablation.csv",
+        "file_size_bytes": 880,
+        "sha256_hash": "07691c959223fb80c2f442a4b8bcbf6f9cc35a81cb789ce2b1cc7a4b1d0ea465",
+        "description": "Evidence artifact for benchmark_results/seven_modality_ablation.csv",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/benchmark_results/test_predictions.csv",
+        "file_size_bytes": 114120,
+        "sha256_hash": "eff3a65f144ed7a10487df04d42841a2af378d72c6954b0c08940548ef4e5400",
+        "description": "Raw test prediction probabilities, ground-truth labels, and predicted classes (5000 test combinations)",
+        "associated_requirement": "Requirement 3 (Reproduce 94.54% Accuracy and 0.9876 ROC-AUC)"
+    },
+    {
+        "relative_path": "evidence_package/data_construction_audit/data_flow_report.json",
+        "file_size_bytes": 7650,
+        "sha256_hash": "f546f717763eef50e53b0937cb2732967dcf8ad7b4524cd52c365ed97596b9f6",
+        "description": "Evidence artifact for data_construction_audit/data_flow_report.json",
+        "associated_requirement": "Requirement 4 (Explain & Verify Test-Data Construction)"
+    },
+    {
+        "relative_path": "evidence_package/data_construction_audit/in_silico_triplet_reuse_analysis.csv",
+        "file_size_bytes": 567,
+        "sha256_hash": "9dfbf015e8ffb36e51442ee7c4bbc753c04e0417569072ee87dbdb38733439e0",
+        "description": "Evidence artifact for data_construction_audit/in_silico_triplet_reuse_analysis.csv",
+        "associated_requirement": "Requirement 4 (Explain & Verify Test-Data Construction)"
+    },
+    {
+        "relative_path": "evidence_package/data_construction_audit/source_cohort_breakdown.csv",
+        "file_size_bytes": 858,
+        "sha256_hash": "35fd852645ba57ed3da13506bb348a28d9ac9e3f56937639faa7f620d1ff2f7a",
+        "description": "Evidence artifact for data_construction_audit/source_cohort_breakdown.csv",
+        "associated_requirement": "Requirement 4 (Explain & Verify Test-Data Construction)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/1_benchmark_reproduction.log",
+        "file_size_bytes": 2120,
+        "sha256_hash": "9f9c4edef3086772eed934915a16c5f65e676c07c4ca77435baf17e649b94814",
+        "description": "Evidence artifact for execution_logs/1_benchmark_reproduction.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/2_data_construction_and_leakage.log",
+        "file_size_bytes": 3369,
+        "sha256_hash": "0bd48c780cb0a84f6b0c97beb46e925e3c16d34987ad9a062e4ca841ef818295",
+        "description": "Evidence artifact for execution_logs/2_data_construction_and_leakage.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/2_gan_comparison.log",
+        "file_size_bytes": 3392,
+        "sha256_hash": "10a62b774492a1890649c6df8cc114272d3ca780f7266c288e9fb459dd90f490",
+        "description": "Evidence artifact for execution_logs/2_gan_comparison.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/3_data_construction_and_leakage.log",
+        "file_size_bytes": 5180,
+        "sha256_hash": "c198257180b096d7d8fdcb9aa652fc9d82bfe58b2fb65a7885943e8c393599cb",
+        "description": "Evidence artifact for execution_logs/3_data_construction_and_leakage.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/3_gan_vs_nogan_experiment.log",
+        "file_size_bytes": 2291,
+        "sha256_hash": "b7e64b5ec5091fdc807498a7c6bb3faf421d25e7b0be24a9afa9fe50ed082dfd",
+        "description": "Evidence artifact for execution_logs/3_gan_vs_nogan_experiment.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/4_attention_and_counterfactual.log",
+        "file_size_bytes": 4263,
+        "sha256_hash": "bf16e5a5c3f6554e7041f325bff34f5e7695799d7f9456bd2ac0b67f2549dfed",
+        "description": "Evidence artifact for execution_logs/4_attention_and_counterfactual.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/4_statistical_validation.log",
+        "file_size_bytes": 3394,
+        "sha256_hash": "5c90e3d1d98c19fae965b3ac2105259e312ab524f27858dbda54e7347248a065",
+        "description": "Evidence artifact for execution_logs/4_statistical_validation.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/5_api_frontend_verification.log",
+        "file_size_bytes": 2265,
+        "sha256_hash": "59fdbf8b358572ebb688bdf227118418e107999047ea46ec0ff47721ef2012de",
+        "description": "Evidence artifact for execution_logs/5_api_frontend_verification.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/5_attention_counterfactual.log",
+        "file_size_bytes": 4367,
+        "sha256_hash": "ed4df87a4622ca3be9e6f739749770d444880e5466c3fe5a5622642be49fa446",
+        "description": "Evidence artifact for execution_logs/5_attention_counterfactual.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/6_modalities_and_api.log",
+        "file_size_bytes": 3454,
+        "sha256_hash": "e95007717d5cd6b85009c94cb4170f2efe3590da920579d8561633cb3af1c8c1",
+        "description": "Evidence artifact for execution_logs/6_modalities_and_api.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/execution_logs/7_objective_mapping.log",
+        "file_size_bytes": 932,
+        "sha256_hash": "9d34c3a07d25ee1fe758d333f4bd6146cd19aa0be648dc7fad35b9bed937be96",
+        "description": "Evidence artifact for execution_logs/7_objective_mapping.log",
+        "associated_requirement": "Requirement 2 (Actual Execution Logs & Test Outputs)"
+    },
+    {
+        "relative_path": "evidence_package/final_audit_report.md",
+        "file_size_bytes": 20805,
+        "sha256_hash": "50e6397377d79505f1f11dcc8017cb14c213d35e5e1f6c88cdcbdfdd77ed4b6e",
+        "description": "Comprehensive Master Acceptance and System Audit Report",
+        "associated_requirement": "Requirement 1-11 (Master Acceptance & Verification Audit Report)"
+    },
+    {
+        "relative_path": "evidence_package/gan_comparison/gan_contribution_analysis.json",
+        "file_size_bytes": 1121,
+        "sha256_hash": "cf3dcda55f8bbfe06c6c1593ec8daea7a28023f0441de0ee4c11da612818fae9",
+        "description": "Evidence artifact for gan_comparison/gan_contribution_analysis.json",
+        "associated_requirement": "Requirement 6 (Reproducible GAN vs. No-GAN Experiment)"
+    },
+    {
+        "relative_path": "evidence_package/gan_comparison/gan_summary_statistics.csv",
+        "file_size_bytes": 356,
+        "sha256_hash": "2fcb9e03ce4cf7d162393689859b6126921929da40995db7bd54c81e5c0ee327",
+        "description": "Evidence artifact for gan_comparison/gan_summary_statistics.csv",
+        "associated_requirement": "Requirement 6 (Reproducible GAN vs. No-GAN Experiment)"
+    },
+    {
+        "relative_path": "evidence_package/gan_comparison/gan_vs_nogan_multi_seed_comparison.csv",
+        "file_size_bytes": 657,
+        "sha256_hash": "5e692f970d82f1fc86b46d143e6ea267994937b8361c0ddc38c65e05b2df3621",
+        "description": "Multi-seed (Seed 42 & 101) GAN vs No-GAN performance metrics, F1-score vs ROC-AUC disambiguation",
+        "associated_requirement": "Requirement 6 (Reproducible GAN vs. No-GAN Experiment)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/all_modalities_overlap_check.csv",
+        "file_size_bytes": 302,
+        "sha256_hash": "6ccfedca3951c9dee85349eb7c05f97534b0ff030f0940b244d3cd7a44a685c7",
+        "description": "Zero patient/record overlap audit across Genetic, Behavioral, and Environmental partitions",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/data_flow_and_leakage_audit.json",
+        "file_size_bytes": 907,
+        "sha256_hash": "acf2cde0c1040e4b627f17d9c3316a741da299ddd05aa31834502a71fdbaf0e6",
+        "description": "Evidence artifact for leakage_audit/data_flow_and_leakage_audit.json",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/distance_threshold_justification.md",
+        "file_size_bytes": 2197,
+        "sha256_hash": "629e2908a11fba5cab63005aebbb6df5be84a43bc7c83c852d4e416696d1d71b",
+        "description": "Methodological justification and boundary disclaimers for the 0.05 latent distance threshold",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/patient_overlap_check.json",
+        "file_size_bytes": 358,
+        "sha256_hash": "e68429f844e5f26ecf59d8b3e3cc045043c0d2375def5365e45cab7683d18ad9",
+        "description": "Evidence artifact for leakage_audit/patient_overlap_check.json",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/representation_overlap_distribution.csv",
+        "file_size_bytes": 362,
+        "sha256_hash": "ab2a27349e4c401a97e3d22c3c9a13a92c286e3f92b8529b7f6084eda99ebb86",
+        "description": "Evidence artifact for leakage_audit/representation_overlap_distribution.csv",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/source_cohort_summary.csv",
+        "file_size_bytes": 615,
+        "sha256_hash": "332f3d7835e2c1a2ec8846913efdcd8ae1c1e2fc3cee3f04f21e3aa418ef99e4",
+        "description": "Evidence artifact for leakage_audit/source_cohort_summary.csv",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/synthetic_provenance_check.json",
+        "file_size_bytes": 409,
+        "sha256_hash": "6162101434d610b9e548151bd2c71d70f2192e0a3da822ef57b1a348dd53f530",
+        "description": "Evidence artifact for leakage_audit/synthetic_provenance_check.json",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/leakage_audit/train_test_duplicate_analysis.csv",
+        "file_size_bytes": 561,
+        "sha256_hash": "17ce022e6181ddd0e20ccc87b65d94307998f43fcbe17b4233c2f3c8f0f72fb0",
+        "description": "Duplicate survey vector analysis explaining 8 discrete categorical feature ties in NSCH cohort",
+        "associated_requirement": "Requirement 5 (Actual Data-Leakage & Representation-Overlap Verification)"
+    },
+    {
+        "relative_path": "evidence_package/objective_mapping/objective_mapping_evidence.csv",
+        "file_size_bytes": 4458,
+        "sha256_hash": "975397906ea0738bc4ebb9c683cf32c11eb8ca53bfd79fa76790690b3eb08b59",
+        "description": "Evidence artifact for objective_mapping/objective_mapping_evidence.csv",
+        "associated_requirement": "Requirement 10 (Map All Research Objectives to Implementation)"
+    },
+    {
+        "relative_path": "evidence_package/objective_mapping/objective_mapping_summary.json",
+        "file_size_bytes": 5626,
+        "sha256_hash": "264fdeaeaecd884edefc40f86c3eb06ef83f0bafabf8b1fc59f78546f382019f",
+        "description": "Evidence artifact for objective_mapping/objective_mapping_summary.json",
+        "associated_requirement": "Requirement 10 (Map All Research Objectives to Implementation)"
+    },
+    {
+        "relative_path": "evidence_package/objective_mapping/objective_validation_summary.json",
+        "file_size_bytes": 4743,
+        "sha256_hash": "5d562305f8b8675ff1427947858d973097a2174ad41c88d794c92f20883130f4",
+        "description": "Evidence artifact for objective_mapping/objective_validation_summary.json",
+        "associated_requirement": "Requirement 10 (Map All Research Objectives to Implementation)"
+    },
+    {
+        "relative_path": "evidence_package/objective_mapping/research_objectives_traceability_matrix.csv",
+        "file_size_bytes": 3465,
+        "sha256_hash": "fc24d8018eec60cb7c0d9b0cf8630ca37ab24347f90a9ee0267073cf63e076ed",
+        "description": "Traceability matrix mapping OBJ-1 through OBJ-4 to code, checkpoints, datasets, and limitations",
+        "associated_requirement": "Requirement 10 (Map All Research Objectives to Implementation)"
+    },
+    {
+        "relative_path": "evidence_package/reproduction_instructions/reproduction_guide.md",
+        "file_size_bytes": 3787,
+        "sha256_hash": "92a21adff905cbd4b4720c02dc3d5c82c82693f47856e26ba1164cb17ce32fe5",
+        "description": "Step-by-step reproduction instructions for independent evaluation on Windows/Linux",
+        "associated_requirement": "Requirement 11 (Step-by-Step Independent Reproduction Guide)"
+    },
+    {
+        "relative_path": "evidence_package/statistical_validation/bootstrap_comparison_report.csv",
+        "file_size_bytes": 1030,
+        "sha256_hash": "5e744e26879c3a50fa5379df288e2e3ee19a945e60467f36037ff73fdd2b13c2",
+        "description": "Four-method bootstrap comparison report including Method 4 Three-Way Crossed Cluster bounds",
+        "associated_requirement": "Requirement 3 & 4 (Crossed Cluster Bootstrap & Scope Disclaimers)"
+    },
+    {
+        "relative_path": "evidence_package/statistical_validation/bootstrap_methodology_and_assumptions.md",
+        "file_size_bytes": 4025,
+        "sha256_hash": "ede6fa8a440cbeebe71f1d9c5df0a8b9513a6a9714bf480f61dd03d42171c1f5",
+        "description": "Mathematical estimand, variance bottleneck analysis, and clinical non-generalizability disclaimers",
+        "associated_requirement": "Requirement 3 & 4 (Crossed Cluster Bootstrap & Scope Disclaimers)"
+    },
+    {
+        "relative_path": "evidence_package/statistical_validation/statistical_validation_summary.json",
+        "file_size_bytes": 2798,
+        "sha256_hash": "3acbde8fd784cc98aef7aa4d9ced5ab0a790b022e2f3486c6c4ba951d21a4a54",
+        "description": "Evidence artifact for statistical_validation/statistical_validation_summary.json",
+        "associated_requirement": "Requirement 3 & 4 (Crossed Cluster Bootstrap & Scope Disclaimers)"
+    }
+]

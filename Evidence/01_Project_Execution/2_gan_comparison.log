@@ -1,0 +1,50 @@
+================================================================================
+AUDIT SCRIPT 2: MULTI-SEED GAN VS NO-GAN EXPERIMENTAL COMPARISON
+Timestamp: 2026-10-30 14:38:35
+PyTorch Device: cpu
+================================================================================
+
+[PART 1: CANONICAL EVALUATION (SEED 42)]
+  Training MINN WITHOUT GAN on imbalanced data (69 ASD : 23 Ctrl)...
+  Evaluating MINN WITH GAN on balanced data (69 ASD : 69 Ctrl, checkpoint minn_best.pt)...
+
+Canonical Seed 42 Results:
+  Accuracy:    Without GAN = 94.56% | With GAN = 94.54% (Delta = -0.02%)
+  Sensitivity: Without GAN = 95.40% | With GAN = 96.52% (Delta = +1.12%)
+  Specificity: Without GAN = 93.72% | With GAN = 92.56% (Delta = -1.16%)
+  ROC-AUC:     Without GAN = 0.986817   | With GAN = 0.987621   (Delta = +0.000804)
+  False Neg:   Without GAN = 115           | With GAN = 87           (Delta = -28 missed cases)
+
+[PART 2: MULTI-SEED REPLICATION (SEEDS 42, 101)]
+  Training MINN WITHOUT GAN (Seed 101)...
+  Training MINN WITH GAN (Seed 101)...
+
+[OK] Saved multi-seed table to D:\GAN-3\GAN-3\evidence_package\gan_comparison\gan_vs_nogan_multi_seed_comparison.csv
+ Seed   Condition  Accuracy  Sensitivity  Specificity  F1_Score  ROC_AUC  FN  FP
+   42 Without_GAN    0.9456       0.9540       0.9372  0.946053 0.986817 115 157
+   42    With_GAN    0.9454       0.9652       0.9256  0.946460 0.987621  87 186
+  101 Without_GAN    0.8892       0.9772       0.8012  0.898162 0.981271  57 497
+  101    With_GAN    0.8556       0.9836       0.7276  0.871986 0.983957  41 681
+
+[PART 3: SUMMARY STATISTICS ACROSS SEEDS]
+  Condition  Accuracy_Mean  Accuracy_Std  Sensitivity_Mean  Sensitivity_Std  Specificity_Mean  Specificity_Std  F1_Score_Mean  F1_Score_Std  ROC_AUC_Mean  ROC_AUC_Std  FN_Mean  FN_Std
+Without_GAN         0.9174        0.0399            0.9656           0.0164            0.8692           0.0962         0.9221        0.0339        0.9840       0.0039     86.0 41.0122
+   With_GAN         0.9005        0.0635            0.9744           0.0130            0.8266           0.1400         0.9092        0.0527        0.9858       0.0026     64.0 32.5269
+
+[OK] Saved summary statistics to D:\GAN-3\GAN-3\evidence_package\gan_comparison\gan_summary_statistics.csv
+
+[PART 4: OBJECTIVE SCIENTIFIC ASSESSMENT OF GAN AUGMENTATION]
+1. Accuracy Trade-Off Finding:
+   On canonical Seed 42, accuracy is 94.56% Without-GAN vs 94.54% With-GAN (-0.02%).
+   Across multiple seeds, mean accuracy is 91.74% Without-GAN vs 90.05% With-GAN (-1.69%).
+   Conclusion: WGAN-GP data augmentation does NOT improve overall MINN accuracy.
+2. Genuine Clinical Contribution:
+   WGAN-GP balances the minority control class in the genetic training data.
+   This consistently improves Sensitivity (Recall) across seeds:
+     Seed 42:  95.40% -> 96.52% (+1.12%, reducing false negatives from 115 to 87).
+     Seed 101: 97.72% -> 98.36% (+0.64%, reducing false negatives from 57 to 41).
+     Mean Sensitivity: 96.56% -> 97.44% (+0.88%).
+3. Clinical Context:
+   In pediatric neurodevelopmental screening, false negatives carry high developmental costs.
+   A slight trade-off in specificity for higher clinical sensitivity is a standard screening paradigm.
+[OK] Saved GAN contribution analysis to D:\GAN-3\GAN-3\evidence_package\gan_comparison\gan_contribution_analysis.json

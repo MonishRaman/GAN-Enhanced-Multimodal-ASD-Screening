@@ -1,0 +1,4 @@
+Modality,Identifier_Type,Train_Records,Test_Records,Overlapping_Records,Status
+Genetic,NCBI GEO GSM Sample Accession ID,92,24,0,PASS (Zero Overlap)
+Behavioral,Stratified Cohort Partition Index,616,132,0,PASS (Zero Overlap)
+Environmental,NSCH Survey Partition Index,33437,7166,0,PASS (Zero Overlap)

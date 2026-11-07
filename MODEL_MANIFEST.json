@@ -1,0 +1,67 @@
+{
+    "project": "ASD Multimodal Project",
+    "package": "ASD_Multimodal_UI",
+    "status": "FROZEN_ML_PROJECT_APPLICATION_PACKAGE",
+    "created": "2026-08-25T10:24:21.378096",
+    "source": "/content/drive/MyDrive/ASD_Multimodal_Project",
+    "critical_artifacts": [
+        {
+            "path": "Environmental_Model/02_preprocessing/environmental_preprocessor.joblib",
+            "size_bytes": 2505,
+            "sha256": "e326b480707e551d4d0e1e03ad4d85daff6b501afd9daa4dd07ea78668d5af6f"
+        },
+        {
+            "path": "Environmental_Model/03_representation_learning/environmental_encoder_128d.pt",
+            "size_bytes": 94421,
+            "sha256": "5fa6c40c0fb82655e3cc08790d58382baff27afa002cd81c875d594a5945c471"
+        },
+        {
+            "path": "Environmental_Model/04_cross_modal_alignment/environmental_128_to_32_alignment.pt",
+            "size_bytes": 94109,
+            "sha256": "50ac02eef5ee101d49f09bdce363daf10866a092afffaafe2f3b2bdba47bd803"
+        },
+        {
+            "path": "05_multimodal_fusion/M3_1_environmental_expert.pt",
+            "size_bytes": 22836,
+            "sha256": "ef9a2122cfcd9a2662d671347ba48d4d7d0a4f913e408ba3fa5be599d3baef1f"
+        },
+        {
+            "path": "05_multimodal_fusion/M3_multimodal_knowledge_fusion.pt",
+            "size_bytes": 61649,
+            "sha256": "2528ad85b5dc5ad33748d8b6f3df71d4378da26516ce436a5f29054860144fe6"
+        },
+        {
+            "path": "05_multimodal_fusion/M3_1_fusion_weights.csv",
+            "size_bytes": 191,
+            "sha256": "24d025af69cd8a104c13e11821075ef139304c8246d59481a69b280d84c59a13"
+        },
+        {
+            "path": "05_multimodal_fusion/M4_final_P001_P005_three_modal_fusion_results.csv",
+            "size_bytes": 932,
+            "sha256": "26c97b3cbcd882223430e1981c7c7ed32e6978462b722af619d00ae0c2b09ef3"
+        },
+        {
+            "path": "05_multimodal_fusion/M4_final_P001_P005_flexible_multimodal_results.csv",
+            "size_bytes": 2500,
+            "sha256": "1e9741b3c71a991f005762ba46a7a0b7abe70a9072d6537fd7a7fa7b275b8b5c"
+        }
+    ],
+    "demo_patients": [
+        "P001",
+        "P002",
+        "P003",
+        "P004",
+        "P005"
+    ],
+    "modalities": [
+        "Genetic",
+        "Behavioral",
+        "Environmental"
+    ],
+    "fusion_weights": {
+        "Genetic": 0.31937,
+        "Behavioral": 0.400219,
+        "Environmental": 0.280411
+    },
+    "important_rule": "Frozen ML artifacts must not be modified or retrained."
+}

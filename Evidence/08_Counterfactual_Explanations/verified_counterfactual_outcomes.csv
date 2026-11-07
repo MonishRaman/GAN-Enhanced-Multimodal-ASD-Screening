@@ -1,0 +1,4 @@
+Patient_ID,Original_P_ASD,Target_Threshold,Full_32D_Final_P,Target_Achieved,Top3_Sparse_P,L2_Perturbation_Cost,Genetic_Invariance_DeltaG_Zero
+P001,0.9999,<= 0.3500,0.1207,True,0.9998,1.6091,True
+P003,0.6343,<= 0.3500,0.0021,True,0.1697,0.6552,True
+P005,1.0,<= 0.3500,0.3302,True,0.9999,4.6385,True

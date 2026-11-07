@@ -1,0 +1,6 @@
+Metric,Value,Threshold,Interpretation
+Minimum Distance,0.0738,> 0.0500,Cross-label manifold separation heuristic satisfied
+1st Percentile Distance,0.2425,N/A,Low-density boundary region
+5th Percentile Distance,0.3156,N/A,Lower quartile separation
+Median Distance,0.674,N/A,Central inter-class distance
+Mean Distance,0.6371,N/A,Average inter-class distance

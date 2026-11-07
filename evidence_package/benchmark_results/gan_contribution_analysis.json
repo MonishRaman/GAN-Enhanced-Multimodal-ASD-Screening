@@ -1,0 +1,14 @@
+{
+    "canonical_comparison": {
+        "accuracy_without_gan": 0.9456,
+        "accuracy_with_gan": 0.9454,
+        "accuracy_delta": -0.00019999999999997797,
+        "sensitivity_without_gan": 0.954,
+        "sensitivity_with_gan": 0.9652,
+        "sensitivity_delta": 0.011199999999999988,
+        "false_negatives_without_gan": 115,
+        "false_negatives_with_gan": 87,
+        "false_negatives_reduced": 28
+    },
+    "scientific_conclusion": "GAN balances class representations, significantly reducing false negatives (+1.12% sensitivity) without increasing overall accuracy (-0.02% accuracy)."
+}

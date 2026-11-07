@@ -1,0 +1,4 @@
+Patient_ID,Original_Probability,Full_32D_Probability,Full_32D_Target_Reached,Full_32D_L2_Cost,Top3_Sparse_Probability,Top3_Sparse_Target_Reached,Genetic_Invariance_Delta_G,Status
+P001,0.9999,0.1207,YES,1.6091,0.9998,NO,0.0,PASS
+P003,0.6343,0.0021,YES,0.6552,0.1697,YES,0.0,PASS
+P005,1.0,0.3302,YES,4.6385,0.9999,NO,0.0,PASS

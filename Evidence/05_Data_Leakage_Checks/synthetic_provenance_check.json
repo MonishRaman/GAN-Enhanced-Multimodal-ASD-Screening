@@ -1,0 +1,11 @@
+{
+    "check_name": "synthetic_data_provenance",
+    "training_samples_total": 138,
+    "training_real_samples": 92,
+    "training_synthetic_samples": 46,
+    "testing_samples_total": 24,
+    "testing_real_samples": 24,
+    "testing_synthetic_samples": 0,
+    "status": "PASS",
+    "finding": "All 24 test samples are authentic biological tissue microarrays from GSE28521. Zero synthetic leakage."
+}

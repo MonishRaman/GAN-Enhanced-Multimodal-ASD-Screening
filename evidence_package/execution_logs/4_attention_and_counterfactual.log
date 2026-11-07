@@ -1,0 +1,87 @@
+==============================================================================
+AUDIT SCRIPT 4: HIERARCHICAL ATTENTION & LATENT COUNTERFACTUAL AUDIT
+Timestamp: 2026-10-30 07:22:57
+PyTorch Device: cpu
+Checkpoint: minn_best.pt (129,049 bytes)
+==============================================================================
+
+[PART 1: LIVE HIERARCHICAL ATTENTION INSPECTION (P001 - P005)]
+Patient P001 (ASD Expected):
+  Classification:        ASD
+  P(ASD):                0.999946
+  Decision Confidence:   0.999946 (99.99%)
+  Modality Weights beta: [G=0.3302, B=0.4216, E=0.2482] (Sum = 1.0000)
+  Highest Attention Mod: Behavioral
+  Level-1 Saliency:      alpha_G max=0.0798, alpha_B max=0.1195, alpha_E max=0.0553
+Patient P002 (Control Expected):
+  Classification:        Control
+  P(ASD):                0.000000
+  Decision Confidence:   1.000000 (100.00%)
+  Modality Weights beta: [G=0.3086, B=0.4691, E=0.2224] (Sum = 1.0000)
+  Highest Attention Mod: Behavioral
+  Level-1 Saliency:      alpha_G max=0.0779, alpha_B max=0.1749, alpha_E max=0.0415
+Patient P003 (ASD Borderline):
+  Classification:        ASD
+  P(ASD):                0.634273
+  Decision Confidence:   0.634273 (63.43%)
+  Modality Weights beta: [G=0.4645, B=0.1891, E=0.3464] (Sum = 1.0000)
+  Highest Attention Mod: Genetic
+  Level-1 Saliency:      alpha_G max=0.0758, alpha_B max=0.0744, alpha_E max=0.0648
+Patient P004 (Control Expected):
+  Classification:        Control
+  P(ASD):                0.000000
+  Decision Confidence:   1.000000 (100.00%)
+  Modality Weights beta: [G=0.3339, B=0.4637, E=0.2023] (Sum = 1.0000)
+  Highest Attention Mod: Behavioral
+  Level-1 Saliency:      alpha_G max=0.0817, alpha_B max=0.1971, alpha_E max=0.0487
+Patient P005 (ASD High-Confidence):
+  Classification:        ASD
+  P(ASD):                1.000000
+  Decision Confidence:   1.000000 (100.00%)
+  Modality Weights beta: [G=0.3532, B=0.3964, E=0.2503] (Sum = 1.0000)
+  Highest Attention Mod: Behavioral
+  Level-1 Saliency:      alpha_G max=0.0777, alpha_B max=0.1379, alpha_E max=0.0401
+  -> Attention Normalization & Uniqueness: PASS (100% dynamic, sums to 1.000)
+
+[PART 2: INPUT SENSITIVITY TEST (PROVING 0% HARDCODING)]
+  P001 Baseline:  P(ASD) = 0.9999, beta = [G=0.330, B=0.422, E=0.248]
+  P001 Perturbed: P(ASD) = 0.4009, beta = [G=0.438, B=0.233, E=0.329]
+  -> Input Sensitivity: PASS (Outputs and attention change dynamically with input)
+
+[PART 3: LATENT COUNTERFACTUAL GENERATION & INDEPENDENT RE-EVALUATION]
+Counterfactual for P001:
+  Original Probability:       0.9999
+  Target Threshold:           <= 0.3500
+  Reported Final Probability: 0.1207
+  Independent Re-evaluation:  0.1207 (Match: True)
+  Top-3 Sparse Probability:   0.9998
+  L2 Perturbation Cost:       1.6091
+  Target Achieved:            True
+Counterfactual for P003:
+  Original Probability:       0.6343
+  Target Threshold:           <= 0.3500
+  Reported Final Probability: 0.0021
+  Independent Re-evaluation:  0.0021 (Match: True)
+  Top-3 Sparse Probability:   0.1697
+  L2 Perturbation Cost:       0.6552
+  Target Achieved:            True
+Counterfactual for P005:
+  Original Probability:       1.0000
+  Target Threshold:           <= 0.3500
+  Reported Final Probability: 0.3302
+  Independent Re-evaluation:  0.3302 (Match: True)
+  Top-3 Sparse Probability:   0.9999
+  L2 Perturbation Cost:       4.6385
+  Target Achieved:            True
+
+[OK] Saved verified counterfactual table to D:\GAN-3\GAN-3\evidence_package\attention_counterfactual\verified_counterfactual_outcomes.csv
+[OK] Saved live attention JSON to D:\GAN-3\GAN-3\evidence_package\attention_counterfactual\live_attention_weights.json
+
+[PART 4: SCIENTIFIC EXPLAINABILITY DISCLAIMERS]
+1. Modality Attention != Proof of Causation:
+   Modality attention weights (beta) indicate feature representation emphasis in the
+   neural network fusion layer; they do not establish pediatric biological etiology.
+2. Latent Counterfactuals != Actionable Clinical Interventions:
+   Counterfactual perturbations (delta_B, delta_E) represent mathematical gradients in
+   the aligned continuous 32-D latent space; they are not direct prescriptions for
+   behavioral therapies or environmental remediation.

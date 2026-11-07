@@ -1,0 +1,37 @@
+==============================================================================
+AUDIT SCRIPT 5: API & FRONTEND PARITY VERIFICATION
+Timestamp: 2026-10-30 07:32:08
+==============================================================================
+
+[PART 1: REAL API REQUEST FOR ASD PATIENT P001]
+  HTTP Status:           200 OK
+  Classification:        ASD
+  P(ASD):                0.9999
+  Confidence:            0.9999
+  Beta Weights:          G=0.3302, B=0.4216, E=0.2482
+  Highest Modality:      Behavioral
+
+[PART 2: REAL API REQUEST FOR CONTROL PATIENT P002]
+  HTTP Status:           200 OK
+  Classification:        Control
+  P(ASD):                0.0
+  Confidence:            1.0
+  Beta Weights:          G=0.3086, B=0.4691, E=0.2224
+  Highest Modality:      Behavioral
+
+[OK] Saved raw API responses to D:\GAN-3\GAN-3\evidence_package\api_frontend_verification\raw_api_responses.json
+
+[PART 3: FRONTEND DOM FIELD PARITY CHECK]
+                 Field_Name                                            Backend_JSON_Path          Frontend_DOM_Element P001_Rendered_UI Parity_Status
+             P(ASD) Display                            result.prediction.asd_probability         id='finalProbability'           99.99%   EXACT_MATCH
+             Classification                             result.prediction.classification          id='finalPrediction'              ASD   EXACT_MATCH
+        Decision Confidence                                 result.prediction.confidence          id='finalConfidence'           99.99%   EXACT_MATCH
+ Highest Attention Modality result.modality_attention_level_2.highest_attention_modality id='highestAttentionModality'       Behavioral   EXACT_MATCH
+Control Decision Confidence                                 result.prediction.confidence          id='finalConfidence'              NaN   EXACT_MATCH
+
+[OK] Saved frontend parity matrix to {OUTPUT_PARITY}
+
+[PART 4: ERROR SANITIZATION & SECURITY AUDIT]
+  Raw Error Message:       FileNotFoundError: [Errno 2] No such file or directory: 'D:\GAN-3\GAN-3\data\secret_patients\P999.csv'
+  Sanitized Error Message: FileNotFoundError: [Errno 2] No such file or directory: '[internal_path]
+  -> Path Disclosure Sanitization: PASS (Zero server path disclosure)

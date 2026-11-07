@@ -1,0 +1,49 @@
+{
+    "objectives": [
+        {
+            "Objective_ID": "OBJ-1",
+            "Title": "Multi-Modal Feature Extraction & Unified Latent Projection",
+            "Source_Code_Module": "Genetic_Model/03_representation_learning/genetic_transformer.py, Genetic_Model/04_unified_representation/genetic_alignment.py, backend/services/behavioral_service.py, backend/services/environmental_service.py",
+            "Model_Checkpoints": "Genetic_Model/03_representation_learning/genetic_transformer_128d.pt, Genetic_Model/04_unified_representation/genetic_align_32d.pt, 02_behavioral_representation/models/behavioral_align_32d.pt, 03_environmental_representation/models/environmental_align_32d.pt",
+            "Input_Datasets": "Genetic: GSE28521 (N=116, 1000 features), Behavioral: Toddler Screening (N=880, 18 features), Environmental: Toxicological Matrix (N=47,768, 31 features)",
+            "Aligned_Dimension": "32-D Latent Embeddings (dim=32 for each modality)",
+            "Verification_Evidence": "evidence_package/leakage_audit/representation_overlap_distribution.csv (min dist > 0.05)",
+            "Scientific_Scope_Limitation": "Each modality is derived from distinct retrospective cohorts. Triplet combinations are mathematically integrated in-silico, not co-collected from individual clinical patients.",
+            "Validation_Status": "VERIFIED_PASS"
+        },
+        {
+            "Objective_ID": "OBJ-2",
+            "Title": "WGAN-GP Minority Class Balancing & Distribution Manifold Modeling",
+            "Source_Code_Module": "08_hierarchical_minn/train_wgan_gp.py, audit_scripts/2_gan_comparison.py",
+            "Model_Checkpoints": "08_hierarchical_minn/models/wgan_gp_generator_32d.pt",
+            "Input_Datasets": "genetic_32d_train_gan_balanced.csv (69 ASD : 69 Control, 46 synthetic)",
+            "Aligned_Dimension": "32-D Genetic Latent Space",
+            "Verification_Evidence": "evidence_package/gan_comparison/gan_vs_nogan_multi_seed_comparison.csv, evidence_package/gan_comparison/gan_contribution_analysis.json",
+            "Scientific_Scope_Limitation": "WGAN-GP does NOT increase overall accuracy (-0.02% on seed 42, -1.69% mean). Contribution is strictly clinical sensitivity enhancement (+1.12%) and false negative reduction (-24.3%). Synthetic vectors are strictly confined to training data; zero synthetic vectors in test set.",
+            "Validation_Status": "VERIFIED_PASS"
+        },
+        {
+            "Objective_ID": "OBJ-3",
+            "Title": "Hierarchical Attention Multimodal Integration Network (MINN)",
+            "Source_Code_Module": "08_hierarchical_minn/models/hierarchical_minn.py, audit_scripts/1_benchmark_reproduction.py",
+            "Model_Checkpoints": "08_hierarchical_minn/models/minn_best.pt (SHA-256: bb718e18b1615c647005e6adbaa9d271cfbecfc6d149b2ecbec8b96b99d8cb40, Size: 129,049 bytes)",
+            "Input_Datasets": "5,000 In-Silico Multimodal Test Combinations (G_te, B_te, E_te)",
+            "Aligned_Dimension": "Level 1: 32-D intra-branch feature attention; Level 2: 3-D inter-modality attention (Beta)",
+            "Verification_Evidence": "evidence_package/benchmark_results/minn_reproduced_test_metrics.csv (Acc: 94.54%, AUC: 0.9876), evidence_package/attention_counterfactual/attention_weights_demo_patients.csv",
+            "Scientific_Scope_Limitation": "Attention weights quantify mathematical model reliance, not biological causation. Labeling strictly standardized to 'Highest modality attention weight'.",
+            "Validation_Status": "VERIFIED_PASS"
+        },
+        {
+            "Objective_ID": "OBJ-4",
+            "Title": "Explainability & Actionable Latent-Space Counterfactuals",
+            "Source_Code_Module": "09_explainability_benchmarking/explainability_engine.py, 09_explainability_benchmarking/counterfactual_generator.py, audit_scripts/5_attention_and_counterfactual_audit.py",
+            "Model_Checkpoints": "08_hierarchical_minn/models/minn_best.pt",
+            "Input_Datasets": "Demo Patients P001-P005 (M4_demo_patients)",
+            "Aligned_Dimension": "Behavioral and Environmental 32-D Latent Coordinates (Delta G = 0)",
+            "Verification_Evidence": "evidence_package/attention_counterfactual/counterfactual_full_vs_sparse.csv, evidence_package/attention_counterfactual/counterfactual_analysis.json",
+            "Scientific_Scope_Limitation": "Perturbations represent directional shifts in the 32-D latent manifold to reach P <= 0.35. They are mathematical explanations of model sensitivity, not direct clinical or medical interventions.",
+            "Validation_Status": "VERIFIED_PASS"
+        }
+    ],
+    "timestamp": "2026-10-30 16:43:59"
+}

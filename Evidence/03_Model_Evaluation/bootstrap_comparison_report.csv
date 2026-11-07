@@ -1,0 +1,5 @@
+Metric,Point_Estimate,Method1_Naive_Row_CI,Method1_Width,Method2_Genetic_Cluster_CI,Method2_Width,Method3_TwoWay_Crossed_CI,Method3_Width,Method4_ThreeWay_Crossed_CI,Method4_Width,Statistical_Verdict
+Accuracy,0.9454,"[0.9392, 0.9518]",0.0126,"[0.9166, 0.9699]",0.0533,"[0.9131, 0.9743]",0.0612,"[0.9146, 0.9758]",0.0612,Method 2/3/4 properly reflect finite cluster uncertainty; Method 1 is overconfident.
+Sensitivity,0.9652,"[0.9576, 0.9717]",0.0141,"[0.9287, 0.9909]",0.0622,"[0.9362, 0.9924]",0.0562,"[0.9347, 0.9935]",0.0588,Method 2/3/4 properly reflect finite cluster uncertainty; Method 1 is overconfident.
+Specificity,0.9256,"[0.9153, 0.9362]",0.0208,"[0.8792, 0.9676]",0.0884,"[0.8671, 0.9724]",0.1052,"[0.8720, 0.9758]",0.1038,Method 2/3/4 properly reflect finite cluster uncertainty; Method 1 is overconfident.
+ROC_AUC,0.9876,"[0.9848, 0.9901]",0.0053,"[0.9670, 0.9977]",0.0307,"[0.9723, 0.9982]",0.0259,"[0.9717, 0.9983]",0.0266,Method 2/3/4 properly reflect finite cluster uncertainty; Method 1 is overconfident.

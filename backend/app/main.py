@@ -1232,6 +1232,10 @@ def explain_demo_patient(
     Supports all 3 modalities or any subset (e.g. ?modalities=genetic or ?modalities=genetic,behavioral).
     """
     try:
+        p_dir = get_demo_patient_dir(patient_id)
+        if not p_dir.exists():
+            raise HTTPException(status_code=404, detail=f"Demo patient '{patient_id}' not found.")
+
         active_mods = [m.strip().lower() for m in modalities.split(",")] if modalities else ["genetic", "behavioral", "environmental"]
         active_mods = [m for m in active_mods if m in ["genetic", "behavioral", "environmental"]]
         if not active_mods:
@@ -1239,23 +1243,46 @@ def explain_demo_patient(
 
         outputs = {}
         if "genetic" in active_mods:
-            outputs["genetic"] = _run_genetic(get_genetic_input_path(patient_id))
+            p_gen = get_genetic_input_path(patient_id)
+            if not p_gen.exists():
+                raise HTTPException(status_code=404, detail=f"Genetic input file for '{patient_id}' not found.")
+            outputs["genetic"] = _run_genetic(p_gen)
         if "behavioral" in active_mods:
-            outputs["behavioral"] = _run_behavioral(get_behavioral_input_path(patient_id))
+            p_beh = get_behavioral_input_path(patient_id)
+            if not p_beh.exists():
+                raise HTTPException(status_code=404, detail=f"Behavioral input file for '{patient_id}' not found.")
+            outputs["behavioral"] = _run_behavioral(p_beh)
         if "environmental" in active_mods:
-            outputs["environmental"] = _run_environmental(get_environmental_input_path(patient_id))
+            p_env = get_environmental_input_path(patient_id)
+            if not p_env.exists():
+                raise HTTPException(status_code=404, detail=f"Environmental input file for '{patient_id}' not found.")
+            outputs["environmental"] = _run_environmental(p_env)
 
         return _build_flexible_explanation(patient_id, outputs)
+    except HTTPException:
+        raise
+    except FileNotFoundError as fnf:
+        raise HTTPException(status_code=404, detail=f"Demo patient resource not found: {fnf.filename}") from fnf
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=str(exc)) from exc
+        raise HTTPException(status_code=500, detail=_sanitize_error_msg(exc)) from exc
 
 @app.get("/api/minn/counterfactual/demo/{patient_id}")
 def counterfactual_demo_patient(patient_id: str) -> Dict[str, Any]:
     """Generates counterfactual actionable adjustments for an ASD-screened demo patient."""
     try:
-        genetic_output = _run_genetic(get_genetic_input_path(patient_id))
-        behavioral_output = _run_behavioral(get_behavioral_input_path(patient_id))
-        environmental_output = _run_environmental(get_environmental_input_path(patient_id))
+        p_dir = get_demo_patient_dir(patient_id)
+        if not p_dir.exists():
+            raise HTTPException(status_code=404, detail=f"Demo patient '{patient_id}' not found.")
+
+        p_gen = get_genetic_input_path(patient_id)
+        p_beh = get_behavioral_input_path(patient_id)
+        p_env = get_environmental_input_path(patient_id)
+        if not (p_gen.exists() and p_beh.exists() and p_env.exists()):
+            raise HTTPException(status_code=404, detail=f"Required input files for demo patient '{patient_id}' not found.")
+
+        genetic_output = _run_genetic(p_gen)
+        behavioral_output = _run_behavioral(p_beh)
+        environmental_output = _run_environmental(p_env)
 
         cf_result = minn_service.counterfactual_analysis(
             genetic_32d=genetic_output["embedding"],
@@ -1264,8 +1291,12 @@ def counterfactual_demo_patient(patient_id: str) -> Dict[str, Any]:
             patient_id=patient_id
         )
         return {"status": "success", "counterfactual": cf_result}
+    except HTTPException:
+        raise
+    except FileNotFoundError as fnf:
+        raise HTTPException(status_code=404, detail=f"Demo patient resource not found: {fnf.filename}") from fnf
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=str(exc)) from exc
+        raise HTTPException(status_code=500, detail=_sanitize_error_msg(exc)) from exc
 
 def _build_flexible_explanation(
     patient_id: str,

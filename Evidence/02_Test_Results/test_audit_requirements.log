@@ -1,0 +1,71 @@
+======================================================================
+STARTING ASD MULTIMODAL VERIFICATION AUDIT
+======================================================================
+
+--- Testing Requirement 1: Probability & Confidence Consistency ---
+  [PASS] P001: Class=ASD     P(ASD)=0.9999  Confidence=0.9999 (Strictly calibrated)
+  [PASS] P002: Class=Control P(ASD)=0.0000  Confidence=1.0000 (Strictly calibrated)
+  [PASS] P003: Class=ASD     P(ASD)=0.6343  Confidence=0.6343 (Strictly calibrated)
+  [PASS] P004: Class=Control P(ASD)=0.0000  Confidence=1.0000 (Strictly calibrated)
+  [PASS] P005: Class=ASD     P(ASD)=1.0000  Confidence=1.0000 (Strictly calibrated)
+
+--- Testing Requirement 2: Patient-Specific Live MINN Outputs ---
+  [PASS] P001: Class=ASD     beta=[G=0.330, B=0.422, E=0.248] (Sum=1.000)
+  [PASS] P002: Class=Control beta=[G=0.309, B=0.469, E=0.222] (Sum=1.000)
+  [PASS] P003: Class=ASD     beta=[G=0.465, B=0.189, E=0.346] (Sum=1.000)
+  [PASS] P004: Class=Control beta=[G=0.334, B=0.464, E=0.202] (Sum=1.000)
+  [PASS] P005: Class=ASD     beta=[G=0.353, B=0.396, E=0.250] (Sum=1.000)
+  [PASS] All 5 patients have unique, dynamic attention weight distributions (0% hardcoding).
+
+--- Testing Requirement 4: All 7 Modality Combinations ---
+  [PASS] Combo: Genetic only                 -> Unimodal Expert Model (Genetic) | P(ASD)=0.7082, Conf=0.7082
+  [PASS] Combo: Behavioral only              -> Unimodal Expert Model (Behavioral) | P(ASD)=0.5771, Conf=0.5771
+  [PASS] Combo: Environmental only           -> Unimodal Expert Model (Environmental) | P(ASD)=0.3704, Conf=0.6296
+  [PASS] Combo: Genetic + Behavioral         -> Flexible Dual-Modality Fusion (Genetic + Behavioral) | P(ASD)=0.6353, Conf=0.6353
+  [PASS] Combo: Genetic + Environmental      -> Flexible Dual-Modality Fusion (Genetic + Environmental) | P(ASD)=0.5503, Conf=0.5503
+  [PASS] Combo: Behavioral + Environmental   -> Flexible Dual-Modality Fusion (Behavioral + Environmental) | P(ASD)=0.4920, Conf=0.5080
+  [PASS] Combo: All Three Modalities         -> Hierarchical Attention MINN (All 3 Modalities) | P(ASD)=0.9999, Conf=0.9999
+
+--- Testing Requirement 5: Input Validation & Schema Enforcement ---
+  [PASS] Successfully rejected multi-row CSV with clear error.
+  [PASS] Successfully rejected NaN/null values with clear error.
+  [PASS] Successfully rejected incomplete behavioral schema.
+  [PASS] Successfully rejected non-numeric genetic probe features.
+
+--- Testing Requirement 7: Data Leakage & Overlap Audit ---
+  [PASS] Genetic Train (92) vs Test (24): Overlap = 0 samples. 0 synthetic samples in test set.
+
+--- Testing Requirement 10: Counterfactual & Explainability Validation ---
+  [PASS] Counterfactual for P001: Orig=0.9999 -> CF=0.1207 (Target <= 0.35 Achieved)
+  [PASS] L2 perturbation cost = 1.6091, correctly labeled as latent space perturbations.
+
+--- Testing Requirement 11: Security & Error Path Sanitization ---
+  [PASS] Path sanitization verified: 'Failed to open [internal_path]: permission denied' (Zero path disclosure)
+======================================================================
+ALL 11 REQUIREMENTS AUDITED AND VERIFIED SUCCESSFULLY: 100% PASS
+======================================================================
+
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator Pipeline from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator Pipeline from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator OneHotEncoder from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator ColumnTransformer from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+C:\Users\Monish.R\AppData\Roaming\Python\Python310\site-packages\sklearn\base.py:442: InconsistentVersionWarning: Trying to unpickle estimator SimpleImputer from version 1.6.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(

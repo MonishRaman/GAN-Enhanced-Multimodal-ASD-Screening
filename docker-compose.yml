@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  asd-multimodal-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: asd-multimodal-system:latest
+    container_name: asd_multimodal_container
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+    volumes:
+      # Optional: bind mount for live local development changes
+      - .:/app
+

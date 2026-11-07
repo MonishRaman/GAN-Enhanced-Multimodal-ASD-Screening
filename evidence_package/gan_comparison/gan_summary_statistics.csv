@@ -1,0 +1,3 @@
+Condition,Accuracy_Mean,Accuracy_Std,Sensitivity_Mean,Sensitivity_Std,Specificity_Mean,Specificity_Std,F1_Score_Mean,F1_Score_Std,ROC_AUC_Mean,ROC_AUC_Std,FN_Mean,FN_Std
+Without_GAN,0.9174,0.0399,0.9656,0.0164,0.8692,0.0962,0.9221,0.0339,0.984,0.0039,86.0,41.0122
+With_GAN,0.9005,0.0635,0.9744,0.013,0.8266,0.14,0.9092,0.0527,0.9858,0.0026,64.0,32.5269

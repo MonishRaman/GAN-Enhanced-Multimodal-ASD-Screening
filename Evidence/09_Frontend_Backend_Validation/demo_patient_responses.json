@@ -1,0 +1,974 @@
+{
+    "P001": {
+        "status": "success",
+        "result": {
+            "patient_id": "P001",
+            "prediction": {
+                "asd_probability": 0.9999,
+                "classification": "ASD",
+                "confidence": 0.9999,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.3302,
+                "behavioral_weight": 0.4216,
+                "environmental_weight": 0.2482,
+                "highest_attention_modality": "Behavioral",
+                "primary_driving_modality": "Behavioral",
+                "interpretation_note": "Attention weights reflect relative model emphasis and do not prove biological causation or clinical importance."
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "label": "Latent Dim 17",
+                        "attention_weight": 0.0798
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0413
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.0389
+                    },
+                    {
+                        "dimension": 19,
+                        "label": "Latent Dim 19",
+                        "attention_weight": 0.0372
+                    },
+                    {
+                        "dimension": 2,
+                        "label": "Latent Dim 2",
+                        "attention_weight": 0.0347
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 12,
+                        "label": "Latent Dim 12",
+                        "attention_weight": 0.1195
+                    },
+                    {
+                        "dimension": 31,
+                        "label": "Latent Dim 31",
+                        "attention_weight": 0.0852
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0517
+                    },
+                    {
+                        "dimension": 29,
+                        "label": "Latent Dim 29",
+                        "attention_weight": 0.0453
+                    },
+                    {
+                        "dimension": 8,
+                        "label": "Latent Dim 8",
+                        "attention_weight": 0.0403
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 2,
+                        "label": "Latent Dim 2",
+                        "attention_weight": 0.0553
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.053
+                    },
+                    {
+                        "dimension": 6,
+                        "label": "Latent Dim 6",
+                        "attention_weight": 0.0464
+                    },
+                    {
+                        "dimension": 3,
+                        "label": "Latent Dim 3",
+                        "attention_weight": 0.0438
+                    },
+                    {
+                        "dimension": 19,
+                        "label": "Latent Dim 19",
+                        "attention_weight": 0.0419
+                    }
+                ],
+                "interpretation_note": "Dimensions represent abstract latent features in the aligned space, not validated real-world genes, symptoms, or exposures."
+            },
+            "clinical_interpretation": "Patient P001 is screened as ASD with 100.0% confidence. Highest modality attention weight was placed on the Behavioral branch (42.2% dynamic weight). Note: Modality attention weights reflect relative network emphasis and do not imply biological causation or clinical importance."
+        },
+        "counterfactual": {
+            "patient_id": "P001",
+            "status": "COUNTERFACTUAL_FOUND",
+            "is_latent_space_counterfactual": true,
+            "interpretation_note": "Perturbations represent exploratory mathematical shifts in 32-D latent embeddings, not direct clinical recommendations.",
+            "original_diagnosis": {
+                "probability": 0.9999,
+                "classification": "ASD"
+            },
+            "counterfactual_outcome": {
+                "probability": 0.1207,
+                "classification": "Control (Non-ASD)",
+                "probability_reduction": 0.8793,
+                "target_threshold": 0.35
+            },
+            "perturbation_cost": {
+                "l2_distance": 1.6091,
+                "l1_distance": 12.184
+            },
+            "actionable_recommendations": {
+                "summary_note": "Adjustments display the top 3 highest-magnitude dimensions for human interpretation. The full mathematical counterfactual operates across all 32 latent dimensions.",
+                "top3_sparse_probability": 0.9998,
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 1,
+                        "label": "Latent Behavioral Dim 1",
+                        "recommended_shift": -0.2646,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 3,
+                        "label": "Latent Behavioral Dim 3",
+                        "recommended_shift": 0.2538,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 28,
+                        "label": "Latent Behavioral Dim 28",
+                        "recommended_shift": 0.2426,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 9,
+                        "label": "Latent Environmental Dim 9",
+                        "recommended_shift": -0.2775,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 15,
+                        "label": "Latent Environmental Dim 15",
+                        "recommended_shift": -0.2772,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 32,
+                        "label": "Latent Environmental Dim 32",
+                        "recommended_shift": -0.2766,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ]
+            },
+            "full_latent_perturbations": {
+                "delta_behavioral_32d": [
+                    -0.264561,
+                    -0.189787,
+                    0.253834,
+                    -0.195618,
+                    0.174432,
+                    -0.220454,
+                    0.078599,
+                    -0.239288,
+                    -0.194044,
+                    -0.056719,
+                    0.227647,
+                    0.157988,
+                    -0.208959,
+                    -0.198354,
+                    0.211692,
+                    -0.195204,
+                    0.195499,
+                    -0.207474,
+                    0.205779,
+                    0.228092,
+                    -0.214314,
+                    0.164857,
+                    0.105519,
+                    0.050459,
+                    -0.03183,
+                    0.235107,
+                    -0.233379,
+                    0.242614,
+                    0.222086,
+                    0.238203,
+                    -0.239041,
+                    -0.214108
+                ],
+                "delta_environmental_32d": [
+                    -0.220822,
+                    -0.236341,
+                    -0.054417,
+                    0.250648,
+                    0.187224,
+                    -0.250214,
+                    0.146092,
+                    -0.035219,
+                    -0.277471,
+                    0.129667,
+                    0.224363,
+                    0.172225,
+                    0.225297,
+                    0.213919,
+                    -0.277241,
+                    -0.24041,
+                    0.259395,
+                    -0.235028,
+                    -0.22574,
+                    0.103822,
+                    0.217587,
+                    0.19099,
+                    -0.205386,
+                    0.234106,
+                    0.181728,
+                    -0.08691,
+                    -0.191675,
+                    0.203053,
+                    0.051189,
+                    0.055558,
+                    -0.228062,
+                    -0.276616
+                ]
+            },
+            "clinical_summary": "For patient P001 (original model risk 100.0%), a target probability of 12.1% is mathematically achievable through an L2 latent perturbation distance of 1.61, primarily shifting Latent Behavioral Dimensions [1, 3, 28] and Latent Environmental Dimensions [9, 15, 32]. Note: These shifts represent mathematical counterfactuals in the 32-D latent space and are experimental explanations, not validated direct clinical interventions."
+        },
+        "model_name": "Hierarchical Attention MINN (All 3 Modalities)",
+        "modalities_used": [
+            "genetic",
+            "behavioral",
+            "environmental"
+        ]
+    },
+    "P002": {
+        "status": "success",
+        "result": {
+            "patient_id": "P002",
+            "prediction": {
+                "asd_probability": 0.0,
+                "classification": "Control",
+                "confidence": 1.0,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.3086,
+                "behavioral_weight": 0.4691,
+                "environmental_weight": 0.2224,
+                "highest_attention_modality": "Behavioral",
+                "primary_driving_modality": "Behavioral",
+                "interpretation_note": "Attention weights reflect relative model emphasis and do not prove biological causation or clinical importance."
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "label": "Latent Dim 17",
+                        "attention_weight": 0.0779
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0414
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.0388
+                    },
+                    {
+                        "dimension": 19,
+                        "label": "Latent Dim 19",
+                        "attention_weight": 0.0374
+                    },
+                    {
+                        "dimension": 2,
+                        "label": "Latent Dim 2",
+                        "attention_weight": 0.0351
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 28,
+                        "label": "Latent Dim 28",
+                        "attention_weight": 0.1749
+                    },
+                    {
+                        "dimension": 29,
+                        "label": "Latent Dim 29",
+                        "attention_weight": 0.1332
+                    },
+                    {
+                        "dimension": 22,
+                        "label": "Latent Dim 22",
+                        "attention_weight": 0.1071
+                    },
+                    {
+                        "dimension": 18,
+                        "label": "Latent Dim 18",
+                        "attention_weight": 0.0925
+                    },
+                    {
+                        "dimension": 7,
+                        "label": "Latent Dim 7",
+                        "attention_weight": 0.0649
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 6,
+                        "label": "Latent Dim 6",
+                        "attention_weight": 0.0415
+                    },
+                    {
+                        "dimension": 18,
+                        "label": "Latent Dim 18",
+                        "attention_weight": 0.0379
+                    },
+                    {
+                        "dimension": 5,
+                        "label": "Latent Dim 5",
+                        "attention_weight": 0.0375
+                    },
+                    {
+                        "dimension": 11,
+                        "label": "Latent Dim 11",
+                        "attention_weight": 0.0363
+                    },
+                    {
+                        "dimension": 30,
+                        "label": "Latent Dim 30",
+                        "attention_weight": 0.0344
+                    }
+                ],
+                "interpretation_note": "Dimensions represent abstract latent features in the aligned space, not validated real-world genes, symptoms, or exposures."
+            },
+            "clinical_interpretation": "Patient P002 is screened as Control with 100.0% confidence. Highest modality attention weight was placed on the Behavioral branch (46.9% dynamic weight). Note: Modality attention weights reflect relative network emphasis and do not imply biological causation or clinical importance."
+        },
+        "counterfactual": {
+            "patient_id": "P002",
+            "status": "ALREADY_NEGATIVE",
+            "original_probability": 0.0,
+            "message": "Patient P002 already has a non-ASD prediction (0.0000 < 0.50). No counterfactual required."
+        },
+        "model_name": "Hierarchical Attention MINN (All 3 Modalities)",
+        "modalities_used": [
+            "genetic",
+            "behavioral",
+            "environmental"
+        ]
+    },
+    "P003": {
+        "status": "success",
+        "result": {
+            "patient_id": "P003",
+            "prediction": {
+                "asd_probability": 0.6343,
+                "classification": "ASD",
+                "confidence": 0.6343,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.4645,
+                "behavioral_weight": 0.1891,
+                "environmental_weight": 0.3464,
+                "highest_attention_modality": "Genetic",
+                "primary_driving_modality": "Genetic",
+                "interpretation_note": "Attention weights reflect relative model emphasis and do not prove biological causation or clinical importance."
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "label": "Latent Dim 17",
+                        "attention_weight": 0.0758
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0412
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.0388
+                    },
+                    {
+                        "dimension": 19,
+                        "label": "Latent Dim 19",
+                        "attention_weight": 0.0375
+                    },
+                    {
+                        "dimension": 2,
+                        "label": "Latent Dim 2",
+                        "attention_weight": 0.0346
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 31,
+                        "label": "Latent Dim 31",
+                        "attention_weight": 0.0744
+                    },
+                    {
+                        "dimension": 29,
+                        "label": "Latent Dim 29",
+                        "attention_weight": 0.0743
+                    },
+                    {
+                        "dimension": 18,
+                        "label": "Latent Dim 18",
+                        "attention_weight": 0.0475
+                    },
+                    {
+                        "dimension": 28,
+                        "label": "Latent Dim 28",
+                        "attention_weight": 0.0445
+                    },
+                    {
+                        "dimension": 10,
+                        "label": "Latent Dim 10",
+                        "attention_weight": 0.0397
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 2,
+                        "label": "Latent Dim 2",
+                        "attention_weight": 0.0648
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.0522
+                    },
+                    {
+                        "dimension": 19,
+                        "label": "Latent Dim 19",
+                        "attention_weight": 0.0467
+                    },
+                    {
+                        "dimension": 21,
+                        "label": "Latent Dim 21",
+                        "attention_weight": 0.0462
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0459
+                    }
+                ],
+                "interpretation_note": "Dimensions represent abstract latent features in the aligned space, not validated real-world genes, symptoms, or exposures."
+            },
+            "clinical_interpretation": "Patient P003 is screened as ASD with 63.4% confidence. Highest modality attention weight was placed on the Genetic branch (46.5% dynamic weight). Note: Modality attention weights reflect relative network emphasis and do not imply biological causation or clinical importance."
+        },
+        "counterfactual": {
+            "patient_id": "P003",
+            "status": "COUNTERFACTUAL_FOUND",
+            "is_latent_space_counterfactual": true,
+            "interpretation_note": "Perturbations represent exploratory mathematical shifts in 32-D latent embeddings, not direct clinical recommendations.",
+            "original_diagnosis": {
+                "probability": 0.6343,
+                "classification": "ASD"
+            },
+            "counterfactual_outcome": {
+                "probability": 0.0021,
+                "classification": "Control (Non-ASD)",
+                "probability_reduction": 0.6322,
+                "target_threshold": 0.35
+            },
+            "perturbation_cost": {
+                "l2_distance": 0.6552,
+                "l1_distance": 5.2346
+            },
+            "actionable_recommendations": {
+                "summary_note": "Adjustments display the top 3 highest-magnitude dimensions for human interpretation. The full mathematical counterfactual operates across all 32 latent dimensions.",
+                "top3_sparse_probability": 0.1697,
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 28,
+                        "label": "Latent Behavioral Dim 28",
+                        "recommended_shift": 0.0835,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 21,
+                        "label": "Latent Behavioral Dim 21",
+                        "recommended_shift": 0.0835,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 26,
+                        "label": "Latent Behavioral Dim 26",
+                        "recommended_shift": 0.0835,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 18,
+                        "label": "Latent Environmental Dim 18",
+                        "recommended_shift": -0.0831,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 29,
+                        "label": "Latent Environmental Dim 29",
+                        "recommended_shift": 0.083,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 24,
+                        "label": "Latent Environmental Dim 24",
+                        "recommended_shift": 0.083,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ]
+            },
+            "full_latent_perturbations": {
+                "delta_behavioral_32d": [
+                    -0.083432,
+                    -0.083471,
+                    0.083483,
+                    0.083475,
+                    -0.083444,
+                    -0.083435,
+                    -0.083395,
+                    -0.083457,
+                    0.083457,
+                    0.083369,
+                    0.083453,
+                    -0.083381,
+                    -0.083426,
+                    0.083457,
+                    -0.083242,
+                    -0.083411,
+                    0.08346,
+                    -0.083417,
+                    0.083476,
+                    0.083478,
+                    0.083485,
+                    -0.083425,
+                    0.083476,
+                    0.083447,
+                    -0.083474,
+                    0.083484,
+                    -0.083446,
+                    0.083486,
+                    0.083456,
+                    0.083434,
+                    0.083466,
+                    -0.083436
+                ],
+                "delta_environmental_32d": [
+                    -0.080771,
+                    0.082234,
+                    0.067604,
+                    0.082743,
+                    -0.082738,
+                    -0.082314,
+                    -0.081033,
+                    -0.077977,
+                    0.079433,
+                    -0.077185,
+                    0.08283,
+                    0.082381,
+                    0.081694,
+                    0.0809,
+                    0.079932,
+                    -0.082739,
+                    0.081535,
+                    -0.083147,
+                    0.08176,
+                    -0.08175,
+                    0.08295,
+                    -0.080497,
+                    0.082853,
+                    0.083015,
+                    0.08265,
+                    -0.081014,
+                    0.07882,
+                    0.082835,
+                    0.083022,
+                    0.054245,
+                    -0.077985,
+                    -0.081863
+                ]
+            },
+            "clinical_summary": "For patient P003 (original model risk 63.4%), a target probability of 0.2% is mathematically achievable through an L2 latent perturbation distance of 0.66, primarily shifting Latent Behavioral Dimensions [28, 21, 26] and Latent Environmental Dimensions [18, 29, 24]. Note: These shifts represent mathematical counterfactuals in the 32-D latent space and are experimental explanations, not validated direct clinical interventions."
+        },
+        "model_name": "Hierarchical Attention MINN (All 3 Modalities)",
+        "modalities_used": [
+            "genetic",
+            "behavioral",
+            "environmental"
+        ]
+    },
+    "P004": {
+        "status": "success",
+        "result": {
+            "patient_id": "P004",
+            "prediction": {
+                "asd_probability": 0.0,
+                "classification": "Control",
+                "confidence": 1.0,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.3339,
+                "behavioral_weight": 0.4637,
+                "environmental_weight": 0.2023,
+                "highest_attention_modality": "Behavioral",
+                "primary_driving_modality": "Behavioral",
+                "interpretation_note": "Attention weights reflect relative model emphasis and do not prove biological causation or clinical importance."
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "label": "Latent Dim 17",
+                        "attention_weight": 0.0817
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0417
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.0387
+                    },
+                    {
+                        "dimension": 19,
+                        "label": "Latent Dim 19",
+                        "attention_weight": 0.0371
+                    },
+                    {
+                        "dimension": 2,
+                        "label": "Latent Dim 2",
+                        "attention_weight": 0.0358
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 28,
+                        "label": "Latent Dim 28",
+                        "attention_weight": 0.1971
+                    },
+                    {
+                        "dimension": 29,
+                        "label": "Latent Dim 29",
+                        "attention_weight": 0.1552
+                    },
+                    {
+                        "dimension": 22,
+                        "label": "Latent Dim 22",
+                        "attention_weight": 0.0972
+                    },
+                    {
+                        "dimension": 18,
+                        "label": "Latent Dim 18",
+                        "attention_weight": 0.0827
+                    },
+                    {
+                        "dimension": 7,
+                        "label": "Latent Dim 7",
+                        "attention_weight": 0.0583
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0487
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.0437
+                    },
+                    {
+                        "dimension": 6,
+                        "label": "Latent Dim 6",
+                        "attention_weight": 0.0433
+                    },
+                    {
+                        "dimension": 28,
+                        "label": "Latent Dim 28",
+                        "attention_weight": 0.0416
+                    },
+                    {
+                        "dimension": 30,
+                        "label": "Latent Dim 30",
+                        "attention_weight": 0.0415
+                    }
+                ],
+                "interpretation_note": "Dimensions represent abstract latent features in the aligned space, not validated real-world genes, symptoms, or exposures."
+            },
+            "clinical_interpretation": "Patient P004 is screened as Control with 100.0% confidence. Highest modality attention weight was placed on the Behavioral branch (46.4% dynamic weight). Note: Modality attention weights reflect relative network emphasis and do not imply biological causation or clinical importance."
+        },
+        "counterfactual": {
+            "patient_id": "P004",
+            "status": "ALREADY_NEGATIVE",
+            "original_probability": 0.0,
+            "message": "Patient P004 already has a non-ASD prediction (0.0000 < 0.50). No counterfactual required."
+        },
+        "model_name": "Hierarchical Attention MINN (All 3 Modalities)",
+        "modalities_used": [
+            "genetic",
+            "behavioral",
+            "environmental"
+        ]
+    },
+    "P005": {
+        "status": "success",
+        "result": {
+            "patient_id": "P005",
+            "prediction": {
+                "asd_probability": 1.0,
+                "classification": "ASD",
+                "confidence": 1.0,
+                "decision_threshold": 0.5
+            },
+            "modality_attention_level_2": {
+                "genetic_weight": 0.3532,
+                "behavioral_weight": 0.3964,
+                "environmental_weight": 0.2503,
+                "highest_attention_modality": "Behavioral",
+                "primary_driving_modality": "Behavioral",
+                "interpretation_note": "Attention weights reflect relative model emphasis and do not prove biological causation or clinical importance."
+            },
+            "feature_saliency_level_1": {
+                "top_genetic_dimensions": [
+                    {
+                        "dimension": 17,
+                        "label": "Latent Dim 17",
+                        "attention_weight": 0.0777
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0413
+                    },
+                    {
+                        "dimension": 20,
+                        "label": "Latent Dim 20",
+                        "attention_weight": 0.0389
+                    },
+                    {
+                        "dimension": 19,
+                        "label": "Latent Dim 19",
+                        "attention_weight": 0.0374
+                    },
+                    {
+                        "dimension": 2,
+                        "label": "Latent Dim 2",
+                        "attention_weight": 0.0346
+                    }
+                ],
+                "top_behavioral_dimensions": [
+                    {
+                        "dimension": 12,
+                        "label": "Latent Dim 12",
+                        "attention_weight": 0.1379
+                    },
+                    {
+                        "dimension": 23,
+                        "label": "Latent Dim 23",
+                        "attention_weight": 0.0748
+                    },
+                    {
+                        "dimension": 25,
+                        "label": "Latent Dim 25",
+                        "attention_weight": 0.0609
+                    },
+                    {
+                        "dimension": 17,
+                        "label": "Latent Dim 17",
+                        "attention_weight": 0.0511
+                    },
+                    {
+                        "dimension": 31,
+                        "label": "Latent Dim 31",
+                        "attention_weight": 0.0482
+                    }
+                ],
+                "top_environmental_dimensions": [
+                    {
+                        "dimension": 6,
+                        "label": "Latent Dim 6",
+                        "attention_weight": 0.0401
+                    },
+                    {
+                        "dimension": 5,
+                        "label": "Latent Dim 5",
+                        "attention_weight": 0.0371
+                    },
+                    {
+                        "dimension": 11,
+                        "label": "Latent Dim 11",
+                        "attention_weight": 0.0363
+                    },
+                    {
+                        "dimension": 18,
+                        "label": "Latent Dim 18",
+                        "attention_weight": 0.0359
+                    },
+                    {
+                        "dimension": 30,
+                        "label": "Latent Dim 30",
+                        "attention_weight": 0.0352
+                    }
+                ],
+                "interpretation_note": "Dimensions represent abstract latent features in the aligned space, not validated real-world genes, symptoms, or exposures."
+            },
+            "clinical_interpretation": "Patient P005 is screened as ASD with 100.0% confidence. Highest modality attention weight was placed on the Behavioral branch (39.6% dynamic weight). Note: Modality attention weights reflect relative network emphasis and do not imply biological causation or clinical importance."
+        },
+        "counterfactual": {
+            "patient_id": "P005",
+            "status": "COUNTERFACTUAL_FOUND",
+            "is_latent_space_counterfactual": true,
+            "interpretation_note": "Perturbations represent exploratory mathematical shifts in 32-D latent embeddings, not direct clinical recommendations.",
+            "original_diagnosis": {
+                "probability": 1.0,
+                "classification": "ASD"
+            },
+            "counterfactual_outcome": {
+                "probability": 0.3302,
+                "classification": "Control (Non-ASD)",
+                "probability_reduction": 0.6698,
+                "target_threshold": 0.35
+            },
+            "perturbation_cost": {
+                "l2_distance": 4.6385,
+                "l1_distance": 32.8141
+            },
+            "actionable_recommendations": {
+                "summary_note": "Adjustments display the top 3 highest-magnitude dimensions for human interpretation. The full mathematical counterfactual operates across all 32 latent dimensions.",
+                "top3_sparse_probability": 0.9999,
+                "behavioral_adjustments": [
+                    {
+                        "dimension": 24,
+                        "label": "Latent Behavioral Dim 24",
+                        "recommended_shift": 0.9647,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 27,
+                        "label": "Latent Behavioral Dim 27",
+                        "recommended_shift": -0.8228,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 21,
+                        "label": "Latent Behavioral Dim 21",
+                        "recommended_shift": -0.8002,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ],
+                "environmental_adjustments": [
+                    {
+                        "dimension": 18,
+                        "label": "Latent Environmental Dim 18",
+                        "recommended_shift": -1.2225,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 4,
+                        "label": "Latent Environmental Dim 4",
+                        "recommended_shift": 1.0753,
+                        "interpretation": "Latent space mathematical perturbation"
+                    },
+                    {
+                        "dimension": 5,
+                        "label": "Latent Environmental Dim 5",
+                        "recommended_shift": -1.0451,
+                        "interpretation": "Latent space mathematical perturbation"
+                    }
+                ]
+            },
+            "full_latent_perturbations": {
+                "delta_behavioral_32d": [
+                    -0.690324,
+                    -0.743449,
+                    0.596604,
+                    -0.586234,
+                    0.794694,
+                    0.25852,
+                    -0.437896,
+                    -0.053514,
+                    -0.752331,
+                    0.71952,
+                    0.311614,
+                    0.240191,
+                    -0.563691,
+                    -0.662419,
+                    0.567225,
+                    -0.216602,
+                    -0.020796,
+                    -0.699186,
+                    0.693778,
+                    0.530461,
+                    -0.80023,
+                    0.270331,
+                    0.263995,
+                    0.964723,
+                    0.474505,
+                    0.497771,
+                    -0.82281,
+                    -0.266484,
+                    0.719863,
+                    0.637839,
+                    -0.016312,
+                    -0.494117
+                ],
+                "delta_environmental_32d": [
+                    0.530014,
+                    -0.208066,
+                    -0.057821,
+                    1.075294,
+                    -1.045069,
+                    -0.553936,
+                    0.57645,
+                    0.245685,
+                    -0.555226,
+                    -0.617248,
+                    0.489134,
+                    0.53438,
+                    -0.407512,
+                    0.543628,
+                    -0.636881,
+                    0.234952,
+                    -0.40367,
+                    -1.222506,
+                    -0.165973,
+                    -0.370832,
+                    -0.045186,
+                    0.006142,
+                    -0.424117,
+                    0.712881,
+                    0.625674,
+                    -0.517529,
+                    -0.879176,
+                    0.698448,
+                    0.497275,
+                    0.516935,
+                    -0.159999,
+                    -0.888409
+                ]
+            },
+            "clinical_summary": "For patient P005 (original model risk 100.0%), a target probability of 33.0% is mathematically achievable through an L2 latent perturbation distance of 4.64, primarily shifting Latent Behavioral Dimensions [24, 27, 21] and Latent Environmental Dimensions [18, 4, 5]. Note: These shifts represent mathematical counterfactuals in the 32-D latent space and are experimental explanations, not validated direct clinical interventions."
+        },
+        "model_name": "Hierarchical Attention MINN (All 3 Modalities)",
+        "modalities_used": [
+            "genetic",
+            "behavioral",
+            "environmental"
+        ]
+    }
+}

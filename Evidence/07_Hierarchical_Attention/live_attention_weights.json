@@ -1,0 +1,92 @@
+[
+    {
+        "patient_id": "P001",
+        "description": "ASD Expected",
+        "predicted_class": "ASD",
+        "asd_probability": 0.999946117401123,
+        "decision_confidence": 0.999946117401123,
+        "beta_weights": {
+            "genetic": 0.33015748858451843,
+            "behavioral": 0.4216427505016327,
+            "environmental": 0.24819974601268768
+        },
+        "highest_attention_modality": "Behavioral",
+        "level1_max_saliency": {
+            "genetic_dim": 16,
+            "behavioral_dim": 11,
+            "environmental_dim": 1
+        }
+    },
+    {
+        "patient_id": "P002",
+        "description": "Control Expected",
+        "predicted_class": "Control",
+        "asd_probability": 2.3527179202001566e-16,
+        "decision_confidence": 0.9999999999999998,
+        "beta_weights": {
+            "genetic": 0.3085566461086273,
+            "behavioral": 0.4690854251384735,
+            "environmental": 0.2223578840494156
+        },
+        "highest_attention_modality": "Behavioral",
+        "level1_max_saliency": {
+            "genetic_dim": 16,
+            "behavioral_dim": 27,
+            "environmental_dim": 5
+        }
+    },
+    {
+        "patient_id": "P003",
+        "description": "ASD Borderline",
+        "predicted_class": "ASD",
+        "asd_probability": 0.6342731714248657,
+        "decision_confidence": 0.6342731714248657,
+        "beta_weights": {
+            "genetic": 0.4645022749900818,
+            "behavioral": 0.18911918997764587,
+            "environmental": 0.3463785648345947
+        },
+        "highest_attention_modality": "Genetic",
+        "level1_max_saliency": {
+            "genetic_dim": 16,
+            "behavioral_dim": 30,
+            "environmental_dim": 1
+        }
+    },
+    {
+        "patient_id": "P004",
+        "description": "Control Expected",
+        "predicted_class": "Control",
+        "asd_probability": 9.851803400851011e-12,
+        "decision_confidence": 0.9999999999901482,
+        "beta_weights": {
+            "genetic": 0.3339373469352722,
+            "behavioral": 0.46373653411865234,
+            "environmental": 0.20232614874839783
+        },
+        "highest_attention_modality": "Behavioral",
+        "level1_max_saliency": {
+            "genetic_dim": 16,
+            "behavioral_dim": 27,
+            "environmental_dim": 24
+        }
+    },
+    {
+        "patient_id": "P005",
+        "description": "ASD High-Confidence",
+        "predicted_class": "ASD",
+        "asd_probability": 1.0,
+        "decision_confidence": 1.0,
+        "beta_weights": {
+            "genetic": 0.3532121777534485,
+            "behavioral": 0.39644086360931396,
+            "environmental": 0.25034692883491516
+        },
+        "highest_attention_modality": "Behavioral",
+        "level1_max_saliency": {
+            "genetic_dim": 16,
+            "behavioral_dim": 11,
+            "environmental_dim": 5
+        }
+    }
+]

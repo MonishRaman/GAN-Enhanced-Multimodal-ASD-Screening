@@ -1,0 +1,10 @@
+{
+    "check_name": "patient_identifier_overlap",
+    "genetic_train_records": 92,
+    "genetic_test_records": 24,
+    "genetic_overlap_count": 0,
+    "behavioral_overlap_count": 0,
+    "environmental_overlap_count": 0,
+    "status": "PASS",
+    "finding": "Strict zero-overlap partition hygiene confirmed across all three independent modalities."
+}

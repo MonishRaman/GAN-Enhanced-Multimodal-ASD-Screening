@@ -1,0 +1,5 @@
+Modality,Biological_Source,Total_Records,Train_Records,Val_Records,Test_Records,Train_Class_Balance,Test_Class_Balance,Raw_Features,Aligned_Features
+Genetic (Raw GSE28521),Human post-mortem cerebral cortex microarrays,116,92,0,24,69 ASD : 23 Control (Imbalanced),18 ASD : 6 Control (12 ASD : 12 Control),1000,32
+Genetic (GAN-Balanced),GSE28521 + WGAN-GP synthetic minority control vectors,162,138,0,24,"69 ASD : 69 Control (69 ASD : 69 Ctrl, 46 synthetic)",18 ASD : 6 Control (Strictly 0 synthetic),32,32
+Behavioral,Toddler screening questionnaires (Q-CHAT-10 + Demographics),880,616,132,132,431 ASD : 185 Control (70% stratified split),66 ASD : 66 Control (Balanced test split),18,32
+Environmental,National Survey of Children's Health (NSCH 2023) Topical Toxicological Matrix,47768,33437,7165,7166,1483 ASD : 31954 Control,318 ASD : 6848 Control,31,32
